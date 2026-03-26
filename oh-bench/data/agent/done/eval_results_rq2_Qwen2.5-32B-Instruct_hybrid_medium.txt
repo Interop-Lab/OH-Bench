@@ -1,0 +1,5 @@
+找不到命令 “ython3”，您的意思是：
+  “python3” 命令来自 Debian 软件包 python3 (3.12.3-0ubuntu2.1)
+  “cython3” 命令来自 Debian 软件包 cython3 (3.0.7-2ubuntu1)
+  “cython3” 命令来自 Debian 软件包 cython3-legacy (0.29.36-3ubuntu1)
+尝试 sudo apt install <deb name>

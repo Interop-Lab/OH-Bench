@@ -1,0 +1,479 @@
+============================================================
+OH-Bench 实验 - 数据集: arkts
+============================================================
+  加载数据集: 382 任务
+  Agent 结果: 375 条
+
+ID              | Result                         | Method             | Rule
+-----------------------------------------------------------------------------------------------
+OH_0001         | PASS                           | diff_converted     | hp-arkts-no-use-any-export-o
+OH_0002         | LINTER_FAIL                    | diff_converted     | hp-arkts-no-use-any-export-o
+OH_0003         | PASS                           | diff_converted     | hp-arkui-no-state-var-access
+OH_0004         | PASS                           | diff_patched       | hp-arkui-set-cache-count-for
+OH_0005         | PASS                           | full_content       | hp-arkui-use-reusable-compon
+OH_0006         | APPLY_ERROR: git apply failed: error: corrupt patch at line 21 | raw_diff_fallback  | hp-arkui-set-cache-count-for
+OH_0007         | APPLY_ERROR: git apply failed: error: corrupt patch at line 10 | raw_diff_fallback  | hp-arkui-use-reusable-compon
+OH_0008         | PASS                           | diff_converted     | hp-arkui-set-cache-count-for
+OH_0009         | APPLY_ERROR: git apply failed: error: corrupt patch at line 101 | raw_diff_fallback  | hp-arkui-use-reusable-compon
+OH_0010         | LINTER_FAIL                    | diff_converted     | hp-arkui-set-cache-count-for
+OH_0011         | LINTER_FAIL                    | diff_converted     | hp-arkui-use-reusable-compon
+OH_0012         | PASS                           | diff_converted     | hp-arkui-set-cache-count-for
+OH_0013         | APPLY_ERROR: git apply failed: error: corrupt patch at line 18 | raw_diff_fallback  | hp-arkui-use-reusable-compon
+OH_0014         | LINTER_FAIL                    | diff_converted     | hp-arkui-set-cache-count-for
+OH_0015         | PASS                           | full_content       | hp-arkui-use-reusable-compon
+OH_0016         | PASS                           | full_content       | hp-arkui-set-cache-count-for
+OH_0017         | LINTER_FAIL                    | diff_converted     | hp-arkui-use-reusable-compon
+OH_0018         | PASS                           | diff_converted     | hp-arkui-set-cache-count-for
+OH_0019         | LINTER_FAIL                    | diff_converted     | hp-arkui-use-reusable-compon
+OH_0020         | PASS                           | diff_converted     | hp-arkui-set-cache-count-for
+OH_0021         | APPLY_ERROR: git apply failed: error: corrupt patch at line 76 | raw_diff_fallback  | hp-arkui-use-reusable-compon
+OH_0022         | PASS                           | diff_patched       | hp-arkui-set-cache-count-for
+OH_0023         | APPLY_ERROR: git apply failed: error: corrupt patch at line 58 | raw_diff_fallback  | hp-arkui-use-reusable-compon
+OH_0024         | PASS                           | diff_patched       | hp-arkui-set-cache-count-for
+OH_0025         | LINTER_FAIL                    | diff_patched       | hp-arkui-use-reusable-compon
+OH_0026         | PASS                           | diff_converted     | hp-arkui-no-stringify-in-laz
+OH_0027         | LINTER_FAIL                    | diff_converted     | hp-arkui-set-cache-count-for
+OH_0028         | APPLY_ERROR: git apply failed: error: corrupt patch at line 35 | raw_diff_fallback  | hp-arkui-use-reusable-compon
+OH_0029         | LINTER_FAIL                    | diff_converted     | hp-arkui-no-stringify-in-laz
+OH_0030         | APPLY_ERROR: git apply failed: error: corrupt patch at line 9 | raw_diff_fallback  | hp-arkui-set-cache-count-for
+OH_0031         | LINTER_FAIL                    | diff_converted     | hp-arkui-use-reusable-compon
+OH_0032         | LINTER_FAIL                    | diff_patched       | hp-arkui-no-stringify-in-laz
+OH_0033         | APPLY_ERROR: git apply failed: error: corrupt patch at line 9 | raw_diff_fallback  | hp-arkui-set-cache-count-for
+OH_0034         | PASS                           | full_content       | hp-arkui-use-reusable-compon
+OH_0035         | PASS                           | diff_converted     | hp-arkui-no-stringify-in-laz
+OH_0036         | PASS                           | full_content       | hp-arkui-set-cache-count-for
+OH_0037         | APPLY_ERROR: git apply failed: error: corrupt patch at line 61 | raw_diff_fallback  | hp-arkui-use-reusable-compon
+OH_0038         | APPLY_ERROR: git apply failed: error: corrupt patch at line 10 | raw_diff_fallback  | hp-arkui-no-stringify-in-laz
+OH_0039         | PASS                           | full_content       | hp-arkui-set-cache-count-for
+OH_0040         | APPLY_ERROR: git apply failed: error: corrupt patch at line 341 | raw_diff_fallback  | hp-arkui-use-reusable-compon
+OH_0041         | APPLY_ERROR: git apply failed: error: corrupt patch at line 10 | raw_diff_fallback  | hp-arkui-no-stringify-in-laz
+OH_0042         | PASS                           | diff_patched       | hp-arkui-set-cache-count-for
+OH_0043         | PASS                           | full_content       | hp-arkui-use-reusable-compon
+OH_0044         | PASS                           | diff_converted     | hp-arkui-no-stringify-in-laz
+OH_0045         | PASS                           | diff_converted     | hp-arkui-set-cache-count-for
+OH_0046         | PASS                           | full_content       | hp-arkui-use-reusable-compon
+OH_0047         | APPLY_ERROR: git apply failed: error: b/entry/src/main/ets/pages/favorites/favoriteList.ets: No such file or directory | raw_diff_fallback  | hp-arkui-no-stringify-in-laz
+OH_0048         | PASS                           | diff_converted     | hp-arkui-set-cache-count-for
+OH_0049         | LINTER_FAIL                    | diff_converted     | hp-arkui-use-reusable-compon
+OH_0050         | PASS                           | diff_converted     | hp-arkui-no-stringify-in-laz
+OH_0051         | PASS                           | diff_converted     | hp-arkui-set-cache-count-for
+OH_0052         | PASS                           | full_content       | hp-arkui-use-reusable-compon
+OH_0053         | PASS                           | diff_converted     | hp-arkui-no-stringify-in-laz
+OH_0054         | PASS                           | diff_converted     | hp-arkui-set-cache-count-for
+OH_0055         | PASS                           | diff_patched       | hp-arkui-no-stringify-in-laz
+OH_0056         | SECONDARY_DEFECT: 2            | diff_converted     | hp-arkui-set-cache-count-for
+OH_0057         | PASS                           | full_content       | hp-arkui-use-reusable-compon
+OH_0058         | PASS                           | diff_converted     | hp-arkui-no-stringify-in-laz
+OH_0059         | APPLY_ERROR: git apply failed: error: corrupt patch at line 11 | raw_diff_fallback  | hp-arkui-set-cache-count-for
+OH_0060         | APPLY_ERROR: git apply failed: error: corrupt patch at line 66 | raw_diff_fallback  | hp-arkui-use-reusable-compon
+OH_0061         | PASS                           | full_content       | hp-arkui-set-cache-count-for
+OH_0062         | LINTER_FAIL                    | diff_converted     | hp-arkui-set-cache-count-for
+OH_0063         | PASS                           | full_content       | hp-arkui-no-func-as-arg-for-
+OH_0064         | PASS                           | full_content       | hp-arkui-no-stringify-in-laz
+OH_0065         | LINTER_FAIL                    | diff_patched       | hp-arkui-set-cache-count-for
+OH_0067         | LINTER_FAIL                    | diff_converted     | hp-arkui-no-stringify-in-laz
+OH_0068         | LINTER_FAIL                    | diff_patched       | hp-arkui-set-cache-count-for
+OH_0069         | APPLY_ERROR: git apply failed: error: corrupt patch at line 12 | raw_diff_fallback  | hp-arkui-use-reusable-compon
+OH_0070         | PASS                           | diff_patched       | hp-arkui-set-cache-count-for
+OH_0071         | APPLY_ERROR: git apply failed: error: corrupt patch at line 76 | raw_diff_fallback  | hp-arkui-use-reusable-compon
+OH_0072         | APPLY_ERROR: git apply failed: error: corrupt patch at line 31 | raw_diff_fallback  | hp-arkui-no-func-as-arg-for-
+OH_0073         | PASS                           | diff_converted     | hp-arkui-no-stringify-in-laz
+OH_0074         | PASS                           | diff_converted     | hp-arkui-set-cache-count-for
+OH_0075         | APPLY_ERROR: git apply failed: error: corrupt patch at line 59 | raw_diff_fallback  | hp-arkui-use-reusable-compon
+OH_0076         | APPLY_ERROR: git apply failed: error: patch fragment without header at line 15: @@ -164,4 +164,4 @@ struct TelList { | raw_diff_fallback  | hp-arkui-no-stringify-in-laz
+OH_0077         | PASS                           | full_content       | hp-arkui-set-cache-count-for
+OH_0078         | PASS                           | full_content       | hp-arkui-no-func-as-arg-for-
+OH_0079         | APPLY_ERROR: git apply failed: error: corrupt patch at line 22 | raw_diff_fallback  | hp-arkui-set-cache-count-for
+OH_0080         | PASS                           | diff_patched       | hp-arkui-no-stringify-in-laz
+OH_0081         | PASS                           | diff_converted     | hp-arkui-set-cache-count-for
+OH_0082         | APPLY_ERROR: git apply failed: error: corrupt patch at line 35 | raw_diff_fallback  | hp-arkui-use-reusable-compon
+OH_0083         | LINTER_FAIL                    | diff_patched       | hp-arkui-no-stringify-in-laz
+OH_0084         | SECONDARY_DEFECT: 1            | diff_patched       | hp-arkui-set-cache-count-for
+OH_0085         | SECONDARY_DEFECT: 5            | diff_converted     | hp-arkui-use-reusable-compon
+OH_0086         | APPLY_ERROR: git apply failed: error: corrupt patch at line 11 | raw_diff_fallback  | hp-arkui-no-stringify-in-laz
+OH_0087         | LINTER_FAIL                    | diff_patched       | hp-arkui-use-reusable-compon
+OH_0088         | LINTER_FAIL                    | diff_patched       | hp-arkui-no-stringify-in-laz
+OH_0089         | APPLY_ERROR: git apply failed: error: patch fragment without header at line 39: @@ -252,6 +252,7 @@ export default struct HiCarContactSearchPage { | raw_diff_fallback  | hp-arkui-set-cache-count-for
+OH_0090         | APPLY_ERROR: git apply failed: error: corrupt patch at line 9 | raw_diff_fallback  | hp-arkui-use-reusable-compon
+OH_0091         | APPLY_ERROR: git apply failed: error: b/entry/src/main/ets/pages/hicar/HiCarContactSearchPage.ets: No such file or directory | raw_diff_fallback  | hp-arkui-no-stringify-in-laz
+OH_0092         | PASS                           | diff_converted     | hp-arkui-set-cache-count-for
+OH_0093         | APPLY_ERROR: git apply failed: error: corrupt patch at line 12 | raw_diff_fallback  | hp-arkui-no-stringify-in-laz
+OH_0094         | PASS                           | full_content       | hp-arkui-no-state-var-access
+OH_0095         | APPLY_ERROR: git apply failed: error: patch fragment without header at line 16: @@ -719,8 +721,8 @@ export default struct ImportAndExport { | raw_diff_fallback  | hp-arkui-no-state-var-access
+OH_0096         | PASS                           | full_content       | hp-arkui-no-state-var-access
+OH_0097         | PASS                           | full_content       | hp-arkui-no-state-var-access
+OH_0098         | PASS                           | full_content       | hp-arkui-no-state-var-access
+OH_0099         | PASS                           | full_content       | hp-arkui-no-state-var-access
+OH_0100         | APPLY_ERROR: git apply failed: error: patch fragment without header at line 55: @@ -425,6 +425,7 @@ struct IntelligenceGroupContactsList { | raw_diff_fallback  | hp-arkui-set-cache-count-for
+OH_0101         | PASS                           | full_content       | hp-arkui-use-reusable-compon
+OH_0102         | PASS                           | diff_converted     | hp-arkui-no-stringify-in-laz
+OH_0103         | APPLY_ERROR: git apply failed: error: b/entry/src/main/ets/pages/intelligencegroup/IntelligenceGroupSingleCategoryDetail.ets: No such file or directory | raw_diff_fallback  | hp-arkui-set-cache-count-for
+OH_0104         | APPLY_ERROR: git apply failed: error: corrupt patch at line 33 | raw_diff_fallback  | hp-arkui-use-reusable-compon
+OH_0105         | PASS                           | diff_patched       | hp-arkui-no-stringify-in-laz
+OH_0106         | APPLY_ERROR: git apply failed: error: corrupt patch at line 11 | raw_diff_fallback  | hp-arkui-set-cache-count-for
+OH_0107         | APPLY_ERROR: git apply failed: error: corrupt patch at line 193 | raw_diff_fallback  | hp-arkui-use-reusable-compon
+OH_0108         | LINTER_FAIL                    | diff_patched       | hp-arkui-no-stringify-in-laz
+OH_0109         | PASS                           | diff_converted     | hp-arkui-set-cache-count-for
+OH_0110         | APPLY_ERROR: git apply failed: error: corrupt patch at line 37 | raw_diff_fallback  | hp-arkui-use-reusable-compon
+OH_0111         | PASS                           | diff_converted     | hp-arkui-no-stringify-in-laz
+OH_0112         | APPLY_ERROR: git apply failed: error: corrupt patch at line 10 | raw_diff_fallback  | hp-arkui-no-stringify-in-laz
+OH_0113         | PASS                           | full_content       | hp-arkui-set-cache-count-for
+OH_0114         | PASS                           | full_content       | hp-arkui-use-reusable-compon
+OH_0115         | PASS                           | full_content       | hp-arkui-set-cache-count-for
+OH_0116         | PASS                           | full_content       | hp-arkui-use-reusable-compon
+OH_0117         | PASS                           | diff_converted     | hp-arkui-no-stringify-in-laz
+OH_0118         | SECONDARY_DEFECT: 1            | diff_converted     | hp-arkui-set-cache-count-for
+OH_0119         | PASS                           | diff_patched       | hp-arkui-no-stringify-in-laz
+OH_0120         | APPLY_ERROR: git apply failed: /tmp/agent_fix.patch:16: trailing whitespace.
+ 
+error: b/entry/src/main/ets/card/pages/ShortcutEditPage.ets: No such file or directory | raw_diff_fallback  | hp-arkui-no-state-var-access
+OH_0121         | APPLY_ERROR: git apply failed: error: corrupt patch at line 21 | raw_diff_fallback  | hp-arkui-no-state-var-access
+OH_0122         | APPLY_ERROR: git apply failed: error: corrupt patch at line 717 | raw_diff_fallback  | hp-arkui-no-state-var-access
+OH_0123         | PASS                           | diff_converted     | hp-arkui-suggest-use-effectk
+OH_0124         | LINTER_FAIL                    | diff_converted     | hp-arkts-no-use-any-export-o
+OH_0125         | PASS                           | diff_converted     | hp-arkts-no-use-any-export-o
+OH_0126         | APPLY_ERROR: git apply failed: error: corrupt patch at line 28 | raw_diff_fallback  | hp-arkts-no-use-any-export-o
+OH_0127         | LINTER_FAIL                    | diff_converted     | hp-arkts-no-use-any-export-o
+OH_0128         | LINTER_FAIL                    | diff_converted     | hp-arkts-no-use-any-export-o
+OH_0129         | PASS                           | diff_converted     | high-frequency-log-check
+OH_0130         | APPLY_ERROR: git apply failed: error: patch fragment without header at line 22: @@ -1334,7 +1337,7 @@ struct PhotoEditorPage { | raw_diff_fallback  | hp-arkui-no-state-var-access
+OH_0131         | APPLY_ERROR: git apply failed: error: b/entry/src/main/ets/pages/index.ets: No such file or directory | raw_diff_fallback  | hp-arkui-no-state-var-access
+OH_0132         | LINTER_FAIL                    | diff_patched       | hp-arkui-no-state-var-access
+OH_0133         | APPLY_ERROR: git apply failed: error: corrupt patch at line 11 | raw_diff_fallback  | foreach-args-check
+OH_0134         | LINTER_FAIL                    | diff_converted     | hp-arkui-no-state-var-access
+OH_0135         | APPLY_ERROR: git apply failed: error: b/widescreen_uikit/src/main/ets/components/suspendToolbar/ToolbarMainPage.ets: No such file or directory | raw_diff_fallback  | hp-arkui-use-object-link-to-
+OH_0136         | APPLY_ERROR: git apply failed: error: corrupt patch at line 11 | raw_diff_fallback  | hp-arkui-use-object-link-to-
+OH_0137         | PASS                           | diff_patched       | hp-arkui-use-object-link-to-
+OH_0138         | APPLY_ERROR: git apply failed: error: corrupt patch at line 31 | raw_diff_fallback  | hp-arkui-suggest-use-effectk
+OH_0139         | APPLY_ERROR: git apply failed: error: corrupt patch at line 51 | raw_diff_fallback  | hp-arkui-suggest-use-effectk
+OH_0141         | APPLY_ERROR: git apply failed: error: corrupt patch at line 18 | raw_diff_fallback  | hp-arkui-use-transition-to-r
+OH_0142         | APPLY_ERROR: git apply failed: error: corrupt patch at line 8 | raw_diff_fallback  | hp-arkui-suggest-use-effectk
+OH_0143         | LINTER_FAIL                    | diff_converted     | hp-arkui-use-transition-to-r
+OH_0144         | APPLY_ERROR: git apply failed: error: corrupt patch at line 12 | raw_diff_fallback  | hp-arkui-suggest-use-effectk
+OH_0145         | APPLY_ERROR: git apply failed: error: corrupt patch at line 62 | raw_diff_fallback  | hp-arkui-use-transition-to-r
+OH_0146         | APPLY_ERROR: git apply failed: error: corrupt patch at line 10 | raw_diff_fallback  | hp-arkui-suggest-use-effectk
+OH_0147         | APPLY_ERROR: git apply failed: error: b/disklrucache/index.ets: No such file or directory | raw_diff_fallback  | hp-arkts-no-use-any-export-o
+OH_0148         | APPLY_ERROR: git apply failed: error: corrupt patch at line 12 | raw_diff_fallback  | hp-arkts-no-use-any-export-o
+OH_0149         | APPLY_ERROR: git apply failed: error: corrupt patch at line 30 | raw_diff_fallback  | hp-arkui-no-state-var-access
+OH_0150         | APPLY_ERROR: git apply failed: error: corrupt patch at line 14 | raw_diff_fallback  | hp-arkui-no-state-var-access
+OH_0151         | APPLY_ERROR: git apply failed: /tmp/agent_fix.patch:16: trailing whitespace.
+          ListItem() { 
+error: corrupt patch at line 20 | raw_diff_fallback  | hp-arkui-use-object-link-to-
+OH_0153         | APPLY_ERROR: git apply failed: error: patch fragment without header at line 13: @@ -31,7 +31,7 @@ export struct CaCertPage { | raw_diff_fallback  | hp-arkui-use-object-link-to-
+OH_0154         | APPLY_ERROR: git apply failed: error: corrupt patch at line 11 | raw_diff_fallback  | hp-arkui-use-object-link-to-
+OH_0155         | LINTER_FAIL                    | diff_patched       | hp-arkui-use-object-link-to-
+OH_0156         | APPLY_ERROR: git apply failed: error: patch fragment without header at line 24: @@ -44,7 +44,7 @@ export struct CredListPage { | raw_diff_fallback  | hp-arkui-use-object-link-to-
+OH_0157         | APPLY_ERROR: git apply failed: error: corrupt patch at line 11 | raw_diff_fallback  | hp-arkui-use-object-link-to-
+OH_0158         | PASS                           | diff_converted     | hp-arkui-use-object-link-to-
+OH_0159         | PASS                           | diff_patched       | hp-arkui-use-object-link-to-
+OH_0160         | PASS                           | diff_patched       | hp-arkui-use-object-link-to-
+OH_0161         | APPLY_ERROR: git apply failed: error: corrupt patch at line 11 | raw_diff_fallback  | hp-arkui-use-object-link-to-
+OH_0162         | PASS                           | diff_patched       | hp-arkui-use-object-link-to-
+OH_0163         | PASS                           | diff_converted     | hp-arkui-use-object-link-to-
+OH_0164         | LINTER_FAIL                    | diff_patched       | hp-arkui-no-state-var-access
+OH_0165         | APPLY_ERROR: git apply failed: error: corrupt patch at line 15 | raw_diff_fallback  | hp-arkui-no-state-var-access
+OH_0166         | APPLY_ERROR: git apply failed: error: patch fragment without header at line 33: @@ -331,7 +332,7 @@ export default struct authorityTertiaryGroups { | raw_diff_fallback  | hp-arkui-no-state-var-access
+OH_0167         | APPLY_ERROR: git apply failed: error: corrupt patch at line 12 | raw_diff_fallback  | hp-arkui-no-state-var-access
+OH_0168         | APPLY_ERROR: git apply failed: error: b/permissionmanager/src/main/ets/pages/authority-tertiary.ets: No such file or directory | raw_diff_fallback  | hp-arkui-no-state-var-access
+OH_0169         | APPLY_ERROR: git apply failed: error: corrupt patch at line 21 | raw_diff_fallback  | hp-arkui-no-state-var-access
+OH_0170         | APPLY_ERROR: git apply failed: error: corrupt patch at line 17 | raw_diff_fallback  | hp-arkui-no-state-var-access
+OH_0171         | APPLY_ERROR: git apply failed: error: patch fragment without header at line 21: @@ -215,7 +216,7 @@ import router from '@ohos.router': | raw_diff_fallback  | hp-arkui-no-state-var-access
+OH_0172         | PASS                           | diff_patched       | hp-arkui-use-local-var-to-re
+OH_0173         | APPLY_ERROR: git apply failed: error: corrupt patch at line 16 | raw_diff_fallback  | hp-arkui-use-local-var-to-re
+OH_0174         | APPLY_ERROR: git apply failed: error: corrupt patch at line 17 | raw_diff_fallback  | hp-arkui-use-local-var-to-re
+OH_0175         | PASS                           | full_content       | hp-arkui-use-local-var-to-re
+OH_0176         | LINTER_FAIL                    | diff_patched       | hp-arkui-no-state-var-access
+OH_0177         | APPLY_ERROR: git apply failed: error: patch fragment without header at line 26: @@ -235,7 +236,7 @@ export default struct authorityTertiary { | raw_diff_fallback  | hp-arkui-no-state-var-access
+OH_0178         | LINTER_FAIL                    | diff_patched       | hp-arkui-no-state-var-access
+OH_0179         | PASS                           | diff_converted     | hp-arkui-use-local-var-to-re
+OH_0180         | LINTER_FAIL                    | diff_converted     | hp-arkui-use-local-var-to-re
+OH_0181         | APPLY_ERROR: git apply failed: error: corrupt patch at line 14 | raw_diff_fallback  | hp-arkui-use-local-var-to-re
+OH_0182         | LINTER_FAIL                    | diff_converted     | hp-arkui-use-local-var-to-re
+OH_0183         | APPLY_ERROR: git apply failed: error: corrupt patch at line 657 | raw_diff_fallback  | hp-arkui-use-local-var-to-re
+OH_0184         | APPLY_ERROR: git apply failed: error: corrupt patch at line 16 | raw_diff_fallback  | hp-arkui-use-local-var-to-re
+OH_0185         | PASS                           | full_content       | hp-arkui-use-local-var-to-re
+OH_0186         | APPLY_ERROR: git apply failed: error: b/permissionmanager/src/main/ets/PermissionSheet/PermissionStateSheetDialog.ets: No such file or directory | raw_diff_fallback  | hp-arkui-no-state-var-access
+OH_0187         | APPLY_ERROR: git apply failed: error: patch fragment without header at line 15: @@ -345,4 +345,4 @@ export default class PermissionStateSheetDialog extends CommonSheetDialog { | raw_diff_fallback  | hp-arkui-no-state-var-access
+OH_0188         | APPLY_ERROR: git apply failed: error: corrupt patch at line 41 | raw_diff_fallback  | hp-arkui-use-local-var-to-re
+OH_0189         | SECONDARY_DEFECT: 3            | diff_converted     | hp-arkui-use-local-var-to-re
+OH_0190         | APPLY_ERROR: git apply failed: error: corrupt patch at line 20 | raw_diff_fallback  | hp-arkui-no-state-var-access
+OH_0191         | APPLY_ERROR: git apply failed: error: corrupt patch at line 23 | raw_diff_fallback  | hp-arkui-no-state-var-access
+OH_0192         | LINTER_FAIL                    | diff_converted     | hp-arkui-use-local-var-to-re
+OH_0193         | TIMEOUT                        | diff_converted     | hp-arkui-no-stringify-in-laz
+OH_0194         | APPLY_ERROR: git apply failed: error: corrupt patch at line 10 | raw_diff_fallback  | high-frequency-log-check
+OH_0195         | TIMEOUT                        | diff_converted     | hp-arkui-use-reusable-compon
+OH_0196         | APPLY_ERROR: git apply failed: error: corrupt patch at line 27 | raw_diff_fallback  | hp-arkui-no-stringify-in-laz
+OH_0197         | SECONDARY_DEFECT: 1            | diff_patched       | foreach-args-check
+OH_0198         | SECONDARY_DEFECT: 1            | diff_converted     | foreach-args-check
+OH_0199         | SECONDARY_DEFECT: 1            | full_content       | hp-arkui-use-reusable-compon
+OH_0200         | SECONDARY_DEFECT: 1            | diff_converted     | hp-arkui-no-stringify-in-laz
+OH_0201         | PASS                           | diff_converted     | foreach-args-check
+OH_0202         | APPLY_ERROR: git apply failed: error: corrupt patch at line 20 | raw_diff_fallback  | foreach-args-check
+OH_0203         | SECONDARY_DEFECT: 1            | full_content       | hp-arkui-use-reusable-compon
+OH_0204         | SECONDARY_DEFECT: 1            | full_content       | hp-arkui-use-reusable-compon
+OH_0205         | LINTER_FAIL                    | diff_converted     | hp-arkui-use-object-link-to-
+OH_0206         | APPLY_ERROR: git apply failed: error: corrupt patch at line 107 | raw_diff_fallback  | foreach-args-check
+OH_0207         | APPLY_ERROR: git apply failed: error: b/SliderPlayer/src/main/ets/components/VideoSwipeComponent.ets: No such file or directory | raw_diff_fallback  | hp-arkui-use-reusable-compon
+OH_0208         | PASS                           | diff_converted     | hp-arkui-no-stringify-in-laz
+OH_0209         | APPLY_ERROR: git apply failed: error: b/entry/src/main/ets/screen/Comments.ets: No such file or directory | raw_diff_fallback  | hp-arkui-use-object-link-to-
+OH_0211         | APPLY_ERROR: git apply failed: error: patch fragment without header at line 33: @@ -82,5 +86,5 @@ struct AssistiveGridView { | raw_diff_fallback  | hp-arkui-no-state-var-access
+OH_0212         | APPLY_ERROR: git apply failed: error: patch fragment without header at line 22: @@ -85,4 +89,4 @@ export default class AudioControlShutterButton extends Button { | raw_diff_fallback  | hp-arkui-no-state-var-access
+OH_0213         | APPLY_ERROR: git apply failed: error: patch fragment without header at line 40: @@ -366,14 +374,14 @@ export default class ExposureBarView extends View { | raw_diff_fallback  | hp-arkui-no-state-var-access
+OH_0214         | APPLY_ERROR: git apply failed: error: corrupt patch at line 19 | raw_diff_fallback  | hp-arkui-no-state-var-access
+OH_0215         | APPLY_ERROR: git apply failed: error: corrupt patch at line 74 | raw_diff_fallback  | hp-arkui-no-state-var-access
+OH_0216         | APPLY_ERROR: git apply failed: error: corrupt patch at line 62 | raw_diff_fallback  | hp-arkui-no-state-var-access
+OH_0217         | PASS                           | full_content       | hp-arkui-suggest-use-effectk
+OH_0218         | PASS                           | full_content       | hp-arkui-suggest-use-effectk
+OH_0219         | PASS                           | full_content       | hp-arkui-suggest-use-effectk
+OH_0220         | APPLY_ERROR: git apply failed: error: corrupt patch at line 9 | raw_diff_fallback  | hp-arkui-suggest-use-effectk
+OH_0221         | APPLY_ERROR: git apply failed: error: patch fragment without header at line 44: @@ -250,7 +263,7 @@ struct StandardSlider { | raw_diff_fallback  | hp-arkui-no-state-var-access
+OH_0222         | PASS                           | diff_converted     | hp-arkui-no-state-var-access
+OH_0223         | ERROR: checkout failed: fatal: reference is not a tree: fad8a310a8907ad197322324b8fd210c81bb3d33 | raw_diff_fallback  | hp-arkui-use-reusable-compon
+OH_0224         | PASS                           | diff_converted     | foreach-args-check
+OH_0225         | LINTER_FAIL                    | diff_patched       | hp-arkui-no-state-var-access
+OH_0226         | APPLY_ERROR: git apply failed: error: corrupt patch at line 13 | raw_diff_fallback  | hp-arkui-no-state-var-access
+OH_0227         | PASS                           | full_content       | hp-arkui-use-reusable-compon
+OH_0228         | APPLY_ERROR: git apply failed: error: corrupt patch at line 129 | raw_diff_fallback  | hp-arkui-use-reusable-compon
+OH_0229         | APPLY_ERROR: git apply failed: error: corrupt patch at line 11 | raw_diff_fallback  | hp-arkui-set-cache-count-for
+OH_0230         | APPLY_ERROR: git apply failed: error: corrupt patch at line 206 | raw_diff_fallback  | hp-arkui-use-reusable-compon
+OH_0231         | PASS                           | full_content       | hp-arkui-no-func-as-arg-for-
+OH_0232         | PASS                           | diff_converted     | hp-arkui-set-cache-count-for
+OH_0233         | APPLY_ERROR: git apply failed: error: corrupt patch at line 21 | raw_diff_fallback  | hp-arkui-set-cache-count-for
+OH_0234         | APPLY_ERROR: git apply failed: error: corrupt patch at line 55 | raw_diff_fallback  | hp-arkui-use-reusable-compon
+OH_0235         | APPLY_ERROR: git apply failed: error: corrupt patch at line 9 | raw_diff_fallback  | hp-arkui-no-stringify-in-laz
+OH_0236         | PASS                           | diff_patched       | hp-arkui-use-object-link-to-
+OH_0237         | PASS                           | full_content       | hp-arkui-no-func-as-arg-for-
+OH_0238         | PASS                           | full_content       | hp-arkui-no-func-as-arg-for-
+OH_0239         | SECONDARY_DEFECT: 1            | diff_patched       | hp-arkui-no-func-as-arg-for-
+OH_0240         | PASS                           | diff_patched       | hp-arkui-no-state-var-access
+OH_0241         | APPLY_ERROR: git apply failed: error: corrupt patch at line 32 | raw_diff_fallback  | hp-arkui-set-cache-count-for
+OH_0242         | LINTER_FAIL                    | diff_converted     | hp-arkui-set-cache-count-for
+OH_0243         | PASS                           | diff_converted     | hp-arkui-use-reusable-compon
+OH_0244         | LINTER_FAIL                    | diff_patched       | hp-arkui-no-stringify-in-laz
+OH_0245         | PASS                           | full_content       | hp-arkui-set-cache-count-for
+OH_0246         | PASS                           | diff_converted     | hp-arkui-set-cache-count-for
+OH_0247         | PASS                           | full_content       | hp-arkui-use-reusable-compon
+OH_0248         | APPLY_ERROR: git apply failed: error: corrupt patch at line 10 | raw_diff_fallback  | hp-arkui-set-cache-count-for
+OH_0249         | PASS                           | full_content       | hp-arkui-use-reusable-compon
+OH_0250         | PASS                           | diff_converted     | hp-arkui-set-cache-count-for
+OH_0251         | APPLY_ERROR: git apply failed: error: corrupt patch at line 73 | raw_diff_fallback  | hp-arkui-use-reusable-compon
+OH_0252         | PASS                           | diff_converted     | hp-arkui-set-cache-count-for
+OH_0253         | APPLY_ERROR: git apply failed: error: corrupt patch at line 12 | raw_diff_fallback  | hp-arkui-use-reusable-compon
+OH_0254         | APPLY_ERROR: git apply failed: error: corrupt patch at line 75 | raw_diff_fallback  | hp-arkui-use-reusable-compon
+OH_0255         | APPLY_ERROR: git apply failed: error: b/product/phone/src/main/ets/Setting/AboutDevice/LegalInfo/view/AppOpenSourceStatementComponent.ets: No such file or directory | raw_diff_fallback  | hp-arkui-no-stringify-in-laz
+OH_0256         | PASS                           | diff_converted     | hp-arkui-set-cache-count-for
+OH_0257         | APPLY_ERROR: git apply failed: error: corrupt patch at line 13 | raw_diff_fallback  | hp-arkui-use-reusable-compon
+OH_0258         | PASS                           | full_content       | hp-arkui-use-object-link-to-
+OH_0259         | PASS                           | full_content       | hp-arkui-use-object-link-to-
+OH_0260         | APPLY_ERROR: git apply failed: error: b/product/phone/src/main/ets/pages/biometricsandpassword/component/MenuEntry.ets: No such file or directory | raw_diff_fallback  | hp-arkui-use-object-link-to-
+OH_0261         | APPLY_ERROR: git apply failed: error: corrupt patch at line 37 | raw_diff_fallback  | hp-arkui-use-object-link-to-
+OH_0262         | LINTER_FAIL                    | diff_patched       | hp-arkui-no-state-var-access
+OH_0263         | LINTER_FAIL                    | diff_patched       | hp-arkui-no-state-var-access
+OH_0264         | APPLY_ERROR: git apply failed: error: corrupt patch at line 12 | raw_diff_fallback  | hp-arkui-no-state-var-access
+OH_0265         | PASS                           | full_content       | hp-arkui-use-reusable-compon
+OH_0266         | LINTER_FAIL                    | diff_converted     | hp-arkui-no-func-as-arg-for-
+OH_0267         | PASS                           | full_content       | hp-arkui-use-reusable-compon
+OH_0268         | LINTER_FAIL                    | diff_converted     | hp-arkui-use-local-var-to-re
+OH_0269         | LINTER_FAIL                    | diff_converted     | hp-arkui-set-cache-count-for
+OH_0270         | PASS                           | full_content       | hp-arkui-use-reusable-compon
+OH_0271         | PASS                           | full_content       | hp-arkui-set-cache-count-for
+OH_0272         | APPLY_ERROR: git apply failed: error: corrupt patch at line 11 | raw_diff_fallback  | hp-arkui-use-object-link-to-
+OH_0273         | PASS                           | diff_converted     | hp-arkui-use-object-link-to-
+OH_0274         | APPLY_ERROR: git apply failed: error: corrupt patch at line 11 | raw_diff_fallback  | hp-arkui-set-cache-count-for
+OH_0275         | LINTER_FAIL                    | diff_converted     | hp-arkui-set-cache-count-for
+OH_0276         | PASS                           | full_content       | hp-arkui-use-reusable-compon
+OH_0277         | LINTER_FAIL                    | diff_converted     | hp-arkui-use-reusable-compon
+OH_0278         | LINTER_FAIL                    | diff_converted     | hp-arkui-use-reusable-compon
+OH_0279         | PASS                           | full_content       | hp-arkui-use-reusable-compon
+OH_0280         | LINTER_FAIL                    | diff_patched       | hp-arkui-no-state-var-access
+OH_0281         | PASS                           | full_content       | hp-arkui-use-reusable-compon
+OH_0282         | APPLY_ERROR: git apply failed: error: corrupt patch at line 25 | raw_diff_fallback  | hp-arkui-use-local-var-to-re
+OH_0283         | APPLY_ERROR: git apply failed: error: corrupt patch at line 29 | raw_diff_fallback  | hp-arkui-use-local-var-to-re
+OH_0284         | PASS                           | diff_patched       | hp-arkui-use-local-var-to-re
+OH_0285         | APPLY_ERROR: git apply failed: error: corrupt patch at line 20 | raw_diff_fallback  | hp-arkui-use-local-var-to-re
+OH_0286         | PASS                           | diff_converted     | hp-arkui-set-cache-count-for
+OH_0287         | LINTER_FAIL                    | diff_converted     | hp-arkui-use-reusable-compon
+OH_0288         | PASS                           | diff_converted     | hp-arkui-set-cache-count-for
+OH_0289         | SECONDARY_DEFECT: 2            | diff_converted     | hp-arkui-use-reusable-compon
+OH_0290         | PASS                           | diff_converted     | hp-arkui-set-cache-count-for
+OH_0291         | APPLY_ERROR: git apply failed: error: corrupt patch at line 70 | raw_diff_fallback  | hp-arkui-use-reusable-compon
+OH_0292         | PASS                           | diff_patched       | hp-arkui-set-cache-count-for
+OH_0293         | PASS                           | diff_converted     | hp-arkui-use-reusable-compon
+OH_0294         | LINTER_FAIL                    | diff_converted     | hp-arkui-set-cache-count-for
+OH_0295         | PASS                           | full_content       | hp-arkui-use-reusable-compon
+OH_0296         | APPLY_ERROR: git apply failed: error: b/entry/src/main/ets/pages/component/dialog/FileMoveDialog.ets: No such file or directory
+error: b/entry/src/main/ets/pages/component/dialog/FileMoveDialog.ets: No such file or directory | raw_diff_fallback  | hp-arkui-no-state-var-access
+OH_0297         | LINTER_FAIL                    | diff_patched       | hp-arkui-set-cache-count-for
+OH_0298         | PASS                           | full_content       | hp-arkui-use-reusable-compon
+OH_0299         | LINTER_FAIL                    | diff_patched       | hp-arkui-no-state-var-access
+OH_0300         | APPLY_ERROR: git apply failed: error: corrupt patch at line 24 | raw_diff_fallback  | hp-arkui-no-state-var-access
+OH_0301         | APPLY_ERROR: git apply failed: error: corrupt patch at line 12 | raw_diff_fallback  | hp-arkui-no-state-var-access
+OH_0302         | APPLY_ERROR: git apply failed: error: corrupt patch at line 21 | raw_diff_fallback  | hp-arkui-use-local-var-to-re
+OH_0303         | LINTER_FAIL                    | diff_converted     | hp-arkui-use-local-var-to-re
+OH_0304         | APPLY_ERROR: git apply failed: error: corrupt patch at line 12 | raw_diff_fallback  | hp-arkui-use-local-var-to-re
+OH_0305         | APPLY_ERROR: git apply failed: error: corrupt patch at line 13 | raw_diff_fallback  | hp-arkui-no-state-var-access
+OH_0306         | APPLY_ERROR: git apply failed: error: corrupt patch at line 15 | raw_diff_fallback  | hp-arkui-use-local-var-to-re
+OH_0307         | APPLY_ERROR: git apply failed: error: corrupt patch at line 17 | raw_diff_fallback  | hp-arkui-no-state-var-access
+OH_0308         | PASS                           | diff_patched       | mandatory-default-value-for-
+OH_0309         | PASS                           | diff_converted     | mandatory-default-value-for-
+OH_0310         | SECONDARY_DEFECT: 1            | diff_patched       | mandatory-default-value-for-
+OH_0311         | APPLY_ERROR: git apply failed: error: b/HMRouterExamples/commons/ui_components/src/main/ets/components/NavBar.ets: No such file or directory | raw_diff_fallback  | mandatory-default-value-for-
+OH_0312         | PASS                           | diff_patched       | mandatory-default-value-for-
+OH_0313         | LINTER_FAIL                    | diff_converted     | mandatory-default-value-for-
+OH_0314         | PASS                           | diff_patched       | mandatory-default-value-for-
+OH_0315         | APPLY_ERROR: git apply failed: error: corrupt patch at line 11 | raw_diff_fallback  | mandatory-default-value-for-
+OH_0316         | PASS                           | diff_converted     | no-tabs
+OH_0317         | LINTER_FAIL                    | diff_converted     | hp-arkui-no-func-as-arg-for-
+OH_0318         | LINTER_FAIL                    | diff_patched       | quotes
+OH_0319         | APPLY_ERROR: git apply failed: error: patch fragment without header at line 25: @@ -68,7 +68,7 @@ | raw_diff_fallback  | quotes
+OH_0320         | LINTER_FAIL                    | diff_converted     | quotes
+OH_0321         | APPLY_ERROR: git apply failed: error: patch fragment without header at line 24: @@ -80,7 +80,7 @@ | raw_diff_fallback  | quotes
+OH_0322         | SECONDARY_DEFECT: 1            | full_content       | quotes
+OH_0323         | APPLY_ERROR: git apply failed: error: patch fragment without header at line 17: @@ -40,4 +42,4 @@ export struct JumpWithQueryParamPage { | raw_diff_fallback  | hp-arkui-no-state-var-access
+OH_0324         | PASS                           | diff_patched       | quotes
+OH_0325         | APPLY_ERROR: git apply failed: error: patch fragment without header at line 13: @@ -185,4 +185,4 @@ | raw_diff_fallback  | no-multi-spaces
+OH_0326         | LINTER_FAIL                    | diff_converted     | max-len
+OH_0327         | APPLY_ERROR: git apply failed: error: corrupt patch at line 31 | raw_diff_fallback  | operator-linebreak
+OH_0328         | SECONDARY_DEFECT: 1            | full_content       | operator-linebreak
+OH_0329         | PASS                           | diff_patched       | space-before-blocks
+OH_0330         | PASS                           | diff_converted     | quotes
+OH_0331         | APPLY_ERROR: git apply failed: error: corrupt patch at line 10 | raw_diff_fallback  | quotes
+OH_0332         | APPLY_ERROR: git apply failed: error: No valid patches in input (allow with "--allow-empty") | raw_diff_fallback  | quotes
+OH_0333         | LINTER_FAIL                    | diff_converted     | quotes
+OH_0334         | PASS                           | diff_converted     | space-infix-ops
+OH_0335         | PASS                           | diff_converted     | operator-linebreak
+OH_0336         | PASS                           | diff_converted     | hp-arkui-no-func-as-arg-for-
+OH_0337         | PASS                           | diff_patched       | hp-arkui-no-state-var-access
+OH_0338         | APPLY_ERROR: git apply failed: error: corrupt patch at line 18 | raw_diff_fallback  | hp-arkui-no-func-as-arg-for-
+OH_0339         | PASS                           | diff_converted     | hp-arkts-no-use-any-export-o
+OH_0340         | PASS                           | diff_converted     | hp-arkts-no-use-any-export-o
+OH_0341         | LINTER_FAIL                    | diff_converted     | hp-arkts-no-use-any-export-o
+OH_0342         | APPLY_ERROR: git apply failed: error: patch fragment without header at line 2: @@ -36,11 +36,11 @@ | raw_diff_fallback  | hp-arkts-no-use-any-export-o
+OH_0343         | APPLY_ERROR: git apply failed: error: b/HMRouterExamples/commons/common/Index.ets: No such file or directory | raw_diff_fallback  | hp-arkts-no-use-any-export-o
+OH_0344         | PASS                           | diff_patched       | hp-arkts-no-use-any-export-o
+OH_0345         | LINTER_FAIL                    | diff_patched       | foreach-args-check
+OH_0346         | APPLY_ERROR: git apply failed: error: corrupt patch at line 58 | raw_diff_fallback  | hp-arkui-use-reusable-compon
+OH_0347         | PASS                           | diff_converted     | hp-arkui-use-object-link-to-
+OH_0348         | PASS                           | diff_converted     | hp-arkui-use-object-link-to-
+OH_0349         | PASS                           | raw_diff_fallback  | hp-arkui-use-object-link-to-
+OH_0350         | PASS                           | diff_patched       | hp-arkui-use-object-link-to-
+OH_0351         | PASS                           | diff_converted     | foreach-args-check
+OH_0352         | APPLY_ERROR: git apply failed: error: corrupt patch at line 58 | raw_diff_fallback  | hp-arkui-use-reusable-compon
+OH_0353         | APPLY_ERROR: git apply failed: error: corrupt patch at line 47 | raw_diff_fallback  | hp-arkui-use-reusable-compon
+OH_0354         | PASS                           | diff_converted     | hp-arkui-no-stringify-in-laz
+OH_0355         | APPLY_ERROR: git apply failed: error: corrupt patch at line 39 | raw_diff_fallback  | hp-arkui-use-reusable-compon
+OH_0356         | APPLY_ERROR: git apply failed: error: corrupt patch at line 147 | raw_diff_fallback  | hp-arkui-use-reusable-compon
+OH_0357         | APPLY_ERROR: git apply failed: error: corrupt patch at line 11 | raw_diff_fallback  | hp-arkui-no-stringify-in-laz
+OH_0358         | APPLY_ERROR: git apply failed: error: corrupt patch at line 183 | raw_diff_fallback  | hp-arkui-use-reusable-compon
+OH_0359         | PASS                           | diff_converted     | hp-arkui-no-stringify-in-laz
+OH_0360         | APPLY_ERROR: git apply failed: error: corrupt patch at line 13 | raw_diff_fallback  | hp-arkui-no-state-var-access
+OH_0361         | LINTER_FAIL                    | diff_patched       | hp-arkui-no-state-var-access
+OH_0362         | APPLY_ERROR: git apply failed: error: corrupt patch at line 45 | raw_diff_fallback  | hp-arkui-use-transition-to-r
+OH_0363         | APPLY_ERROR: git apply failed: error: corrupt patch at line 15 | raw_diff_fallback  | hp-arkui-no-state-var-access
+OH_0364         | APPLY_ERROR: git apply failed: error: corrupt patch at line 18 | raw_diff_fallback  | hp-arkui-no-state-var-access
+OH_0365         | APPLY_ERROR: git apply failed: error: b/entry/src/main/ets/MainAbility/pages/OnePlusNLayoutSample.ets: No such file or directory | raw_diff_fallback  | hp-arkui-no-state-var-access
+OH_0366         | APPLY_ERROR: git apply failed: error: corrupt patch at line 44 | raw_diff_fallback  | hp-arkui-no-state-var-access
+OH_0367         | APPLY_ERROR: git apply failed: error: corrupt patch at line 21 | raw_diff_fallback  | hp-arkui-no-state-var-access
+OH_0368         | PASS                           | diff_converted     | hp-arkts-no-use-any-export-o
+OH_0369         | PASS                           | diff_converted     | hp-arkts-no-use-any-export-o
+OH_0370         | APPLY_ERROR: git apply failed: error: corrupt patch at line 9 | raw_diff_fallback  | hp-arkts-no-use-any-export-o
+OH_0371         | APPLY_ERROR: git apply failed: error: corrupt patch at line 21 | raw_diff_fallback  | hp-arkui-no-state-var-access
+OH_0372         | APPLY_ERROR: git apply failed: error: corrupt patch at line 21 | raw_diff_fallback  | foreach-args-check
+OH_0373         | LINTER_FAIL                    | diff_converted     | foreach-args-check
+OH_0374         | LINTER_FAIL                    | diff_converted     | foreach-args-check
+OH_0375         | APPLY_ERROR: git apply failed: error: corrupt patch at line 11 | raw_diff_fallback  | foreach-args-check
+OH_0376         | APPLY_ERROR: git apply failed: error: patch fragment without header at line 19: @@ -18,9 +19,8 @@ struct Scene_1 { | raw_diff_fallback  | hp-arkui-load-on-demand
+OH_0377         | APPLY_ERROR: git apply failed: error: corrupt patch at line 443 | raw_diff_fallback  | foreach-args-check
+OH_0378         | APPLY_ERROR: git apply failed: error: corrupt patch at line 58 | raw_diff_fallback  | hp-arkui-use-reusable-compon
+OH_0379         | APPLY_ERROR: git apply failed: error: corrupt patch at line 11 | raw_diff_fallback  | foreach-args-check
+OH_0380         | APPLY_ERROR: git apply failed: error: corrupt patch at line 11 | raw_diff_fallback  | foreach-args-check
+OH_0381         | APPLY_ERROR: git apply failed: error: corrupt patch at line 20 | raw_diff_fallback  | hp-arkui-no-state-var-access
+OH_0382         | APPLY_ERROR: git apply failed: error: corrupt patch at line 15 | raw_diff_fallback  | hp-arkui-no-state-var-access
+
+================================================================================
+
+## 1. 总体统计 (375 任务)
+  补丁成功应用:   213/375 (56.8%)
+  告警消除:       151/375 (40.3%)
+  严格通过:     135/375 (36.0%)
+  ---
+  仍有告警:       62/375 (16.5%)
+  二次缺陷:       16/375
+  语法错误:       0/375
+  补丁应用失败:   159/375 (42.4%)
+  超时:           2/375
+  系统错误:       1/375
+
+## 2. 转换方法分布
+  raw_diff_fallback   : 161
+  diff_converted      : 108
+  diff_patched        : 53
+  full_content        : 53
+
+## 3. 按规则统计
+规则                                            |   总 | PASS | FAIL | ERR | SEC |    通过率
+-------------------------------------------------------------------------------------
+foreach-args-check                            |  16 |    3 |    3 |   8 |   2 |    19%
+high-frequency-log-check                      |   2 |    1 |    0 |   1 |   0 |    50%
+hp-arkts-no-use-any-export-o                  |  18 |    7 |    5 |   6 |   0 |    39%
+hp-arkui-load-on-demand                       |   1 |    0 |    0 |   1 |   0 |     0%
+hp-arkui-no-func-as-arg-for-                  |  11 |    6 |    2 |   2 |   1 |    55%
+hp-arkui-no-state-var-access                  |  62 |    9 |   11 |  42 |   0 |    15%
+hp-arkui-no-stringify-in-laz                  |  39 |   18 |    7 |  13 |   1 |    46%
+hp-arkui-set-cache-count-for                  |  63 |   35 |   11 |  14 |   3 |    56%
+hp-arkui-suggest-use-effectk                  |  10 |    4 |    0 |   6 |   0 |    40%
+hp-arkui-use-local-var-to-re                  |  23 |    5 |    5 |  12 |   1 |    22%
+hp-arkui-use-object-link-to-                  |  27 |   14 |    2 |  11 |   0 |    52%
+hp-arkui-use-reusable-compon                  |  73 |   23 |   10 |  35 |   5 |    32%
+hp-arkui-use-transition-to-r                  |   4 |    0 |    1 |   3 |   0 |     0%
+mandatory-default-value-for-                  |   8 |    4 |    1 |   2 |   1 |    50%
+max-len                                       |   1 |    0 |    1 |   0 |   0 |     0%
+no-multi-spaces                               |   1 |    0 |    0 |   1 |   0 |     0%
+no-tabs                                       |   1 |    1 |    0 |   0 |   0 |   100%
+operator-linebreak                            |   3 |    1 |    0 |   1 |   1 |    33%
+quotes                                        |  10 |    2 |    3 |   4 |   1 |    20%
+space-before-blocks                           |   1 |    1 |    0 |   0 |   0 |   100%
+space-infix-ops                               |   1 |    1 |    0 |   0 |   0 |   100%
+
+## 4. 难度分析
+  简单 (>70%通过): 0 个规则
+  中等 (20-70%通过): 11 个规则
+    hp-arkts-no-use-any-export-o: 7/18
+    hp-arkui-set-cache-count-for: 35/63
+    hp-arkui-use-reusable-compon: 23/73
+    hp-arkui-no-stringify-in-laz: 18/39
+    hp-arkui-no-func-as-arg-for-: 6/11
+    hp-arkui-suggest-use-effectk: 4/10
+    hp-arkui-use-object-link-to-: 14/27
+    hp-arkui-use-local-var-to-re: 5/23
+    mandatory-default-value-for-: 4/8
+    quotes: 2/10
+    operator-linebreak: 1/3
+  困难 (<20%通过): 3 个规则
+    hp-arkui-no-state-var-access: 9/62
+    foreach-args-check: 3/16
+    hp-arkui-use-transition-to-r: 0/4
+
+## 5. 区分度评价
+  数据集有一定区分度
+
+## 6. APPLY_ERROR 详情 (159 个)
+  hp-arkui-no-state-var-access            : 42
+  hp-arkui-use-reusable-compon            : 33
+  hp-arkui-set-cache-count-for            : 14
+  hp-arkui-no-stringify-in-laz            : 12
+  hp-arkui-use-local-var-to-re            : 12
+  hp-arkui-use-object-link-to-            : 11
+  foreach-args-check                      : 8
+  hp-arkts-no-use-any-export-o            : 6
+  hp-arkui-suggest-use-effectk            : 6
+  quotes                                  : 4
+  hp-arkui-use-transition-to-r            : 3
+  hp-arkui-no-func-as-arg-for-            : 2
+  mandatory-default-value-for-            : 2
+  high-frequency-log-check                : 1
+  no-multi-spaces                         : 1
+  operator-linebreak                      : 1
+  hp-arkui-load-on-demand                 : 1
+
+================================================================================

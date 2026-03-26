@@ -1,0 +1,666 @@
+============================================================
+OH-Bench 实验 - 数据集: arkts
+  执行模式: 持久容器 (快速模式)
+============================================================
+  加载数据集: 382 任务
+  Agent 结果: 382 条
+  本次评估: 382 条
+
+  持久容器 oh-bench-worker-74900 就绪
+ID              | Result                         | Method             | Rule
+-----------------------------------------------------------------------------------------------
+  [DEBUG] file: hadss_dialog/Index.ets
+  [DEBUG] original length: 698
+  [DEBUG] original first 100 chars: '/*\n * Copyright (c) 2025 Huawei Device Co., Ltd.\n * Licensed under the Apache License, Version 2.0 ('
+  [DEBUG] cleaned diff first 200 chars: 'diff --git a/hadss_dialog/Index.ets b/hadss_dialog/Index.ets\n--- a/hadss_dialog/Index.ets\n+++ b/hadss_dialog/Index.ets\n@@ -12,4 +12,4 @@\n  * See the License for the specific language governing permiss'
+  [DEBUG] parsed hunks: 1
+  [DEBUG] hunk 0 old_lines (4): " * See the License for the specific language governing permissions and\n * limitations under the License.\n */\nexport * from './src/main/ets/components/"
+  [DEBUG] hunk 0 old_text in original: False
+  [DEBUG] hunk 0 stripped match: False
+  [DEBUG] text_match FAILED
+  [DEBUG] patch FAILED
+OH_0001         | APPLY_ERROR: git apply failed: error: a/hadss_dialog/Index.ets: No such file or directory | raw_diff_fallback  | hp-arkts-no-use-any-export-o
+  [DEBUG] file: hadss_dialog/Index.ets
+  [DEBUG] original length: 698
+  [DEBUG] original first 100 chars: '/*\n * Copyright (c) 2025 Huawei Device Co., Ltd.\n * Licensed under the Apache License, Version 2.0 ('
+  [DEBUG] cleaned diff first 200 chars: "diff --git a/hadss_dialog/Index.ets b/hadss_dialog/Index.ets\nindex 0000000..0000000 100644\n--- a/hadss_dialog/Index.ets\n+++ b/hadss_dialog/Index.ets\n@@ -14,4 +14,4 @@\n  */\n \n-export * from './src/main"
+  [DEBUG] parsed hunks: 1
+  [DEBUG] hunk 0 old_lines (3): " */\n\nexport * from './src/main/ets/components/dialog/DialogUtils'"
+  [DEBUG] hunk 0 old_text in original: False
+  [DEBUG] hunk 0 stripped match: False
+  [DEBUG] text_match FAILED
+  [DEBUG] patch FAILED
+OH_0002         | APPLY_ERROR: git apply failed: error: corrupt patch at line 10 | raw_diff_fallback  | hp-arkts-no-use-any-export-o
+  [DEBUG] file: MaterialProgressBar/src/main/ets/components/material/smooth/MultiLine.ets
+  [DEBUG] original length: 8049
+  [DEBUG] original first 100 chars: '/*\n * Copyright (C) 2022 Huawei Device Co., Ltd.\n * Licensed under the Apache License, Version 2.0 ('
+  [DEBUG] cleaned diff first 200 chars: 'diff --git a/MaterialProgressBar/src/main/ets/components/material/smooth/MultiLine.ets b/MaterialProgressBar/src/main/ets/components/material/smooth/MultiLine.ets\nindex 0000000..1111111 100644\n--- a/M'
+  [DEBUG] parsed hunks: 1
+  [DEBUG] hunk 0 old_lines (8): '  }\n\n  build() {\n    Column() {\n      ForEach(Array.from({ length: this.lineCount }, (_, i) => i), (index: number) => {\n        Line(index)\n      }, ('
+  [DEBUG] hunk 0 old_text in original: False
+  [DEBUG] hunk 0 stripped match: False
+  [DEBUG] text_match FAILED
+  [DEBUG] patch FAILED
+OH_0003         | APPLY_ERROR: git apply failed: error: a/MaterialProgressBar/src/main/ets/components/material/smooth/MultiLine.ets: No such file or directory | raw_diff_fallback  | hp-arkui-no-state-var-access
+  [DEBUG] file: entry/src/main/ets/MainAbility/pages/dialer/callRecord/AllRecord.ets
+  [DEBUG] original length: 12604
+  [DEBUG] original first 100 chars: '/**\n * Copyright (c) 2022 Huawei Device Co., Ltd.\n * Licensed under the Apache License, Version 2.0 '
+  [DEBUG] cleaned diff first 200 chars: 'diff --git a/entry/src/main/ets/MainAbility/pages/dialer/callRecord/AllRecord.ets b/entry/src/main/ets/MainAbility/pages/dialer/callRecord/AllRecord.ets\n--- a/entry/src/main/ets/MainAbility/pages/dial'
+  [DEBUG] parsed hunks: 1
+  [DEBUG] hunk 0 old_lines (7): "      .columnsTemplate('1fr')\n      .columnsGap(0)\n      .rowsGap(0)\n      .cachedCount(0)\n      .editMode(false)\n      .width('100%')\n      .height('"
+  [DEBUG] hunk 0 old_text in original: False
+  [DEBUG] hunk 0 stripped match: False
+  [DEBUG] text_match FAILED
+  [DEBUG] patch FAILED
+OH_0004         | APPLY_ERROR: git apply failed: error: a/entry/src/main/ets/MainAbility/pages/dialer/callRecord/AllRecord.ets: No such file or directory | raw_diff_fallback  | hp-arkui-set-cache-count-for
+  [DEBUG] file: entry/src/main/ets/MainAbility/pages/dialer/callRecord/AllRecord.ets
+  [DEBUG] original length: 12604
+  [DEBUG] original first 100 chars: '/**\n * Copyright (c) 2022 Huawei Device Co., Ltd.\n * Licensed under the Apache License, Version 2.0 '
+  [DEBUG] cleaned diff first 200 chars: 'diff --git a/entry/src/main/ets/MainAbility/pages/dialer/callRecord/AllRecord.ets b/entry/src/main/ets/MainAbility/pages/dialer/callRecord/AllRecord.ets\nindex 0000000..1111111 100644\n--- a/entry/src/m'
+  [DEBUG] parsed hunks: 1
+  [DEBUG] hunk 0 old_lines (6): '  }\n}\n\n@Component\nstruct CallRecordItem {\n  @State callRecordItem: any = {};'
+  [DEBUG] hunk 0 old_text in original: False
+  [DEBUG] hunk 0 stripped match: False
+  [DEBUG] text_match FAILED
+  [DEBUG] patch FAILED
+OH_0005         | APPLY_ERROR: git apply failed: error: a/entry/src/main/ets/MainAbility/pages/dialer/callRecord/AllRecord.ets: No such file or directory | raw_diff_fallback  | hp-arkui-use-reusable-compon
+  [DEBUG] file: entry/src/main/ets/MainAbility/pages/phone/dialer/callRecord/AllRecord.ets
+  [DEBUG] original length: 8646
+  [DEBUG] original first 100 chars: '/**\n * Copyright (c) 2022 Huawei Device Co., Ltd.\n * Licensed under the Apache License, Version 2.0 '
+  [DEBUG] cleaned diff first 200 chars: 'diff --git a/entry/src/main/ets/MainAbility/pages/phone/dialer/callRecord/AllRecord.ets b/entry/src/main/ets/MainAbility/pages/phone/dialer/callRecord/AllRecord.ets\nindex 1234567..abcdefg 100644\n--- a'
+  [DEBUG] parsed hunks: 2
+  [DEBUG] hunk 0 old_lines (7): '        .columnsGap(0)\n        .rowsGap(0)\n        .scrollBar(BarState.Off)\n        LazyForEach(this.callLogDataSource, (item: CallLog) => {\n         '
+  [DEBUG] hunk 0 old_text in original: False
+  [DEBUG] hunk 0 stripped match: False
+  [DEBUG] hunk 1 old_lines (7): "              onItemClick: this.onItemClick\n            })\n          }\n        }, (item: CallLog) => JSON.stringify(item))\n      }\n      .width('100%'"
+  [DEBUG] hunk 1 old_text in original: False
+  [DEBUG] hunk 1 stripped match: False
+  [DEBUG] text_match FAILED
+  [DEBUG] patch FAILED
+OH_0006         | APPLY_ERROR: git apply failed: error: a/entry/src/main/ets/MainAbility/pages/phone/dialer/callRecord/AllRecord.ets: No such file or directory | raw_diff_fallback  | hp-arkui-set-cache-count-for
+  [DEBUG] file: entry/src/main/ets/MainAbility/pages/phone/dialer/callRecord/AllRecord.ets
+  [DEBUG] original length: 8646
+  [DEBUG] original first 100 chars: '/**\n * Copyright (c) 2022 Huawei Device Co., Ltd.\n * Licensed under the Apache License, Version 2.0 '
+  [DEBUG] cleaned diff first 200 chars: 'diff --git a/entry/src/main/ets/MainAbility/pages/phone/dialer/callRecord/AllRecord.ets b/entry/src/main/ets/MainAbility/pages/phone/dialer/callRecord/AllRecord.ets\n--- a/entry/src/main/ets/MainAbilit'
+  [DEBUG] parsed hunks: 1
+  [DEBUG] hunk 0 old_lines (6): '  }\n}\n\n@Component\nstruct RecordItem {\n  private item: any;'
+  [DEBUG] hunk 0 old_text in original: False
+  [DEBUG] hunk 0 stripped match: False
+  [DEBUG] text_match FAILED
+  [DEBUG] patch SUCCESS
+OH_0007         | LINTER_FAIL                    | diff_patched       | hp-arkui-use-reusable-compon
+  [DEBUG] file: entry/src/main/ets/MainAbility/pages/contacts/ContactList.ets
+  [DEBUG] original length: 11794
+  [DEBUG] original first 100 chars: '/**\n * Copyright (c) 2022 Huawei Device Co., Ltd.\n * Licensed under the Apache License, Version 2.0 '
+  [DEBUG] cleaned diff first 200 chars: 'diff --git a/entry/src/main/ets/MainAbility/pages/contacts/ContactList.ets b/entry/src/main/ets/MainAbility/pages/contacts/ContactList.ets\nindex 0000000..0000000 100644\n--- a/entry/src/main/ets/MainAb'
+  [DEBUG] parsed hunks: 1
+  [DEBUG] hunk 0 old_lines (7): "        .columnsTemplate('1fr')\n        .columnsGap(10)\n        .rowsGap(10)\n        .cachedCount(0)\n        .editMode(true)\n        .width('100%')\n  "
+  [DEBUG] hunk 0 old_text in original: False
+  [DEBUG] hunk 0 stripped match: False
+  [DEBUG] text_match FAILED
+  [DEBUG] patch FAILED
+OH_0008         | APPLY_ERROR: git apply failed: error: a/entry/src/main/ets/MainAbility/pages/contacts/ContactList.ets: No such file or directory | raw_diff_fallback  | hp-arkui-set-cache-count-for
+  [DEBUG] file: entry/src/main/ets/MainAbility/pages/contacts/ContactList.ets
+  [DEBUG] original length: 11794
+  [DEBUG] original first 100 chars: '/**\n * Copyright (c) 2022 Huawei Device Co., Ltd.\n * Licensed under the Apache License, Version 2.0 '
+  [DEBUG] cleaned diff first 200 chars: 'diff --git a/entry/src/main/ets/MainAbility/pages/contacts/ContactList.ets b/entry/src/main/ets/MainAbility/pages/contacts/ContactList.ets\n--- a/entry/src/main/ets/MainAbility/pages/contacts/ContactLi'
+  [DEBUG] parsed hunks: 2
+  [DEBUG] hunk 0 old_lines (3): '@Entry\n@Component\nstruct ContactList {'
+  [DEBUG] hunk 0 old_text in original: False
+  [DEBUG] hunk 0 stripped match: False
+  [DEBUG] hunk 1 old_lines (11): '        List() {\n          LazyForEach(this.contactsDataSource, (item: any) => {\n            ListItem() {\n              ContactCard({ contact: item })'
+  [DEBUG] hunk 1 old_text in original: False
+  [DEBUG] hunk 1 stripped match: False
+  [DEBUG] text_match FAILED
+  [DEBUG] patch FAILED
+OH_0009         | APPLY_ERROR: git apply failed: error: corrupt patch at line 22 | raw_diff_fallback  | hp-arkui-use-reusable-compon
+  [DEBUG] file: entry/src/main/ets/MainAbility/pages/dialer/callRecord/MissedRecord.ets
+  [DEBUG] original length: 11101
+  [DEBUG] original first 100 chars: '/**\n * Copyright (c) 2022 Huawei Device Co., Ltd.\n * Licensed under the Apache License, Version 2.0 '
+  [DEBUG] cleaned diff first 200 chars: 'diff --git a/entry/src/main/ets/MainAbility/pages/dialer/callRecord/MissedRecord.ets b/entry/src/main/ets/MainAbility/pages/dialer/callRecord/MissedRecord.ets\n--- a/entry/src/main/ets/MainAbility/page'
+  [DEBUG] parsed hunks: 1
+  [DEBUG] hunk 0 old_lines (7): "        .columnsTemplate('1fr')\n        .columnsGap(0)\n        .rowsGap(0)\n        .cachedCount(0)\n        .editMode(false)\n        .height('100%')\n  "
+  [DEBUG] hunk 0 old_text in original: False
+  [DEBUG] hunk 0 stripped match: False
+  [DEBUG] text_match FAILED
+  [DEBUG] patch FAILED
+OH_0010         | APPLY_ERROR: git apply failed: error: a/entry/src/main/ets/MainAbility/pages/dialer/callRecord/MissedRecord.ets: No such file or directory | raw_diff_fallback  | hp-arkui-set-cache-count-for
+  [DEBUG] file: entry/src/main/ets/MainAbility/pages/dialer/callRecord/MissedRecord.ets
+  [DEBUG] original length: 11101
+  [DEBUG] original first 100 chars: '/**\n * Copyright (c) 2022 Huawei Device Co., Ltd.\n * Licensed under the Apache License, Version 2.0 '
+  [DEBUG] cleaned diff first 200 chars: 'diff --git a/entry/src/main/ets/MainAbility/pages/dialer/callRecord/MissedRecord.ets b/entry/src/main/ets/MainAbility/pages/dialer/callRecord/MissedRecord.ets\nindex 0000000..0000000 100644\n--- a/entry'
+  [DEBUG] parsed hunks: 1
+  [DEBUG] hunk 0 old_lines (6): '}\n\n@Component\nstruct MissedRecordItem {\n  @State item: CallLogItem = null;\n  @State isShowMenu: boolean = false;'
+  [DEBUG] hunk 0 old_text in original: False
+  [DEBUG] hunk 0 stripped match: False
+  [DEBUG] text_match FAILED
+  [DEBUG] patch FAILED
+OH_0011         | APPLY_ERROR: git apply failed: error: a/entry/src/main/ets/MainAbility/pages/dialer/callRecord/MissedRecord.ets: No such file or directory | raw_diff_fallback  | hp-arkui-use-reusable-compon
+  [DEBUG] file: entry/src/main/ets/MainAbility/pages/phone/dialer/callRecord/MissedRecord.ets
+  [DEBUG] original length: 8565
+  [DEBUG] original first 100 chars: '/**\n * Copyright (c) 2022 Huawei Device Co., Ltd.\n * Licensed under the Apache License, Version 2.0 '
+  [DEBUG] cleaned diff first 200 chars: 'diff --git a/entry/src/main/ets/MainAbility/pages/phone/dialer/callRecord/MissedRecord.ets b/entry/src/main/ets/MainAbility/pages/phone/dialer/callRecord/MissedRecord.ets\nindex 1234567..abcdefg 100644'
+  [DEBUG] parsed hunks: 1
+  [DEBUG] hunk 0 old_lines (7): "        .columnsTemplate('1fr')\n        .columnsGap(0)\n        .rowsGap(0)\n        .cachedCount(0)\n        .editMode(false)\n        .width('100%')\n   "
+  [DEBUG] hunk 0 old_text in original: False
+  [DEBUG] hunk 0 stripped match: False
+  [DEBUG] text_match FAILED
+  [DEBUG] patch FAILED
+OH_0012         | APPLY_ERROR: git apply failed: error: a/entry/src/main/ets/MainAbility/pages/phone/dialer/callRecord/MissedRecord.ets: No such file or directory | raw_diff_fallback  | hp-arkui-set-cache-count-for
+  [DEBUG] file: entry/src/main/ets/MainAbility/pages/phone/dialer/callRecord/MissedRecord.ets
+  [DEBUG] original length: 8565
+  [DEBUG] original first 100 chars: '/**\n * Copyright (c) 2022 Huawei Device Co., Ltd.\n * Licensed under the Apache License, Version 2.0 '
+  [DEBUG] cleaned diff first 200 chars: 'diff --git a/entry/src/main/ets/MainAbility/pages/phone/dialer/callRecord/MissedRecord.ets b/entry/src/main/ets/MainAbility/pages/phone/dialer/callRecord/MissedRecord.ets\nindex 0000000..1111111 100644'
+  [DEBUG] parsed hunks: 1
+  [DEBUG] hunk 0 old_lines (6): '  }\n}\n\n@Component\nstruct MissedRecordItem {\n  @State callData: CallLogItem = new CallLogItem();'
+  [DEBUG] hunk 0 old_text in original: False
+  [DEBUG] hunk 0 stripped match: False
+  [DEBUG] text_match FAILED
+  [DEBUG] patch FAILED
+OH_0013         | APPLY_ERROR: git apply failed: error: a/entry/src/main/ets/MainAbility/pages/phone/dialer/callRecord/MissedRecord.ets: No such file or directory | raw_diff_fallback  | hp-arkui-use-reusable-compon
+  [DEBUG] file: entry/src/main/ets/pages/dialer/callRecord/AllRecord.ets
+  [DEBUG] original length: 9366
+  [DEBUG] original first 100 chars: '/**\n * Copyright (c) 2022 Huawei Device Co., Ltd.\n * Licensed under the Apache License, Version 2.0 '
+  [DEBUG] cleaned diff first 200 chars: 'diff --git a/entry/src/main/ets/pages/dialer/callRecord/AllRecord.ets b/entry/src/main/ets/pages/dialer/callRecord/AllRecord.ets\nindex 0000000..1111111 100644\n--- a/entry/src/main/ets/pages/dialer/cal'
+  [DEBUG] parsed hunks: 2
+  [DEBUG] hunk 0 old_lines (7): '  build() {\n    Column() {\n      Grid() {\n        LazyForEach(this.dataSource, (item: CallLog) => {\n          GridItem() {\n            CallRecordItem('
+  [DEBUG] hunk 0 old_text in original: False
+  [DEBUG] hunk 0 stripped match: False
+  [DEBUG] hunk 1 old_lines (6): "          return item.id.toString();\n        })\n      }\n      .columnsTemplate('1fr')\n      .rowsGap(10)\n      .width('100%')"
+  [DEBUG] hunk 1 old_text in original: False
+  [DEBUG] hunk 1 stripped match: False
+  [DEBUG] text_match FAILED
+  [DEBUG] patch FAILED
+OH_0014         | APPLY_ERROR: git apply failed: error: a/entry/src/main/ets/pages/dialer/callRecord/AllRecord.ets: No such file or directory | raw_diff_fallback  | hp-arkui-set-cache-count-for
+  [DEBUG] file: entry/src/main/ets/pages/dialer/callRecord/AllRecord.ets
+  [DEBUG] original length: 9366
+  [DEBUG] original first 100 chars: '/**\n * Copyright (c) 2022 Huawei Device Co., Ltd.\n * Licensed under the Apache License, Version 2.0 '
+  [DEBUG] cleaned diff first 200 chars: 'diff --git a/entry/src/main/ets/pages/dialer/callRecord/AllRecord.ets b/entry/src/main/ets/pages/dialer/callRecord/AllRecord.ets\nindex 004c8d7..1234567 100644\n--- a/entry/src/main/ets/pages/dialer/cal'
+  [DEBUG] parsed hunks: 1
+  [DEBUG] hunk 0 old_lines (6): '  }\n}\n\n@Component\nstruct CallRecordItem {\n  @State callRecord: CallRecord = null;'
+  [DEBUG] hunk 0 old_text in original: False
+  [DEBUG] hunk 0 stripped match: False
+  [DEBUG] text_match FAILED
+  [DEBUG] patch SUCCESS
+OH_0015         | LINTER_FAIL                    | diff_patched       | hp-arkui-use-reusable-compon
+  [DEBUG] file: entry/src/main/ets/pages/contacts/batchselectcontacts/BatchSelectContactsPage.ets
+  [DEBUG] original length: 11545
+  [DEBUG] original first 100 chars: '/**\n * Copyright (c) 2022 Huawei Device Co., Ltd.\n * Licensed under the Apache License, Version 2.0 '
+  [DEBUG] cleaned diff first 200 chars: 'diff --git a/entry/src/main/ets/pages/contacts/batchselectcontacts/BatchSelectContactsPage.ets b/entry/src/main/ets/pages/contacts/batchselectcontacts/BatchSelectContactsPage.ets\nindex 0000000..111111'
+  [DEBUG] parsed hunks: 1
+  [DEBUG] hunk 0 old_lines (7): "        .columnsTemplate('1fr 1fr 1fr 1fr')\n        .columnsGap(12)\n        .rowsGap(12)\n        .cachedCount(0)\n        .editMode(true)\n        .widt"
+  [DEBUG] hunk 0 old_text in original: False
+  [DEBUG] hunk 0 stripped match: False
+  [DEBUG] text_match FAILED
+  [DEBUG] patch FAILED
+OH_0016         | APPLY_ERROR: git apply failed: error: a/entry/src/main/ets/pages/contacts/batchselectcontacts/BatchSelectContactsPage.ets: No such file or directory | raw_diff_fallback  | hp-arkui-set-cache-count-for
+  [DEBUG] file: entry/src/main/ets/pages/contacts/batchselectcontacts/BatchSelectContactsPage.ets
+  [DEBUG] original length: 11545
+  [DEBUG] original first 100 chars: '/**\n * Copyright (c) 2022 Huawei Device Co., Ltd.\n * Licensed under the Apache License, Version 2.0 '
+  [DEBUG] cleaned diff first 200 chars: 'diff --git a/entry/src/main/ets/pages/contacts/batchselectcontacts/BatchSelectContactsPage.ets b/entry/src/main/ets/pages/contacts/batchselectcontacts/BatchSelectContactsPage.ets\nindex 004c8d7..123456'
+  [DEBUG] parsed hunks: 1
+  [DEBUG] hunk 0 old_lines (6): "        .height('100%')\n        .width('100%')\n        .backgroundColor($r('sys.color.ohos_id_color_sub_background'))\n      }\n    }\n    .height('100%'"
+  [DEBUG] hunk 0 old_text in original: False
+  [DEBUG] hunk 0 stripped match: False
+  [DEBUG] text_match FAILED
+  [DEBUG] patch SUCCESS
+OH_0017         | PASS                           | diff_patched       | hp-arkui-use-reusable-compon
+  [DEBUG] file: entry/src/main/ets/pages/contacts/batchselectcontacts/BatchSelectContactsPage.ets
+  [DEBUG] original length: 11545
+  [DEBUG] original first 100 chars: '/**\n * Copyright (c) 2022 Huawei Device Co., Ltd.\n * Licensed under the Apache License, Version 2.0 '
+  [DEBUG] cleaned diff first 200 chars: 'diff --git a/entry/src/main/ets/pages/contacts/batchselectcontacts/BatchSelectContactsPage.ets b/entry/src/main/ets/pages/contacts/batchselectcontacts/BatchSelectContactsPage.ets\nindex 0000000..111111'
+  [DEBUG] parsed hunks: 1
+  [DEBUG] hunk 0 old_lines (7): "        .columnsTemplate('1fr 1fr 1fr 1fr')\n        .columnsGap(12)\n        .rowsGap(12)\n        .cachedCount(0)\n        .editMode(true)\n        .widt"
+  [DEBUG] hunk 0 old_text in original: False
+  [DEBUG] hunk 0 stripped match: False
+  [DEBUG] text_match FAILED
+  [DEBUG] patch FAILED
+OH_0018         | APPLY_ERROR: git apply failed: error: a/entry/src/main/ets/pages/contacts/batchselectcontacts/BatchSelectContactsPage.ets: No such file or directory | raw_diff_fallback  | hp-arkui-set-cache-count-for
+  [DEBUG] file: entry/src/main/ets/pages/contacts/batchselectcontacts/BatchSelectContactsPage.ets
+  [DEBUG] original length: 11545
+  [DEBUG] original first 100 chars: '/**\n * Copyright (c) 2022 Huawei Device Co., Ltd.\n * Licensed under the Apache License, Version 2.0 '
+  [DEBUG] cleaned diff first 200 chars: 'diff --git a/entry/src/main/ets/pages/contacts/batchselectcontacts/BatchSelectContactsPage.ets b/entry/src/main/ets/pages/contacts/batchselectcontacts/BatchSelectContactsPage.ets\nindex 0000000..111111'
+  [DEBUG] parsed hunks: 1
+  [DEBUG] hunk 0 old_lines (6): "        .height('100%')\n        .width('100%')\n        .backgroundColor($r('app.color.contact_list_background'))\n      }\n      .layoutWeight(1)\n    }"
+  [DEBUG] hunk 0 old_text in original: False
+  [DEBUG] hunk 0 stripped match: False
+  [DEBUG] text_match FAILED
+  [DEBUG] patch FAILED
+OH_0019         | APPLY_ERROR: git apply failed: error: a/entry/src/main/ets/pages/contacts/batchselectcontacts/BatchSelectContactsPage.ets: No such file or directory | raw_diff_fallback  | hp-arkui-use-reusable-compon
+  [DEBUG] file: entry/src/main/ets/pages/contacts/ContactList.ets
+  [DEBUG] original length: 11291
+  [DEBUG] original first 100 chars: '/**\n * Copyright (c) 2022 Huawei Device Co., Ltd.\n * Licensed under the Apache License, Version 2.0 '
+  [DEBUG] cleaned diff first 200 chars: 'diff --git a/entry/src/main/ets/pages/contacts/ContactList.ets b/entry/src/main/ets/pages/contacts/ContactList.ets\nindex 0000000..1111111 100644\n--- a/entry/src/main/ets/pages/contacts/ContactList.ets'
+  [DEBUG] parsed hunks: 1
+  [DEBUG] hunk 0 old_lines (7): "        .columnsTemplate('1fr')\n        .columnsGap(10)\n        .rowsGap(10)\n        LazyForEach(this.contactsData, (item: Contact) => {\n          Gri"
+  [DEBUG] hunk 0 old_text in original: False
+  [DEBUG] hunk 0 stripped match: False
+  [DEBUG] text_match FAILED
+  [DEBUG] patch FAILED
+OH_0020         | APPLY_ERROR: git apply failed: error: a/entry/src/main/ets/pages/contacts/ContactList.ets: No such file or directory | raw_diff_fallback  | hp-arkui-set-cache-count-for
+  [DEBUG] file: entry/src/main/ets/pages/contacts/ContactList.ets
+  [DEBUG] original length: 11291
+  [DEBUG] original first 100 chars: '/**\n * Copyright (c) 2022 Huawei Device Co., Ltd.\n * Licensed under the Apache License, Version 2.0 '
+  [DEBUG] cleaned diff first 200 chars: 'diff --git a/entry/src/main/ets/pages/contacts/ContactList.ets b/entry/src/main/ets/pages/contacts/ContactList.ets\nindex 0000000..1111111 100644\n--- a/entry/src/main/ets/pages/contacts/ContactList.ets'
+  [DEBUG] parsed hunks: 2
+  [DEBUG] hunk 0 old_lines (6): '    }\n  }\n\n  build() {\n    Column() {\n      Row() {'
+  [DEBUG] hunk 0 old_text in original: False
+  [DEBUG] hunk 0 stripped match: False
+  [DEBUG] hunk 1 old_lines (19): '        List() {\n          ForEach(this.contacts, (item: Contact) => {\n            ListItem() {\n              Row() {\n                Text(item.name)\n'
+  [DEBUG] hunk 1 old_text in original: False
+  [DEBUG] hunk 1 stripped match: False
+  [DEBUG] text_match FAILED
+  [DEBUG] patch FAILED
+OH_0021         | APPLY_ERROR: git apply failed: error: corrupt patch at line 50 | raw_diff_fallback  | hp-arkui-use-reusable-compon
+  [DEBUG] file: entry/src/main/ets/component/contactdetail/DetailCalllog.ets
+  [DEBUG] original length: 6114
+  [DEBUG] original first 100 chars: '/**\n * Copyright (c) 2022 Huawei Device Co., Ltd.\n * Licensed under the Apache License, Version 2.0 '
+  [DEBUG] cleaned diff first 200 chars: 'diff --git a/entry/src/main/ets/component/contactdetail/DetailCalllog.ets b/entry/src/main/ets/component/contactdetail/DetailCalllog.ets\nindex 004c8d7..1234567 100644\n--- a/entry/src/main/ets/componen'
+  [DEBUG] parsed hunks: 1
+  [DEBUG] hunk 0 old_lines (7): "        .columnsTemplate('1fr 1fr 1fr')\n        .columnsGap(10)\n        .rowsGap(10)\n        .cachedCount(0)\n        .editMode(true)\n        .width('1"
+  [DEBUG] hunk 0 old_text in original: False
+  [DEBUG] hunk 0 stripped match: False
+  [DEBUG] text_match FAILED
+  [DEBUG] patch FAILED
+OH_0022         | APPLY_ERROR: git apply failed: error: a/entry/src/main/ets/component/contactdetail/DetailCalllog.ets: No such file or directory | raw_diff_fallback  | hp-arkui-set-cache-count-for
+  [DEBUG] file: entry/src/main/ets/component/contactdetail/DetailCalllog.ets
+  [DEBUG] original length: 6114
+  [DEBUG] original first 100 chars: '/**\n * Copyright (c) 2022 Huawei Device Co., Ltd.\n * Licensed under the Apache License, Version 2.0 '
+  [DEBUG] cleaned diff first 200 chars: 'diff --git a/entry/src/main/ets/component/contactdetail/DetailCalllog.ets b/entry/src/main/ets/component/contactdetail/DetailCalllog.ets\nindex 0000000..1111111 100644\n--- a/entry/src/main/ets/componen'
+  [DEBUG] parsed hunks: 1
+  [DEBUG] hunk 0 old_lines (6): '  }\n}\n\n@Component\nstruct CallLogItem {\n  @State callLog: CallLog = new CallLog();'
+  [DEBUG] hunk 0 old_text in original: False
+  [DEBUG] hunk 0 stripped match: False
+  [DEBUG] text_match FAILED
+  [DEBUG] patch FAILED
+OH_0023         | APPLY_ERROR: git apply failed: error: a/entry/src/main/ets/component/contactdetail/DetailCalllog.ets: No such file or directory | raw_diff_fallback  | hp-arkui-use-reusable-compon
+  [DEBUG] file: entry/src/main/ets/pages/dialer/callRecord/AllRecord.ets
+  [DEBUG] original length: 15633
+  [DEBUG] original first 100 chars: '/**\n * Copyright (c) 2022 Huawei Device Co., Ltd.\n * Licensed under the Apache License, Version 2.0 '
+  [DEBUG] cleaned diff first 200 chars: 'diff --git a/entry/src/main/ets/pages/dialer/callRecord/AllRecord.ets b/entry/src/main/ets/pages/dialer/callRecord/AllRecord.ets\nindex 0000000..1111111 100644\n--- a/entry/src/main/ets/pages/dialer/cal'
+  [DEBUG] parsed hunks: 1
+  [DEBUG] hunk 0 old_lines (7): '    Column() {\n      Grid() {\n        LazyForEach(this.data, (item: number) => {\n        })\n      }\n    }\n  }'
+  [DEBUG] hunk 0 old_text in original: False
+  [DEBUG] hunk 0 stripped match: False
+  [DEBUG] text_match FAILED
+  [DEBUG] patch FAILED
+OH_0024         | APPLY_ERROR: git apply failed: error: corrupt patch at line 15 | raw_diff_fallback  | hp-arkui-set-cache-count-for
+  [DEBUG] file: entry/src/main/ets/pages/dialer/callRecord/AllRecord.ets
+  [DEBUG] original length: 15633
+  [DEBUG] original first 100 chars: '/**\n * Copyright (c) 2022 Huawei Device Co., Ltd.\n * Licensed under the Apache License, Version 2.0 '
+  [DEBUG] cleaned diff first 200 chars: 'diff --git a/entry/src/main/ets/pages/dialer/callRecord/AllRecord.ets b/entry/src/main/ets/pages/dialer/callRecord/AllRecord.ets\nindex 0000000..1111111 100644\n--- a/entry/src/main/ets/pages/dialer/cal'
+  [DEBUG] parsed hunks: 1
+  [DEBUG] hunk 0 old_lines (6): '  }\n}\n\n@Component\nstruct CallRecordItem {\n  @State callRecordData: CallRecordData = new CallRecordData();'
+  [DEBUG] hunk 0 old_text in original: False
+  [DEBUG] hunk 0 stripped match: False
+  [DEBUG] text_match FAILED
+  [DEBUG] patch FAILED
+OH_0025         | APPLY_ERROR: git apply failed: error: corrupt patch at line 13 | raw_diff_fallback  | hp-arkui-use-reusable-compon
+  [DEBUG] file: entry/src/main/ets/pages/dialer/callRecord/AllRecord.ets
+  [DEBUG] original length: 15633
+  [DEBUG] original first 100 chars: '/**\n * Copyright (c) 2022 Huawei Device Co., Ltd.\n * Licensed under the Apache License, Version 2.0 '
+  [DEBUG] cleaned diff first 200 chars: 'diff --git a/entry/src/main/ets/pages/dialer/callRecord/AllRecord.ets b/entry/src/main/ets/pages/dialer/callRecord/AllRecord.ets\n--- a/entry/src/main/ets/pages/dialer/callRecord/AllRecord.ets\n+++ b/en'
+  [DEBUG] parsed hunks: 1
+  [DEBUG] hunk 0 old_lines (7): "            .height('100%')\n            .width('100%')\n            .backgroundColor($r('app.color.color_E3E3E3_grey'))\n            .key(JSON.stringify"
+  [DEBUG] hunk 0 old_text in original: False
+  [DEBUG] hunk 0 stripped match: False
+  [DEBUG] text_match FAILED
+  [DEBUG] patch FAILED
+OH_0026         | APPLY_ERROR: git apply failed: error: a/entry/src/main/ets/pages/dialer/callRecord/AllRecord.ets: No such file or directory | raw_diff_fallback  | hp-arkui-no-stringify-in-laz
+  [DEBUG] file: entry/src/main/ets/pages/contacts/batchselectcontacts/BatchSelectContactsPage.ets
+  [DEBUG] original length: 13234
+  [DEBUG] original first 100 chars: '/**\n * Copyright (c) 2022 Huawei Device Co., Ltd.\n * Licensed under the Apache License, Version 2.0 '
+  [DEBUG] cleaned diff first 200 chars: 'diff --git a/entry/src/main/ets/pages/contacts/batchselectcontacts/BatchSelectContactsPage.ets b/entry/src/main/ets/pages/contacts/batchselectcontacts/BatchSelectContactsPage.ets\nindex 0000000..111111'
+  [DEBUG] parsed hunks: 1
+  [DEBUG] hunk 0 old_lines (7): "        .columnsTemplate('1fr')\n        .columnsGap(0)\n        .rowsGap(0)\n        .cachedCount(0)\n        .width('100%')\n        .height('100%')\n    "
+  [DEBUG] hunk 0 old_text in original: False
+  [DEBUG] hunk 0 stripped match: False
+  [DEBUG] text_match FAILED
+  [DEBUG] patch FAILED
+OH_0027         | APPLY_ERROR: git apply failed: error: a/entry/src/main/ets/pages/contacts/batchselectcontacts/BatchSelectContactsPage.ets: No such file or directory | raw_diff_fallback  | hp-arkui-set-cache-count-for
+  [DEBUG] file: entry/src/main/ets/pages/contacts/batchselectcontacts/BatchSelectContactsPage.ets
+  [DEBUG] original length: 13234
+  [DEBUG] original first 100 chars: '/**\n * Copyright (c) 2022 Huawei Device Co., Ltd.\n * Licensed under the Apache License, Version 2.0 '
+  [DEBUG] cleaned diff first 200 chars: 'diff --git a/entry/src/main/ets/pages/contacts/batchselectcontacts/BatchSelectContactsPage.ets b/entry/src/main/ets/pages/contacts/batchselectcontacts/BatchSelectContactsPage.ets\nindex 1111111..222222'
+  [DEBUG] parsed hunks: 1
+  [DEBUG] hunk 0 old_lines (6): "        .height('100%')\n        .width('100%')\n        .cachedCount(Constants.CACHED_COUNT)\n      }\n      .layoutWeight(1)\n      .width('100%')"
+  [DEBUG] hunk 0 old_text in original: False
+  [DEBUG] hunk 0 stripped match: False
+  [DEBUG] text_match FAILED
+  [DEBUG] patch SUCCESS
+OH_0028         | PASS                           | diff_patched       | hp-arkui-use-reusable-compon
+  [DEBUG] file: entry/src/main/ets/pages/contacts/batchselectcontacts/BatchSelectContactsPage.ets
+  [DEBUG] original length: 13234
+  [DEBUG] original first 100 chars: '/**\n * Copyright (c) 2022 Huawei Device Co., Ltd.\n * Licensed under the Apache License, Version 2.0 '
+  [DEBUG] cleaned diff first 200 chars: 'diff --git a/entry/src/main/ets/pages/contacts/batchselectcontacts/BatchSelectContactsPage.ets b/entry/src/main/ets/pages/contacts/batchselectcontacts/BatchSelectContactsPage.ets\n--- a/entry/src/main/'
+  [DEBUG] parsed hunks: 2
+  [DEBUG] hunk 0 old_lines (7): "          .width('100%')\n          .height('100%')\n\n        LazyForEach(this.dataSource, (item: Contact) => {\n          ListItem() {\n            Conta"
+  [DEBUG] hunk 0 old_text in original: False
+  [DEBUG] hunk 0 stripped match: False
+  [DEBUG] hunk 1 old_lines (7): '              onSelectChange: this.handleSelectChange.bind(this)\n            })\n          }\n        }, (item: Contact) => JSON.stringify(item))\n      '
+  [DEBUG] hunk 1 old_text in original: False
+  [DEBUG] hunk 1 stripped match: False
+  [DEBUG] text_match FAILED
+  [DEBUG] patch FAILED
+OH_0029         | APPLY_ERROR: git apply failed: error: a/entry/src/main/ets/pages/contacts/batchselectcontacts/BatchSelectContactsPage.ets: No such file or directory | raw_diff_fallback  | hp-arkui-no-stringify-in-laz
+  [DEBUG] file: entry/src/main/ets/pages/contacts/batchselectcontacts/BatchSelectContactsPage.ets
+  [DEBUG] original length: 13234
+  [DEBUG] original first 100 chars: '/**\n * Copyright (c) 2022 Huawei Device Co., Ltd.\n * Licensed under the Apache License, Version 2.0 '
+  [DEBUG] cleaned diff first 200 chars: 'diff --git a/entry/src/main/ets/pages/contacts/batchselectcontacts/BatchSelectContactsPage.ets b/entry/src/main/ets/pages/contacts/batchselectcontacts/BatchSelectContactsPage.ets\n--- a/entry/src/main/'
+  [DEBUG] parsed hunks: 2
+  [DEBUG] hunk 0 old_lines (7): "        .columnsTemplate('1fr 1fr 1fr 1fr')\n        .columnsGap(HiLog.COLUMN_GAP)\n        .rowsGap(HiLog.ROW_GAP)\n        LazyForEach(this.contactsLis"
+  [DEBUG] hunk 0 old_text in original: False
+  [DEBUG] hunk 0 stripped match: False
+  [DEBUG] hunk 1 old_lines (7): '              onItemClick: this.onItemClick\n            })\n          }\n        }, (item: ContactsListData) => JSON.stringify(item))\n      }\n      .wid'
+  [DEBUG] hunk 1 old_text in original: False
+  [DEBUG] hunk 1 stripped match: False
+  [DEBUG] text_match FAILED
+  [DEBUG] patch FAILED
+OH_0030         | APPLY_ERROR: git apply failed: error: a/entry/src/main/ets/pages/contacts/batchselectcontacts/BatchSelectContactsPage.ets: No such file or directory | raw_diff_fallback  | hp-arkui-set-cache-count-for
+  [DEBUG] file: entry/src/main/ets/pages/contacts/batchselectcontacts/BatchSelectContactsPage.ets
+  [DEBUG] original length: 13234
+  [DEBUG] original first 100 chars: '/**\n * Copyright (c) 2022 Huawei Device Co., Ltd.\n * Licensed under the Apache License, Version 2.0 '
+  [DEBUG] cleaned diff first 200 chars: 'diff --git a/entry/src/main/ets/pages/contacts/batchselectcontacts/BatchSelectContactsPage.ets b/entry/src/main/ets/pages/contacts/batchselectcontacts/BatchSelectContactsPage.ets\n--- a/entry/src/main/'
+  [DEBUG] parsed hunks: 1
+  [DEBUG] hunk 0 old_lines (6): '  }\n}\n\n@Component\nstruct ContactItem {\n  @ObjectLink contact: Contact;'
+  [DEBUG] hunk 0 old_text in original: False
+  [DEBUG] hunk 0 stripped match: False
+  [DEBUG] text_match FAILED
+  [DEBUG] patch SUCCESS
+OH_0031         | LINTER_FAIL                    | diff_patched       | hp-arkui-use-reusable-compon
+  [DEBUG] file: entry/src/main/ets/pages/contacts/batchselectcontacts/BatchSelectContactsPage.ets
+  [DEBUG] original length: 13234
+  [DEBUG] original first 100 chars: '/**\n * Copyright (c) 2022 Huawei Device Co., Ltd.\n * Licensed under the Apache License, Version 2.0 '
+  [DEBUG] cleaned diff first 200 chars: 'diff --git a/entry/src/main/ets/pages/contacts/batchselectcontacts/BatchSelectContactsPage.ets b/entry/src/main/ets/pages/contacts/batchselectcontacts/BatchSelectContactsPage.ets\n--- a/entry/src/main/'
+  [DEBUG] parsed hunks: 2
+  [DEBUG] hunk 0 old_lines (7): "          .width('100%')\n          .height('100%')\n\n        LazyForEach(this.dataSource, (item: Contact) => {\n          ListItem() {\n            Conta"
+  [DEBUG] hunk 0 old_text in original: False
+  [DEBUG] hunk 0 stripped match: False
+  [DEBUG] hunk 1 old_lines (7): '              onCheckChanged: (checked: boolean) => this.onContactCheckChanged(item, checked)\n            })\n          }\n        }, (item: Contact) =>'
+  [DEBUG] hunk 1 old_text in original: False
+  [DEBUG] hunk 1 stripped match: False
+  [DEBUG] text_match FAILED
+  [DEBUG] patch FAILED
+OH_0032         | APPLY_ERROR: git apply failed: error: a/entry/src/main/ets/pages/contacts/batchselectcontacts/BatchSelectContactsPage.ets: No such file or directory | raw_diff_fallback  | hp-arkui-no-stringify-in-laz
+  [DEBUG] file: entry/src/main/ets/pages/contacts/details/ContactDetail.ets
+  [DEBUG] original length: 18161
+  [DEBUG] original first 100 chars: '/**\n * Copyright (c) 2022 Huawei Device Co., Ltd.\n * Licensed under the Apache License, Version 2.0 '
+  [DEBUG] cleaned diff first 200 chars: 'diff --git a/entry/src/main/ets/pages/contacts/details/ContactDetail.ets b/entry/src/main/ets/pages/contacts/details/ContactDetail.ets\nindex 0000000..1111111 100644\n--- a/entry/src/main/ets/pages/cont'
+  [DEBUG] parsed hunks: 1
+  [DEBUG] hunk 0 old_lines (7): "        .columnsTemplate('1fr 1fr 1fr 1fr')\n        .columnsGap(12)\n        .rowsGap(12)\n        .cachedCount(0)\n        .width('100%')\n        .heigh"
+  [DEBUG] hunk 0 old_text in original: False
+  [DEBUG] hunk 0 stripped match: False
+  [DEBUG] text_match FAILED
+  [DEBUG] patch FAILED
+OH_0033         | APPLY_ERROR: git apply failed: error: a/entry/src/main/ets/pages/contacts/details/ContactDetail.ets: No such file or directory | raw_diff_fallback  | hp-arkui-set-cache-count-for
+  [DEBUG] file: entry/src/main/ets/pages/contacts/details/ContactDetail.ets
+  [DEBUG] original length: 18161
+  [DEBUG] original first 100 chars: '/**\n * Copyright (c) 2022 Huawei Device Co., Ltd.\n * Licensed under the Apache License, Version 2.0 '
+  [DEBUG] cleaned diff first 200 chars: 'diff --git a/entry/src/main/ets/pages/contacts/details/ContactDetail.ets b/entry/src/main/ets/pages/contacts/details/ContactDetail.ets\n--- a/entry/src/main/ets/pages/contacts/details/ContactDetail.ets'
+  [DEBUG] parsed hunks: 1
+  [DEBUG] hunk 0 old_lines (7): '  }\n}\n\n@Entry\n@Component\nstruct ContactDetail {\n}'
+  [DEBUG] hunk 0 old_text in original: False
+  [DEBUG] hunk 0 stripped match: False
+  [DEBUG] text_match FAILED
+  [DEBUG] patch FAILED
+OH_0034         | APPLY_ERROR: git apply failed: error: corrupt patch at line 23 | raw_diff_fallback  | hp-arkui-use-reusable-compon
+  [DEBUG] file: entry/src/main/ets/pages/contacts/details/ContactDetail.ets
+  [DEBUG] original length: 18161
+  [DEBUG] original first 100 chars: '/**\n * Copyright (c) 2022 Huawei Device Co., Ltd.\n * Licensed under the Apache License, Version 2.0 '
+  [DEBUG] cleaned diff first 200 chars: 'diff --git a/entry/src/main/ets/pages/contacts/details/ContactDetail.ets b/entry/src/main/ets/pages/contacts/details/ContactDetail.ets\n--- a/entry/src/main/ets/pages/contacts/details/ContactDetail.ets'
+  [DEBUG] parsed hunks: 1
+  [DEBUG] hunk 0 old_lines (8): '          LazyForEach(this.dataSource, (item: ContactData, index: number) => {\n            ListItem() {\n              ContactItem({ item: item, index:'
+  [DEBUG] hunk 0 old_text in original: False
+  [DEBUG] hunk 0 stripped match: False
+  [DEBUG] text_match FAILED
+  [DEBUG] patch FAILED
+OH_0035         | APPLY_ERROR: git apply failed: error: a/entry/src/main/ets/pages/contacts/details/ContactDetail.ets: No such file or directory | raw_diff_fallback  | hp-arkui-no-stringify-in-laz
+  [DEBUG] file: entry/src/main/ets/pages/contacts/ContactList.ets
+  [DEBUG] original length: 15936
+  [DEBUG] original first 100 chars: '/**\n * Copyright (c) 2022 Huawei Device Co., Ltd.\n * Licensed under the Apache License, Version 2.0 '
+  [DEBUG] cleaned diff first 200 chars: 'diff --git a/entry/src/main/ets/pages/contacts/ContactList.ets b/entry/src/main/ets/pages/contacts/ContactList.ets\nindex 0000000..1111111 100644\n--- a/entry/src/main/ets/pages/contacts/ContactList.ets'
+  [DEBUG] parsed hunks: 1
+  [DEBUG] hunk 0 old_lines (7): "        .columnsTemplate('1fr')\n        .columnsGap(0)\n        .rowsGap(0)\n        .cachedCount(0)\n        .editMode(true)\n        .onScrollIndex((fir"
+  [DEBUG] hunk 0 old_text in original: False
+  [DEBUG] hunk 0 stripped match: False
+  [DEBUG] text_match FAILED
+  [DEBUG] patch FAILED
+OH_0036         | APPLY_ERROR: git apply failed: error: a/entry/src/main/ets/pages/contacts/ContactList.ets: No such file or directory | raw_diff_fallback  | hp-arkui-set-cache-count-for
+  [DEBUG] file: entry/src/main/ets/pages/contacts/ContactList.ets
+  [DEBUG] original length: 15936
+  [DEBUG] original first 100 chars: '/**\n * Copyright (c) 2022 Huawei Device Co., Ltd.\n * Licensed under the Apache License, Version 2.0 '
+  [DEBUG] cleaned diff first 200 chars: 'diff --git a/entry/src/main/ets/pages/contacts/ContactList.ets b/entry/src/main/ets/pages/contacts/ContactList.ets\nindex 0000000..0000000 100644\n--- a/entry/src/main/ets/pages/contacts/ContactList.ets'
+  [DEBUG] parsed hunks: 1
+  [DEBUG] hunk 0 old_lines (6): '  }\n}\n\n@Component\nstruct ContactItem {\n  @Prop contact: Contact;'
+  [DEBUG] hunk 0 old_text in original: False
+  [DEBUG] hunk 0 stripped match: False
+  [DEBUG] text_match FAILED
+  [DEBUG] patch FAILED
+OH_0037         | APPLY_ERROR: git apply failed: error: a/entry/src/main/ets/pages/contacts/ContactList.ets: No such file or directory | raw_diff_fallback  | hp-arkui-use-reusable-compon
+  [DEBUG] file: entry/src/main/ets/pages/contacts/ContactList.ets
+  [DEBUG] original length: 15936
+  [DEBUG] original first 100 chars: '/**\n * Copyright (c) 2022 Huawei Device Co., Ltd.\n * Licensed under the Apache License, Version 2.0 '
+  [DEBUG] cleaned diff first 200 chars: 'diff --git a/entry/src/main/ets/pages/contacts/ContactList.ets b/entry/src/main/ets/pages/contacts/ContactList.ets\n--- a/entry/src/main/ets/pages/contacts/ContactList.ets\n+++ b/entry/src/main/ets/page'
+  [DEBUG] parsed hunks: 1
+  [DEBUG] hunk 0 old_lines (7): '        LazyForEach(this.contactsData, (item: ContactsBean, index: number) => {\n          ListItem() {\n            ContactsListItem({ contactsItem: it'
+  [DEBUG] hunk 0 old_text in original: False
+  [DEBUG] hunk 0 stripped match: False
+  [DEBUG] text_match FAILED
+  [DEBUG] patch FAILED
+OH_0038         | APPLY_ERROR: git apply failed: error: a/entry/src/main/ets/pages/contacts/ContactList.ets: No such file or directory | raw_diff_fallback  | hp-arkui-no-stringify-in-laz
+  [DEBUG] file: entry/src/main/ets/pages/contacts/search/ContactSearch.ets
+  [DEBUG] original length: 16833
+  [DEBUG] original first 100 chars: '/**\n * Copyright (c) 2023 Huawei Device Co., Ltd.\n * Licensed under the Apache License, Version 2.0 '
+  [DEBUG] cleaned diff first 200 chars: 'diff --git a/entry/src/main/ets/pages/contacts/search/ContactSearch.ets b/entry/src/main/ets/pages/contacts/search/ContactSearch.ets\nindex 0000000..1111111 100644\n--- a/entry/src/main/ets/pages/contac'
+  [DEBUG] parsed hunks: 1
+  [DEBUG] hunk 0 old_lines (7): "        .columnsTemplate('1fr')\n        .columnsGap($r('app.float.contact_list_item_space'))\n        .rowsGap($r('app.float.contact_list_item_space'))"
+  [DEBUG] hunk 0 old_text in original: False
+  [DEBUG] hunk 0 stripped match: False
+  [DEBUG] text_match FAILED
+  [DEBUG] patch FAILED
+OH_0039         | APPLY_ERROR: git apply failed: error: a/entry/src/main/ets/pages/contacts/search/ContactSearch.ets: No such file or directory | raw_diff_fallback  | hp-arkui-set-cache-count-for
+  [DEBUG] file: entry/src/main/ets/pages/contacts/search/ContactSearch.ets
+  [DEBUG] original length: 16833
+  [DEBUG] original first 100 chars: '/**\n * Copyright (c) 2023 Huawei Device Co., Ltd.\n * Licensed under the Apache License, Version 2.0 '
+  [DEBUG] cleaned diff first 200 chars: 'diff --git a/entry/src/main/ets/pages/contacts/search/ContactSearch.ets b/entry/src/main/ets/pages/contacts/search/ContactSearch.ets\nindex 0000000..1111111 100644\n--- a/entry/src/main/ets/pages/contac'
+  [DEBUG] parsed hunks: 2
+  [DEBUG] hunk 0 old_lines (6): '    }\n  }\n\n  build() {\n    Column() {\n      // Search input'
+  [DEBUG] hunk 0 old_text in original: False
+  [DEBUG] hunk 0 stripped match: False
+  [DEBUG] hunk 1 old_lines (13): '      List() {\n        ForEach(this.filteredContacts, (item: Contact) => {\n          ListItem() {\n            Row() {\n              Text(item.name)\n  '
+  [DEBUG] hunk 1 old_text in original: False
+  [DEBUG] hunk 1 stripped match: False
+  [DEBUG] text_match FAILED
+  [DEBUG] patch FAILED
+OH_0040         | APPLY_ERROR: git apply failed: error: a/entry/src/main/ets/pages/contacts/search/ContactSearch.ets: No such file or directory | raw_diff_fallback  | hp-arkui-use-reusable-compon
+  [DEBUG] file: entry/src/main/ets/pages/contacts/search/ContactSearch.ets
+  [DEBUG] original length: 16833
+  [DEBUG] original first 100 chars: '/**\n * Copyright (c) 2023 Huawei Device Co., Ltd.\n * Licensed under the Apache License, Version 2.0 '
+  [DEBUG] cleaned diff first 200 chars: 'diff --git a/entry/src/main/ets/pages/contacts/search/ContactSearch.ets b/entry/src/main/ets/pages/contacts/search/ContactSearch.ets\n--- a/entry/src/main/ets/pages/contacts/search/ContactSearch.ets\n++'
+  [DEBUG] parsed hunks: 1
+  [DEBUG] hunk 0 old_lines (7): '            LazyForEach(this.dataSource, (item: ContactDataItem, index: number) => {\n              ContactSearchItem({ item: item, index: index })\n   '
+  [DEBUG] hunk 0 old_text in original: False
+  [DEBUG] hunk 0 stripped match: False
+  [DEBUG] text_match FAILED
+  [DEBUG] patch FAILED
+OH_0041         | APPLY_ERROR: git apply failed: error: a/entry/src/main/ets/pages/contacts/search/ContactSearch.ets: No such file or directory | raw_diff_fallback  | hp-arkui-no-stringify-in-laz
+  [DEBUG] file: entry/src/main/ets/pages/favorites/editFavoriteList.ets
+  [DEBUG] original length: 22620
+  [DEBUG] original first 100 chars: '/**\n * Copyright (c) 2023 Huawei Device Co., Ltd.\n * Licensed under the Apache License, Version 2.0 '
+  [DEBUG] cleaned diff first 200 chars: 'diff --git a/entry/src/main/ets/pages/favorites/editFavoriteList.ets b/entry/src/main/ets/pages/favorites/editFavoriteList.ets\nindex 0000000..1111111 100644\n--- a/entry/src/main/ets/pages/favorites/ed'
+  [DEBUG] parsed hunks: 2
+  [DEBUG] hunk 0 old_lines (7): "        .columnsTemplate('1fr 1fr 1fr 1fr')\n        .rowsGap(Constants.GRID_ROWS_GAP)\n        .columnsGap(Constants.GRID_COLUMNS_GAP)\n        LazyForE"
+  [DEBUG] hunk 0 old_text in original: False
+  [DEBUG] hunk 0 stripped match: False
+  [DEBUG] hunk 1 old_lines (7): '              onItemClick: this.onItemClick\n            })\n          }\n        }, (item: FavoriteListItemData) => JSON.stringify(item))\n      }\n      '
+  [DEBUG] hunk 1 old_text in original: False
+  [DEBUG] hunk 1 stripped match: False
+  [DEBUG] text_match FAILED
+  [DEBUG] patch FAILED
+OH_0042         | APPLY_ERROR: git apply failed: error: a/entry/src/main/ets/pages/favorites/editFavoriteList.ets: No such file or directory | raw_diff_fallback  | hp-arkui-set-cache-count-for
+  [DEBUG] file: entry/src/main/ets/pages/favorites/editFavoriteList.ets
+  [DEBUG] original length: 22620
+  [DEBUG] original first 100 chars: '/**\n * Copyright (c) 2023 Huawei Device Co., Ltd.\n * Licensed under the Apache License, Version 2.0 '
+  [DEBUG] cleaned diff first 200 chars: 'diff --git a/entry/src/main/ets/pages/favorites/editFavoriteList.ets b/entry/src/main/ets/pages/favorites/editFavoriteList.ets\nindex 0000000..0000000 100644\n--- a/entry/src/main/ets/pages/favorites/ed'
+  [DEBUG] parsed hunks: 2
+  [DEBUG] hunk 0 old_lines (6): '    }\n  }\n\n  build() {\n    Column() {\n      Row() {'
+  [DEBUG] hunk 0 old_text in original: False
+  [DEBUG] hunk 0 stripped match: False
+  [DEBUG] hunk 1 old_lines (18): '      List() {\n        ForEach(this.favoriteList, (item: FavoriteItem) => {\n          ListItem() {\n            Row() {\n              Image(item.icon)\n'
+  [DEBUG] hunk 1 old_text in original: False
+  [DEBUG] hunk 1 stripped match: False
+  [DEBUG] text_match FAILED
+  [DEBUG] patch FAILED
+OH_0043         | APPLY_ERROR: git apply failed: error: a/entry/src/main/ets/pages/favorites/editFavoriteList.ets: No such file or directory | raw_diff_fallback  | hp-arkui-use-reusable-compon
+  [DEBUG] file: entry/src/main/ets/pages/favorites/editFavoriteList.ets
+  [DEBUG] original length: 22620
+  [DEBUG] original first 100 chars: '/**\n * Copyright (c) 2023 Huawei Device Co., Ltd.\n * Licensed under the Apache License, Version 2.0 '
+  [DEBUG] cleaned diff first 200 chars: 'diff --git a/entry/src/main/ets/pages/favorites/editFavoriteList.ets b/entry/src/main/ets/pages/favorites/editFavoriteList.ets\nindex 0000000..0000000 100644\n--- a/entry/src/main/ets/pages/favorites/ed'
+  [DEBUG] parsed hunks: 1
+  [DEBUG] hunk 0 old_lines (7): "          .width('100%')\n          .height('100%')\n          .layoutWeight(1)\n        }, (item: FavoriteItem) => JSON.stringify(item))\n      }\n      ."
+  [DEBUG] hunk 0 old_text in original: False
+  [DEBUG] hunk 0 stripped match: False
+  [DEBUG] text_match FAILED
+  [DEBUG] patch FAILED
+OH_0044         | APPLY_ERROR: git apply failed: error: a/entry/src/main/ets/pages/favorites/editFavoriteList.ets: No such file or directory | raw_diff_fallback  | hp-arkui-no-stringify-in-laz
+  [DEBUG] file: entry/src/main/ets/pages/favorites/favoriteList.ets
+  [DEBUG] original length: 17218
+  [DEBUG] original first 100 chars: '/**\n * Copyright (c) 2023 Huawei Device Co., Ltd.\n * Licensed under the Apache License, Version 2.0 '
+  [DEBUG] cleaned diff first 200 chars: 'diff --git a/entry/src/main/ets/pages/favorites/favoriteList.ets b/entry/src/main/ets/pages/favorites/favoriteList.ets\nindex 0000000..1111111 100644\n--- a/entry/src/main/ets/pages/favorites/favoriteLi'
+  [DEBUG] parsed hunks: 1
+  [DEBUG] hunk 0 old_lines (7): "        .columnsTemplate('1fr 1fr')\n        .columnsGap(12)\n        .rowsGap(12)\n        .cachedCount(0)\n        .width('100%')\n        .height('100%'"
+  [DEBUG] hunk 0 old_text in original: False
+  [DEBUG] hunk 0 stripped match: False
+  [DEBUG] text_match FAILED
+  [DEBUG] patch FAILED
+OH_0045         | APPLY_ERROR: git apply failed: error: a/entry/src/main/ets/pages/favorites/favoriteList.ets: No such file or directory | raw_diff_fallback  | hp-arkui-set-cache-count-for
+  [DEBUG] file: entry/src/main/ets/pages/favorites/favoriteList.ets
+  [DEBUG] original length: 17218
+  [DEBUG] original first 100 chars: '/**\n * Copyright (c) 2023 Huawei Device Co., Ltd.\n * Licensed under the Apache License, Version 2.0 '
+  [DEBUG] cleaned diff first 200 chars: 'diff --git a/entry/src/main/ets/pages/favorites/favoriteList.ets b/entry/src/main/ets/pages/favorites/favoriteList.ets\nindex 0000000..1111111 100644\n--- a/entry/src/main/ets/pages/favorites/favoriteLi'
+  [DEBUG] parsed hunks: 1
+  [DEBUG] hunk 0 old_lines (6): '  }\n}\n\n@Component\nstruct FavoriteItem {\n  @Prop item: FavoriteItemData;'
+  [DEBUG] hunk 0 old_text in original: False
+  [DEBUG] hunk 0 stripped match: False
+  [DEBUG] text_match FAILED
+  [DEBUG] patch FAILED
+OH_0046         | APPLY_ERROR: git apply failed: error: corrupt patch at line 13 | raw_diff_fallback  | hp-arkui-use-reusable-compon
+  [DEBUG] file: entry/src/main/ets/pages/favorites/favoriteList.ets
+  [DEBUG] original length: 17218
+  [DEBUG] original first 100 chars: '/**\n * Copyright (c) 2023 Huawei Device Co., Ltd.\n * Licensed under the Apache License, Version 2.0 '
+  [DEBUG] cleaned diff first 200 chars: 'diff --git a/entry/src/main/ets/pages/favorites/favoriteList.ets b/entry/src/main/ets/pages/favorites/favoriteList.ets\n--- a/entry/src/main/ets/pages/favorites/favoriteList.ets\n+++ b/entry/src/main/et'
+  [DEBUG] parsed hunks: 1
+  [DEBUG] hunk 0 old_lines (7): '        LazyForEach(this.dataSource, (item: FavoriteItem, index: number) => {\n          ListItem() {\n            FavoriteItemComponent({ item: item, o'
+  [DEBUG] hunk 0 old_text in original: False
+  [DEBUG] hunk 0 stripped match: False
+  [DEBUG] text_match FAILED
+  [DEBUG] patch SUCCESS
+OH_0047         | PASS                           | diff_patched       | hp-arkui-no-stringify-in-laz
+  [DEBUG] file: entry/src/main/ets/pages/contacts/batchselectcontacts/SingleSelectContactPage.ets
+  [DEBUG] original length: 8359
+  [DEBUG] original first 100 chars: '/**\n\n Copyright (c) 2022 Huawei Device Co., Ltd.\n Licensed under the Apache License, Version 2.0 (th'
+  [DEBUG] cleaned diff first 200 chars: 'diff --git a/entry/src/main/ets/pages/contacts/batchselectcontacts/SingleSelectContactPage.ets b/entry/src/main/ets/pages/contacts/batchselectcontacts/SingleSelectContactPage.ets\nindex 1111111..222222'
+  [DEBUG] parsed hunks: 1
+  [DEBUG] hunk 0 old_lines (7): "        .columnsTemplate('1fr')\n        .columnsGap(0)\n        .rowsGap(0)\n        .cachedCount(0)\n        .width('100%')\n        .height('100%')\n    "
+  [DEBUG] hunk 0 old_text in original: False
+  [DEBUG] hunk 0 stripped match: False
+  [DEBUG] text_match FAILED
+  [DEBUG] patch FAILED
+OH_0048         | APPLY_ERROR: git apply failed: error: a/entry/src/main/ets/pages/contacts/batchselectcontacts/SingleSelectContactPage.ets: No such file or directory | raw_diff_fallback  | hp-arkui-set-cache-count-for
+  [DEBUG] file: entry/src/main/ets/pages/contacts/batchselectcontacts/SingleSelectContactPage.ets
+  [DEBUG] original length: 8359
+  [DEBUG] original first 100 chars: '/**\n\n Copyright (c) 2022 Huawei Device Co., Ltd.\n Licensed under the Apache License, Version 2.0 (th'
+  [DEBUG] cleaned diff first 200 chars: 'diff --git a/entry/src/main/ets/pages/contacts/batchselectcontacts/SingleSelectContactPage.ets b/entry/src/main/ets/pages/contacts/batchselectcontacts/SingleSelectContactPage.ets\n--- a/entry/src/main/'
+  [DEBUG] parsed hunks: 1
+  [DEBUG] hunk 0 old_lines (6): '  }\n}\n\n@Component\nstruct ContactItem {\n  @Prop contact: Contact;'
+  [DEBUG] hunk 0 old_text in original: False
+  [DEBUG] hunk 0 stripped match: False
+  [DEBUG] text_match FAILED
+  [DEBUG] patch SUCCESS
+OH_0049         | LINTER_FAIL                    | diff_patched       | hp-arkui-use-reusable-compon
+  [DEBUG] file: entry/src/main/ets/pages/contacts/batchselectcontacts/SingleSelectContactPage.ets
+  [DEBUG] original length: 8359
+  [DEBUG] original first 100 chars: '/**\n\n Copyright (c) 2022 Huawei Device Co., Ltd.\n Licensed under the Apache License, Version 2.0 (th'
+  [DEBUG] cleaned diff first 200 chars: 'diff --git a/entry/src/main/ets/pages/contacts/batchselectcontacts/SingleSelectContactPage.ets b/entry/src/main/ets/pages/contacts/batchselectcontacts/SingleSelectContactPage.ets\n--- a/entry/src/main/'
+  [DEBUG] parsed hunks: 1
+  [DEBUG] hunk 0 old_lines (7): "            .width('100%')\n            .height('100%')\n            .layoutWeight(1)\n          }, (item: Contact) => JSON.stringify(item))\n        }\n  "
+  [DEBUG] hunk 0 old_text in original: False
+  [DEBUG] hunk 0 stripped match: False
+  [DEBUG] text_match FAILED
+  [DEBUG] patch FAILED
+OH_0050         | APPLY_ERROR: git apply failed: error: a/entry/src/main/ets/pages/contacts/batchselectcontacts/SingleSelectContactPage.ets: No such file or directory | raw_diff_fallback  | hp-arkui-no-stringify-in-laz
+  [DEBUG] file: entry/src/main/ets/pages/favorites/addFavoriteList.ets
+  [DEBUG] original length: 31189
+  [DEBUG] original first 100 chars: '/**\n * Copyright (c) 2022 Huawei Device Co., Ltd.\n * Licensed under the Apache License, Version 2.0 '
+  [DEBUG] cleaned diff first 200 chars: 'diff --git a/entry/src/main/ets/pages/favorites/addFavoriteList.ets b/entry/src/main/ets/pages/favorites/addFavoriteList.ets\nindex 0000000..1111111 100644\n--- a/entry/src/main/ets/pages/favorites/addF'
+  [DEBUG] parsed hunks: 2
+  [DEBUG] hunk 0 old_lines (7): "        .columnsTemplate('1fr 1fr 1fr 1fr')\n        .columnsGap(Constants.GRID_COLUMNS_GAP)\n        .rowsGap(Constants.GRID_ROWS_GAP)\n        LazyForE"
+  [DEBUG] hunk 0 old_text in original: False
+  [DEBUG] hunk 0 stripped match: False
+  [DEBUG] hunk 1 old_lines (7): '              onContactClick: this.onContactClick\n            })\n          }\n        }, (item: Contact) => JSON.stringify(item))\n      }\n      .layout'
+  [DEBUG] hunk 1 old_text in original: False
+  [DEBUG] hunk 1 stripped match: False
+  [DEBUG] text_match FAILED
+  [DEBUG] patch FAILED
+OH_0051         | APPLY_ERROR: git apply failed: error: a/entry/src/main/ets/pages/favorites/addFavoriteList.ets: No such file or directory | raw_diff_fallback  | hp-arkui-set-cache-count-for
+  [DEBUG] file: entry/src/main/ets/pages/favorites/addFavoriteList.ets
+  [DEBUG] original length: 31189
+  [DEBUG] original first 100 chars: '/**\n * Copyright (c) 2022 Huawei Device Co., Ltd.\n * Licensed under the Apache License, Version 2.0 '
+  [DEBUG] cleaned diff first 200 chars: 'diff --git a/entry/src/main/ets/pages/favorites/addFavoriteList.ets b/entry/src/main/ets/pages/favorites/addFavoriteList.ets\n--- a/entry/src/main/ets/pages/favorites/addFavoriteList.ets\n+++ b/entry/sr'
+  [DEBUG] parsed hunks: 1
+  [DEBUG] hunk 0 old_lines (6): '  }\n}\n\n@Component\nstruct FavoriteListItem {\n  @Prop item: FavoriteListItemData;'
+  [DEBUG] hunk 0 old_text in original: False
+  [DEBUG] hunk 0 stripped match: False
+  [DEBUG] text_match FAILED
+  [DEBUG] patch SUCCESS
+OH_0052         | LINTER_FAIL                    | diff_patched       | hp-arkui-use-reusable-compon
+  [DEBUG] file: entry/src/main/ets/pages/favorites/addFavoriteList.ets
+  [DEBUG] original length: 31189
+  [DEBUG] original first 100 chars: '/**\n * Copyright (c) 2022 Huawei Device Co., Ltd.\n * Licensed under the Apache License, Version 2.0 '
+  [DEBUG] cleaned diff first 200 chars: 'diff --git a/entry/src/main/ets/pages/favorites/addFavoriteList.ets b/entry/src/main/ets/pages/favorites/addFavoriteList.ets\n--- a/entry/src/main/ets/pages/favorites/addFavoriteList.ets\n+++ b/entry/sr'
+  [DEBUG] parsed hunks: 2
+  [DEBUG] hunk 0 old_lines (7): '            .margin({ left: 12, right: 12 })\n\n            LazyForEach(this.dataSource, (item: ContactData, index: number) => {\n              ListItem('
+  [DEBUG] hunk 0 old_text in original: False
+  [DEBUG] hunk 0 stripped match: False
+  [DEBUG] hunk 1 old_lines (7): '                  }\n                }\n              }\n            }, (item: ContactData, index: number) => JSON.stringify(item) + index)\n          }\n '
+  [DEBUG] hunk 1 old_text in original: False
+  [DEBUG] hunk 1 stripped match: False
+  [DEBUG] text_match FAILED
+  [DEBUG] patch FAILED
+OH_0053         | APPLY_ERROR: git apply failed: error: a/entry/src/main/ets/pages/favorites/addFavoriteList.ets: No such file or directory | raw_diff_fallback  | hp-arkui-no-stringify-in-laz
+  [DEBUG] file: entry/src/main/ets/pages/contacts/settings/BatchDeleteContacts.ets
+  [DEBUG] original length: 42573
+  [DEBUG] original first 100 chars: '/**\n * Copyright (c) 2022 Huawei Device Co., Ltd.\n * Licensed under the Apache License, Version 2.0 '
+  [DEBUG] cleaned diff first 200 chars: 'diff --git a/entry/src/main/ets/pages/contacts/settings/BatchDeleteContacts.ets b/entry/src/main/ets/pages/contacts/settings/BatchDeleteContacts.ets\nindex 0000000..1111111 100644\n--- a/entry/src/main/'
+  [DEBUG] parsed hunks: 1
+  [DEBUG] hunk 0 old_lines (7): "        .columnsTemplate('1fr 1fr 1fr 1fr')\n        .columnsGap(0)\n        .rowsGap(0)\n        .cachedCount(0)\n        .editMode(true)\n        .width("
+  [DEBUG] hunk 0 old_text in original: False
+  [DEBUG] hunk 0 stripped match: False
+  [DEBUG] text_match FAILED
+  [DEBUG] patch FAILED
+OH_0054         | APPLY_ERROR: git apply failed: error: a/entry/src/main/ets/pages/contacts/settings/BatchDeleteContacts.ets: No such file or directory | raw_diff_fallback  | hp-arkui-set-cache-count-for
+  [DEBUG] file: entry/src/main/ets/pages/contacts/settings/BatchDeleteContacts.ets
+  [DEBUG] original length: 42573
+  [DEBUG] original first 100 chars: '/**\n * Copyright (c) 2022 Huawei Device Co., Ltd.\n * Licensed under the Apache License, Version 2.0 '
+  [DEBUG] cleaned diff first 200 chars: 'diff --git a/entry/src/main/ets/pages/contacts/settings/BatchDeleteContacts.ets b/entry/src/main/ets/pages/contacts/settings/BatchDeleteContacts.ets\n--- a/entry/src/main/ets/pages/contacts/settings/Ba'
+  [DEBUG] parsed hunks: 2
+  [DEBUG] hunk 0 old_lines (7): "        .height('100%')\n        .width('100%')\n\n        LazyForEach(this.dataSource, (item: Contact) => {\n          ListItem() {\n            ContactIt"
+  [DEBUG] hunk 0 old_text in original: False
+  [DEBUG] hunk 0 stripped match: False
+  [DEBUG] hunk 1 old_lines (7): '              this.selectContact(item);\n            })\n          }\n        }, (item: Contact) => JSON.stringify(item))\n      }\n      .layoutWeight(1)\n'
+  [DEBUG] hunk 1 old_text in original: False
+  [DEBUG] hunk 1 stripped match: False
+  [DEBUG] text_match FAILED
+  [DEBUG] patch FAILED
+OH_0055         | APPLY_ERROR: git apply failed: error: a/entry/src/main/ets/pages/contacts/settings/BatchDeleteContacts.ets: No such file or directory | raw_diff_fallback  | hp-arkui-no-stringify-in-laz
+  [DEBUG] file: entry/src/main/ets/pages/group/BatchDeleteGroup.ets
+  [DEBUG] original length: 15994
+  [DEBUG] original first 100 chars: '/**\n * Copyright (c) 2023 Huawei Device Co., Ltd.\n * Licensed under the Apache License, Version 2.0 '
+  [DEBUG] cleaned diff first 200 chars: 'diff --git a/entry/src/main/ets/pages/group/BatchDeleteGroup.ets b/entry/src/main/ets/pages/group/BatchDeleteGroup.ets\nindex 0000000..1111111 100644\n--- a/entry/src/main/ets/pages/group/BatchDeleteGro'
+  [DEBUG] parsed hunks: 1
+  [DEBUG] hunk 0 old_lines (7): "        .columnsTemplate('1fr 1fr 1fr 1fr')\n        .columnsGap($r('app.float.group_list_columns_gap'))\n        .rowsGap($r('app.float.group_list_rows"
+  [DEBUG] hunk 0 old_text in original: False
+  [DEBUG] hunk 0 stripped match: False
+  [DEBUG] text_match FAILED
+  [DEBUG] patch FAILED
+OH_0056         | APPLY_ERROR: git apply failed: error: a/entry/src/main/ets/pages/group/BatchDeleteGroup.ets: No such file or directory | raw_diff_fallback  | hp-arkui-set-cache-count-for

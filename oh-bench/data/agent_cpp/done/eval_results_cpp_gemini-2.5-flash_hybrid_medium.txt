@@ -1,0 +1,363 @@
+============================================================
+OH-Bench 实验 - 数据集: cpp
+  执行模式: 持久容器 (快速模式)
+============================================================
+  加载数据集: 255 任务
+  Agent 结果: 255 条
+  本次评估: 255 条
+
+  持久容器 oh-bench-worker-2512924 就绪
+ID              | Result                         | Method             | Rule
+-----------------------------------------------------------------------------------------------
+CPP_0001        | PASS                           | diff_converted     | useStlAlgorithm
+CPP_0002        | SECONDARY_DEFECT: 11           | diff_converted     | knownConditionTrueFalse
+CPP_0003        | PASS                           | diff_converted     | variableScope
+CPP_0004        | LINTER_FAIL                    | diff_converted     | passedByValue
+CPP_0005        | LINTER_FAIL                    | diff_patched       | passedByValue
+CPP_0006        | LINTER_FAIL                    | diff_converted     | passedByValue
+CPP_0007        | LINTER_FAIL                    | diff_patched       | passedByValue
+CPP_0008        | LINTER_FAIL                    | diff_converted     | passedByValue
+CPP_0009        | LINTER_FAIL                    | diff_patched       | passedByValue
+CPP_0010        | SECONDARY_DEFECT: 1            | diff_converted     | knownConditionTrueFalse
+CPP_0011        | PASS                           | diff_converted     | passedByValue
+CPP_0012        | APPLY_ERROR: git apply failed: error: b/ani/settings/ani_settings_observer.cpp: No such file or directory | raw_diff_fallback  | useStlAlgorithm
+CPP_0013        | SECONDARY_DEFECT: 1            | diff_converted     | useStlAlgorithm
+CPP_0014        | LINTER_FAIL                    | diff_converted     | passedByValue
+CPP_0015        | APPLY_ERROR: git apply failed: error: b/cj/settings/src/cj_settings.cpp: No such file or directory
+error: b/cj/settings/src/cj_settings.h: No such file or directory | raw_diff_fallback  | passedByValue
+CPP_0016        | LINTER_FAIL                    | diff_patched       | passedByValue
+CPP_0017        | LINTER_FAIL                    | diff_patched       | passedByValue
+CPP_0018        | APPLY_ERROR: git apply failed: error: b/cj/settings/src/cj_settings.cpp: No such file or directory
+error: b/cj/settings/src/cj_settings.h: No such file or directory | raw_diff_fallback  | passedByValue
+CPP_0019        | APPLY_ERROR: git apply failed: error: corrupt patch at line 22 | raw_diff_fallback  | passedByValue
+CPP_0020        | LINTER_FAIL                    | diff_converted     | knownConditionTrueFalse
+CPP_0021        | LINTER_FAIL                    | diff_converted     | knownConditionTrueFalse
+CPP_0022        | LINTER_FAIL                    | diff_converted     | knownConditionTrueFalse
+CPP_0023        | LINTER_FAIL                    | diff_converted     | knownConditionTrueFalse
+CPP_0024        | LINTER_FAIL                    | diff_converted     | knownConditionTrueFalse
+CPP_0025        | PASS                           | diff_converted     | shadowVariable
+CPP_0026        | LINTER_FAIL                    | diff_converted     | passedByValue
+CPP_0027        | LINTER_FAIL                    | diff_patched       | passedByValue
+CPP_0028        | LINTER_FAIL                    | diff_patched       | passedByValue
+CPP_0029        | LINTER_FAIL                    | diff_converted     | passedByValue
+CPP_0030        | LINTER_FAIL                    | diff_patched       | passedByValue
+CPP_0031        | LINTER_FAIL                    | diff_converted     | passedByValue
+CPP_0032        | PASS                           | diff_patched       | passedByValue
+CPP_0033        | PASS                           | diff_converted     | passedByValue
+CPP_0034        | APPLY_ERROR: git apply failed: error: corrupt patch at line 18 | raw_diff_fallback  | useStlAlgorithm
+CPP_0035        | PASS                           | diff_patched       | passedByValue
+CPP_0036        | SECONDARY_DEFECT: 3            | diff_converted     | knownConditionTrueFalse
+CPP_0037        | PASS                           | diff_patched       | knownConditionTrueFalse
+CPP_0038        | PASS                           | diff_converted     | shadowVariable
+CPP_0039        | PASS                           | diff_converted     | noExplicitConstructor
+CPP_0040        | PASS                           | diff_converted     | noExplicitConstructor
+CPP_0041        | APPLY_ERROR: git apply failed: error: b/ohos_YYEVA/library/src/main/cpp/bean/evaframeall.cpp: No such file or directory
+error: b/ohos_YYEVA/library/src/main/cpp/bean/evaframeall.h: No such file or directory | raw_diff_fallback  | passedByValue
+CPP_0042        | PASS                           | diff_converted     | noExplicitConstructor
+CPP_0043        | PASS                           | diff_converted     | noExplicitConstructor
+CPP_0044        | PASS                           | diff_converted     | passedByValue
+CPP_0045        | PASS                           | diff_converted     | noExplicitConstructor
+CPP_0046        | PASS                           | diff_converted     | passedByValue
+CPP_0047        | PASS                           | diff_converted     | shadowVariable
+CPP_0048        | PASS                           | diff_converted     | shadowVariable
+CPP_0049        | PASS                           | diff_converted     | shadowVariable
+CPP_0050        | PASS                           | diff_converted     | knownConditionTrueFalse
+CPP_0051        | PASS                           | diff_converted     | shadowVariable
+CPP_0052        | PASS                           | diff_converted     | noExplicitConstructor
+CPP_0053        | SECONDARY_DEFECT: 4            | diff_converted     | knownConditionTrueFalse
+CPP_0054        | PASS                           | diff_converted     | knownConditionTrueFalse
+CPP_0055        | LINTER_FAIL                    | diff_converted     | variableScope
+CPP_0056        | LINTER_FAIL                    | diff_converted     | variableScope
+CPP_0057        | LINTER_FAIL                    | diff_converted     | variableScope
+CPP_0058        | LINTER_FAIL                    | diff_converted     | variableScope
+CPP_0059        | LINTER_FAIL                    | diff_converted     | variableScope
+CPP_0060        | PASS                           | diff_converted     | noExplicitConstructor
+CPP_0061        | SECONDARY_DEFECT: 2            | diff_converted     | redundantAssignment
+CPP_0062        | LINTER_FAIL                    | diff_converted     | redundantAssignment
+CPP_0063        | PASS                           | diff_converted     | knownConditionTrueFalse
+CPP_0064        | SECONDARY_DEFECT: 2            | diff_converted     | useStlAlgorithm
+CPP_0065        | PASS                           | diff_converted     | noExplicitConstructor
+CPP_0066        | PASS                           | diff_converted     | noExplicitConstructor
+CPP_0067        | PASS                           | diff_converted     | missingReturn
+CPP_0068        | PASS                           | diff_converted     | knownConditionTrueFalse
+CPP_0069        | APPLY_ERROR: git apply failed: error: corrupt patch at line 30 | raw_diff_fallback  | useStlAlgorithm
+CPP_0070        | SECONDARY_DEFECT: 1            | diff_converted     | knownConditionTrueFalse
+CPP_0071        | PASS                           | diff_converted     | knownConditionTrueFalse
+CPP_0072        | LINTER_FAIL                    | diff_converted     | knownConditionTrueFalse
+CPP_0073        | LINTER_FAIL                    | diff_converted     | knownConditionTrueFalse
+CPP_0074        | LINTER_FAIL                    | diff_converted     | knownConditionTrueFalse
+CPP_0075        | PASS                           | diff_converted     | knownConditionTrueFalse
+CPP_0076        | APPLY_ERROR: git apply failed: error: corrupt patch at line 15 | raw_diff_fallback  | missingReturn
+CPP_0077        | LINTER_FAIL                    | diff_converted     | knownConditionTrueFalse
+CPP_0078        | LINTER_FAIL                    | diff_converted     | knownConditionTrueFalse
+CPP_0079        | LINTER_FAIL                    | diff_converted     | knownConditionTrueFalse
+CPP_0080        | LINTER_FAIL                    | diff_converted     | knownConditionTrueFalse
+CPP_0081        | LINTER_FAIL                    | diff_converted     | knownConditionTrueFalse
+CPP_0082        | LINTER_FAIL                    | diff_converted     | shadowVariable
+CPP_0083        | LINTER_FAIL                    | diff_converted     | shadowVariable
+CPP_0084        | PASS                           | diff_converted     | uninitvar
+CPP_0085        | LINTER_FAIL                    | diff_converted     | redundantAssignment
+CPP_0086        | SECONDARY_DEFECT: 1            | diff_converted     | redundantAssignment
+CPP_0087        | PASS                           | diff_converted     | redundantAssignment
+CPP_0088        | PASS                           | diff_converted     | functionStatic
+CPP_0089        | SECONDARY_DEFECT: 2            | diff_converted     | nullPointer
+CPP_0090        | PASS                           | diff_converted     | shadowVariable
+CPP_0091        | PASS                           | diff_converted     | functionStatic
+CPP_0092        | PASS                           | diff_converted     | shadowVariable
+CPP_0093        | PASS                           | diff_converted     | functionStatic
+CPP_0094        | PASS                           | diff_converted     | nullPointer
+CPP_0095        | LINTER_FAIL                    | diff_converted     | variableScope
+CPP_0096        | LINTER_FAIL                    | diff_converted     | variableScope
+CPP_0097        | LINTER_FAIL                    | diff_converted     | variableScope
+CPP_0098        | LINTER_FAIL                    | diff_converted     | variableScope
+CPP_0099        | LINTER_FAIL                    | diff_converted     | variableScope
+CPP_0100        | LINTER_FAIL                    | diff_converted     | variableScope
+CPP_0101        | APPLY_ERROR: git apply failed: error: corrupt patch at line 9 | raw_diff_fallback  | redundantAssignment
+CPP_0102        | LINTER_FAIL                    | diff_converted     | variableScope
+CPP_0103        | LINTER_FAIL                    | diff_converted     | variableScope
+CPP_0104        | LINTER_FAIL                    | diff_converted     | variableScope
+CPP_0105        | LINTER_FAIL                    | diff_converted     | variableScope
+CPP_0106        | LINTER_FAIL                    | diff_converted     | variableScope
+CPP_0107        | LINTER_FAIL                    | diff_converted     | variableScope
+CPP_0108        | SECONDARY_DEFECT: 5            | diff_converted     | variableScope
+CPP_0109        | PASS                           | diff_converted     | variableScope
+CPP_0110        | LINTER_FAIL                    | diff_converted     | variableScope
+CPP_0111        | SECONDARY_DEFECT: 10           | diff_converted     | variableScope
+CPP_0112        | LINTER_FAIL                    | diff_converted     | variableScope
+CPP_0113        | LINTER_FAIL                    | diff_converted     | variableScope
+CPP_0114        | LINTER_FAIL                    | diff_converted     | variableScope
+CPP_0115        | LINTER_FAIL                    | diff_converted     | variableScope
+CPP_0116        | SECONDARY_DEFECT: 2            | diff_converted     | variableScope
+CPP_0117        | SECONDARY_DEFECT: 3            | diff_converted     | redundantAssignment
+CPP_0118        | APPLY_ERROR: git apply failed: error: patch fragment without header at line 25: @@ -919,7 +918,7 @@ | raw_diff_fallback  | variableScope
+CPP_0119        | LINTER_FAIL                    | diff_converted     | variableScope
+CPP_0120        | LINTER_FAIL                    | diff_converted     | variableScope
+CPP_0121        | LINTER_FAIL                    | diff_converted     | shadowVariable
+CPP_0122        | LINTER_FAIL                    | diff_converted     | shadowVariable
+CPP_0123        | PASS                           | diff_converted     | redundantAssignment
+CPP_0124        | LINTER_FAIL                    | diff_converted     | shadowVariable
+CPP_0125        | LINTER_FAIL                    | diff_converted     | shadowVariable
+CPP_0126        | LINTER_FAIL                    | diff_converted     | shadowVariable
+CPP_0127        | LINTER_FAIL                    | diff_converted     | shadowVariable
+CPP_0128        | LINTER_FAIL                    | diff_converted     | shadowVariable
+CPP_0129        | SECONDARY_DEFECT: 13           | diff_converted     | useStlAlgorithm
+CPP_0130        | PASS                           | diff_converted     | redundantAssignment
+CPP_0131        | PASS                           | diff_converted     | shadowVariable
+CPP_0132        | LINTER_FAIL                    | diff_converted     | noExplicitConstructor
+CPP_0133        | PASS                           | diff_converted     | noExplicitConstructor
+CPP_0134        | PASS                           | diff_converted     | shadowVariable
+CPP_0135        | PASS                           | diff_converted     | noExplicitConstructor
+CPP_0136        | SECONDARY_DEFECT: 8            | diff_patched       | useStlAlgorithm
+CPP_0137        | SECONDARY_DEFECT: 2            | diff_converted     | useStlAlgorithm
+CPP_0138        | SECONDARY_DEFECT: 6            | diff_patched       | useStlAlgorithm
+CPP_0139        | SECONDARY_DEFECT: 1            | diff_converted     | useStlAlgorithm
+CPP_0140        | PASS                           | diff_converted     | shadowVariable
+CPP_0141        | LINTER_FAIL                    | diff_converted     | useStlAlgorithm
+CPP_0142        | APPLY_ERROR: git apply failed: error: corrupt patch at line 30 | raw_diff_fallback  | useStlAlgorithm
+CPP_0143        | APPLY_ERROR: git apply failed: error: corrupt patch at line 29 | raw_diff_fallback  | useStlAlgorithm
+CPP_0144        | APPLY_ERROR: git apply failed: error: corrupt patch at line 27 | raw_diff_fallback  | useStlAlgorithm
+CPP_0145        | SECONDARY_DEFECT: 1            | diff_patched       | useStlAlgorithm
+CPP_0146        | APPLY_ERROR: git apply failed: error: corrupt patch at line 31 | raw_diff_fallback  | useStlAlgorithm
+CPP_0147        | APPLY_ERROR: git apply failed: error: corrupt patch at line 15 | raw_diff_fallback  | useStlAlgorithm
+CPP_0148        | LINTER_FAIL                    | diff_patched       | useStlAlgorithm
+CPP_0149        | SECONDARY_DEFECT: 1            | diff_converted     | useStlAlgorithm
+CPP_0150        | LINTER_FAIL                    | diff_patched       | useStlAlgorithm
+CPP_0151        | APPLY_ERROR: git apply failed: error: corrupt patch at line 16 | raw_diff_fallback  | useStlAlgorithm
+CPP_0152        | PASS                           | diff_patched       | useStlAlgorithm
+CPP_0153        | APPLY_ERROR: git apply failed: error: corrupt patch at line 12 | raw_diff_fallback  | useStlAlgorithm
+CPP_0154        | PASS                           | diff_converted     | useStlAlgorithm
+CPP_0155        | APPLY_ERROR: git apply failed: error: corrupt patch at line 14 | raw_diff_fallback  | redundantAssignment
+CPP_0156        | PASS                           | diff_converted     | uninitvar
+CPP_0157        | PASS                           | diff_converted     | nullPointer
+CPP_0158        | PASS                           | diff_converted     | nullPointer
+CPP_0159        | PASS                           | diff_converted     | nullPointer
+CPP_0160        | SECONDARY_DEFECT: 2            | diff_converted     | nullPointer
+CPP_0161        | SECONDARY_DEFECT: 1            | diff_converted     | nullPointer
+CPP_0162        | SECONDARY_DEFECT: 1            | diff_converted     | nullPointer
+CPP_0163        | SECONDARY_DEFECT: 1            | diff_converted     | nullPointer
+CPP_0164        | SECONDARY_DEFECT: 2            | diff_converted     | nullPointer
+CPP_0165        | SECONDARY_DEFECT: 1            | diff_converted     | nullPointer
+CPP_0166        | SECONDARY_DEFECT: 1            | diff_converted     | nullPointer
+CPP_0167        | APPLY_ERROR: git apply failed: error: corrupt patch at line 8 | raw_diff_fallback  | nullPointer
+CPP_0168        | SECONDARY_DEFECT: 2            | diff_converted     | nullPointer
+CPP_0169        | LINTER_FAIL                    | diff_converted     | uninitvar
+CPP_0170        | LINTER_FAIL                    | diff_converted     | uninitvar
+CPP_0171        | LINTER_FAIL                    | diff_converted     | uninitvar
+CPP_0172        | SECONDARY_DEFECT: 1            | diff_converted     | nullPointer
+CPP_0173        | SECONDARY_DEFECT: 1            | diff_converted     | nullPointer
+CPP_0174        | SECONDARY_DEFECT: 1            | diff_converted     | nullPointer
+CPP_0175        | SECONDARY_DEFECT: 1            | diff_converted     | nullPointer
+CPP_0176        | SECONDARY_DEFECT: 1            | diff_converted     | nullPointer
+CPP_0177        | SECONDARY_DEFECT: 2            | diff_converted     | nullPointer
+CPP_0178        | SECONDARY_DEFECT: 4            | diff_converted     | nullPointer
+CPP_0179        | SECONDARY_DEFECT: 10           | diff_converted     | nullPointer
+CPP_0180        | SECONDARY_DEFECT: 4            | diff_converted     | nullPointer
+CPP_0181        | SECONDARY_DEFECT: 4            | diff_converted     | nullPointer
+CPP_0182        | SECONDARY_DEFECT: 4            | diff_converted     | nullPointer
+CPP_0183        | SECONDARY_DEFECT: 3            | diff_converted     | nullPointer
+CPP_0184        | SECONDARY_DEFECT: 10           | diff_converted     | nullPointer
+CPP_0185        | SECONDARY_DEFECT: 3            | diff_converted     | nullPointer
+CPP_0186        | SECONDARY_DEFECT: 3            | diff_converted     | nullPointer
+CPP_0187        | SECONDARY_DEFECT: 2            | diff_converted     | nullPointer
+CPP_0188        | LINTER_FAIL                    | diff_converted     | memleak
+CPP_0189        | LINTER_FAIL                    | diff_converted     | memleak
+CPP_0190        | PASS                           | diff_converted     | redundantAssignment
+CPP_0191        | SECONDARY_DEFECT: 1            | diff_converted     | redundantAssignment
+CPP_0192        | PASS                           | diff_converted     | uninitvar
+CPP_0193        | PASS                           | diff_converted     | uninitvar
+CPP_0194        | SECONDARY_DEFECT: 32           | diff_converted     | memleak
+CPP_0195        | SECONDARY_DEFECT: 3            | diff_converted     | memleak
+CPP_0196        | SECONDARY_DEFECT: 13           | diff_converted     | memleak
+CPP_0197        | PASS                           | diff_converted     | memleak
+CPP_0198        | PASS                           | diff_converted     | identicalInnerCondition
+CPP_0199        | LINTER_FAIL                    | diff_converted     | uninitvar
+CPP_0200        | SECONDARY_DEFECT: 8            | diff_converted     | redundantAssignment
+CPP_0201        | PASS                           | diff_patched       | noExplicitConstructor
+CPP_0202        | SECONDARY_DEFECT: 2            | diff_converted     | uninitvar
+CPP_0203        | PASS                           | diff_converted     | redundantAssignment
+CPP_0204        | SECONDARY_DEFECT: 11           | diff_converted     | redundantAssignment
+CPP_0205        | PASS                           | diff_converted     | identicalInnerCondition
+CPP_0206        | SECONDARY_DEFECT: 5            | diff_converted     | redundantAssignment
+CPP_0207        | LINTER_FAIL                    | diff_converted     | redundantAssignment
+CPP_0208        | PASS                           | diff_converted     | identicalInnerCondition
+CPP_0209        | LINTER_FAIL                    | diff_converted     | stlIfStrFind
+CPP_0210        | LINTER_FAIL                    | diff_converted     | stlIfStrFind
+CPP_0211        | SECONDARY_DEFECT: 1            | diff_patched       | identicalInnerCondition
+CPP_0212        | LINTER_FAIL                    | diff_converted     | stlIfStrFind
+CPP_0213        | LINTER_FAIL                    | diff_converted     | stlIfStrFind
+CPP_0214        | LINTER_FAIL                    | diff_converted     | stlIfStrFind
+CPP_0215        | LINTER_FAIL                    | diff_converted     | stlIfStrFind
+CPP_0216        | APPLY_ERROR: git apply failed: error: corrupt patch at line 12 | raw_diff_fallback  | identicalInnerCondition
+CPP_0217        | PASS                           | diff_converted     | stlIfStrFind
+CPP_0218        | SECONDARY_DEFECT: 15           | diff_converted     | identicalInnerCondition
+CPP_0219        | PASS                           | diff_converted     | identicalInnerCondition
+CPP_0220        | PASS                           | diff_converted     | identicalInnerCondition
+CPP_0221        | PASS                           | diff_converted     | redundantAssignment
+CPP_0222        | PASS                           | diff_converted     | stlIfStrFind
+CPP_0223        | APPLY_ERROR: git apply failed: error: corrupt patch at line 14 | raw_diff_fallback  | identicalInnerCondition
+CPP_0224        | LINTER_FAIL                    | diff_converted     | stlIfStrFind
+CPP_0225        | LINTER_FAIL                    | diff_converted     | stlIfStrFind
+CPP_0226        | PASS                           | diff_converted     | stlIfStrFind
+CPP_0227        | SECONDARY_DEFECT: 3            | diff_converted     | identicalInnerCondition
+CPP_0228        | APPLY_ERROR: git apply failed: error: corrupt patch at line 13 | raw_diff_fallback  | identicalInnerCondition
+CPP_0229        | PASS                           | diff_converted     | stlIfStrFind
+CPP_0230        | LINTER_FAIL                    | diff_converted     | stlIfStrFind
+CPP_0231        | LINTER_FAIL                    | diff_converted     | stlIfStrFind
+CPP_0232        | PASS                           | diff_converted     | redundantAssignment
+CPP_0233        | LINTER_FAIL                    | diff_converted     | redundantAssignment
+CPP_0234        | PASS                           | diff_converted     | stlIfStrFind
+CPP_0235        | SECONDARY_DEFECT: 6            | diff_converted     | identicalInnerCondition
+CPP_0236        | SECONDARY_DEFECT: 7            | diff_converted     | identicalInnerCondition
+CPP_0237        | SECONDARY_DEFECT: 8            | diff_converted     | identicalInnerCondition
+CPP_0238        | APPLY_ERROR: git apply failed: error: corrupt patch at line 16 | raw_diff_fallback  | identicalInnerCondition
+CPP_0239        | PASS                           | diff_converted     | functionStatic
+CPP_0240        | PASS                           | diff_converted     | functionStatic
+CPP_0241        | PASS                           | diff_converted     | functionStatic
+CPP_0242        | PASS                           | diff_converted     | functionStatic
+CPP_0243        | PASS                           | diff_converted     | functionStatic
+CPP_0244        | PASS                           | diff_converted     | functionStatic
+CPP_0245        | PASS                           | diff_converted     | functionStatic
+CPP_0246        | PASS                           | diff_converted     | uninitvar
+CPP_0247        | LINTER_FAIL                    | diff_converted     | uninitvar
+CPP_0248        | LINTER_FAIL                    | diff_converted     | uninitvar
+CPP_0249        | PASS                           | diff_converted     | uninitvar
+CPP_0250        | LINTER_FAIL                    | diff_converted     | uninitvar
+CPP_0251        | LINTER_FAIL                    | diff_converted     | uninitvar
+CPP_0252        | PASS                           | diff_converted     | noExplicitConstructor
+CPP_0253        | PASS                           | diff_converted     | noExplicitConstructor
+CPP_0254        | SECONDARY_DEFECT: 39           | diff_converted     | memleak
+CPP_0255        | PASS                           | diff_converted     | missingReturn
+
+================================================================================
+OH-Bench 评估报告
+时间: 2026-03-23 01:15:43
+数据集: cpp | Agent: agent_results_cpp_gemini-2.5-flash_hybrid_medium.json
+执行模式: 持久容器 (快速模式)
+================================================================================
+
+## 1. 总体统计 (255 任务)
+  补丁成功应用:   232/255 (91.0%)
+  告警消除:       143/255 (56.1%)
+  严格通过:     83/255 (32.5%)
+  ---
+  仍有告警:       89/255 (34.9%)
+  二次缺陷:       60/255
+  语法错误:       0/255
+  补丁应用失败:   23/255 (9.0%)
+  超时:           0/255
+  系统错误:       0/255
+
+## 转换方法分布
+  diff_converted      : 213
+  raw_diff_fallback   : 23
+  diff_patched        : 19
+
+## 按规则统计
+规则                                            |   总 | PASS | FAIL | ERR | SEC |    通过率
+-------------------------------------------------------------------------------------
+functionStatic                                |  10 |   10 |    0 |   0 |   0 |   100%
+identicalInnerCondition                       |  15 |    5 |    0 |   4 |   6 |    33%
+knownConditionTrueFalse                       |  25 |    7 |   13 |   0 |   5 |    28%
+memleak                                       |   7 |    1 |    2 |   0 |   4 |    14%
+missingReturn                                 |   3 |    2 |    0 |   1 |   0 |    67%
+noExplicitConstructor                         |  15 |   14 |    1 |   0 |   0 |    93%
+nullPointer                                   |  30 |    4 |    0 |   1 |  25 |    13%
+passedByValue                                 |  25 |    6 |   15 |   4 |   0 |    24%
+redundantAssignment                           |  20 |    7 |    4 |   2 |   7 |    35%
+shadowVariable                                |  20 |   11 |    9 |   0 |   0 |    55%
+stlIfStrFind                                  |  15 |    5 |   10 |   0 |   0 |    33%
+uninitvar                                     |  15 |    6 |    8 |   0 |   1 |    40%
+useStlAlgorithm                               |  25 |    3 |    3 |  10 |   9 |    12%
+variableScope                                 |  30 |    2 |   24 |   1 |   3 |     7%
+
+## 难度分析
+  简单 (>70%通过): 2 个规则
+    noExplicitConstructor: 14/15
+    functionStatic: 10/10
+  中等 (20-70%通过): 8 个规则
+    knownConditionTrueFalse: 7/25
+    passedByValue: 6/25
+    shadowVariable: 11/20
+    redundantAssignment: 7/20
+    missingReturn: 2/3
+    uninitvar: 6/15
+    identicalInnerCondition: 5/15
+    stlIfStrFind: 5/15
+  困难 (<20%通过): 4 个规则
+    useStlAlgorithm: 3/25
+    variableScope: 2/30
+    nullPointer: 4/30
+    memleak: 1/7
+
+## 区分度评价
+  数据集具有良好区分度: 简单2 / 中等8 / 困难4
+
+## Baseline 问题 (59 个)
+  CPP_0019: passedByValue
+  CPP_0036: knownConditionTrueFalse
+  CPP_0041: passedByValue
+  CPP_0044: passedByValue
+  CPP_0050: knownConditionTrueFalse
+  CPP_0053: knownConditionTrueFalse
+  CPP_0070: knownConditionTrueFalse
+  CPP_0075: knownConditionTrueFalse
+  CPP_0088: functionStatic
+  CPP_0091: functionStatic
+  CPP_0093: functionStatic
+  CPP_0138: useStlAlgorithm
+  CPP_0139: useStlAlgorithm
+  CPP_0144: useStlAlgorithm
+  CPP_0145: useStlAlgorithm
+
+## APPLY_ERROR 详情 (23 个)
+  useStlAlgorithm                         : 10
+  passedByValue                           : 4
+  identicalInnerCondition                 : 4
+  redundantAssignment                     : 2
+  missingReturn                           : 1
+  variableScope                           : 1
+  nullPointer                             : 1
+
+================================================================================
+
+报告已保存: logs/report_agent_results_cpp_gemini-2.5-flash_hybrid_medium_20260322_185057.txt

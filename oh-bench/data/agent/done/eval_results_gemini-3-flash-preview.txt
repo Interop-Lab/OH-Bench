@@ -1,0 +1,113 @@
+============================================================
+OH-Bench 实验 - 数据集: arkts
+============================================================
+  加载数据集: 382 任务
+  Agent 结果: 382 条
+
+ID              | Result                         | Method             | Rule
+-----------------------------------------------------------------------------------------------
+OH_0001         | PASS                           | diff_converted     | hp-arkts-no-use-any-export-o
+OH_0002         | PASS                           | full_content       | hp-arkts-no-use-any-export-o
+OH_0003         | PASS                           | full_content       | hp-arkui-no-state-var-access
+OH_0004         | PASS                           | diff_converted     | hp-arkui-set-cache-count-for
+OH_0005         | PASS                           | full_content       | hp-arkui-use-reusable-compon
+OH_0006         | PASS                           | diff_converted     | hp-arkui-set-cache-count-for
+OH_0007         | PASS                           | full_content       | hp-arkui-use-reusable-compon
+OH_0008         | PASS                           | diff_converted     | hp-arkui-set-cache-count-for
+OH_0009         | PASS                           | full_content       | hp-arkui-use-reusable-compon
+OH_0010         | PASS                           | diff_converted     | hp-arkui-set-cache-count-for
+OH_0011         | LINTER_FAIL                    | diff_converted     | hp-arkui-use-reusable-compon
+OH_0012         | PASS                           | full_content       | hp-arkui-set-cache-count-for
+OH_0013         | LINTER_FAIL                    | diff_converted     | hp-arkui-use-reusable-compon
+OH_0014         | PASS                           | diff_converted     | hp-arkui-set-cache-count-for
+OH_0015         | LINTER_FAIL                    | diff_converted     | hp-arkui-use-reusable-compon
+OH_0016         | LINTER_FAIL                    | diff_converted     | hp-arkui-set-cache-count-for
+OH_0017         | PASS                           | full_content       | hp-arkui-use-reusable-compon
+OH_0018         | LINTER_FAIL                    | diff_converted     | hp-arkui-set-cache-count-for
+OH_0019         | PASS                           | full_content       | hp-arkui-use-reusable-compon
+OH_0020         | PASS                           | diff_converted     | hp-arkui-set-cache-count-for
+OH_0021         | PASS                           | full_content       | hp-arkui-use-reusable-compon
+OH_0022         | PASS                           | full_content       | hp-arkui-set-cache-count-for
+OH_0023         | APPLY_ERROR: git apply failed: error: corrupt patch at line 17 | raw_diff_fallback  | hp-arkui-use-reusable-compon
+OH_0024         | PASS                           | diff_converted     | hp-arkui-set-cache-count-for
+OH_0025         | LINTER_FAIL                    | diff_converted     | hp-arkui-use-reusable-compon
+OH_0026         | PASS                           | diff_converted     | hp-arkui-no-stringify-in-laz
+OH_0027         | LINTER_FAIL                    | diff_converted     | hp-arkui-set-cache-count-for
+OH_0028         | PASS                           | diff_converted     | hp-arkui-use-reusable-compon
+OH_0029         | LINTER_FAIL                    | diff_converted     | hp-arkui-no-stringify-in-laz
+OH_0030         | LINTER_FAIL                    | diff_converted     | hp-arkui-set-cache-count-for
+OH_0031         | PASS                           | diff_converted     | hp-arkui-use-reusable-compon
+OH_0032         | PASS                           | full_content       | hp-arkui-no-stringify-in-laz
+OH_0033         | PASS                           | diff_converted     | hp-arkui-set-cache-count-for
+OH_0034         | PASS                           | diff_converted     | hp-arkui-use-reusable-compon
+OH_0035         | PASS                           | diff_converted     | hp-arkui-no-stringify-in-laz
+OH_0036         | PASS                           | diff_converted     | hp-arkui-set-cache-count-for
+OH_0037         | PASS                           | diff_converted     | hp-arkui-use-reusable-compon
+OH_0038         | PASS                           | diff_converted     | hp-arkui-no-stringify-in-laz
+OH_0039         | PASS                           | diff_converted     | hp-arkui-set-cache-count-for
+OH_0040         | PASS                           | full_content       | hp-arkui-use-reusable-compon
+OH_0041         | PASS                           | diff_converted     | hp-arkui-no-stringify-in-laz
+OH_0042         | PASS                           | diff_converted     | hp-arkui-set-cache-count-for
+OH_0043         | LINTER_FAIL                    | diff_patched       | hp-arkui-use-reusable-compon
+OH_0044         | PASS                           | diff_converted     | hp-arkui-no-stringify-in-laz
+OH_0045         | PASS                           | full_content       | hp-arkui-set-cache-count-for
+OH_0046         | PASS                           | full_content       | hp-arkui-use-reusable-compon
+OH_0047         | PASS                           | diff_converted     | hp-arkui-no-stringify-in-laz
+OH_0048         | PASS                           | full_content       | hp-arkui-set-cache-count-for
+OH_0049         | APPLY_ERROR: git apply failed: error: corrupt patch at line 7 | raw_diff_fallback  | hp-arkui-use-reusable-compon
+OH_0050         | PASS                           | diff_converted     | hp-arkui-no-stringify-in-laz
+OH_0051         | PASS                           | diff_converted     | hp-arkui-set-cache-count-for
+OH_0052         | APPLY_ERROR: git apply failed: error: corrupt patch at line 17 | raw_diff_fallback  | hp-arkui-use-reusable-compon
+OH_0053         | PASS                           | diff_converted     | hp-arkui-no-stringify-in-laz
+OH_0054         | PASS                           | diff_converted     | hp-arkui-set-cache-count-for
+OH_0055         | PASS                           | diff_converted     | hp-arkui-no-stringify-in-laz
+OH_0056         | PASS                           | diff_converted     | hp-arkui-set-cache-count-for
+OH_0057         | LINTER_FAIL                    | diff_converted     | hp-arkui-use-reusable-compon
+OH_0058         | PASS                           | diff_converted     | hp-arkui-no-stringify-in-laz
+OH_0059         | PASS                           | diff_converted     | hp-arkui-set-cache-count-for
+OH_0060         | PASS                           | diff_converted     | hp-arkui-use-reusable-compon
+OH_0061         | LINTER_FAIL                    | diff_converted     | hp-arkui-set-cache-count-for
+OH_0062         | LINTER_FAIL                    | diff_converted     | hp-arkui-set-cache-count-for
+OH_0063         | PASS                           | diff_converted     | hp-arkui-no-func-as-arg-for-
+OH_0064         | LINTER_FAIL                    | diff_converted     | hp-arkui-no-stringify-in-laz
+OH_0065         | LINTER_FAIL                    | diff_converted     | hp-arkui-set-cache-count-for
+OH_0066         | PASS                           | diff_converted     | hp-arkui-no-func-as-arg-for-
+OH_0067         | LINTER_FAIL                    | diff_converted     | hp-arkui-no-stringify-in-laz
+OH_0068         | PASS                           | full_content       | hp-arkui-set-cache-count-for
+OH_0069         | PASS                           | diff_converted     | hp-arkui-use-reusable-compon
+OH_0070         | PASS                           | diff_converted     | hp-arkui-set-cache-count-for
+OH_0071         | PASS                           | full_content       | hp-arkui-use-reusable-compon
+OH_0072         | PASS                           | diff_converted     | hp-arkui-no-func-as-arg-for-
+OH_0073         | PASS                           | diff_converted     | hp-arkui-no-stringify-in-laz
+OH_0074         | PASS                           | diff_converted     | hp-arkui-set-cache-count-for
+OH_0075         | PASS                           | full_content       | hp-arkui-use-reusable-compon
+OH_0076         | PASS                           | full_content       | hp-arkui-no-stringify-in-laz
+OH_0077         | PASS                           | full_content       | hp-arkui-set-cache-count-for
+OH_0078         | LINTER_FAIL                    | diff_converted     | hp-arkui-no-func-as-arg-for-
+OH_0079         | PASS                           | full_content       | hp-arkui-set-cache-count-for
+OH_0080         | PASS                           | diff_converted     | hp-arkui-no-stringify-in-laz
+OH_0081         | PASS                           | diff_converted     | hp-arkui-set-cache-count-for
+OH_0082         | PASS                           | full_content       | hp-arkui-use-reusable-compon
+OH_0083         | PASS                           | diff_converted     | hp-arkui-no-stringify-in-laz
+OH_0084         | PASS                           | diff_converted     | hp-arkui-set-cache-count-for
+OH_0085         | PASS                           | diff_converted     | hp-arkui-use-reusable-compon
+OH_0086         | PASS                           | diff_converted     | hp-arkui-no-stringify-in-laz
+Traceback (most recent call last):
+  File "/home/trim/oh-bench-final/run_experiment.py", line 402, in <module>
+    main()
+  File "/home/trim/oh-bench-final/run_experiment.py", line 273, in main
+    result, method, stderr = evaluate_one(task, patch)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/trim/oh-bench-final/run_experiment.py", line 200, in evaluate_one
+    stdout, stderr = proc.communicate(input=payload, timeout=600)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 1209, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 2115, in _communicate
+    ready = selector.select(timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/selectors.py", line 415, in select
+    fd_event_list = self._selector.poll(timeout)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
