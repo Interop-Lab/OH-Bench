@@ -1,0 +1,177 @@
+============================================================
+OH-Bench 实验 - 数据集: arkts
+  执行模式: 持久容器 (快速模式)
+============================================================
+  加载数据集: 382 任务
+  Agent 结果: 100 条
+  本次评估: 100 条
+
+  持久容器 oh-bench-worker-9420 就绪
+ID              | Result                         | Method             | Rule
+-----------------------------------------------------------------------------------------------
+OH_0004         | PASS                           | diff_converted     | hp-arkui-set-cache-count-for
+OH_0011         | LINTER_FAIL                    | diff_converted     | hp-arkui-use-reusable-compon
+OH_0014         | PASS                           | diff_converted     | hp-arkui-set-cache-count-for
+OH_0022         | PASS                           | diff_converted     | hp-arkui-set-cache-count-for
+OH_0023         | LINTER_FAIL                    | diff_converted     | hp-arkui-use-reusable-compon
+OH_0024         | PASS                           | diff_converted     | hp-arkui-set-cache-count-for
+OH_0031         | LINTER_FAIL                    | diff_converted     | hp-arkui-use-reusable-compon
+OH_0032         | PASS                           | diff_converted     | hp-arkui-no-stringify-in-laz
+OH_0035         | PASS                           | diff_converted     | hp-arkui-no-stringify-in-laz
+OH_0042         | PASS                           | diff_converted     | hp-arkui-set-cache-count-for
+OH_0043         | LINTER_FAIL                    | diff_converted     | hp-arkui-use-reusable-compon
+OH_0045         | PASS                           | diff_converted     | hp-arkui-set-cache-count-for
+OH_0046         | SECONDARY_DEFECT: 1            | diff_converted     | hp-arkui-use-reusable-compon
+OH_0047         | PASS                           | diff_converted     | hp-arkui-no-stringify-in-laz
+OH_0052         | SECONDARY_DEFECT: 1            | diff_converted     | hp-arkui-use-reusable-compon
+OH_0053         | PASS                           | diff_converted     | hp-arkui-no-stringify-in-laz
+OH_0055         | PASS                           | diff_converted     | hp-arkui-no-stringify-in-laz
+OH_0063         | LINTER_FAIL                    | diff_converted     | hp-arkui-no-func-as-arg-for-
+OH_0075         | LINTER_FAIL                    | diff_converted     | hp-arkui-use-reusable-compon
+OH_0080         | PASS                           | diff_converted     | hp-arkui-no-stringify-in-laz
+OH_0083         | PASS                           | diff_converted     | hp-arkui-no-stringify-in-laz
+OH_0085         | LINTER_FAIL                    | diff_converted     | hp-arkui-use-reusable-compon
+OH_0089         | PASS                           | diff_converted     | hp-arkui-set-cache-count-for
+OH_0091         | PASS                           | diff_converted     | hp-arkui-no-stringify-in-laz
+OH_0092         | PASS                           | diff_converted     | hp-arkui-set-cache-count-for
+OH_0095         | LINTER_FAIL                    | diff_converted     | hp-arkui-no-state-var-access
+OH_0100         | PASS                           | diff_converted     | hp-arkui-set-cache-count-for
+OH_0101         | LINTER_FAIL                    | diff_converted     | hp-arkui-use-reusable-compon
+OH_0102         | PASS                           | diff_converted     | hp-arkui-no-stringify-in-laz
+OH_0104         | LINTER_FAIL                    | diff_converted     | hp-arkui-use-reusable-compon
+OH_0110         | LINTER_FAIL                    | diff_converted     | hp-arkui-use-reusable-compon
+OH_0114         | SECONDARY_DEFECT: 1            | diff_converted     | hp-arkui-use-reusable-compon
+OH_0118         | SECONDARY_DEFECT: 1            | diff_converted     | hp-arkui-set-cache-count-for
+OH_0120         | PASS                           | diff_converted     | hp-arkui-no-state-var-access
+OH_0121         | ERROR: No input via stdin      | raw_diff_fallback  | hp-arkui-no-state-var-access
+OH_0122         | PASS                           | diff_converted     | hp-arkui-no-state-var-access
+OH_0127         | PASS                           | diff_converted     | hp-arkts-no-use-any-export-o
+OH_0128         | LINTER_FAIL                    | diff_converted     | hp-arkts-no-use-any-export-o
+OH_0133         | PASS                           | diff_converted     | foreach-args-check
+OH_0134         | LINTER_FAIL                    | diff_converted     | hp-arkui-no-state-var-access
+OH_0135         | PASS                           | diff_converted     | hp-arkui-use-object-link-to-
+OH_0140         | PASS                           | diff_converted     | hp-arkui-use-transition-to-r
+OH_0142         | PASS                           | diff_converted     | hp-arkui-suggest-use-effectk
+OH_0143         | PASS                           | diff_converted     | hp-arkui-use-transition-to-r
+OH_0144         | PASS                           | diff_converted     | hp-arkui-suggest-use-effectk
+OH_0148         | PASS                           | diff_converted     | hp-arkts-no-use-any-export-o
+OH_0149         | LINTER_FAIL                    | diff_converted     | hp-arkui-no-state-var-access
+OH_0150         | LINTER_FAIL                    | diff_converted     | hp-arkui-no-state-var-access
+OH_0154         | PASS                           | diff_converted     | hp-arkui-use-object-link-to-
+OH_0156         | PASS                           | diff_converted     | hp-arkui-use-object-link-to-
+OH_0157         | PASS                           | diff_converted     | hp-arkui-use-object-link-to-
+OH_0159         | PASS                           | diff_converted     | hp-arkui-use-object-link-to-
+OH_0160         | PASS                           | diff_converted     | hp-arkui-use-object-link-to-
+OH_0165         | LINTER_FAIL                    | diff_converted     | hp-arkui-no-state-var-access
+OH_0166         | LINTER_FAIL                    | diff_converted     | hp-arkui-no-state-var-access
+OH_0170         | LINTER_FAIL                    | diff_converted     | hp-arkui-no-state-var-access
+OH_0173         | PASS                           | diff_converted     | hp-arkui-use-local-var-to-re
+OH_0176         | LINTER_FAIL                    | diff_converted     | hp-arkui-no-state-var-access
+OH_0183         | LINTER_FAIL                    | diff_converted     | hp-arkui-use-local-var-to-re
+OH_0185         | LINTER_FAIL                    | diff_converted     | hp-arkui-use-local-var-to-re
+OH_0191         | LINTER_FAIL                    | diff_converted     | hp-arkui-no-state-var-access
+OH_0199         | LINTER_FAIL                    | diff_converted     | hp-arkui-use-reusable-compon
+OH_0203         | LINTER_FAIL                    | diff_converted     | hp-arkui-use-reusable-compon
+OH_0206         | PASS                           | diff_converted     | foreach-args-check
+OH_0212         | PASS                           | diff_converted     | hp-arkui-no-state-var-access
+OH_0217         | PASS                           | diff_converted     | hp-arkui-suggest-use-effectk
+OH_0221         | PASS                           | diff_converted     | hp-arkui-no-state-var-access
+OH_0224         | PASS                           | diff_converted     | foreach-args-check
+OH_0226         | LINTER_FAIL                    | diff_converted     | hp-arkui-no-state-var-access
+OH_0232         | PASS                           | diff_converted     | hp-arkui-set-cache-count-for
+OH_0236         | PASS                           | diff_converted     | hp-arkui-use-object-link-to-
+OH_0237         | PASS                           | diff_converted     | hp-arkui-no-func-as-arg-for-
+OH_0242         | LINTER_FAIL                    | diff_converted     | hp-arkui-set-cache-count-for
+OH_0243         | LINTER_FAIL                    | diff_converted     | hp-arkui-use-reusable-compon
+OH_0246         | PASS                           | diff_converted     | hp-arkui-set-cache-count-for
+OH_0260         | LINTER_FAIL                    | diff_converted     | hp-arkui-use-object-link-to-
+OH_0261         | PASS                           | diff_converted     | hp-arkui-use-object-link-to-
+OH_0266         | SECONDARY_DEFECT: 1            | diff_converted     | hp-arkui-no-func-as-arg-for-
+OH_0267         | LINTER_FAIL                    | diff_converted     | hp-arkui-use-reusable-compon
+OH_0274         | PASS                           | diff_converted     | hp-arkui-set-cache-count-for
+OH_0275         | PASS                           | diff_converted     | hp-arkui-set-cache-count-for
+OH_0281         | LINTER_FAIL                    | diff_converted     | hp-arkui-use-reusable-compon
+OH_0282         | PASS                           | diff_converted     | hp-arkui-use-local-var-to-re
+OH_0286         | PASS                           | diff_converted     | hp-arkui-set-cache-count-for
+OH_0294         | LINTER_FAIL                    | diff_converted     | hp-arkui-set-cache-count-for
+OH_0302         | PASS                           | diff_converted     | hp-arkui-use-local-var-to-re
+OH_0307         | PASS                           | diff_converted     | hp-arkui-no-state-var-access
+OH_0311         | PASS                           | diff_converted     | mandatory-default-value-for-
+OH_0322         | PASS                           | diff_converted     | quotes
+OH_0329         | PASS                           | diff_converted     | space-before-blocks
+OH_0339         | PASS                           | diff_converted     | hp-arkts-no-use-any-export-o
+OH_0344         | PASS                           | diff_converted     | hp-arkts-no-use-any-export-o
+OH_0352         | LINTER_FAIL                    | diff_converted     | hp-arkui-use-reusable-compon
+OH_0355         | LINTER_FAIL                    | diff_converted     | hp-arkui-use-reusable-compon
+OH_0358         | LINTER_FAIL                    | diff_converted     | hp-arkui-use-reusable-compon
+OH_0359         | PASS                           | diff_converted     | hp-arkui-no-stringify-in-laz
+OH_0364         | PASS                           | diff_converted     | hp-arkui-no-state-var-access
+OH_0370         | PASS                           | diff_converted     | hp-arkts-no-use-any-export-o
+OH_0374         | PASS                           | diff_converted     | foreach-args-check
+OH_0379         | PASS                           | diff_converted     | foreach-args-check
+
+================================================================================
+OH-Bench 评估报告
+时间: 2026-05-22 01:38:45
+数据集: arkts | Agent: agent_results_moatless_seed4.json
+执行模式: 持久容器 (快速模式)
+================================================================================
+
+## 1. 总体统计 (100 任务)
+  补丁成功应用:   99/100 (99.0%)
+  告警消除:       65/100 (65.0%)
+  严格通过:     60/100 (60.0%)
+  ---
+  仍有告警:       34/100 (34.0%)
+  二次缺陷:       5/100
+  语法错误:       0/100
+  补丁应用失败:   0/100 (0.0%)
+  超时:           0/100
+  系统错误:       1/100
+
+## 转换方法分布
+  diff_converted      : 99
+  raw_diff_fallback   : 1
+
+## 按规则统计
+规则                                            |   总 | PASS | FAIL | ERR | SEC |    通过率
+-------------------------------------------------------------------------------------
+quotes                                        |   1 |    1 |    0 |   0 |   0 |   100%
+space-before-blocks                           |   1 |    1 |    0 |   0 |   0 |   100%
+foreach-args-check                            |   5 |    5 |    0 |   0 |   0 |   100%
+hp-arkts-no-use-any-export-other              |   6 |    5 |    1 |   0 |   0 |    83%
+hp-arkui-no-func-as-arg-for-reusable-compon   |   3 |    1 |    1 |   0 |   1 |    33%
+hp-arkui-no-state-var-access-in-loop          |  17 |    6 |   10 |   1 |   0 |    35%
+hp-arkui-no-stringify-in-lazyforeach-key-ge   |  10 |   10 |    0 |   0 |   0 |   100%
+hp-arkui-set-cache-count-for-lazyforeach-gr   |  17 |   14 |    2 |   0 |   1 |    82%
+hp-arkui-suggest-use-effectkit-blur           |   3 |    3 |    0 |   0 |   0 |   100%
+hp-arkui-use-local-var-to-replace-state-var   |   5 |    3 |    2 |   0 |   0 |    60%
+hp-arkui-use-object-link-to-replace-prop      |   9 |    8 |    1 |   0 |   0 |    89%
+hp-arkui-use-reusable-component               |  20 |    0 |   17 |   0 |   3 |     0%
+hp-arkui-use-transition-to-replace-animatet   |   2 |    2 |    0 |   0 |   0 |   100%
+mandatory-default-value-for-local-initializ   |   1 |    1 |    0 |   0 |   0 |   100%
+
+## 难度分析
+  简单 (>70%通过): 6 个规则
+    hp-arkui-set-cache-count-for-lazyforeach-grid: 14/17
+    hp-arkui-no-stringify-in-lazyforeach-key-generator: 10/10
+    hp-arkts-no-use-any-export-other: 5/6
+    foreach-args-check: 5/5
+    hp-arkui-use-object-link-to-replace-prop: 8/9
+    hp-arkui-suggest-use-effectkit-blur: 3/3
+  中等 (20-70%通过): 3 个规则
+    hp-arkui-no-func-as-arg-for-reusable-component: 1/3
+    hp-arkui-no-state-var-access-in-loop: 6/17
+    hp-arkui-use-local-var-to-replace-state-var: 3/5
+  困难 (<20%通过): 1 个规则
+    hp-arkui-use-reusable-component: 0/20
+
+## 区分度评价
+  数据集具有良好区分度: 简单6 / 中等3 / 困难1
+
+## Baseline 问题 (1 个)
+  OH_0311: mandatory-default-value-for-local-initialization
+
+================================================================================
+
+报告已保存: logs/report_agent_results_moatless_seed4_20260522_002808.txt

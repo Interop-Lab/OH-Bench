@@ -1,0 +1,584 @@
+[
+  {
+    "instance_id": "OH_0001",
+    "model_patch": {
+      "hadss_dialog/Index.ets": "--- a/hadss_dialog/Index.ets\n+++ b/hadss_dialog/Index.ets\n@@ -14,4 +14,4 @@\n  */\n export { DialogAction, DialogBackPressResult, DialogType, DialogStatus, DialogAnimation, AnimationType, DialogStyle, PopupStyle, SheetStyle, DialogDismissReason, DialogConfig, DialogBehavior, DialogLayerPolicy, DialogPosition, DialogMode, TopDialogPriority, PopupConfig, PopupPostion, CustomKeyboardAvoidMode, SheetBehavior, ButtonItemParams, SheetItem, IconHorizontalToastContent, IconVerticalToastContent, IconPosition, PopupItem } from './src/main/ets/common/common';\n \n-export * from './src/main/ets/model/model';\n+export { DialogHub, GlobalEvent, InfDialog, InfCustomDialog, InfPopup, InfSheet, InfToast, DialogLifeCycle, SheetLifeCycle, PresetCustom, PresetPopup, PresetSheet, PresetToast } from './src/main/ets/model/model';\n"
+    }
+  },
+  {
+    "instance_id": "OH_0002",
+    "model_patch": {
+      "hadss_dialog/Index.ets": "--- a/hadss_dialog/Index.ets\n+++ b/hadss_dialog/Index.ets\n@@ -14,4 +14,4 @@\n  */\n export { DialogAction, DialogBackPressResult, DialogType, DialogStatus, DialogAnimation, AnimationType, DialogStyle, PopupStyle, SheetStyle, DialogDismissReason, DialogConfig, DialogBehavior, DialogLayerPolicy, DialogPosition, DialogMode, TopDialogPriority, PopupConfig, PopupPostion, CustomKeyboardAvoidMode, SheetBehavior, ButtonItemParams, SheetItem, IconHorizontalToastContent, IconVerticalToastContent, IconPosition, PopupItem } from './src/main/ets/common/common';\n \n-export * from './src/main/ets/model/model';\n+export { DialogHub, GlobalEvent, InfDialog, InfCustomDialog, InfPopup, InfSheet, InfToast, DialogLifeCycle, SheetLifeCycle, PresetCustom, PresetPopup, PresetSheet, PresetToast } from './src/main/ets/model/model';\n"
+    }
+  },
+  {
+    "instance_id": "OH_0003",
+    "model_patch": {
+      "MaterialProgressBar/src/main/ets/components/material/smooth/MultiLine.ets": "--- a/MaterialProgressBar/src/main/ets/components/material/smooth/MultiLine.ets\n+++ b/MaterialProgressBar/src/main/ets/components/material/smooth/MultiLine.ets\n@@ -104,6 +104,11 @@\n \n     let size = this.pathCmd.length;\n     let stepSections = 1 / this.sectionsCount;\n+    const curves = this.curves;\n+    const mWidth = this.mWidth;\n+    const reversed = this.reversed;\n+    const separatorLength = this.separatorLength;\n+    const currentOffset = this.currentOffset;\n \n     for (let k = 0;k < size; k++) {\n       let line = this.pathCmd[k];\n@@ -111,23 +116,23 @@\n         continue;\n       }\n       try {\n-        let xOffset = stepSections * k + this.currentOffset; //当前\n+        let xOffset = stepSections * k + currentOffset; //当前\n         let prev = Math.max(0, xOffset - stepSections); //前一个\n-        let ratioSectionWidth = Math.abs(this.curves.interpolate(prev) - this.curves.interpolate(Math.min(xOffset, 1)));\n-        let sectionWidth = Math.round(this.mWidth * ratioSectionWidth); //实际宽度\n+        let ratioSectionWidth = Math.abs(curves.interpolate(prev) - curves.interpolate(Math.min(xOffset, 1)));\n+        let sectionWidth = Math.round(mWidth * ratioSectionWidth); //实际宽度\n         let x = 0;\n         if (k == 0) {\n-          x = -this.separatorLength;\n+          x = -separatorLength;\n         } else {\n-          x = Math.round(this.mWidth * this.curves.interpolate(Math.min(xOffset, 1)));\n+          x = Math.round(mWidth * curves.interpolate(Math.min(xOffset, 1)));\n           x -= sectionWidth;\n         }\n-        if (this.reversed) {\n-          x = this.mWidth - sectionWidth - x - this.separatorLength;\n+        if (reversed) {\n+          x = mWidth - sectionWidth - x - separatorLength;\n         }\n         line.set(x, sectionWidth);\n       } catch (err) {\n-        console.warn(`---->curves.interpolate curves:${ this.curves} err:${err.message} -> ${err.toString()} `)\n+        console.warn(`---->curves.interpolate curves:${ curves} err:${err.message} -> ${err.toString()} `)\n       }\n     }\n   }\n"
+    }
+  },
+  {
+    "instance_id": "OH_0004",
+    "model_patch": {
+      "entry/src/main/ets/MainAbility/pages/dialer/callRecord/AllRecord.ets": "--- a/entry/src/main/ets/MainAbility/pages/dialer/callRecord/AllRecord.ets\n+++ b/entry/src/main/ets/MainAbility/pages/dialer/callRecord/AllRecord.ets\n@@ -47,7 +47,7 @@\n             ContactItem({ mPresenter: $mPresenter, item: item });\n           }\n           .height($r(\"app.float.id_item_height_max\"))\n-        }, item => item.id)\n+        }, item => item.id).cachedCount(10)\n       }\n       .divider({\n         strokeWidth: 1,\n"
+    }
+  },
+  {
+    "instance_id": "OH_0005",
+    "model_patch": {
+      "entry/src/main/ets/MainAbility/pages/dialer/callRecord/AllRecord.ets": "--- a/entry/src/main/ets/MainAbility/pages/dialer/callRecord/AllRecord.ets\n+++ b/entry/src/main/ets/MainAbility/pages/dialer/callRecord/AllRecord.ets\n@@ -43,10 +43,7 @@\n     Stack() {\n       List() {\n         LazyForEach(this.mPresenter.mAllCallRecordListDataSource, (item, index: number) => {\n-          ListItem() {\n-            ContactItem({ mPresenter: $mPresenter, item: item });\n-          }\n-          .height($r(\"app.float.id_item_height_max\"))\n+          RecordListItem({ mPresenter: $mPresenter, item: item })\n         }, item => item.id)\n       }\n       .divider({\n@@ -57,6 +54,19 @@\n       })\n       .margin({ bottom: '110vp' })\n     }\n+  }\n+}\n+\n+@Component\n+struct RecordListItem {\n+  @Link mPresenter: CallRecordPresenter\n+  @State item: any = {}\n+\n+  build() {\n+    ListItem() {\n+      ContactItem({ mPresenter: $mPresenter, item: this.item });\n+    }\n+    .height($r(\"app.float.id_item_height_max\"))\n   }\n }\n \n"
+    }
+  },
+  {
+    "instance_id": "OH_0006",
+    "model_patch": {
+      "entry/src/main/ets/MainAbility/pages/phone/dialer/callRecord/AllRecord.ets": "--- a/entry/src/main/ets/MainAbility/pages/phone/dialer/callRecord/AllRecord.ets\n+++ b/entry/src/main/ets/MainAbility/pages/phone/dialer/callRecord/AllRecord.ets\n@@ -60,6 +60,7 @@\n         .height($r(\"app.float.dialer_calllog_item_height\"))\n       }, item => item.id)\n     }\n+    .cachedCount(4)\n     .divider({\n       strokeWidth: 1,\n       color: $r('sys.color.ohos_id_color_list_separator'),\n"
+    }
+  },
+  {
+    "instance_id": "OH_0007",
+    "model_patch": {
+      "entry/src/main/ets/MainAbility/pages/phone/dialer/callRecord/AllRecord.ets": "--- a/entry/src/main/ets/MainAbility/pages/phone/dialer/callRecord/AllRecord.ets\n+++ b/entry/src/main/ets/MainAbility/pages/phone/dialer/callRecord/AllRecord.ets\n@@ -92,6 +92,7 @@\n }\n \n \n+@Reusable\n @Component\n struct ContactItem {\n   @Link mPresenter: CallRecordPresenter\n"
+    }
+  },
+  {
+    "instance_id": "OH_0008",
+    "model_patch": {
+      "entry/src/main/ets/MainAbility/pages/contacts/ContactList.ets": "--- a/entry/src/main/ets/MainAbility/pages/contacts/ContactList.ets\n+++ b/entry/src/main/ets/MainAbility/pages/contacts/ContactList.ets\n@@ -209,6 +209,7 @@\n       }\n       .width('100%')\n       .flexShrink(1)\n+      .cachedCount(4)\n       .listDirection(Axis.Vertical)\n       .edgeEffect(EdgeEffect.Spring)\n     }\n"
+    }
+  },
+  {
+    "instance_id": "OH_0009",
+    "model_patch": {
+      "entry/src/main/ets/MainAbility/pages/contacts/ContactList.ets": "--- a/entry/src/main/ets/MainAbility/pages/contacts/ContactList.ets\n+++ b/entry/src/main/ets/MainAbility/pages/contacts/ContactList.ets\n@@ -115,6 +115,7 @@\n struct ContactContent {\n   @Link private presenter: ContactListPresenter;\n \n+  @Reusable\n   @Builder\n   GroupsView(imageRes: Resource, title: string | Resource, showArrow: boolean) {\n     Row() {\n"
+    }
+  },
+  {
+    "instance_id": "OH_0010",
+    "model_patch": {
+      "entry/src/main/ets/MainAbility/pages/dialer/callRecord/MissedRecord.ets": "--- a/entry/src/main/ets/MainAbility/pages/dialer/callRecord/MissedRecord.ets\n+++ b/entry/src/main/ets/MainAbility/pages/dialer/callRecord/MissedRecord.ets\n@@ -48,6 +48,7 @@\n         .height($r(\"app.float.id_item_height_max\"))\n       }, item => item.id)\n     }\n+    .cachedCount(3)\n     .divider({\n       strokeWidth: 1,\n       color: $r('sys.color.ohos_id_color_list_separator'),\n"
+    }
+  },
+  {
+    "instance_id": "OH_0011",
+    "model_patch": {
+      "entry/src/main/ets/MainAbility/pages/dialer/callRecord/MissedRecord.ets": "--- a/entry/src/main/ets/MainAbility/pages/dialer/callRecord/MissedRecord.ets\n+++ b/entry/src/main/ets/MainAbility/pages/dialer/callRecord/MissedRecord.ets\n@@ -35,6 +35,7 @@\n   }\n }\n \n+@Reusable\n @Component\n struct RecordView {\n   @Link private mPresenter: any;\n"
+    }
+  },
+  {
+    "instance_id": "OH_0012",
+    "model_patch": {
+      "entry/src/main/ets/MainAbility/pages/phone/dialer/callRecord/MissedRecord.ets": "--- a/entry/src/main/ets/MainAbility/pages/phone/dialer/callRecord/MissedRecord.ets\n+++ b/entry/src/main/ets/MainAbility/pages/phone/dialer/callRecord/MissedRecord.ets\n@@ -64,6 +64,7 @@\n       startMargin: $r(\"app.float.id_item_height_sm\"),\n       endMargin: $r(\"app.float.id_card_margin_max\"),\n     })\n+    .cachedCount(8)\n   }\n }\n \n"
+    }
+  },
+  {
+    "instance_id": "OH_0013",
+    "model_patch": {
+      "entry/src/main/ets/MainAbility/pages/phone/dialer/callRecord/MissedRecord.ets": "--- a/entry/src/main/ets/MainAbility/pages/phone/dialer/callRecord/MissedRecord.ets\n+++ b/entry/src/main/ets/MainAbility/pages/phone/dialer/callRecord/MissedRecord.ets\n@@ -90,6 +90,7 @@\n }\n \n \n+@Reusable\n @Component\n struct ContactItem {\n   @Link mPresenter: CallRecordPresenter;\n"
+    }
+  },
+  {
+    "instance_id": "OH_0014",
+    "model_patch": {
+      "entry/src/main/ets/pages/dialer/callRecord/AllRecord.ets": "--- a/entry/src/main/ets/pages/dialer/callRecord/AllRecord.ets\n+++ b/entry/src/main/ets/pages/dialer/callRecord/AllRecord.ets\n@@ -56,7 +56,7 @@\n           ContactItem({ mPresenter: $mPresenter, item: item });\n         }\n         .height($r(\"app.float.id_item_height_max\"))\n-      }, item => item.id)\n+      }, item => item.id, { cachedCount: 12 })\n     }\n     .divider({\n       strokeWidth: 1,\n"
+    }
+  },
+  {
+    "instance_id": "OH_0015",
+    "model_patch": {
+      "entry/src/main/ets/pages/dialer/callRecord/AllRecord.ets": "--- a/entry/src/main/ets/pages/dialer/callRecord/AllRecord.ets\n+++ b/entry/src/main/ets/pages/dialer/callRecord/AllRecord.ets\n@@ -43,6 +43,7 @@\n }\n \n @Component\n+@Reusable\n struct RecordView {\n   @Link private mPresenter: any\n   @LocalStorageProp('breakpoint') curBp: string = 'sm';\n"
+    }
+  },
+  {
+    "instance_id": "OH_0016",
+    "model_patch": {
+      "entry/src/main/ets/pages/contacts/batchselectcontacts/BatchSelectContactsPage.ets": "--- a/entry/src/main/ets/pages/contacts/batchselectcontacts/BatchSelectContactsPage.ets\n+++ b/entry/src/main/ets/pages/contacts/batchselectcontacts/BatchSelectContactsPage.ets\n@@ -215,7 +215,7 @@\n               }\n             }\n           }\n-        }, (item) => item.calllog.id.toString())\n+        }, (item) => item.calllog.id.toString(), { cachedCount: 3 })\n       }\n       .width('100%')\n       .listDirection(Axis.Vertical)\n@@ -271,7 +271,7 @@\n               }\n             }\n           }\n-        }, (item) => item.contact.contactId.toString())\n+        }, (item) => item.contact.contactId.toString(), { cachedCount: 3 })\n       }\n       .width('100%')\n       .listDirection(Axis.Vertical)\n"
+    }
+  },
+  {
+    "instance_id": "OH_0017",
+    "model_patch": {
+      "entry/src/main/ets/pages/contacts/batchselectcontacts/BatchSelectContactsPage.ets": "--- a/entry/src/main/ets/pages/contacts/batchselectcontacts/BatchSelectContactsPage.ets\n+++ b/entry/src/main/ets/pages/contacts/batchselectcontacts/BatchSelectContactsPage.ets\n@@ -192,6 +192,23 @@\n   }\n }\n \n+@Reusable\n+function RecentListItem(presenter: BatchSelectContactsPresenter, item: any) {\n+  Stack({ alignContent: Alignment.BottomEnd }) {\n+    BatchSelectRecentItemView({\n+      item: item.calllog,\n+      index: item.index,\n+      onRecentItemClicked: (index) => presenter.onRecentItemClicked(index)\n+    })\n+\n+    if (item.showDivifer) {\n+      Divider()\n+        .color($r(\"sys.color.ohos_id_color_list_separator\"))\n+        .margin({ left: 76, right: $r(\"app.float.id_card_margin_max\") })\n+    }\n+  }\n+}\n+\n @Component\n struct RecentList {\n   @Link presenter: BatchSelectContactsPresenter;\n@@ -201,19 +218,7 @@\n       List({ space: 0, initialIndex: 0 }) {\n         LazyForEach(this.presenter.recentSource, (item, index: number) => {\n           ListItem() {\n-            Stack({ alignContent: Alignment.BottomEnd }) {\n-              BatchSelectRecentItemView({\n-                item: item.calllog,\n-                index: item.index,\n-                onRecentItemClicked: (index) => this.presenter.onRecentItemClicked(index)\n-              })\n-\n-              if (item.showDivifer) {\n-                Divider()\n-                  .color($r(\"sys.color.ohos_id_color_list_separator\"))\n-                  .margin({ left: 76, right: $r(\"app.float.id_card_margin_max\") })\n-              }\n-            }\n+            RecentListItem(this.presenter, item)\n           }\n         }, (item) => item.calllog.id.toString())\n       }\n@@ -228,6 +233,42 @@\n   }\n }\n \n+@Reusable\n+function ContactsListItem(presenter: BatchSelectContactsPresenter, item: any) {\n+  Stack({ alignContent: Alignment.BottomEnd }) {\n+    Column() {\n+      if (item.showIndex) {\n+        Flex({ direction: FlexDirection.Column,\n+          justifyContent: FlexAlign.End,\n+          alignItems: ItemAlign.Start }) {\n+          Text(item.contact.namePrefix)\n+            .fontColor($r(\"sys.color.ohos_fa_text_secondary\"))\n+            .fontSize($r(\"sys.float.ohos_id_text_size_sub_title3\"))\n+            .fontWeight(FontWeight.Medium)\n+            .textAlign(TextAlign.Start)\n+        }\n+        .padding({ left: $r(\"app.float.id_card_margin_max\"), bottom: $r(\"app.float.id_card_margin_large\") })\n+        .width('100%')\n+        .height($r(\"app.float.id_item_height_mid\"))\n+      }\n+\n+      BatchSelectContactItemView({\n+        item: item.contact,\n+        index: item.index,\n+        onContactItemClicked: (index, indexChild) => presenter.onContactItemClicked(index, indexChild),\n+        showIndex: item.showIndex,\n+        showDivifer: item.showDivifer\n+      })\n+    }\n+\n+    if (item.showDivifer) {\n+      Divider()\n+        .color($r(\"sys.color.ohos_id_color_list_separator\"))\n+        .margin({ left: 76, right: $r(\"app.float.id_card_margin_max\") })\n+    }\n+  }\n+}\n+\n @Component\n struct ContactsList {\n   @Link presenter: BatchSelectContactsPresenter;\n@@ -238,38 +279,7 @@\n         LazyForEach(this.presenter.contactsSource, (item, index) => {\n \n           ListItem() {\n-            Stack({ alignContent: Alignment.BottomEnd }) {\n-              Column() {\n-                if (item.showIndex) {\n-                  Flex({ direction: FlexDirection.Column,\n-                    justifyContent: FlexAlign.End,\n-                    alignItems: ItemAlign.Start }) {\n-                    Text(item.contact.namePrefix)\n-                      .fontColor($r(\"sys.color.ohos_fa_text_secondary\"))\n-                      .fontSize($r(\"sys.float.ohos_id_text_size_sub_title3\"))\n-                      .fontWeight(FontWeight.Medium)\n-                      .textAlign(TextAlign.Start)\n-                  }\n-                  .padding({ left: $r(\"app.float.id_card_margin_max\"), bottom: $r(\"app.float.id_card_margin_large\") })\n-                  .width('100%')\n-                  .height($r(\"app.float.id_item_height_mid\"))\n-                }\n-\n-                BatchSelectContactItemView({\n-                  item: item.contact,\n-                  index: item.index,\n-                  onContactItemClicked: (index, indexChild) => this.presenter.onContactItemClicked(index, indexChild),\n-                  showIndex: item.showIndex,\n-                  showDivifer: item.showDivifer\n-                })\n-              }\n-\n-              if (item.showDivifer) {\n-                Divider()\n-                  .color($r(\"sys.color.ohos_id_color_list_separator\"))\n-                  .margin({ left: 76, right: $r(\"app.float.id_card_margin_max\") })\n-              }\n-            }\n+            ContactsListItem(this.presenter, item)\n           }\n         }, (item) => item.contact.contactId.toString())\n       }\n"
+    }
+  },
+  {
+    "instance_id": "OH_0018",
+    "model_patch": {
+      "entry/src/main/ets/pages/contacts/batchselectcontacts/BatchSelectContactsPage.ets": "--- a/entry/src/main/ets/pages/contacts/batchselectcontacts/BatchSelectContactsPage.ets\n+++ b/entry/src/main/ets/pages/contacts/batchselectcontacts/BatchSelectContactsPage.ets\n@@ -215,7 +215,7 @@\n               }\n             }\n           }\n-        }, (item) => item.calllog.id.toString())\n+        }, (item) => item.calllog.id.toString()).cachedCount(4)\n       }\n       .width('100%')\n       .listDirection(Axis.Vertical)\n@@ -271,7 +271,7 @@\n               }\n             }\n           }\n-        }, (item) => item.contact.contactId.toString())\n+        }, (item) => item.contact.contactId.toString()).cachedCount(4)\n       }\n       .width('100%')\n       .listDirection(Axis.Vertical)\n"
+    }
+  },
+  {
+    "instance_id": "OH_0019",
+    "model_patch": {
+      "entry/src/main/ets/pages/contacts/batchselectcontacts/BatchSelectContactsPage.ets": "--- a/entry/src/main/ets/pages/contacts/batchselectcontacts/BatchSelectContactsPage.ets\n+++ b/entry/src/main/ets/pages/contacts/batchselectcontacts/BatchSelectContactsPage.ets\n@@ -228,6 +228,7 @@\n   }\n }\n \n+@Reusable\n @Component\n struct ContactsList {\n   @Link presenter: BatchSelectContactsPresenter;\n"
+    }
+  },
+  {
+    "instance_id": "OH_0020",
+    "model_patch": {
+      "entry/src/main/ets/pages/contacts/ContactList.ets": "--- a/entry/src/main/ets/pages/contacts/ContactList.ets\n+++ b/entry/src/main/ets/pages/contacts/ContactList.ets\n@@ -195,7 +195,7 @@\n                   }\n                 }\n               }\n-            }, (item) => item.contact.contactId.toString())\n+            }, (item) => item.contact.contactId.toString(), { cachedCount: 4 })\n           }\n           .width('100%')\n           .listDirection(Axis.Vertical)\n"
+    }
+  },
+  {
+    "instance_id": "OH_0021",
+    "model_patch": {
+      "entry/src/main/ets/pages/contacts/ContactList.ets": "--- a/entry/src/main/ets/pages/contacts/ContactList.ets\n+++ b/entry/src/main/ets/pages/contacts/ContactList.ets\n@@ -94,6 +94,53 @@\n }\n \n @Component\n+@Reusable\n+struct ContactListItemContainer {\n+  @Prop item: any;\n+  @Prop index: number;\n+  @LocalStorageProp('breakpoint') curBp: string = 'sm';\n+\n+  build() {\n+    ListItem() {\n+      Stack({ alignContent: Alignment.BottomEnd }) {\n+        Column() {\n+          if (this.item.showIndex && !StringUtil.isEmpty(this.item.contact.namePrefix)) {\n+            Row() {\n+              Text(this.item.contact.namePrefix)\n+                .fontColor($r(\"sys.color.ohos_fa_text_secondary\"))\n+                .fontSize($r(\"sys.float.ohos_id_text_size_sub_title3\"))\n+                .fontWeight(FontWeight.Medium)\n+                .textAlign(TextAlign.Start)\n+            }\n+            .alignItems(VerticalAlign.Bottom)\n+            .direction(Direction.Ltr)\n+            .padding({ left: this.curBp === 'lg' ? $r(\"app.float.id_card_margin_max\") : 0,\n+               bottom: $r(\"app.float.id_card_margin_large\")})\n+            .height($r(\"app.float.id_item_height_mid\"))\n+          }\n+\n+          ContactListItemView({\n+            item: this.item.contact,\n+            index: this.index,\n+            showIndex: this.item.showIndex,\n+            showDivifer: this.item.showDivifer\n+          })\n+        }\n+        .alignItems(HorizontalAlign.Start)\n+\n+        if (this.item.showDivifer) {\n+          Divider()\n+            .color($r(\"sys.color.ohos_id_color_list_separator\"))\n+            .margin({ right: this.curBp === 'lg' ? 76 : 100,\n+              left: this.curBp === 'lg' ? 76 : 100\n+            })\n+        }\n+      }\n+    }\n+  }\n+}\n+\n+@Component\n struct ContactContent {\n   @Link private presenter: ContactListPresenter;\n   @LocalStorageProp('breakpoint') curBp: string = 'sm';\n@@ -159,42 +206,7 @@\n         GridCol({ span: { sm: 4, md: 6, lg: 8 }, offset: { sm: 0, md: 2, lg: 4 } }) {\n           List({ space: 0, initialIndex: 0 }) {\n             LazyForEach(this.presenter.contactListDataSource, (item, index: number) => {\n-              ListItem() {\n-                Stack({ alignContent: Alignment.BottomEnd }) {\n-                  Column() {\n-                    if (item.showIndex && !StringUtil.isEmpty(item.contact.namePrefix)) {\n-                      Row() {\n-                        Text(item.contact.namePrefix)\n-                          .fontColor($r(\"sys.color.ohos_fa_text_secondary\"))\n-                          .fontSize($r(\"sys.float.ohos_id_text_size_sub_title3\"))\n-                          .fontWeight(FontWeight.Medium)\n-                          .textAlign(TextAlign.Start)\n-                      }\n-                      .alignItems(VerticalAlign.Bottom)\n-                      .direction(Direction.Ltr)\n-                      .padding({ left: this.curBp === 'lg' ? $r(\"app.float.id_card_margin_max\") : 0,\n-                         bottom: $r(\"app.float.id_card_margin_large\")})\n-                      .height($r(\"app.float.id_item_height_mid\"))\n-                    }\n-\n-                    ContactListItemView({\n-                      item: item.contact,\n-                      index: index,\n-                      showIndex: item.showIndex,\n-                      showDivifer: item.showDivifer\n-                    })\n-                  }\n-                  .alignItems(HorizontalAlign.Start)\n-\n-                  if (item.showDivifer) {\n-                    Divider()\n-                      .color($r(\"sys.color.ohos_id_color_list_separator\"))\n-                      .margin({ right: this.curBp === 'lg' ? 76 : 100,\n-                        left: this.curBp === 'lg' ? 76 : 100\n-                      })\n-                  }\n-                }\n-              }\n+              ContactListItemContainer({ item: item, index: index })\n             }, (item) => item.contact.contactId.toString())\n           }\n           .width('100%')\n"
+    }
+  },
+  {
+    "instance_id": "OH_0022",
+    "model_patch": {
+      "entry/src/main/ets/component/contactdetail/DetailCalllog.ets": "--- a/entry/src/main/ets/component/contactdetail/DetailCalllog.ets\n+++ b/entry/src/main/ets/component/contactdetail/DetailCalllog.ets\n@@ -168,7 +168,7 @@\n               CallLogListItem({ message: item.callLog, mPresenter: $mPresenter });\n             }\n           }\n-        }, item => item.callLog.id.toString())\n+        }, item => item.callLog.id.toString(), 10)\n       }\n       .divider({ strokeWidth: $r(\"app.float.id_divide_width\"),color: $r(\"sys.color.ohos_id_color_list_separator\"),\n         startMargin: $r(\"app.float.id_card_margin_max\"), endMargin:$r(\"app.float.id_card_margin_max\")})\n"
+    }
+  },
+  {
+    "instance_id": "OH_0023",
+    "model_patch": {
+      "entry/src/main/ets/component/contactdetail/DetailCalllog.ets": "--- a/entry/src/main/ets/component/contactdetail/DetailCalllog.ets\n+++ b/entry/src/main/ets/component/contactdetail/DetailCalllog.ets\n@@ -21,6 +21,7 @@\n /**\n  * Call log\n  */\n+@Reusable\n @Component\n struct CallLogListItem {\n   @State message: any = {};\n@@ -108,6 +109,7 @@\n /**\n  * Call log\n  */\n+@Reusable\n @Component\n export default struct DetailCalllog {\n   @Link private mPresenter: any;\n"
+    }
+  },
+  {
+    "instance_id": "OH_0024",
+    "model_patch": {
+      "entry/src/main/ets/pages/dialer/callRecord/AllRecord.ets": "--- a/entry/src/main/ets/pages/dialer/callRecord/AllRecord.ets\n+++ b/entry/src/main/ets/pages/dialer/callRecord/AllRecord.ets\n@@ -108,6 +108,7 @@\n     .flexShrink(1)\n     .listDirection(Axis.Vertical)\n     .edgeEffect(EdgeEffect.None)\n+    .cachedCount(8)\n     .scrollBar(BarState.Off)\n   }\n }\n"
+    }
+  },
+  {
+    "instance_id": "OH_0025",
+    "model_patch": {
+      "entry/src/main/ets/pages/dialer/callRecord/AllRecord.ets": "--- a/entry/src/main/ets/pages/dialer/callRecord/AllRecord.ets\n+++ b/entry/src/main/ets/pages/dialer/callRecord/AllRecord.ets\n@@ -82,6 +82,7 @@\n }\n \n @Component\n+@Reusable\n struct RecordView {\n   @Link private mPresenter: CallRecordPresenter;\n   @LocalStorageProp('breakpoint') curBp: string = 'sm';\n@@ -144,6 +145,7 @@\n }\n \n @Component\n+@Reusable\n struct ContactItem {\n   @State mIndexPresenter: IndexPresenter = IndexPresenter.getInstance();\n   @Link mPresenter: CallRecordPresenter\n"
+    }
+  },
+  {
+    "instance_id": "OH_0026",
+    "model_patch": {
+      "entry/src/main/ets/pages/dialer/callRecord/AllRecord.ets": "--- a/entry/src/main/ets/pages/dialer/callRecord/AllRecord.ets\n+++ b/entry/src/main/ets/pages/dialer/callRecord/AllRecord.ets\n@@ -95,7 +95,7 @@\n           ContactItem({ mPresenter: mPresenter, item: item, index: index });\n         }\n         .height($r('app.float.id_item_height_max'))\n-      }, (item:MergedCallLog) => JSON.stringify(item))\n+      }, (item:MergedCallLog, index: number) => index)\n     }\n     .divider({\n       strokeWidth: 0.5,\n"
+    }
+  },
+  {
+    "instance_id": "OH_0027",
+    "model_patch": {
+      "entry/src/main/ets/pages/contacts/batchselectcontacts/BatchSelectContactsPage.ets": "--- a/entry/src/main/ets/pages/contacts/batchselectcontacts/BatchSelectContactsPage.ets\n+++ b/entry/src/main/ets/pages/contacts/batchselectcontacts/BatchSelectContactsPage.ets\n@@ -224,7 +224,7 @@\n               }\n             }\n           }\n-        }, (item:BatchSelectContact) => JSON.stringify(item))\n+        }, (item:BatchSelectContact) => JSON.stringify(item), { cachedCount: 8 })\n       }\n       .width('100%')\n       .listDirection(Axis.Vertical)\n"
+    }
+  },
+  {
+    "instance_id": "OH_0028",
+    "model_patch": {
+      "entry/src/main/ets/pages/contacts/batchselectcontacts/BatchSelectContactsPage.ets": "--- a/entry/src/main/ets/pages/contacts/batchselectcontacts/BatchSelectContactsPage.ets\n+++ b/entry/src/main/ets/pages/contacts/batchselectcontacts/BatchSelectContactsPage.ets\n@@ -205,25 +205,31 @@\n struct RecentList {\n   @Link presenter: BatchSelectContactsPresenter;\n \n+  @Builder\n+  @Reusable\n+  private recentListItem(item: BatchSelectContact) {\n+    ListItem() {\n+      Stack({ alignContent: Alignment.BottomEnd }) {\n+        BatchSelectRecentItemView({\n+          item: item.calllog,\n+          index: item.index,\n+          onRecentItemClicked: (index: number): void => this.presenter.onRecentItemClicked(index)\n+        })\n+\n+        if (item.showDivifer) {\n+          Divider()\n+            .color($r('sys.color.ohos_id_color_list_separator'))\n+            .margin({ left: 76, right: $r('app.float.id_card_margin_max') })\n+        }\n+      }\n+    }\n+  }\n+\n   build() {\n     Column() {\n       List({ space: 0, initialIndex: 0 }) {\n         LazyForEach(this.presenter.recentSource, (item :BatchSelectContact, index: number) => {\n-          ListItem() {\n-            Stack({ alignContent: Alignment.BottomEnd }) {\n-              BatchSelectRecentItemView({\n-                item: item.calllog,\n-                index: item.index,\n-                onRecentItemClicked: (index: number): void => this.presenter.onRecentItemClicked(index)\n-              })\n-\n-              if (item.showDivifer) {\n-                Divider()\n-                  .color($r('sys.color.ohos_id_color_list_separator'))\n-                  .margin({ left: 76, right: $r('app.float.id_card_margin_max') })\n-              }\n-            }\n-          }\n+          this.recentListItem(item)\n         }, (item:BatchSelectContact) => JSON.stringify(item))\n       }\n       .width('100%')\n"
+    }
+  },
+  {
+    "instance_id": "OH_0029",
+    "model_patch": {
+      "entry/src/main/ets/pages/contacts/batchselectcontacts/BatchSelectContactsPage.ets": "--- a/entry/src/main/ets/pages/contacts/batchselectcontacts/BatchSelectContactsPage.ets\n+++ b/entry/src/main/ets/pages/contacts/batchselectcontacts/BatchSelectContactsPage.ets\n@@ -224,7 +224,7 @@\n               }\n             }\n           }\n-        }, (item:BatchSelectContact) => JSON.stringify(item))\n+        }, (item:BatchSelectContact) => item.index.toString())\n       }\n       .width('100%')\n       .listDirection(Axis.Vertical)\n@@ -288,7 +288,7 @@\n                 }\n               }\n             }\n-          }, (item:BatchSelectContact) => JSON.stringify(item))\n+          }, (item:BatchSelectContact) => item.index.toString())\n         }\n         .width('100%')\n         .listDirection(Axis.Vertical)\n"
+    }
+  },
+  {
+    "instance_id": "OH_0030",
+    "model_patch": {
+      "entry/src/main/ets/pages/contacts/batchselectcontacts/BatchSelectContactsPage.ets": "--- a/entry/src/main/ets/pages/contacts/batchselectcontacts/BatchSelectContactsPage.ets\n+++ b/entry/src/main/ets/pages/contacts/batchselectcontacts/BatchSelectContactsPage.ets\n@@ -228,6 +228,7 @@\n       }\n       .width('100%')\n       .listDirection(Axis.Vertical)\n+      .cachedCount(3)\n       .edgeEffect(EdgeEffect.Spring)\n     }\n     .height('100%')\n@@ -292,6 +293,7 @@\n         }\n         .width('100%')\n         .listDirection(Axis.Vertical)\n+        .cachedCount(3)\n         .edgeEffect(EdgeEffect.Spring)\n         .scrollBar(BarState.Off)\n         .onScrollIndex((firstIndex: number, lastIndex: number) => {\n"
+    }
+  },
+  {
+    "instance_id": "OH_0031",
+    "model_patch": {
+      "entry/src/main/ets/pages/contacts/batchselectcontacts/BatchSelectContactsPage.ets": "--- a/entry/src/main/ets/pages/contacts/batchselectcontacts/BatchSelectContactsPage.ets\n+++ b/entry/src/main/ets/pages/contacts/batchselectcontacts/BatchSelectContactsPage.ets\n@@ -238,6 +238,47 @@\n   }\n }\n \n+@Reusable\n+function ContactsListItemReusable(params: {\n+  cItem: BatchSelectContact,\n+  onClick: (index: number, indexChild: number) => void\n+}) {\n+  ListItem() {\n+    Stack({ alignContent: Alignment.BottomEnd }) {\n+      Column() {\n+        if (params.cItem.showIndex) {\n+          Flex({ direction: FlexDirection.Column,\n+            justifyContent: FlexAlign.End,\n+            alignItems: ItemAlign.Start }) {\n+            Text(params.cItem.contact.namePrefix)\n+              .fontColor($r('sys.color.ohos_fa_text_secondary'))\n+              .fontSize($r('sys.float.ohos_id_text_size_sub_title3'))\n+              .fontWeight(FontWeight.Medium)\n+              .textAlign(TextAlign.Start)\n+          }\n+          .padding({ left: $r('app.float.id_card_margin_max'), bottom: $r('app.float.id_card_margin_large') })\n+          .width('100%')\n+          .height($r('app.float.id_item_height_mid'))\n+        }\n+\n+        BatchSelectContactItemView({\n+          item: params.cItem.contact,\n+          index: params.cItem.index,\n+          onContactItemClicked: params.onClick,\n+          showIndex: params.cItem.showIndex,\n+          showDivifer: params.cItem.showDivifer\n+        })\n+      }\n+\n+      if (params.cItem.showDivifer) {\n+        Divider()\n+          .color($r('sys.color.ohos_id_color_list_separator'))\n+          .margin({ left: 76, right: $r('app.float.id_card_margin_max') })\n+      }\n+    }\n+  }\n+}\n+\n @Component\n struct ContactsList {\n   @Link presenter: BatchSelectContactsPresenter;\n@@ -253,41 +294,10 @@\n         List({ initialIndex: this.presenter.initialIndex, scroller: this.scroller }) {\n           LazyForEach(this.presenter.contactsSource, (item:BatchSelectContact) => {\n \n-            ListItem() {\n-              Stack({ alignContent: Alignment.BottomEnd }) {\n-                Column() {\n-                  if (item.showIndex) {\n-                    Flex({ direction: FlexDirection.Column,\n-                      justifyContent: FlexAlign.End,\n-                      alignItems: ItemAlign.Start }) {\n-                      Text(item.contact.namePrefix)\n-                        .fontColor($r('sys.color.ohos_fa_text_secondary'))\n-                        .fontSize($r('sys.float.ohos_id_text_size_sub_title3'))\n-                        .fontWeight(FontWeight.Medium)\n-                        .textAlign(TextAlign.Start)\n-                    }\n-                    .padding({ left: $r('app.float.id_card_margin_max'), bottom: $r('app.float.id_card_margin_large') })\n-                    .width('100%')\n-                    .height($r('app.float.id_item_height_mid'))\n-                  }\n-\n-                  BatchSelectContactItemView({\n-                    item: item.contact,\n-                    index: item.index,\n-                    onContactItemClicked: (index:number, indexChild:number): void => this.presenter.onContactItemClicked(index,\n-                      indexChild),\n-                    showIndex: item.showIndex,\n-                    showDivifer: item.showDivifer\n-                  })\n-                }\n-\n-                if (item.showDivifer) {\n-                  Divider()\n-                    .color($r('sys.color.ohos_id_color_list_separator'))\n-                    .margin({ left: 76, right: $r('app.float.id_card_margin_max') })\n-                }\n-              }\n-            }\n+            ContactsListItemReusable({\n+              cItem: item,\n+              onClick: (index: number, indexChild: number): void => this.presenter.onContactItemClicked(index, indexChild)\n+            })\n           }, (item:BatchSelectContact) => JSON.stringify(item))\n         }\n         .width('100%')\n"
+    }
+  },
+  {
+    "instance_id": "OH_0032",
+    "model_patch": {
+      "entry/src/main/ets/pages/contacts/batchselectcontacts/BatchSelectContactsPage.ets": "--- a/entry/src/main/ets/pages/contacts/batchselectcontacts/BatchSelectContactsPage.ets\n+++ b/entry/src/main/ets/pages/contacts/batchselectcontacts/BatchSelectContactsPage.ets\n@@ -224,7 +224,7 @@\n               }\n             }\n           }\n-        }, (item:BatchSelectContact) => JSON.stringify(item))\n+        }, (item:BatchSelectContact) => item.index)\n       }\n       .width('100%')\n       .listDirection(Axis.Vertical)\n@@ -288,7 +288,7 @@\n                 }\n               }\n             }\n-          }, (item:BatchSelectContact) => JSON.stringify(item))\n+          }, (item:BatchSelectContact) => item.index)\n         }\n         .width('100%')\n         .listDirection(Axis.Vertical)\n"
+    }
+  },
+  {
+    "instance_id": "OH_0033",
+    "model_patch": {
+      "entry/src/main/ets/pages/contacts/details/ContactDetail.ets": "--- a/entry/src/main/ets/pages/contacts/details/ContactDetail.ets\n+++ b/entry/src/main/ets/pages/contacts/details/ContactDetail.ets\n@@ -399,7 +399,7 @@\n             }\n           }\n           .width('100%')\n-        }, (item: LooseObject) => JSON.stringify(item))\n+        }, (item: LooseObject) => JSON.stringify(item), { cachedCount: 8 })\n       }\n       .backgroundColor(Color.White)\n       .onAreaChange((oldArea: Area, newArea: Area) => {\n"
+    }
+  },
+  {
+    "instance_id": "OH_0034",
+    "model_patch": {
+      "entry/src/main/ets/pages/contacts/details/ContactDetail.ets": "--- a/entry/src/main/ets/pages/contacts/details/ContactDetail.ets\n+++ b/entry/src/main/ets/pages/contacts/details/ContactDetail.ets\n@@ -244,6 +244,7 @@\n   deleteContact\n }\n \n+@Reusable\n @Component\n struct Content {\n   @Link private mPresenter: DetailPresenter;\n"
+    }
+  },
+  {
+    "instance_id": "OH_0035",
+    "model_patch": {
+      "entry/src/main/ets/pages/contacts/details/ContactDetail.ets": "--- a/entry/src/main/ets/pages/contacts/details/ContactDetail.ets\n+++ b/entry/src/main/ets/pages/contacts/details/ContactDetail.ets\n@@ -399,7 +399,7 @@\n             }\n           }\n           .width('100%')\n-        }, (item: LooseObject) => JSON.stringify(item))\n+        })\n       }\n       .backgroundColor(Color.White)\n       .onAreaChange((oldArea: Area, newArea: Area) => {\n"
+    }
+  },
+  {
+    "instance_id": "OH_0036",
+    "model_patch": {
+      "entry/src/main/ets/pages/contacts/ContactList.ets": "--- a/entry/src/main/ets/pages/contacts/ContactList.ets\n+++ b/entry/src/main/ets/pages/contacts/ContactList.ets\n@@ -257,7 +257,7 @@\n                     }\n                   }\n                 }\n-              }, (item:ContactListShowInfo) => JSON.stringify(item))\n+              }, (item:ContactListShowInfo) => JSON.stringify(item), { cachedCount: 20 })\n             }\n             .width('100%')\n             .height('100%')\n@@ -276,7 +276,7 @@\n       .width('100%')\n       ContactSearch({ presenter: $presenter, type: $type })\n         .visibility(this.presenter.isSearchPage ? Visibility.Visible : Visibility.None)\n-\tAlphabetIndexerPage({scroller: this.scroller, presenter: $alphabetIndexPresenter, selected: this.alphabetSelected,\n+        AlphabetIndexerPage({scroller: this.scroller, presenter: $alphabetIndexPresenter, selected: this.alphabetSelected,\n         isClicked: $isAlphabetClicked, drag: $dragList})\n         .margin({top: '30%', bottom: '10%'})\n     }\n"
+    }
+  },
+  {
+    "instance_id": "OH_0037",
+    "model_patch": {
+      "entry/src/main/ets/pages/contacts/ContactList.ets": "--- a/entry/src/main/ets/pages/contacts/ContactList.ets\n+++ b/entry/src/main/ets/pages/contacts/ContactList.ets\n@@ -122,6 +122,7 @@\n   @State type: number = 0;\n \n   @Builder\n+  @Reusable\n   GroupsView(imageRes: Resource, title: string | Resource, showArrow: boolean) {\n     Row() {\n       Row() {\n@@ -276,7 +277,7 @@\n       .width('100%')\n       ContactSearch({ presenter: $presenter, type: $type })\n         .visibility(this.presenter.isSearchPage ? Visibility.Visible : Visibility.None)\n-\tAlphabetIndexerPage({scroller: this.scroller, presenter: $alphabetIndexPresenter, selected: this.alphabetSelected,\n+        AlphabetIndexerPage({scroller: this.scroller, presenter: $alphabetIndexPresenter, selected: this.alphabetSelected,\n         isClicked: $isAlphabetClicked, drag: $dragList})\n         .margin({top: '30%', bottom: '10%'})\n     }\n"
+    }
+  },
+  {
+    "instance_id": "OH_0038",
+    "model_patch": {
+      "entry/src/main/ets/pages/contacts/ContactList.ets": "--- a/entry/src/main/ets/pages/contacts/ContactList.ets\n+++ b/entry/src/main/ets/pages/contacts/ContactList.ets\n@@ -257,7 +257,7 @@\n                     }\n                   }\n                 }\n-              }, (item:ContactListShowInfo) => JSON.stringify(item))\n+              }, (item:ContactListShowInfo, index: number) => index.toString())\n             }\n             .width('100%')\n             .height('100%')\n@@ -276,7 +276,7 @@\n       .width('100%')\n       ContactSearch({ presenter: $presenter, type: $type })\n         .visibility(this.presenter.isSearchPage ? Visibility.Visible : Visibility.None)\n-\tAlphabetIndexerPage({scroller: this.scroller, presenter: $alphabetIndexPresenter, selected: this.alphabetSelected,\n+        AlphabetIndexerPage({scroller: this.scroller, presenter: $alphabetIndexPresenter, selected: this.alphabetSelected,\n         isClicked: $isAlphabetClicked, drag: $dragList})\n         .margin({top: '30%', bottom: '10%'})\n     }\n"
+    }
+  },
+  {
+    "instance_id": "OH_0039",
+    "model_patch": {
+      "entry/src/main/ets/pages/contacts/search/ContactSearch.ets": "--- a/entry/src/main/ets/pages/contacts/search/ContactSearch.ets\n+++ b/entry/src/main/ets/pages/contacts/search/ContactSearch.ets\n@@ -272,7 +272,7 @@\n                   } else if (this.type === 2) {\n                   }\n                 })\n-              }, (item: ContactPickerListItem) => JSON.stringify(item))\n+              }, (item: ContactPickerListItem) => JSON.stringify(item)).cachedCount(3)\n             }\n             .height('90%')\n             .width('100%')\n"
+    }
+  },
+  {
+    "instance_id": "OH_0040",
+    "model_patch": {}
+  },
+  {
+    "instance_id": "OH_0041",
+    "model_patch": {
+      "entry/src/main/ets/pages/contacts/search/ContactSearch.ets": "--- a/entry/src/main/ets/pages/contacts/search/ContactSearch.ets\n+++ b/entry/src/main/ets/pages/contacts/search/ContactSearch.ets\n@@ -272,7 +272,7 @@\n                   } else if (this.type === 2) {\n                   }\n                 })\n-              }, (item: ContactPickerListItem) => JSON.stringify(item))\n+              }, (item: ContactPickerListItem) => item.contact.contactId)\n             }\n             .height('90%')\n             .width('100%')\n"
+    }
+  },
+  {
+    "instance_id": "OH_0042",
+    "model_patch": {
+      "entry/src/main/ets/pages/favorites/editFavoriteList.ets": "--- a/entry/src/main/ets/pages/favorites/editFavoriteList.ets\n+++ b/entry/src/main/ets/pages/favorites/editFavoriteList.ets\n@@ -193,7 +193,7 @@\n                   this.item = item;\n                   return this.pixelMapBuilder();\n                 })\n-              }, (item:FavoriteListBean) => JSON.stringify(item))\n+              }, (item:FavoriteListBean) => JSON.stringify(item), { cachedCount: 12 })\n             }\n             .editMode(true)\n             .width('100%')\n"
+    }
+  },
+  {
+    "instance_id": "OH_0043",
+    "model_patch": {
+      "entry/src/main/ets/pages/favorites/editFavoriteList.ets": "--- a/entry/src/main/ets/pages/favorites/editFavoriteList.ets\n+++ b/entry/src/main/ets/pages/favorites/editFavoriteList.ets\n@@ -315,6 +315,7 @@\n }\n \n @Component\n+@Reusable\n export struct FavoriteListItem {\n   @Link presenter: EditFavoriteListPresenter;\n   @Prop item: FavoriteListBean;\n"
+    }
+  },
+  {
+    "instance_id": "OH_0044",
+    "model_patch": {
+      "entry/src/main/ets/pages/favorites/editFavoriteList.ets": "--- a/entry/src/main/ets/pages/favorites/editFavoriteList.ets\n+++ b/entry/src/main/ets/pages/favorites/editFavoriteList.ets\n@@ -193,7 +193,7 @@\n                   this.item = item;\n                   return this.pixelMapBuilder();\n                 })\n-              }, (item:FavoriteListBean) => JSON.stringify(item))\n+              }, (item:FavoriteListBean) => item.index)\n             }\n             .editMode(true)\n             .width('100%')\n"
+    }
+  },
+  {
+    "instance_id": "OH_0045",
+    "model_patch": {
+      "entry/src/main/ets/pages/favorites/favoriteList.ets": "--- a/entry/src/main/ets/pages/favorites/favoriteList.ets\n+++ b/entry/src/main/ets/pages/favorites/favoriteList.ets\n@@ -108,7 +108,7 @@\n               ListItem() {\n                 FavoriteListItem({ presenter: $mPresenter, item: item, mPresenter: $presenter });\n               }\n-            }, (item: FavoriteListBean) => JSON.stringify(item))\n+            }, (item: FavoriteListBean) => JSON.stringify(item), 12)\n           }\n           .scrollBar(BarState.Off)\n           .editMode(true)\n"
+    }
+  },
+  {
+    "instance_id": "OH_0046",
+    "model_patch": {
+      "entry/src/main/ets/pages/favorites/favoriteList.ets": "--- a/entry/src/main/ets/pages/favorites/favoriteList.ets\n+++ b/entry/src/main/ets/pages/favorites/favoriteList.ets\n@@ -80,6 +80,23 @@\n   @State mPresenter: FavoriteListPresenter = this.presenter;\n   isUsuallyShow: boolean = false;\n \n+  @Reusable\n+  @Builder\n+  private FavoriteHeader() {\n+    Column() {\n+      Text($r('app.string.favorite'))\n+        .fontSize(30)\n+        .fontWeight(FontWeight.Bold)\n+        .fontColor($r('sys.color.ohos_id_color_text_primary'))\n+        .margin({ bottom: $r('app.float.id_card_margin_sm') })\n+        .lineHeight(42)\n+        .margin({ top: 8, bottom: 2 })\n+    }\n+    .alignItems(HorizontalAlign.Start)\n+    .width('100%')\n+    .height(82)\n+  }\n+\n   build() {\n      Column() {\n       GridRow({ columns: { sm: 4, md: 8, lg: 12 }, gutter: { x: 12, y: 0 } }) {\n@@ -87,18 +104,7 @@\n           TitleGuide({ mPresenter: $mPresenter });\n         }\n         GridCol({ span: { sm: 4, md: 6, lg: 8 }, offset: { sm: 0, md: 2, lg: 4 } }) {\n-          Column() {\n-            Text($r('app.string.favorite'))\n-              .fontSize(30)\n-              .fontWeight(FontWeight.Bold)\n-              .fontColor($r('sys.color.ohos_id_color_text_primary'))\n-              .margin({ bottom: $r('app.float.id_card_margin_sm') })\n-              .lineHeight(42)\n-              .margin({ top: 8, bottom: 2 })\n-          }\n-          .alignItems(HorizontalAlign.Start)\n-          .width('100%')\n-          .height(82)\n+          this.FavoriteHeader();\n         }\n       }\n       GridRow({ columns: { sm: 4, md: 8, lg: 12 }, gutter: { x: 12, y: 0 } }) {\n"
+    }
+  },
+  {
+    "instance_id": "OH_0047",
+    "model_patch": {
+      "entry/src/main/ets/pages/favorites/favoriteList.ets": "--- a/entry/src/main/ets/pages/favorites/favoriteList.ets\n+++ b/entry/src/main/ets/pages/favorites/favoriteList.ets\n@@ -108,7 +108,7 @@\n               ListItem() {\n                 FavoriteListItem({ presenter: $mPresenter, item: item, mPresenter: $presenter });\n               }\n-            }, (item: FavoriteListBean) => JSON.stringify(item))\n+            }, (item: FavoriteListBean) => item.favorite.contactId)\n           }\n           .scrollBar(BarState.Off)\n           .editMode(true)\n"
+    }
+  },
+  {
+    "instance_id": "OH_0048",
+    "model_patch": {
+      "entry/src/main/ets/pages/contacts/batchselectcontacts/SingleSelectContactPage.ets": "--- a/entry/src/main/ets/pages/contacts/batchselectcontacts/SingleSelectContactPage.ets\n+++ b/entry/src/main/ets/pages/contacts/batchselectcontacts/SingleSelectContactPage.ets\n@@ -174,6 +174,7 @@\n               }, (item: ContactPickerListItem) => JSON.stringify(item))\n             }\n             .scrollBar(BarState.Off)\n+            .cachedCount(8)\n             .width('100%')\n             .listDirection(Axis.Vertical)\n             .edgeEffect(EdgeEffect.Spring)\n"
+    }
+  },
+  {
+    "instance_id": "OH_0049",
+    "model_patch": {
+      "entry/src/main/ets/pages/contacts/batchselectcontacts/SingleSelectContactPage.ets": "--- a/entry/src/main/ets/pages/contacts/batchselectcontacts/SingleSelectContactPage.ets\n+++ b/entry/src/main/ets/pages/contacts/batchselectcontacts/SingleSelectContactPage.ets\n@@ -127,6 +127,21 @@\n   @State dragList: boolean = true;\n   @State alphabetIndexPresenter: AlphabetIndexerPresenter = this.presenter.alphabetIndexPresenter;\n \n+  @Builder\n+  private IndexHeader(namePrefix: string) {\n+    Column() {\n+      Text(namePrefix)\n+        .fontColor($r('sys.color.ohos_fa_text_secondary'))\n+        .fontSize($r('sys.float.ohos_id_text_size_sub_title3'))\n+        .fontWeight(FontWeight.Medium)\n+        .textAlign(TextAlign.Start)\n+    }\n+    .alignItems(HorizontalAlign.Start)\n+    .padding({ left: $r('app.float.id_card_margin_max'), bottom: $r('app.float.id_card_margin_large') })\n+    .width('100%')\n+    .height($r('app.float.id_item_height_mid'))\n+  }\n+\n   build() {\n     Column() {\n       GridRow({ columns: { sm: 4, md: 8, lg: 12 }, gutter: { x: { sm: 12, md: 12, lg: 24 }, y: 0 } }) {\n@@ -147,17 +162,7 @@\n                   Stack({ alignContent: Alignment.BottomEnd }) {\n                     Column() {\n                       if (item.showIndex) {\n-                        Column() {\n-                          Text(item.namePrefix)\n-                            .fontColor($r('sys.color.ohos_fa_text_secondary'))\n-                            .fontSize($r('sys.float.ohos_id_text_size_sub_title3'))\n-                            .fontWeight(FontWeight.Medium)\n-                            .textAlign(TextAlign.Start)\n-                        }\n-                        .alignItems(HorizontalAlign.Start)\n-                        .padding({ left: $r('app.float.id_card_margin_max'), bottom: $r('app.float.id_card_margin_large') })\n-                        .width('100%')\n-                        .height($r('app.float.id_item_height_mid'))\n+                        IndexHeader(item.namePrefix)\n                       }\n                     }\n \n"
+    }
+  },
+  {
+    "instance_id": "OH_0050",
+    "model_patch": {
+      "entry/src/main/ets/pages/contacts/batchselectcontacts/SingleSelectContactPage.ets": "--- a/entry/src/main/ets/pages/contacts/batchselectcontacts/SingleSelectContactPage.ets\n+++ b/entry/src/main/ets/pages/contacts/batchselectcontacts/SingleSelectContactPage.ets\n@@ -171,7 +171,7 @@\n                     })\n                   }\n                 }\n-              }, (item: ContactPickerListItem) => JSON.stringify(item))\n+              }, (item: ContactPickerListItem) => item.index)\n             }\n             .scrollBar(BarState.Off)\n             .width('100%')\n"
+    }
+  },
+  {
+    "instance_id": "OH_0051",
+    "model_patch": {
+      "entry/src/main/ets/pages/favorites/addFavoriteList.ets": "--- a/entry/src/main/ets/pages/favorites/addFavoriteList.ets\n+++ b/entry/src/main/ets/pages/favorites/addFavoriteList.ets\n@@ -425,6 +425,7 @@\n         .width('100%')\n         .padding({ right: this.isShowSmartWindow ? $r('app.float.id_card_margin_xxl_minus') : 0 })\n         .height('100%')\n+        .cachedCount(10)\n         .listDirection(Axis.Vertical)\n         .edgeEffect(EdgeEffect.Spring, { alwaysEnabled: true })\n         .scrollBar(BarState.Off)\n"
+    }
+  },
+  {
+    "instance_id": "OH_0052",
+    "model_patch": {
+      "entry/src/main/ets/pages/favorites/addFavoriteList.ets": "--- a/entry/src/main/ets/pages/favorites/addFavoriteList.ets\n+++ b/entry/src/main/ets/pages/favorites/addFavoriteList.ets\n@@ -512,6 +512,7 @@\n }\n \n @Component\n+@Reusable\n export struct AddFavoriteItemView {\n   @Link presenter: AddFavoriteListPresenter;\n   @Prop item: ContactVo;\n"
+    }
+  },
+  {
+    "instance_id": "OH_0053",
+    "model_patch": {
+      "entry/src/main/ets/pages/favorites/addFavoriteList.ets": "--- a/entry/src/main/ets/pages/favorites/addFavoriteList.ets\n+++ b/entry/src/main/ets/pages/favorites/addFavoriteList.ets\n@@ -420,7 +420,7 @@\n                 showDivifer: item.showDivifer\n               })\n             }\n-          }, (item: BatchSelectContact) => JSON.stringify(item))\n+          }, (item: BatchSelectContact) => item?.contact?.contactId ?? item.index)\n         }\n         .width('100%')\n         .padding({ right: this.isShowSmartWindow ? $r('app.float.id_card_margin_xxl_minus') : 0 })\n"
+    }
+  },
+  {
+    "instance_id": "OH_0054",
+    "model_patch": {
+      "entry/src/main/ets/pages/contacts/settings/BatchDeleteContacts.ets": "--- a/entry/src/main/ets/pages/contacts/settings/BatchDeleteContacts.ets\n+++ b/entry/src/main/ets/pages/contacts/settings/BatchDeleteContacts.ets\n@@ -717,7 +717,7 @@\n                 index: index\n               })\n             }\n-          }, (item: BatchSelectContact) => JSON.stringify(item))\n+          }, (item: BatchSelectContact) => JSON.stringify(item), { cachedCount: 10 })\n         }\n         .width('100%')\n         .height('100%')\n"
+    }
+  },
+  {
+    "instance_id": "OH_0055",
+    "model_patch": {
+      "entry/src/main/ets/pages/contacts/settings/BatchDeleteContacts.ets": "--- a/entry/src/main/ets/pages/contacts/settings/BatchDeleteContacts.ets\n+++ b/entry/src/main/ets/pages/contacts/settings/BatchDeleteContacts.ets\n@@ -717,7 +717,7 @@\n                 index: index\n               })\n             }\n-          }, (item: BatchSelectContact) => JSON.stringify(item))\n+          }, (item: BatchSelectContact) => (item as any)?.contactId)\n         }\n         .width('100%')\n         .height('100%')\n"
+    }
+  },
+  {
+    "instance_id": "OH_0056",
+    "model_patch": {
+      "entry/src/main/ets/pages/group/BatchDeleteGroup.ets": "--- a/entry/src/main/ets/pages/group/BatchDeleteGroup.ets\n+++ b/entry/src/main/ets/pages/group/BatchDeleteGroup.ets\n@@ -235,7 +235,7 @@\n                       index\n                     });\n                   }\n-                }, (item: GroupInfo) => JSON.stringify(item))\n+                }, (item: GroupInfo) => JSON.stringify(item), 12)\n             }.divider({\n               strokeWidth: 0.3,\n               color: $r('app.color.skin_comp_divider'),\n"
+    }
+  },
+  {
+    "instance_id": "OH_0057",
+    "model_patch": {
+      "entry/src/main/ets/pages/group/BatchDeleteGroup.ets": "--- a/entry/src/main/ets/pages/group/BatchDeleteGroup.ets\n+++ b/entry/src/main/ets/pages/group/BatchDeleteGroup.ets\n@@ -347,6 +347,7 @@\n   }\n }\n \n+@Reusable\n @Component\n struct GroupItem {\n   @Link batchDeleteGroupPresenter: BatchDeleteGroupPresenter;\n"
+    }
+  },
+  {
+    "instance_id": "OH_0058",
+    "model_patch": {
+      "entry/src/main/ets/pages/group/BatchDeleteGroup.ets": "--- a/entry/src/main/ets/pages/group/BatchDeleteGroup.ets\n+++ b/entry/src/main/ets/pages/group/BatchDeleteGroup.ets\n@@ -235,7 +235,7 @@\n                       index\n                     });\n                   }\n-                }, (item: GroupInfo) => JSON.stringify(item))\n+                }, (item: GroupInfo) => item.group.id)\n             }.divider({\n               strokeWidth: 0.3,\n               color: $r('app.color.skin_comp_divider'),\n"
+    }
+  },
+  {
+    "instance_id": "OH_0059",
+    "model_patch": {
+      "entry/src/main/ets/pages/contacts/search/ContactSearch.ets": "--- a/entry/src/main/ets/pages/contacts/search/ContactSearch.ets\n+++ b/entry/src/main/ets/pages/contacts/search/ContactSearch.ets\n@@ -664,6 +664,7 @@\n               .borderRadius(this.isPC ? $r('sys.float.padding_level4') : 0)\n               .focusBox({ margin: LengthMetrics.vp(PCDeviceConstant.FOCUS_BOX_MARGIN_NEGATIVE_THREE) })\n             }, (item: LooseObject) => JSON.stringify(item))\n+              .cachedCount(20)\n \n           }\n           .onScrollIndex((firstIndex: number, lastIndex: number) => {\n"
+    }
+  },
+  {
+    "instance_id": "OH_0060",
+    "model_patch": {}
+  },
+  {
+    "instance_id": "OH_0061",
+    "model_patch": {
+      "entry/src/main/ets/pages/contacts/batchselectcontacts/ContactsPickerPage.ets": "--- a/entry/src/main/ets/pages/contacts/batchselectcontacts/ContactsPickerPage.ets\n+++ b/entry/src/main/ets/pages/contacts/batchselectcontacts/ContactsPickerPage.ets\n@@ -631,7 +631,7 @@\n                 onlyShowChecked: true,\n               })\n             }\n-          }, (item: ContactPickerListItem, index: number) => JSON.stringify(item) + JSON.stringify(index))\n+          }, (item: ContactPickerListItem, index: number) => JSON.stringify(item) + JSON.stringify(index), 20)\n         }\n         .width('100%')\n         .listDirection(Axis.Vertical)\n"
+    }
+  },
+  {
+    "instance_id": "OH_0062",
+    "model_patch": {
+      "entry/src/main/ets/pages/contacts/batchselectcontacts/ContactsPickerPage.ets": "--- a/entry/src/main/ets/pages/contacts/batchselectcontacts/ContactsPickerPage.ets\n+++ b/entry/src/main/ets/pages/contacts/batchselectcontacts/ContactsPickerPage.ets\n@@ -1344,6 +1344,7 @@\n       .listDirection(Axis.Vertical)\n       .edgeEffect(EdgeEffect.Spring, { alwaysEnabled: true })\n       .scrollBar(BarState.Off)\n+      .cachedCount(16)\n       .onScrollIndex((firstIndex: number, lastIndex: number) => {\n         this.slidingMultipleSelectionsUtil.scrollStartIndex = firstIndex;\n         this.slidingMultipleSelectionsUtil.scrollEndIndex = lastIndex;\n"
+    }
+  },
+  {
+    "instance_id": "OH_0063",
+    "model_patch": {
+      "entry/src/main/ets/pages/contacts/batchselectcontacts/ContactsPickerPage.ets": "--- a/entry/src/main/ets/pages/contacts/batchselectcontacts/ContactsPickerPage.ets\n+++ b/entry/src/main/ets/pages/contacts/batchselectcontacts/ContactsPickerPage.ets\n@@ -1251,6 +1251,49 @@\n     }\n   }\n \n+  @Builder\n+  favoriteItemBuilder(item: ContactPickerListItem, index: number) {\n+    ListItem() {\n+      ContactsPickerListItem({\n+        presenter: this.presenter,\n+        userId: this.userId,\n+        localId: this.localId,\n+        item: item,\n+        index: index,\n+        isMultiSelect: this.isContactMultiSelect,\n+        isDisplayByName: this.isDisplayByName,\n+        isSaveExistContact: this.isSaveExistContact,\n+        maxFontScale: pickerMaxFontScale,\n+        customIndexTitle: $r('app.string.favorite'),\n+      })\n+    }\n+  }\n+\n+  private favoriteKeyGenerator(item: ContactPickerListItem, index: number): string {\n+    return JSON.stringify(item) + JSON.stringify(index);\n+  }\n+\n+  @Builder\n+  contactsItemBuilder(item: ContactPickerListItem, index: number) {\n+    ListItem() {\n+      ContactsPickerListItem({\n+        presenter: this.presenter,\n+        userId: this.userId,\n+        localId: this.localId,\n+        item: item,\n+        index: index,\n+        isMultiSelect: this.isContactMultiSelect,\n+        isDisplayByName: this.isDisplayByName,\n+        isSaveExistContact: this.isSaveExistContact,\n+        maxFontScale: pickerMaxFontScale,\n+      })\n+    }\n+  }\n+\n+  private contactsKeyGenerator(item: ContactPickerListItem, index: number): string {\n+    return JSON.stringify(item) + JSON.stringify(index);\n+  }\n+\n   build() {\n     Stack({ alignContent: Alignment.TopEnd }) { //右侧字母排序位置\n       List({ initialIndex: 0, scroller: this.scroller }) {\n@@ -1303,39 +1346,10 @@\n           .enabled(!this.selectedViewShow)\n         }\n \n-        LazyForEach(this.presenter.favoriteSource, (item: ContactPickerListItem, index: number) => {\n-          ListItem() {\n-            ContactsPickerListItem({\n-              presenter: this.presenter,\n-              userId: this.userId,\n-              localId: this.localId,\n-              item: item,\n-              index: index,\n-              isMultiSelect: this.isContactMultiSelect,\n-              isDisplayByName: this.isDisplayByName,\n-              isSaveExistContact: this.isSaveExistContact,\n-              maxFontScale: pickerMaxFontScale,\n-              customIndexTitle: $r('app.string.favorite'),\n-            })\n-          }\n-        }, (item: ContactPickerListItem, index: number) => JSON.stringify(item) + JSON.stringify(index))\n+        LazyForEach(this.presenter.favoriteSource, this.favoriteItemBuilder, this.favoriteKeyGenerator)\n \n         //遍历位置\n-        LazyForEach(this.presenter.contactsSource, (item: ContactPickerListItem, index: number) => {\n-          ListItem() {\n-            ContactsPickerListItem({\n-              presenter: this.presenter,\n-              userId: this.userId,\n-              localId: this.localId,\n-              item: item,\n-              index: index,\n-              isMultiSelect: this.isContactMultiSelect,\n-              isDisplayByName: this.isDisplayByName,\n-              isSaveExistContact: this.isSaveExistContact,\n-              maxFontScale: pickerMaxFontScale,\n-            })\n-          }\n-        }, (item: ContactPickerListItem, index: number) => JSON.stringify(item) + JSON.stringify(index))\n+        LazyForEach(this.presenter.contactsSource, this.contactsItemBuilder, this.contactsKeyGenerator)\n       }\n       .accessibilityLevel('no')\n       .width('100%')\n"
+    }
+  },
+  {
+    "instance_id": "OH_0064",
+    "model_patch": {
+      "entry/src/main/ets/pages/contacts/batchselectcontacts/ContactsPickerPage.ets": "--- a/entry/src/main/ets/pages/contacts/batchselectcontacts/ContactsPickerPage.ets\n+++ b/entry/src/main/ets/pages/contacts/batchselectcontacts/ContactsPickerPage.ets\n@@ -1318,7 +1318,7 @@\n               customIndexTitle: $r('app.string.favorite'),\n             })\n           }\n-        }, (item: ContactPickerListItem, index: number) => JSON.stringify(item) + JSON.stringify(index))\n+        }, (item: ContactPickerListItem, index: number) => `${item?.contactId ?? ''}-${item?.pickerShowSubData?.keyValue ?? ''}-${index}`)\n \n         //遍历位置\n         LazyForEach(this.presenter.contactsSource, (item: ContactPickerListItem, index: number) => {\n@@ -1335,7 +1335,7 @@\n               maxFontScale: pickerMaxFontScale,\n             })\n           }\n-        }, (item: ContactPickerListItem, index: number) => JSON.stringify(item) + JSON.stringify(index))\n+        }, (item: ContactPickerListItem, index: number) => `${item?.contactId ?? ''}-${item?.pickerShowSubData?.keyValue ?? ''}-${index}`)\n       }\n       .accessibilityLevel('no')\n       .width('100%')\n@@ -1692,7 +1692,7 @@\n             })\n           }\n           .id('ContactSearch_.Contacts_SearchResultClick_ListItem')\n-        }, (item: ContactPickerListItem, index: number) => JSON.stringify(item) + JSON.stringify(index))\n+        }, (item: ContactPickerListItem, index: number) => `${item?.contactId ?? ''}-${item?.pickerShowSubData?.keyValue ?? ''}-${index}`)\n       }\n       .divider({\n         color: $r('app.color.skin_comp_divider'),\n"
+    }
+  },
+  {
+    "instance_id": "OH_0065",
+    "model_patch": {
+      "entry/src/main/ets/pages/contacts/batchselectcontacts/ContactsPickerPage.ets": "--- a/entry/src/main/ets/pages/contacts/batchselectcontacts/ContactsPickerPage.ets\n+++ b/entry/src/main/ets/pages/contacts/batchselectcontacts/ContactsPickerPage.ets\n@@ -1692,7 +1692,7 @@\n             })\n           }\n           .id('ContactSearch_.Contacts_SearchResultClick_ListItem')\n-        }, (item: ContactPickerListItem, index: number) => JSON.stringify(item) + JSON.stringify(index))\n+        }, (item: ContactPickerListItem, index: number) => JSON.stringify(item) + JSON.stringify(index), 10)\n       }\n       .divider({\n         color: $r('app.color.skin_comp_divider'),\n"
+    }
+  },
+  {
+    "instance_id": "OH_0066",
+    "model_patch": {}
+  },
+  {
+    "instance_id": "OH_0067",
+    "model_patch": {
+      "entry/src/main/ets/pages/contacts/batchselectcontacts/ContactsPickerPage.ets": "--- a/entry/src/main/ets/pages/contacts/batchselectcontacts/ContactsPickerPage.ets\n+++ b/entry/src/main/ets/pages/contacts/batchselectcontacts/ContactsPickerPage.ets\n@@ -1692,7 +1692,7 @@\n             })\n           }\n           .id('ContactSearch_.Contacts_SearchResultClick_ListItem')\n-        }, (item: ContactPickerListItem, index: number) => JSON.stringify(item) + JSON.stringify(index))\n+        }, (item: ContactPickerListItem, index: number) => `${item?.contactId ?? 0}_${item?.pickerShowSubData?.keyValue ?? ''}_${item?.pickerShowSubData?.dataId ?? ''}_${index}`)\n       }\n       .divider({\n         color: $r('app.color.skin_comp_divider'),\n"
+    }
+  },
+  {
+    "instance_id": "OH_0068",
+    "model_patch": {
+      "entry/src/main/ets/component/contactdetail/DetailInfoMeeTing.ets": "--- a/entry/src/main/ets/component/contactdetail/DetailInfoMeeTing.ets\n+++ b/entry/src/main/ets/component/contactdetail/DetailInfoMeeTing.ets\n@@ -205,6 +205,7 @@\n             })\n         }\n       }\n+      .cachedCount(2)\n       .scrollBar(BarState.Off)\n       .edgeEffect(EdgeEffect.None)\n       .enableScrollInteraction(false)\n"
+    }
+  },
+  {
+    "instance_id": "OH_0069",
+    "model_patch": {
+      "entry/src/main/ets/component/contactdetail/DetailInfoMeeTing.ets": "--- a/entry/src/main/ets/component/contactdetail/DetailInfoMeeTing.ets\n+++ b/entry/src/main/ets/component/contactdetail/DetailInfoMeeTing.ets\n@@ -31,6 +31,7 @@\n const TAG = 'DetailInfoMeeTime';\n \n @Component\n+@Reusable\n export default struct DetailInfoMeeTing {\n   @Link mPresenter: DetailPresenter;\n   @Link selectSimBuilder: SelectDialogBuilder;\n@@ -55,6 +56,7 @@\n }\n \n // 畅连信息，第二顶层，内部包含 畅连电话行+所有畅连设备行\n+@Reusable\n @Component\n struct DetailInfoItemMeeTime {\n   // 畅连能力的类型，用于判断使用哪种能力功能；无网络时提示，弹出选择电话号码时提示信息会判断能力类型\n@@ -301,6 +303,7 @@\n   }\n }\n \n+@Reusable\n @Component\n struct DetailInfoMeeTime {\n   @Link private mPresenter: DetailPresenter;\n"
+    }
+  },
+  {
+    "instance_id": "OH_0070",
+    "model_patch": {
+      "entry/src/main/ets/component/contactdetail/DetailInfoRemarks.ets": "--- a/entry/src/main/ets/component/contactdetail/DetailInfoRemarks.ets\n+++ b/entry/src/main/ets/component/contactdetail/DetailInfoRemarks.ets\n@@ -120,7 +120,7 @@\n               }\n               .visibility(this.isItemShow(index))\n             }\n-          }, (item: ContactStrInterface, index: number) => JSON.stringify(item) + JSON.stringify(index))\n+          }, (item: ContactStrInterface, index: number) => JSON.stringify(item) + JSON.stringify(index), { cachedCount: 4 })\n         }\n       }\n       .scrollBar(BarState.Off)\n"
+    }
+  },
+  {
+    "instance_id": "OH_0071",
+    "model_patch": {
+      "entry/src/main/ets/component/contactdetail/DetailInfoRemarks.ets": "--- a/entry/src/main/ets/component/contactdetail/DetailInfoRemarks.ets\n+++ b/entry/src/main/ets/component/contactdetail/DetailInfoRemarks.ets\n@@ -41,6 +41,7 @@\n const TAG = 'DetailInfoRemarks';\n const DETAILS_PRESS_CHOOSE_EVENT = 'DETAILS_PRESS_CHOOSE_EVENT';\n \n+@Reusable\n @Component\n export default struct DetailInfoRemarks {\n   @Link mPresenter: DetailPresenter;\n"
+    }
+  },
+  {
+    "instance_id": "OH_0072",
+    "model_patch": {
+      "entry/src/main/ets/component/contactdetail/DetailInfoRemarks.ets": "--- a/entry/src/main/ets/component/contactdetail/DetailInfoRemarks.ets\n+++ b/entry/src/main/ets/component/contactdetail/DetailInfoRemarks.ets\n@@ -97,30 +97,37 @@\n     return isVisibility\n   }\n \n+  @Builder\n+  detailInfoRemarksItemBuilder(item: ContactStrInterface, index: number) {\n+    if (JSON.parse(item.data).data) {\n+      ListItem() {\n+        Column() {\n+          DetailInfoListItem({\n+            listItem: JSON.parse(item.data),\n+            mPresenter: $mPresenter,\n+            hasArrow: false,\n+          });\n+          Divider()\n+            .color($r('app.color.skin_ohos_id_color_list_separator'))\n+            .strokeWidth('1px')\n+            .width('100%')\n+            .visibility(this.isDividerShow(this.mPresenter.detailInfoRemarksSources.totalCount(), index))\n+            .padding({ left: $r('sys.float.padding_level4'), right: $r('sys.float.padding_level4'), })\n+        }\n+      }\n+      .visibility(this.isItemShow(index))\n+    }\n+  }\n+\n+  detailInfoRemarksKeyGen(item: ContactStrInterface, index: number): string {\n+    return JSON.stringify(item) + JSON.stringify(index)\n+  }\n+\n   build() {\n     Column() {\n       List() {\n         if (this.isEmptyDetailInfoRemarks()) {\n-          LazyForEach(this.mPresenter.detailInfoRemarksSources, (item: ContactStrInterface, index: number) => {\n-            if (JSON.parse(item.data).data) {\n-              ListItem() {\n-                Column() {\n-                  DetailInfoListItem({\n-                    listItem: JSON.parse(item.data),\n-                    mPresenter: $mPresenter,\n-                    hasArrow: false,\n-                  });\n-                  Divider()\n-                    .color($r('app.color.skin_ohos_id_color_list_separator'))\n-                    .strokeWidth('1px')\n-                    .width('100%')\n-                    .visibility(this.isDividerShow(this.mPresenter.detailInfoRemarksSources.totalCount(), index))\n-                    .padding({ left: $r('sys.float.padding_level4'), right: $r('sys.float.padding_level4'), })\n-                }\n-              }\n-              .visibility(this.isItemShow(index))\n-            }\n-          }, (item: ContactStrInterface, index: number) => JSON.stringify(item) + JSON.stringify(index))\n+          LazyForEach(this.mPresenter.detailInfoRemarksSources, this.detailInfoRemarksItemBuilder, this.detailInfoRemarksKeyGen)\n         }\n       }\n       .scrollBar(BarState.Off)\n"
+    }
+  },
+  {
+    "instance_id": "OH_0073",
+    "model_patch": {
+      "entry/src/main/ets/component/contactdetail/DetailInfoRemarks.ets": "--- a/entry/src/main/ets/component/contactdetail/DetailInfoRemarks.ets\n+++ b/entry/src/main/ets/component/contactdetail/DetailInfoRemarks.ets\n@@ -120,7 +120,7 @@\n               }\n               .visibility(this.isItemShow(index))\n             }\n-          }, (item: ContactStrInterface, index: number) => JSON.stringify(item) + JSON.stringify(index))\n+          }, (item: ContactStrInterface, index: number) => index.toString())\n         }\n       }\n       .scrollBar(BarState.Off)\n"
+    }
+  },
+  {
+    "instance_id": "OH_0074",
+    "model_patch": {
+      "entry/src/main/ets/component/contactdetail/DetailInfoTelList.ets": "--- a/entry/src/main/ets/component/contactdetail/DetailInfoTelList.ets\n+++ b/entry/src/main/ets/component/contactdetail/DetailInfoTelList.ets\n@@ -158,6 +158,7 @@\n           }\n         }, (item: ContactStrInterface, index: number) => JSON.stringify(item) + JSON.stringify(index))\n       }\n+      .cachedCount(10)\n       .scrollBar(BarState.Off)\n       .edgeEffect(EdgeEffect.None)\n       .enableScrollInteraction(false)\n"
+    }
+  },
+  {
+    "instance_id": "OH_0075",
+    "model_patch": {
+      "entry/src/main/ets/component/contactdetail/DetailInfoTelList.ets": "--- a/entry/src/main/ets/component/contactdetail/DetailInfoTelList.ets\n+++ b/entry/src/main/ets/component/contactdetail/DetailInfoTelList.ets\n@@ -89,6 +89,7 @@\n /**\n  * Phone List\n  */\n+@Reusable\n @Component\n struct TelList {\n   @Link @Watch('mPresenterChange') private mPresenter: DetailPresenter;\n"
+    }
+  },
+  {
+    "instance_id": "OH_0076",
+    "model_patch": {
+      "entry/src/main/ets/component/contactdetail/DetailInfoTelList.ets": "--- a/entry/src/main/ets/component/contactdetail/DetailInfoTelList.ets\n+++ b/entry/src/main/ets/component/contactdetail/DetailInfoTelList.ets\n@@ -156,7 +156,7 @@\n             }\n             .height('undefined')\n           }\n-        }, (item: ContactStrInterface, index: number) => JSON.stringify(item) + JSON.stringify(index))\n+        }, (item: ContactStrInterface, index: number) => index.toString())\n       }\n       .scrollBar(BarState.Off)\n       .edgeEffect(EdgeEffect.None)\n"
+    }
+  },
+  {
+    "instance_id": "OH_0077",
+    "model_patch": {
+      "entry/src/main/ets/pages/phone/dialer/DialerSearchList.ets": "--- a/entry/src/main/ets/pages/phone/dialer/DialerSearchList.ets\n+++ b/entry/src/main/ets/pages/phone/dialer/DialerSearchList.ets\n@@ -646,7 +646,7 @@\n               // .height($r('app.float.id_item_height_max'))\n               .constraintSize({ minHeight: this.isVerde ? 56 : $r('app.float.id_item_height_max') })\n             }\n-          }, (item: MergedCallLog, index: number) => JSON.stringify(item) + this.tele_number + index.toString())\n+          }, (item: MergedCallLog, index: number) => JSON.stringify(item) + this.tele_number + index.toString(), 24)\n         }\n         .clip(this.curBp === 'sm' || this.isPC ? true : false)\n         .divider({\n"
+    }
+  },
+  {
+    "instance_id": "OH_0078",
+    "model_patch": {}
+  },
+  {
+    "instance_id": "OH_0079",
+    "model_patch": {
+      "entry/src/main/ets/pages/favorites/favoriteList.ets": "--- a/entry/src/main/ets/pages/favorites/favoriteList.ets\n+++ b/entry/src/main/ets/pages/favorites/favoriteList.ets\n@@ -750,7 +750,7 @@\n               }\n             })\n \n-          }, (item: FavoriteListBean) => JSON.stringify(item))\n+          }, (item: FavoriteListBean) => JSON.stringify(item), 20)\n         }\n \n         // 配置列表的内容裁剪模式为安全区域\n"
+    }
+  },
+  {
+    "instance_id": "OH_0080",
+    "model_patch": {
+      "entry/src/main/ets/pages/favorites/favoriteList.ets": "--- a/entry/src/main/ets/pages/favorites/favoriteList.ets\n+++ b/entry/src/main/ets/pages/favorites/favoriteList.ets\n@@ -750,7 +750,7 @@\n               }\n             })\n \n-          }, (item: FavoriteListBean) => JSON.stringify(item))\n+          }, (item: FavoriteListBean) => item.favorite.contactId)\n         }\n \n         // 配置列表的内容裁剪模式为安全区域\n"
+    }
+  },
+  {
+    "instance_id": "OH_0081",
+    "model_patch": {
+      "entry/src/main/ets/pages/group/GroupList.ets": "--- a/entry/src/main/ets/pages/group/GroupList.ets\n+++ b/entry/src/main/ets/pages/group/GroupList.ets\n@@ -676,13 +676,14 @@\n                       }\n                       .backgroundColor(Color.Transparent)\n                     }, (item: GroupInfo) => JSON.stringify(item))\n+                      .cachedCount(10)\n                   }\n                   .borderRadius(this.isPC ? '16vp' : $r('sys.float.corner_radius_level10'))\n                    .margin({\n                     left: (this.isPC || this.curBp === 'lg') ? '24vp' : $r('sys.float.margin_left'),\n                     right: (this.isPC || this.curBp === 'lg') ? '24vp' : $r('sys.float.margin_right'),\n                     bottom: $r('app.float.id_card_margin_xxl')\n-\t                })\n+                        })\n                   .backgroundColor(this.isPC ? $r('sys.color.comp_background_list_card') :\n                   $r('app.color.skin_comp_background_list_card'))\n                   .divider({\n"
+    }
+  },
+  {
+    "instance_id": "OH_0082",
+    "model_patch": {
+      "entry/src/main/ets/pages/group/GroupList.ets": "--- a/entry/src/main/ets/pages/group/GroupList.ets\n+++ b/entry/src/main/ets/pages/group/GroupList.ets\n@@ -661,18 +661,7 @@\n                   ListItemGroup({ style: ListItemGroupStyle.CARD }) {\n                     LazyForEach(this.presenter.groupListDataSource, (item: GroupInfo) => {\n                       ListItem() {\n-                        Flex({\n-                          direction: FlexDirection.Column,\n-                          justifyContent: FlexAlign.Center,\n-                          alignItems: ItemAlign.Start\n-                        }) {\n-                          if (item1.accountId == item.group.accountId) {\n-                            GroupListItem({ item: item, mPresenter: $mPresenter })\n-                              .id('GrouoList_Contacts_LongPressGesture_GroupListItem')\n-                          }\n-                        }\n-                        .backgroundColor(Color.Transparent)\n-                        .width('100%')\n+                        this.groupListBuilder(item1, item)\n                       }\n                       .backgroundColor(Color.Transparent)\n                     }, (item: GroupInfo) => JSON.stringify(item))\n@@ -682,7 +671,7 @@\n                     left: (this.isPC || this.curBp === 'lg') ? '24vp' : $r('sys.float.margin_left'),\n                     right: (this.isPC || this.curBp === 'lg') ? '24vp' : $r('sys.float.margin_right'),\n                     bottom: $r('app.float.id_card_margin_xxl')\n-\t                })\n+                        })\n                   .backgroundColor(this.isPC ? $r('sys.color.comp_background_list_card') :\n                   $r('app.color.skin_comp_background_list_card'))\n                   .divider({\n"
+    }
+  },
+  {
+    "instance_id": "OH_0083",
+    "model_patch": {
+      "entry/src/main/ets/pages/group/GroupList.ets": "--- a/entry/src/main/ets/pages/group/GroupList.ets\n+++ b/entry/src/main/ets/pages/group/GroupList.ets\n@@ -675,14 +675,14 @@\n                         .width('100%')\n                       }\n                       .backgroundColor(Color.Transparent)\n-                    }, (item: GroupInfo) => JSON.stringify(item))\n+                    }, (item: GroupInfo, index: number) => index)\n                   }\n                   .borderRadius(this.isPC ? '16vp' : $r('sys.float.corner_radius_level10'))\n                    .margin({\n                     left: (this.isPC || this.curBp === 'lg') ? '24vp' : $r('sys.float.margin_left'),\n                     right: (this.isPC || this.curBp === 'lg') ? '24vp' : $r('sys.float.margin_right'),\n                     bottom: $r('app.float.id_card_margin_xxl')\n-\t                })\n+                        })\n                   .backgroundColor(this.isPC ? $r('sys.color.comp_background_list_card') :\n                   $r('app.color.skin_comp_background_list_card'))\n                   .divider({\n"
+    }
+  },
+  {
+    "instance_id": "OH_0084",
+    "model_patch": {
+      "entry/src/main/ets/pages/group/GroupListDetail.ets": "--- a/entry/src/main/ets/pages/group/GroupListDetail.ets\n+++ b/entry/src/main/ets/pages/group/GroupListDetail.ets\n@@ -780,6 +780,7 @@\n         .listDirection(Axis.Vertical)\n         .edgeEffect(EdgeEffect.Spring, { alwaysEnabled: true })\n         .scrollBar(BarState.Off)\n+        .cachedCount(this.isPC ? 24 : (this.curBp === 'lg' ? 16 : 8))\n         .editMode(true)\n         .width('100%')\n         .height('100%')\n"
+    }
+  },
+  {
+    "instance_id": "OH_0085",
+    "model_patch": {
+      "entry/src/main/ets/pages/group/GroupListDetail.ets": "--- a/entry/src/main/ets/pages/group/GroupListDetail.ets\n+++ b/entry/src/main/ets/pages/group/GroupListDetail.ets\n@@ -581,6 +581,7 @@\n       .padding({ left: $r('app.float.id_card_margin_xxl'), right: $r('app.float.id_card_margin_xxl') })\n   }\n \n+  @Reusable\n   @Builder\n   MenuPreview(item: GroupMemberListBean) {\n     Scroll() {\n@@ -617,6 +618,7 @@\n     .constraintSize({ minHeight: $r('app.float.id_item_height_max') })\n   }\n \n+  @Reusable\n   @Builder\n   MenuBuilder(item: GroupMemberListBean) {\n     Menu() {\n"
+    }
+  },
+  {
+    "instance_id": "OH_0086",
+    "model_patch": {
+      "entry/src/main/ets/pages/group/GroupListDetail.ets": "--- a/entry/src/main/ets/pages/group/GroupListDetail.ets\n+++ b/entry/src/main/ets/pages/group/GroupListDetail.ets\n@@ -767,7 +767,7 @@\n                 .id('GrouoListDetail_ListItemGroup_groupListDetail_ListItem')\n                 .focusBox({ margin: this.isPC ? LengthMetrics.vp(PCDeviceConstant.FOCUS_BOX_MARGIN_NEGATIVE_THREE) :\n                   LengthMetrics.vp(0)})\n-              }, (item: GroupMemberListBean) => JSON.stringify(item))\n+              }, (item: GroupMemberListBean) => String(item.member.member.contactId))\n           }.divider({\n             strokeWidth: '1px',\n             color: $r('app.color.skin_ohos_id_color_list_separator'),\n"
+    }
+  },
+  {
+    "instance_id": "OH_0087",
+    "model_patch": {
+      "entry/src/main/ets/pages/hicar/HiCarContactPage.ets": "--- a/entry/src/main/ets/pages/hicar/HiCarContactPage.ets\n+++ b/entry/src/main/ets/pages/hicar/HiCarContactPage.ets\n@@ -54,6 +54,7 @@\n }\n \n @Component\n+@Reusable\n struct HiCarContactContent {\n   private scroller: Scroller = new Scroller();\n   private searchParams: CustomizedParams = {};\n"
+    }
+  },
+  {
+    "instance_id": "OH_0088",
+    "model_patch": {
+      "entry/src/main/ets/pages/hicar/HiCarContactPage.ets": "--- a/entry/src/main/ets/pages/hicar/HiCarContactPage.ets\n+++ b/entry/src/main/ets/pages/hicar/HiCarContactPage.ets\n@@ -124,7 +124,7 @@\n             ListItem() {\n               HiCarFavoriteItemView({ item: item })\n             }\n-          }, (item: FavoriteListBean) => JSON.stringify(item))\n+          }, (item: FavoriteListBean, index: number) => index.toString())\n         }\n         // 联系人列表\n         LazyForEach(HiCarUtil.getInstance()\n@@ -136,7 +136,7 @@\n               isShowDivider: item.isShowContactDivifer\n             })\n           }\n-        }, (item: ContactListShowInfo, index: number) => JSON.stringify(item) + index)\n+        }, (item: ContactListShowInfo, index: number) => index.toString())\n       }\n       .cachedCount(3)\n       .width('100%')\n"
+    }
+  },
+  {
+    "instance_id": "OH_0089",
+    "model_patch": {
+      "entry/src/main/ets/pages/hicar/HiCarContactSearchPage.ets": "--- a/entry/src/main/ets/pages/hicar/HiCarContactSearchPage.ets\n+++ b/entry/src/main/ets/pages/hicar/HiCarContactSearchPage.ets\n@@ -276,6 +276,7 @@\n         .id(`HiCarContactSearch_SearchResultClick_ListItem_${index}`)\n       }, (item: LooseObject) => JSON.stringify(item))\n     }\n+    .cachedCount(20)\n     .scrollBar(BarState.Off)\n   }\n \n"
+    }
+  },
+  {
+    "instance_id": "OH_0090",
+    "model_patch": {
+      "entry/src/main/ets/pages/hicar/HiCarContactSearchPage.ets": "--- a/entry/src/main/ets/pages/hicar/HiCarContactSearchPage.ets\n+++ b/entry/src/main/ets/pages/hicar/HiCarContactSearchPage.ets\n@@ -108,6 +108,7 @@\n    * 用户初次使用引导界面“我知道”按钮\n    */\n   @Builder\n+  @Reusable\n   okButton() {\n     Button() {\n       Text($r('app.string.got_it'))\n@@ -130,6 +131,7 @@\n    * 导航的文字内容\n    */\n   @Builder\n+  @Reusable\n   guideText() {\n     Text() {\n       ForEach(ResourceUtil.resourceToStringById($r('app.string.hua_xiao_fen')).split(''),\n@@ -152,6 +154,7 @@\n   }\n \n   @Builder\n+  @Reusable\n   guideButton() {\n     Row({ space: HiCarContactSearchPage.SPACE_8 }) {\n       ForEach(['H', 'X', 'F'], (item: string, index: number) => {\n@@ -174,6 +177,7 @@\n    * 用户初次使用引导界面\n    */\n   @Builder\n+  @Reusable\n   guideView() {\n     Column() {\n       Column() {\n@@ -204,6 +208,7 @@\n    * 搜索组件\n    */\n   @Builder\n+  @Reusable\n   searchBox() {\n     Row() {\n       Button({ type: ButtonType.Circle }) {\n@@ -251,6 +256,7 @@\n    * 搜索结果\n    */\n   @Builder\n+  @Reusable\n   contactSearchResultsList() {\n     List({ space: 0, initialIndex: 0 }) {\n       LazyForEach(ContactListPresenter.getInstance().searchContactsSource, (item: LooseObject, index: number) => {\n"
+    }
+  },
+  {
+    "instance_id": "OH_0091",
+    "model_patch": {
+      "entry/src/main/ets/pages/hicar/HiCarContactSearchPage.ets": "--- a/entry/src/main/ets/pages/hicar/HiCarContactSearchPage.ets\n+++ b/entry/src/main/ets/pages/hicar/HiCarContactSearchPage.ets\n@@ -274,7 +274,7 @@\n           .width('100%')\n         }\n         .id(`HiCarContactSearch_SearchResultClick_ListItem_${index}`)\n-      }, (item: LooseObject) => JSON.stringify(item))\n+      }, (item: LooseObject) => item.contact.entityId)\n     }\n     .scrollBar(BarState.Off)\n   }\n"
+    }
+  },
+  {
+    "instance_id": "OH_0092",
+    "model_patch": {
+      "entry/src/main/ets/pages/hicar/HiCarRecordView.ets": "--- a/entry/src/main/ets/pages/hicar/HiCarRecordView.ets\n+++ b/entry/src/main/ets/pages/hicar/HiCarRecordView.ets\n@@ -57,7 +57,7 @@\n           .constraintSize({ minHeight: $r('app.float.id_item_height_max') })\n           .id(`hicar_record_listItem_${index}`)\n           .backgroundColor($r('app.color.skin_background_primary'))\n-        }, (item: MergedCallLog) => JSON.stringify(item))\n+        }, (item: MergedCallLog) => JSON.stringify(item), { cachedCount: 6 })\n       }\n       .divider({\n         strokeWidth: Constants.DIVIFER_HEIGHT,\n"
+    }
+  },
+  {
+    "instance_id": "OH_0093",
+    "model_patch": {
+      "entry/src/main/ets/pages/hicar/HiCarRecordView.ets": "--- a/entry/src/main/ets/pages/hicar/HiCarRecordView.ets\n+++ b/entry/src/main/ets/pages/hicar/HiCarRecordView.ets\n@@ -57,7 +57,7 @@\n           .constraintSize({ minHeight: $r('app.float.id_item_height_max') })\n           .id(`hicar_record_listItem_${index}`)\n           .backgroundColor($r('app.color.skin_background_primary'))\n-        }, (item: MergedCallLog) => JSON.stringify(item))\n+        }, (item: MergedCallLog) => `${item.phoneNumber ?? ''}_${item.createTimeSource ?? ''}`)\n       }\n       .divider({\n         strokeWidth: Constants.DIVIFER_HEIGHT,\n"
+    }
+  },
+  {
+    "instance_id": "OH_0094",
+    "model_patch": {}
+  },
+  {
+    "instance_id": "OH_0095",
+    "model_patch": {}
+  },
+  {
+    "instance_id": "OH_0096",
+    "model_patch": {}
+  },
+  {
+    "instance_id": "OH_0097",
+    "model_patch": {}
+  },
+  {
+    "instance_id": "OH_0098",
+    "model_patch": {}
+  },
+  {
+    "instance_id": "OH_0099",
+    "model_patch": {
+      "entry/src/main/ets/pages/contacts/settings/ImportAndExport.ets": "--- a/entry/src/main/ets/pages/contacts/settings/ImportAndExport.ets\n+++ b/entry/src/main/ets/pages/contacts/settings/ImportAndExport.ets\n@@ -753,8 +753,9 @@\n               .margin({ left: this.curBp === 'lg' ? $r('app.float.id_card_margin_large') : 0 })\n               .height(this.isPC ? $r('app.float.id_item_height_sm') : undefined)\n             ListItemGroup({ style: ListItemGroupStyle.CARD }) {\n+              const cachedIsShowSimEntry = this.isShowSimEntry;\n               ForEach(group.items, (cardItem: LooseObject) => {\n-                if (cardItem.index == 0 ? this.isShowSimEntry : true) {\n+                if (cardItem.index == 0 ? cachedIsShowSimEntry : true) {\n                   ListItem() {\n                     Row() {\n                       Column() {\n"
+    }
+  },
+  {
+    "instance_id": "OH_0100",
+    "model_patch": {
+      "entry/src/main/ets/pages/intelligencegroup/IntelligenceGroupSelectMemSendMsg.ets": "--- a/entry/src/main/ets/pages/intelligencegroup/IntelligenceGroupSelectMemSendMsg.ets\n+++ b/entry/src/main/ets/pages/intelligencegroup/IntelligenceGroupSelectMemSendMsg.ets\n@@ -438,7 +438,7 @@\n                 })\n               }\n               .width('100%')\n-            }, (item: BatchSelectContact) => JSON.stringify(item))\n+            }, (item: BatchSelectContact) => JSON.stringify(item), { cachedCount: this.sceillOnlenth })\n         }\n \n         .width('100%')\n"
+    }
+  }
+]

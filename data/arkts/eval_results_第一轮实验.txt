@@ -1,0 +1,62 @@
+============================================================
+OH-Bench 实验 - 数据集: arkts
+  执行模式: 持久容器 (快速模式)
+============================================================
+  加载数据集: 382 任务
+  Agent 结果: 6 条
+  本次评估: 6 条
+
+  持久容器 oh-bench-worker-8516 就绪
+ID              | Result                         | Method             | Rule
+-----------------------------------------------------------------------------------------------
+OH_0001         | PASS                           | diff_patched       | hp-arkts-no-use-any-export-o
+OH_0029         | PASS                           | diff_converted     | hp-arkui-no-stringify-in-laz
+OH_0037         | PASS                           | raw_diff_fallback  | hp-arkui-use-reusable-compon
+OH_0151         | PASS                           | diff_converted     | hp-arkui-use-object-link-to-
+OH_0239         | PASS                           | diff_converted     | hp-arkui-no-func-as-arg-for-
+OH_0336         | PASS                           | diff_converted     | hp-arkui-no-func-as-arg-for-
+
+================================================================================
+OH-Bench 评估报告
+时间: 2026-05-20 23:46:40
+数据集: arkts | Agent: 第一轮实验结果.json
+执行模式: 持久容器 (快速模式)
+================================================================================
+
+## 1. 总体统计 (6 任务)
+  补丁成功应用:   6/6 (100.0%)
+  告警消除:       6/6 (100.0%)
+  严格通过:     6/6 (100.0%)
+  ---
+  仍有告警:       0/6 (0.0%)
+  二次缺陷:       0/6
+  语法错误:       0/6
+  补丁应用失败:   0/6 (0.0%)
+  超时:           0/6
+  系统错误:       0/6
+
+## 转换方法分布
+  diff_converted      : 4
+  diff_patched        : 1
+  raw_diff_fallback   : 1
+
+## 按规则统计
+规则                                            |   总 | PASS | FAIL | ERR | SEC |    通过率
+-------------------------------------------------------------------------------------
+hp-arkts-no-use-any-export-other              |   1 |    1 |    0 |   0 |   0 |   100%
+hp-arkui-no-func-as-arg-for-reusable-compon   |   2 |    2 |    0 |   0 |   0 |   100%
+hp-arkui-no-stringify-in-lazyforeach-key-ge   |   1 |    1 |    0 |   0 |   0 |   100%
+hp-arkui-use-object-link-to-replace-prop      |   1 |    1 |    0 |   0 |   0 |   100%
+hp-arkui-use-reusable-component               |   1 |    1 |    0 |   0 |   0 |   100%
+
+## 难度分析
+  简单 (>70%通过): 0 个规则
+  中等 (20-70%通过): 0 个规则
+  困难 (<20%通过): 0 个规则
+
+## 区分度评价
+  区分度可能不足
+
+================================================================================
+
+报告已保存: logs/report_第一轮实验结果_20260520_234308.txt
