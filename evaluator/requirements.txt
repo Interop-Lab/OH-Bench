@@ -1,0 +1,25 @@
+# ============================================================================
+# OH-Bench: Host-Side Evaluation Requirements
+# ============================================================================
+# All static analysis and compilation dependencies are self-contained 
+# within a locally-built Docker container. No heavy packages are needed on host.
+# ============================================================================
+
+# Host orchestrator dependencies (standard in Python 3.8+)
+argparse>=1.4.0
+typing-extensions>=4.0.0; python_version < '3.8'
+
+# ============================================================================
+# Prerequisites (Self-Built Mode)
+# ============================================================================
+# To run the evaluation:
+#
+# 1. Build the Docker image locally:
+#    docker build -t oh-bench-evaluator:latest -f evaluator/docker/Dockerfile.static .
+#
+# 2. Re-create the benchmark repositories (approx. 6-7 GB) on your host:
+#    python3 tools/download_repos.py
+#
+#    (This script will automatically clone the required open-source repositories
+#    and check out the exact historical commits used in our dataset).
+# ============================================================================

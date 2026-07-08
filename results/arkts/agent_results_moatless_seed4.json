@@ -1,0 +1,600 @@
+[
+  {
+    "instance_id": "OH_0004",
+    "model_patch": {
+      "entry/src/main/ets/MainAbility/pages/dialer/callRecord/AllRecord.ets": "--- a/entry/src/main/ets/MainAbility/pages/dialer/callRecord/AllRecord.ets\n+++ b/entry/src/main/ets/MainAbility/pages/dialer/callRecord/AllRecord.ets\n@@ -49,6 +49,7 @@\n           .height($r(\"app.float.id_item_height_max\"))\n         }, item => item.id)\n       }\n+      .cachedCount(5)\n       .divider({\n         strokeWidth: 1,\n         color: $r('sys.color.ohos_id_color_list_separator'),\n"
+    }
+  },
+  {
+    "instance_id": "OH_0011",
+    "model_patch": {
+      "entry/src/main/ets/MainAbility/pages/dialer/callRecord/MissedRecord.ets": "--- a/entry/src/main/ets/MainAbility/pages/dialer/callRecord/MissedRecord.ets\n+++ b/entry/src/main/ets/MainAbility/pages/dialer/callRecord/MissedRecord.ets\n@@ -35,6 +35,7 @@\n   }\n }\n \n+@Reusable\n @Component\n struct RecordView {\n   @Link private mPresenter: any;\n"
+    }
+  },
+  {
+    "instance_id": "OH_0014",
+    "model_patch": {
+      "entry/src/main/ets/pages/dialer/callRecord/AllRecord.ets": "--- a/entry/src/main/ets/pages/dialer/callRecord/AllRecord.ets\n+++ b/entry/src/main/ets/pages/dialer/callRecord/AllRecord.ets\n@@ -58,6 +58,7 @@\n         .height($r(\"app.float.id_item_height_max\"))\n       }, item => item.id)\n     }\n+    .cachedCount(5)\n     .divider({\n       strokeWidth: 1,\n       color: $r('sys.color.ohos_id_color_list_separator'),\n"
+    }
+  },
+  {
+    "instance_id": "OH_0022",
+    "model_patch": {
+      "entry/src/main/ets/component/contactdetail/DetailCalllog.ets": "--- a/entry/src/main/ets/component/contactdetail/DetailCalllog.ets\n+++ b/entry/src/main/ets/component/contactdetail/DetailCalllog.ets\n@@ -168,7 +168,7 @@\n               CallLogListItem({ message: item.callLog, mPresenter: $mPresenter });\n             }\n           }\n-        }, item => item.callLog.id.toString())\n+        }, item => item.callLog.id.toString(), { cachedCount: 5 })\n       }\n       .divider({ strokeWidth: $r(\"app.float.id_divide_width\"),color: $r(\"sys.color.ohos_id_color_list_separator\"),\n         startMargin: $r(\"app.float.id_card_margin_max\"), endMargin:$r(\"app.float.id_card_margin_max\")})\n"
+    }
+  },
+  {
+    "instance_id": "OH_0023",
+    "model_patch": {
+      "entry/src/main/ets/component/contactdetail/DetailCalllog.ets": "--- a/entry/src/main/ets/component/contactdetail/DetailCalllog.ets\n+++ b/entry/src/main/ets/component/contactdetail/DetailCalllog.ets\n@@ -108,6 +108,7 @@\n /**\n  * Call log\n  */\n+@Reusable\n @Component\n export default struct DetailCalllog {\n   @Link private mPresenter: any;\n"
+    }
+  },
+  {
+    "instance_id": "OH_0024",
+    "model_patch": {
+      "entry/src/main/ets/pages/dialer/callRecord/AllRecord.ets": "--- a/entry/src/main/ets/pages/dialer/callRecord/AllRecord.ets\n+++ b/entry/src/main/ets/pages/dialer/callRecord/AllRecord.ets\n@@ -96,6 +96,7 @@\n         }\n         .height($r('app.float.id_item_height_max'))\n       }, (item:MergedCallLog) => JSON.stringify(item))\n+      .cachedCount(5)\n     }\n     .divider({\n       strokeWidth: 0.5,\n"
+    }
+  },
+  {
+    "instance_id": "OH_0031",
+    "model_patch": {
+      "entry/src/main/ets/pages/contacts/batchselectcontacts/BatchSelectContactsPage.ets": "--- a/entry/src/main/ets/pages/contacts/batchselectcontacts/BatchSelectContactsPage.ets\n+++ b/entry/src/main/ets/pages/contacts/batchselectcontacts/BatchSelectContactsPage.ets\n@@ -238,6 +238,48 @@\n   }\n }\n \n+@Reusable\n+@Component\n+struct ContactsListItemComponent {\n+  @Prop item: BatchSelectContact;\n+  onContactItemClicked: (index: number, indexChild: number) => void = () => {};\n+\n+  build() {\n+    Stack({ alignContent: Alignment.BottomEnd }) {\n+      Column() {\n+        if (this.item.showIndex) {\n+          Flex({ direction: FlexDirection.Column,\n+            justifyContent: FlexAlign.End,\n+            alignItems: ItemAlign.Start }) {\n+            Text(this.item.contact.namePrefix)\n+              .fontColor($r('sys.color.ohos_fa_text_secondary'))\n+              .fontSize($r('sys.float.ohos_id_text_size_sub_title3'))\n+              .fontWeight(FontWeight.Medium)\n+              .textAlign(TextAlign.Start)\n+          }\n+          .padding({ left: $r('app.float.id_card_margin_max'), bottom: $r('app.float.id_card_margin_large') })\n+          .width('100%')\n+          .height($r('app.float.id_item_height_mid'))\n+        }\n+\n+        BatchSelectContactItemView({\n+          item: this.item.contact,\n+          index: this.item.index,\n+          onContactItemClicked: (index:number, indexChild:number): void => this.onContactItemClicked(index, indexChild),\n+          showIndex: this.item.showIndex,\n+          showDivifer: this.item.showDivifer\n+        })\n+      }\n+\n+      if (this.item.showDivifer) {\n+        Divider()\n+          .color($r('sys.color.ohos_id_color_list_separator'))\n+          .margin({ left: 76, right: $r('app.float.id_card_margin_max') })\n+      }\n+    }\n+  }\n+}\n+\n @Component\n struct ContactsList {\n   @Link presenter: BatchSelectContactsPresenter;\n@@ -254,39 +296,10 @@\n           LazyForEach(this.presenter.contactsSource, (item:BatchSelectContact) => {\n \n             ListItem() {\n-              Stack({ alignContent: Alignment.BottomEnd }) {\n-                Column() {\n-                  if (item.showIndex) {\n-                    Flex({ direction: FlexDirection.Column,\n-                      justifyContent: FlexAlign.End,\n-                      alignItems: ItemAlign.Start }) {\n-                      Text(item.contact.namePrefix)\n-                        .fontColor($r('sys.color.ohos_fa_text_secondary'))\n-                        .fontSize($r('sys.float.ohos_id_text_size_sub_title3'))\n-                        .fontWeight(FontWeight.Medium)\n-                        .textAlign(TextAlign.Start)\n-                    }\n-                    .padding({ left: $r('app.float.id_card_margin_max'), bottom: $r('app.float.id_card_margin_large') })\n-                    .width('100%')\n-                    .height($r('app.float.id_item_height_mid'))\n-                  }\n-\n-                  BatchSelectContactItemView({\n-                    item: item.contact,\n-                    index: item.index,\n-                    onContactItemClicked: (index:number, indexChild:number): void => this.presenter.onContactItemClicked(index,\n-                      indexChild),\n-                    showIndex: item.showIndex,\n-                    showDivifer: item.showDivifer\n-                  })\n-                }\n-\n-                if (item.showDivifer) {\n-                  Divider()\n-                    .color($r('sys.color.ohos_id_color_list_separator'))\n-                    .margin({ left: 76, right: $r('app.float.id_card_margin_max') })\n-                }\n-              }\n+              ContactsListItemComponent({\n+                item: item,\n+                onContactItemClicked: (index:number, indexChild:number): void => this.presenter.onContactItemClicked(index, indexChild)\n+              })\n             }\n           }, (item:BatchSelectContact) => JSON.stringify(item))\n         }\n"
+    }
+  },
+  {
+    "instance_id": "OH_0032",
+    "model_patch": {
+      "entry/src/main/ets/pages/contacts/batchselectcontacts/BatchSelectContactsPage.ets": "--- a/entry/src/main/ets/pages/contacts/batchselectcontacts/BatchSelectContactsPage.ets\n+++ b/entry/src/main/ets/pages/contacts/batchselectcontacts/BatchSelectContactsPage.ets\n@@ -224,7 +224,7 @@\n               }\n             }\n           }\n-        }, (item:BatchSelectContact) => JSON.stringify(item))\n+        }, (item:BatchSelectContact) => item.index.toString())\n       }\n       .width('100%')\n       .listDirection(Axis.Vertical)\n@@ -288,7 +288,7 @@\n                 }\n               }\n             }\n-          }, (item:BatchSelectContact) => JSON.stringify(item))\n+          }, (item:BatchSelectContact) => item.index.toString())\n         }\n         .width('100%')\n         .listDirection(Axis.Vertical)\n"
+    }
+  },
+  {
+    "instance_id": "OH_0035",
+    "model_patch": {
+      "entry/src/main/ets/pages/contacts/details/ContactDetail.ets": "--- a/entry/src/main/ets/pages/contacts/details/ContactDetail.ets\n+++ b/entry/src/main/ets/pages/contacts/details/ContactDetail.ets\n@@ -399,7 +399,7 @@\n             }\n           }\n           .width('100%')\n-        }, (item: LooseObject) => JSON.stringify(item))\n+        }, (item: LooseObject, index: number) => `${item.callLog?.id ?? index}`)\n       }\n       .backgroundColor(Color.White)\n       .onAreaChange((oldArea: Area, newArea: Area) => {\n"
+    }
+  },
+  {
+    "instance_id": "OH_0042",
+    "model_patch": {
+      "entry/src/main/ets/pages/favorites/editFavoriteList.ets": "--- a/entry/src/main/ets/pages/favorites/editFavoriteList.ets\n+++ b/entry/src/main/ets/pages/favorites/editFavoriteList.ets\n@@ -193,7 +193,7 @@\n                   this.item = item;\n                   return this.pixelMapBuilder();\n                 })\n-              }, (item:FavoriteListBean) => JSON.stringify(item))\n+              }, (item:FavoriteListBean) => JSON.stringify(item), { cachedCount: 5 })\n             }\n             .editMode(true)\n             .width('100%')\n"
+    }
+  },
+  {
+    "instance_id": "OH_0043",
+    "model_patch": {
+      "entry/src/main/ets/pages/favorites/editFavoriteList.ets": "--- a/entry/src/main/ets/pages/favorites/editFavoriteList.ets\n+++ b/entry/src/main/ets/pages/favorites/editFavoriteList.ets\n@@ -96,6 +96,7 @@\n   }\n }\n \n+@Reusable\n @Component\n struct FavoriteContent {\n   @Link presenter: EditFavoriteListPresenter;\n"
+    }
+  },
+  {
+    "instance_id": "OH_0045",
+    "model_patch": {
+      "entry/src/main/ets/pages/favorites/favoriteList.ets": "--- a/entry/src/main/ets/pages/favorites/favoriteList.ets\n+++ b/entry/src/main/ets/pages/favorites/favoriteList.ets\n@@ -112,6 +112,7 @@\n           }\n           .scrollBar(BarState.Off)\n           .editMode(true)\n+          .cachedCount(5)\n           .width('100%')\n           .height('100%')\n           .listDirection(Axis.Vertical)\n"
+    }
+  },
+  {
+    "instance_id": "OH_0046",
+    "model_patch": {
+      "entry/src/main/ets/pages/favorites/favoriteList.ets": "--- a/entry/src/main/ets/pages/favorites/favoriteList.ets\n+++ b/entry/src/main/ets/pages/favorites/favoriteList.ets\n@@ -128,6 +128,7 @@\n   }\n }\n \n+@Reusable\n @Component\n export struct FavoriteListItem {\n   @Link presenter: FavoriteListPresenter;\n"
+    }
+  },
+  {
+    "instance_id": "OH_0047",
+    "model_patch": {
+      "entry/src/main/ets/pages/favorites/favoriteList.ets": "--- a/entry/src/main/ets/pages/favorites/favoriteList.ets\n+++ b/entry/src/main/ets/pages/favorites/favoriteList.ets\n@@ -108,7 +108,7 @@\n               ListItem() {\n                 FavoriteListItem({ presenter: $mPresenter, item: item, mPresenter: $presenter });\n               }\n-            }, (item: FavoriteListBean) => JSON.stringify(item))\n+            }, (item: FavoriteListBean) => `${item.favorite.contactId}_${item.favorite.phoneNum}_${item.index}`)\n           }\n           .scrollBar(BarState.Off)\n           .editMode(true)\n"
+    }
+  },
+  {
+    "instance_id": "OH_0052",
+    "model_patch": {
+      "entry/src/main/ets/pages/favorites/addFavoriteList.ets": "--- a/entry/src/main/ets/pages/favorites/addFavoriteList.ets\n+++ b/entry/src/main/ets/pages/favorites/addFavoriteList.ets\n@@ -511,6 +511,7 @@\n   }\n }\n \n+@Reusable\n @Component\n export struct AddFavoriteItemView {\n   @Link presenter: AddFavoriteListPresenter;\n"
+    }
+  },
+  {
+    "instance_id": "OH_0053",
+    "model_patch": {
+      "entry/src/main/ets/pages/favorites/addFavoriteList.ets": "--- a/entry/src/main/ets/pages/favorites/addFavoriteList.ets\n+++ b/entry/src/main/ets/pages/favorites/addFavoriteList.ets\n@@ -420,7 +420,7 @@\n                 showDivifer: item.showDivifer\n               })\n             }\n-          }, (item: BatchSelectContact) => JSON.stringify(item))\n+          }, (item: BatchSelectContact) => `${item.contact.contactId}_${item.index}`)\n         }\n         .width('100%')\n         .padding({ right: this.isShowSmartWindow ? $r('app.float.id_card_margin_xxl_minus') : 0 })\n"
+    }
+  },
+  {
+    "instance_id": "OH_0055",
+    "model_patch": {
+      "entry/src/main/ets/pages/contacts/settings/BatchDeleteContacts.ets": "--- a/entry/src/main/ets/pages/contacts/settings/BatchDeleteContacts.ets\n+++ b/entry/src/main/ets/pages/contacts/settings/BatchDeleteContacts.ets\n@@ -717,7 +717,7 @@\n                 index: index\n               })\n             }\n-          }, (item: BatchSelectContact) => JSON.stringify(item))\n+          }, (item: ContactListShowInfo) => item.contactId)\n         }\n         .width('100%')\n         .height('100%')\n"
+    }
+  },
+  {
+    "instance_id": "OH_0063",
+    "model_patch": {
+      "entry/src/main/ets/pages/contacts/batchselectcontacts/ContactsPickerPage.ets": "--- a/entry/src/main/ets/pages/contacts/batchselectcontacts/ContactsPickerPage.ets\n+++ b/entry/src/main/ets/pages/contacts/batchselectcontacts/ContactsPickerPage.ets\n@@ -1408,23 +1408,7 @@\n             this.slidingMultipleSelectionsUtil.isStopScroll = false;\n           }\n \n-          let updateIndexes = this.slidingMultipleSelectionsUtil.onActionUpdate(event.fingerList[0], (index) => {\n-            let curSelectStatus = false;\n-            if (index >= this.preListItemNum) {\n-              index -= this.preListItemNum;\n-              if (index >= this.presenter.favoriteSource.totalCount()) {\n-                index -= this.presenter.favoriteSource.totalCount();\n-                let item = this.presenter.contactsSource.getData(index);\n-                curSelectStatus = this.presenter.selectedContactsMap.get(item?.contactId)?.has(\n-                  item?.pickerShowSubData.keyValue) ?? false;\n-              } else {\n-                let item = this.presenter.favoriteSource.getData(index);\n-                curSelectStatus = this.presenter.selectedContactsMap.get(item?.contactId)?.has(\n-                  item?.pickerShowSubData.keyValue) ?? false;\n-              }\n-            }\n-            return curSelectStatus;\n-          });\n+          let updateIndexes = this.slidingMultipleSelectionsUtil.onActionUpdate(event.fingerList[0], this.getSelectStatus.bind(this));\n           updateIndexes.forEach((index) => {\n             if (index >= this.preListItemNum) {\n               index -= this.preListItemNum;\n@@ -1489,6 +1473,24 @@\n     } else {\n       return $r('sys.float.padding_level8');\n     }\n+  }\n+\n+  private getSelectStatus(index: number): boolean {\n+    let curSelectStatus = false;\n+    if (index >= this.preListItemNum) {\n+      index -= this.preListItemNum;\n+      if (index >= this.presenter.favoriteSource.totalCount()) {\n+        index -= this.presenter.favoriteSource.totalCount();\n+        let item = this.presenter.contactsSource.getData(index);\n+        curSelectStatus = this.presenter.selectedContactsMap.get(item?.contactId)?.has(\n+          item?.pickerShowSubData.keyValue) ?? false;\n+      } else {\n+        let item = this.presenter.favoriteSource.getData(index);\n+        curSelectStatus = this.presenter.selectedContactsMap.get(item?.contactId)?.has(\n+          item?.pickerShowSubData.keyValue) ?? false;\n+      }\n+    }\n+    return curSelectStatus;\n   }\n }\n \n"
+    }
+  },
+  {
+    "instance_id": "OH_0075",
+    "model_patch": {
+      "entry/src/main/ets/component/contactdetail/DetailInfoTelList.ets": "--- a/entry/src/main/ets/component/contactdetail/DetailInfoTelList.ets\n+++ b/entry/src/main/ets/component/contactdetail/DetailInfoTelList.ets\n@@ -89,6 +89,7 @@\n /**\n  * Phone List\n  */\n+@Reusable\n @Component\n struct TelList {\n   @Link @Watch('mPresenterChange') private mPresenter: DetailPresenter;\n"
+    }
+  },
+  {
+    "instance_id": "OH_0080",
+    "model_patch": {
+      "entry/src/main/ets/pages/favorites/favoriteList.ets": "--- a/entry/src/main/ets/pages/favorites/favoriteList.ets\n+++ b/entry/src/main/ets/pages/favorites/favoriteList.ets\n@@ -750,7 +750,7 @@\n               }\n             })\n \n-          }, (item: FavoriteListBean) => JSON.stringify(item))\n+          }, (item: FavoriteListBean) => item.favorite.contactId.toString())\n         }\n \n         // 配置列表的内容裁剪模式为安全区域\n"
+    }
+  },
+  {
+    "instance_id": "OH_0083",
+    "model_patch": {
+      "entry/src/main/ets/pages/group/GroupList.ets": "--- a/entry/src/main/ets/pages/group/GroupList.ets\n+++ b/entry/src/main/ets/pages/group/GroupList.ets\n@@ -675,14 +675,14 @@\n                         .width('100%')\n                       }\n                       .backgroundColor(Color.Transparent)\n-                    }, (item: GroupInfo) => JSON.stringify(item))\n+                    }, (item: GroupInfo) => item.group.groupId.toString())\n                   }\n                   .borderRadius(this.isPC ? '16vp' : $r('sys.float.corner_radius_level10'))\n                    .margin({\n                     left: (this.isPC || this.curBp === 'lg') ? '24vp' : $r('sys.float.margin_left'),\n                     right: (this.isPC || this.curBp === 'lg') ? '24vp' : $r('sys.float.margin_right'),\n                     bottom: $r('app.float.id_card_margin_xxl')\n-\t                })\n+                        })\n                   .backgroundColor(this.isPC ? $r('sys.color.comp_background_list_card') :\n                   $r('app.color.skin_comp_background_list_card'))\n                   .divider({\n"
+    }
+  },
+  {
+    "instance_id": "OH_0085",
+    "model_patch": {
+      "entry/src/main/ets/pages/group/GroupListDetail.ets": "--- a/entry/src/main/ets/pages/group/GroupListDetail.ets\n+++ b/entry/src/main/ets/pages/group/GroupListDetail.ets\n@@ -536,6 +536,7 @@\n   // }\n }\n \n+@Reusable\n @Component\n struct DetailContent {\n   @State longPressIndex: number = -1;\n"
+    }
+  },
+  {
+    "instance_id": "OH_0089",
+    "model_patch": {
+      "entry/src/main/ets/pages/hicar/HiCarContactSearchPage.ets": "--- a/entry/src/main/ets/pages/hicar/HiCarContactSearchPage.ets\n+++ b/entry/src/main/ets/pages/hicar/HiCarContactSearchPage.ets\n@@ -274,7 +274,7 @@\n           .width('100%')\n         }\n         .id(`HiCarContactSearch_SearchResultClick_ListItem_${index}`)\n-      }, (item: LooseObject) => JSON.stringify(item))\n+      }, (item: LooseObject) => JSON.stringify(item), 5)\n     }\n     .scrollBar(BarState.Off)\n   }\n"
+    }
+  },
+  {
+    "instance_id": "OH_0091",
+    "model_patch": {
+      "entry/src/main/ets/pages/hicar/HiCarContactSearchPage.ets": "--- a/entry/src/main/ets/pages/hicar/HiCarContactSearchPage.ets\n+++ b/entry/src/main/ets/pages/hicar/HiCarContactSearchPage.ets\n@@ -274,7 +274,7 @@\n           .width('100%')\n         }\n         .id(`HiCarContactSearch_SearchResultClick_ListItem_${index}`)\n-      }, (item: LooseObject) => JSON.stringify(item))\n+      }, (item: LooseObject) => item.contact.entityId.toString())\n     }\n     .scrollBar(BarState.Off)\n   }\n"
+    }
+  },
+  {
+    "instance_id": "OH_0092",
+    "model_patch": {
+      "entry/src/main/ets/pages/hicar/HiCarRecordView.ets": "--- a/entry/src/main/ets/pages/hicar/HiCarRecordView.ets\n+++ b/entry/src/main/ets/pages/hicar/HiCarRecordView.ets\n@@ -57,7 +57,7 @@\n           .constraintSize({ minHeight: $r('app.float.id_item_height_max') })\n           .id(`hicar_record_listItem_${index}`)\n           .backgroundColor($r('app.color.skin_background_primary'))\n-        }, (item: MergedCallLog) => JSON.stringify(item))\n+        }, (item: MergedCallLog) => JSON.stringify(item), { cachedCount: 5 })\n       }\n       .divider({\n         strokeWidth: Constants.DIVIFER_HEIGHT,\n"
+    }
+  },
+  {
+    "instance_id": "OH_0095",
+    "model_patch": {
+      "entry/src/main/ets/pages/contacts/settings/ImportAndExport.ets": "--- a/entry/src/main/ets/pages/contacts/settings/ImportAndExport.ets\n+++ b/entry/src/main/ets/pages/contacts/settings/ImportAndExport.ets\n@@ -654,6 +654,11 @@\n     simIccDiallingNumbers.clearContactData();\n     //存在 SIM 卡的槽位数量\n     this.simCardExistenceSlot = 0;\n+    // Cache state variables to avoid frequent reads in loop\n+    let localSimCardExistenceSlot = 0;\n+    let localSimCount = 0;\n+    let localSimNoCount = 0;\n+    let localSimCardEmptySlot = 0;\n     for (let i = 0; i < maxSimCount; i++) {\n       telephonySim.isSimActive(i, (err, value) => {\n         if (err) {\n@@ -665,24 +670,27 @@\n         } else {\n           HiLog.w(TAG, `isSimActive, ${i} value: ${value}`);\n           if (value) {\n-            this.simCardExistenceSlot++;\n-            HiLog.w(TAG, 'simCardExistenceSlot' + this.simCardExistenceSlot);\n+            localSimCardExistenceSlot++;\n+            this.simCardExistenceSlot = localSimCardExistenceSlot;\n+            HiLog.w(TAG, 'simCardExistenceSlot' + localSimCardExistenceSlot);\n             if (type) {\n-              if (this.simCardExistenceSlot) {\n+              if (localSimCardExistenceSlot) {\n                 simIccDiallingNumbers.getcontactDataLength(i, (cardSlot?: number) => {\n                   if (cardSlot == 0) {\n-                    this.simCount++;\n-                    HiLog.w(TAG, 'simState simCount' + this.simCount);\n+                    localSimCount++;\n+                    this.simCount = localSimCount;\n+                    HiLog.w(TAG, 'simState simCount' + localSimCount);\n                   } else if (cardSlot == 1) {\n-                    this.simNoCount++;\n-                    HiLog.w(TAG, 'simState simNoCount' + this.simNoCount);\n+                    localSimNoCount++;\n+                    this.simNoCount = localSimNoCount;\n+                    HiLog.w(TAG, 'simState simNoCount' + localSimNoCount);\n                   }\n-                  if (this.simCount >= 1 || this.simNoCount >= 1) {\n+                  if (localSimCount >= 1 || localSimNoCount >= 1) {\n                     this.isShowSimEntry = true;\n-                    HiLog.w(TAG, 'show simCount  ' + this.simCount + ' simNoCount  ' + this.simNoCount);\n+                    HiLog.w(TAG, 'show simCount  ' + localSimCount + ' simNoCount  ' + localSimNoCount);\n                   } else {\n                     this.isShowSimEntry = false;\n-                    HiLog.w(TAG, 'not show simCount  ' + this.simCount + 'not simNoCount  ' + this.simNoCount);\n+                    HiLog.w(TAG, 'not show simCount  ' + localSimCount + 'not simNoCount  ' + localSimNoCount);\n                   }\n                 });\n                 HiLog.w(TAG, 'getSetupSimCardState Check sim');\n@@ -709,13 +717,14 @@\n               HiLog.w(TAG, 'getSetupSimCardState import');\n             }\n           } else {\n-            this.simCardEmptySlot++;\n-            HiLog.w(TAG, 'simCardEmptySlot ' + this.simCardEmptySlot);\n+            localSimCardEmptySlot++;\n+            this.simCardEmptySlot = localSimCardEmptySlot;\n+            HiLog.w(TAG, 'simCardEmptySlot ' + localSimCardEmptySlot);\n             processedCount++;\n             if (processedCount === maxSimCount && isEmit) {\n               emitter.emit(exportEvent);\n             }\n-            if (this.simCardEmptySlot >= 2) {\n+            if (localSimCardEmptySlot >= 2) {\n               this.isShowSimEntry = false;\n               HiLog.w(TAG, 'simCardEmptySlot ' + this.isShowSimEntry);\n             }\n"
+    }
+  },
+  {
+    "instance_id": "OH_0100",
+    "model_patch": {
+      "entry/src/main/ets/pages/intelligencegroup/IntelligenceGroupSelectMemSendMsg.ets": "--- a/entry/src/main/ets/pages/intelligencegroup/IntelligenceGroupSelectMemSendMsg.ets\n+++ b/entry/src/main/ets/pages/intelligencegroup/IntelligenceGroupSelectMemSendMsg.ets\n@@ -438,7 +438,7 @@\n                 })\n               }\n               .width('100%')\n-            }, (item: BatchSelectContact) => JSON.stringify(item))\n+            }, (item: BatchSelectContact) => JSON.stringify(item), { cachedCount: 5 })\n         }\n \n         .width('100%')\n"
+    }
+  },
+  {
+    "instance_id": "OH_0101",
+    "model_patch": {
+      "entry/src/main/ets/pages/intelligencegroup/IntelligenceGroupSelectMemSendMsg.ets": "--- a/entry/src/main/ets/pages/intelligencegroup/IntelligenceGroupSelectMemSendMsg.ets\n+++ b/entry/src/main/ets/pages/intelligencegroup/IntelligenceGroupSelectMemSendMsg.ets\n@@ -404,6 +404,7 @@\n   // }\n }\n \n+@Reusable\n @Component\n struct IntelligenceGroupContactsList {\n   @Link presenter: IntelligenceGroupSelectMemSendMsgPresenter;\n"
+    }
+  },
+  {
+    "instance_id": "OH_0102",
+    "model_patch": {
+      "entry/src/main/ets/pages/intelligencegroup/IntelligenceGroupSelectMemSendMsg.ets": "--- a/entry/src/main/ets/pages/intelligencegroup/IntelligenceGroupSelectMemSendMsg.ets\n+++ b/entry/src/main/ets/pages/intelligencegroup/IntelligenceGroupSelectMemSendMsg.ets\n@@ -438,7 +438,7 @@\n                 })\n               }\n               .width('100%')\n-            }, (item: BatchSelectContact) => JSON.stringify(item))\n+            }, (item: BatchSelectContact) => item.contact.contactId + '_' + item.index.toString())\n         }\n \n         .width('100%')\n"
+    }
+  },
+  {
+    "instance_id": "OH_0104",
+    "model_patch": {
+      "entry/src/main/ets/pages/intelligencegroup/IntelligenceGroupSingleCategoryDetail.ets": "--- a/entry/src/main/ets/pages/intelligencegroup/IntelligenceGroupSingleCategoryDetail.ets\n+++ b/entry/src/main/ets/pages/intelligencegroup/IntelligenceGroupSingleCategoryDetail.ets\n@@ -219,6 +219,7 @@\n   // }\n }\n \n+@Reusable\n @Component\n struct IntelligenceDetailContent {\n   @State longPressIndex: number = -1;\n"
+    }
+  },
+  {
+    "instance_id": "OH_0110",
+    "model_patch": {
+      "entry/src/main/ets/pages/dialer/callRecord/InterceptionCalls.ets": "--- a/entry/src/main/ets/pages/dialer/callRecord/InterceptionCalls.ets\n+++ b/entry/src/main/ets/pages/dialer/callRecord/InterceptionCalls.ets\n@@ -138,6 +138,7 @@\n   }\n }\n \n+@Reusable\n @Component\n struct InterceptionCallView {\n   @Link private mPresenter: CallRecordPresenter;\n"
+    }
+  },
+  {
+    "instance_id": "OH_0114",
+    "model_patch": {
+      "entry/src/main/ets/pages/ringtoneSelection/RingtoneIndex.ets": "--- a/entry/src/main/ets/pages/ringtoneSelection/RingtoneIndex.ets\n+++ b/entry/src/main/ets/pages/ringtoneSelection/RingtoneIndex.ets\n@@ -486,26 +486,13 @@\n \n                 LazyForEach(this.ringtoneFullDataList, (item: ToneAttrs, index: number) => {\n                   ListItem() {\n-                    Column() {\n-                      this.ringToneItem(item, index);\n-\n-                      if (index !== (this.ringtoneFullDataList?.ringtoneArray.length - 1)) {\n-                        Divider()\n-                          .alignSelf(ItemAlign.Stretch)\n-                          .strokeWidth('1px')\n-                          .height($r('app.float.account_Divider_height'))\n-                          .color($r('sys.color.comp_divider'))\n-                          .lineCap(LineCapStyle.Square)\n-                          .padding({ left: $r('sys.float.padding_level4'), right: $r('sys.float.padding_level4') })\n+                    RingtoneListItemComponent({\n+                      item: item,\n+                      index: index,\n+                      totalCount: this.ringtoneFullDataList?.ringtoneArray.length,\n+                      ringToneItemBuilder: (item: ToneAttrs, index: number) => {\n+                        this.ringToneItem(item, index);\n                       }\n-                    }\n-                    .expandSafeArea([SafeAreaType.SYSTEM], [SafeAreaEdge.BOTTOM])\n-                    .padding({\n-                      top: index === 0 ? $r('sys.float.padding_level2') : 0,\n-                      bottom: index === (this.ringtoneFullDataList?.ringtoneArray.length - 1) ? $r('sys.float.padding_level2') :\n-                        0,\n-                      left: $r('sys.float.padding_level2'),\n-                      right: $r('sys.float.padding_level2'),\n                     })\n                   }\n                   .borderRadius({\n@@ -947,6 +934,38 @@\n   .width('100%')\n }\n \n+@Reusable\n+@Component\n+struct RingtoneListItemComponent {\n+  @Prop item: ToneAttrs;\n+  @Prop index: number;\n+  @Prop totalCount: number;\n+  ringToneItemBuilder: (item: ToneAttrs, index: number) => void = () => {};\n+\n+  build() {\n+    Column() {\n+      this.ringToneItemBuilder(this.item, this.index);\n+\n+      if (this.index !== (this.totalCount - 1)) {\n+        Divider()\n+          .alignSelf(ItemAlign.Stretch)\n+          .strokeWidth('1px')\n+          .height($r('app.float.account_Divider_height'))\n+          .color($r('sys.color.comp_divider'))\n+          .lineCap(LineCapStyle.Square)\n+          .padding({ left: $r('sys.float.padding_level4'), right: $r('sys.float.padding_level4') })\n+      }\n+    }\n+    .expandSafeArea([SafeAreaType.SYSTEM], [SafeAreaEdge.BOTTOM])\n+    .padding({\n+      top: this.index === 0 ? $r('sys.float.padding_level2') : 0,\n+      bottom: this.index === (this.totalCount - 1) ? $r('sys.float.padding_level2') : 0,\n+      left: $r('sys.float.padding_level2'),\n+      right: $r('sys.float.padding_level2'),\n+    })\n+  }\n+}\n+\n class SystemRingtoneSource implements IDataSource {\n   public ringtoneArray: Array<ToneAttrs> = [];\n   private listeners: DataChangeListener[] = [];\n"
+    }
+  },
+  {
+    "instance_id": "OH_0118",
+    "model_patch": {
+      "entry/src/main/ets/pages/contacts/settings/SelectRepeatContact.ets": "--- a/entry/src/main/ets/pages/contacts/settings/SelectRepeatContact.ets\n+++ b/entry/src/main/ets/pages/contacts/settings/SelectRepeatContact.ets\n@@ -421,6 +421,7 @@\n       .scrollBar(BarState.Off)\n       .clipContent(ContentClipMode.SAFE_AREA)\n       .safeAreaPadding({ top: $r('app.float.id_item_height_max') })\n+      .cachedCount(5)\n       .onScrollIndex((firstIndex: number, lastIndex: number) => {\n         this.slidingMultipleSelectionsUtil.scrollStartIndex = firstIndex;\n         this.slidingMultipleSelectionsUtil.scrollEndIndex = lastIndex;\n"
+    }
+  },
+  {
+    "instance_id": "OH_0120",
+    "model_patch": {
+      "entry/src/main/ets/card/pages/ShortcutEditPage.ets": "--- a/entry/src/main/ets/card/pages/ShortcutEditPage.ets\n+++ b/entry/src/main/ets/card/pages/ShortcutEditPage.ets\n@@ -138,10 +138,12 @@\n   async resetContact() {\n     this.shortcutData = INITDATA;\n     if (this.deleteContact.length > 0) {\n+      const formId = this.formId;\n+      const contactId = this.contactId;\n       for (const item of this.deleteContact) {\n-        if (item.contactId && this.contactId !== item.contactId) {\n+        if (item.contactId && contactId !== item.contactId) {\n           item.formId = await this.common.queryContactFormId(item.contactId, this.context)\n-          item.formId = item.formId.split('//').filter(item => !item.includes(this.formId)).join('//')\n+          item.formId = item.formId.split('//').filter(item => !item.includes(formId)).join('//')\n           this.common.updateContactFormId(item.contactId, this.context, item.formId)\n         }\n       }\n"
+    }
+  },
+  {
+    "instance_id": "OH_0121",
+    "model_patch": {}
+  },
+  {
+    "instance_id": "OH_0122",
+    "model_patch": {
+      "entry/src/main/ets/pages/Index.ets": "--- a/entry/src/main/ets/pages/Index.ets\n+++ b/entry/src/main/ets/pages/Index.ets\n@@ -172,16 +172,24 @@\n       window.on('systemBarTintChange', (data) => {\n         LogUtils.d(TAG, 'Succeeded in enabling the listener for window stage event changes. Data: ' +\n         JSON.stringify(data));\n+        let topHeight: number | undefined;\n+        let bottomHeight: number | undefined;\n         for (let i = 0; i < data.regionTint.length; i++) {\n           let regionData = data.regionTint[i];\n           if (regionData.type === window.WindowType.TYPE_STATUS_BAR) {\n-            this.topHeight = px2vp(regionData.region.height);\n+            topHeight = px2vp(regionData.region.height);\n             continue;\n           }\n           if (regionData.type === window.WindowType.TYPE_NAVIGATION_BAR) {\n-            this.bottomHeight = px2vp(regionData.region.top);\n+            bottomHeight = px2vp(regionData.region.top);\n             continue;\n           }\n+        }\n+        if (topHeight !== undefined) {\n+          this.topHeight = topHeight;\n+        }\n+        if (bottomHeight !== undefined) {\n+          this.bottomHeight = bottomHeight;\n         }\n       });\n     } catch (exception) {\n"
+    }
+  },
+  {
+    "instance_id": "OH_0127",
+    "model_patch": {
+      "libgif/index.ets": "--- a/libgif/index.ets\n+++ b/libgif/index.ets\n@@ -17,14 +17,14 @@\n // GIF自定义组件\n export { default as GIFComponent } from './src/main/ets/components/gif/display/GIFComponent'\n // GIF解码数据规范\n-export * from './src/main/ets/components/gif/display/GIFFrame'\n+export { GIFFrame } from './src/main/ets/components/gif/display/GIFFrame'\n // GIF解码能力\n-export * from './src/main/ets/components/gif/parse/GIFParse'\n+export { parseBufferToFrame } from './src/main/ets/components/gif/parse/GIFParse'\n // GIF解码部分能力增强\n-export * from './src/main/ets/components/gif/utils/ParseHelperUtils'\n+export { prePatchGIF, generatePatch, fixLoseGCE } from './src/main/ets/components/gif/utils/ParseHelperUtils'\n // 本地资源网络资源获取能力\n-export * from './src/main/ets/components/gif/utils/ResourceLoader'\n+export { ResourceLoader, Model } from './src/main/ets/components/gif/utils/ResourceLoader'\n // 能力增强worker 解析GIF数据\n export { handler } from './src/main/ets/components/gif/worker/GifWorker'\n \n-export * from 'gifuct-js'\n+export { decompressFrames, parseGIF, ParsedFrameWithoutPatch } from 'gifuct-js'\n"
+    }
+  },
+  {
+    "instance_id": "OH_0128",
+    "model_patch": {
+      "libgif/index.ets": "--- a/libgif/index.ets\n+++ b/libgif/index.ets\n@@ -27,4 +27,4 @@\n // 能力增强worker 解析GIF数据\n export { handler } from './src/main/ets/components/gif/worker/GifWorker'\n \n-export * from 'gifuct-js'\n+export { decompressFrames, ParsedFrameWithoutPatch, parseGIF } from 'gifuct-js'\n"
+    }
+  },
+  {
+    "instance_id": "OH_0133",
+    "model_patch": {
+      "entry/src/main/ets/pages/PrivacyStatementPage.ets": "--- a/entry/src/main/ets/pages/PrivacyStatementPage.ets\n+++ b/entry/src/main/ets/pages/PrivacyStatementPage.ets\n@@ -79,14 +79,14 @@\n           .width($r('app.float.shield_width_height'))\n           .height($r('app.float.shield_width_height'))\n         Text() {\n-          ForEach(this.getPrivacyStatementText(), (privacyStatementText) => {\n+          ForEach(this.getPrivacyStatementText(), (privacyStatementText: string, index: number) => {\n             if (privacyStatementText === this.abilityContext.resourceManager.getStringByNameSync('location_information') ||\n               privacyStatementText === this.abilityContext.resourceManager.getStringByNameSync('print_permission_network')) {\n               Span(privacyStatementText).fontWeight(FontWeight.Bolder)\n             } else {\n               Span(privacyStatementText)\n             }\n-          })\n+          }, (privacyStatementText: string, index: number) => index.toString())\n           Span($r('app.string.about_privacy_statement_text'))\n             .onClick(() => {\n               var windowStage = GlobalThisHelper.getValue<window.WindowStage>(GlobalThisStorageKey.KEY_MAIN_ABILITY_WINDOW_STAGE);\n"
+    }
+  },
+  {
+    "instance_id": "OH_0134",
+    "model_patch": {
+      "entry/src/main/ets/pages/PrintPage.ets": "--- a/entry/src/main/ets/pages/PrintPage.ets\n+++ b/entry/src/main/ets/pages/PrintPage.ets\n@@ -1344,22 +1344,26 @@\n     }\n     Log.info(TAG, 'imageSourceIndexList: ', JSON.stringify(imageSourceIndexList))\n     let len = imageSourceIndexList.length;\n+    // Cache state variables before loop to avoid frequent reads\n+    const pageDirection = this.pageDirection;\n+    const isBorderless = this.isBorderless;\n+    const imageSources = this.imageSources;\n     for (let index = 0; index < len; index++) {\n-      Log.info(TAG,'imageModel START ,this.imageSources '+JSON.stringify(this.imageSources))\n-      let imageModel = this.imageSources[imageSourceIndexList[index]];\n+      Log.info(TAG,'imageModel START ,this.imageSources '+JSON.stringify(imageSources))\n+      let imageModel = imageSources[imageSourceIndexList[index]];\n       Log.info(TAG,'imageModel: '+JSON.stringify(imageModel))\n       let offCanvas: OffscreenCanvasRenderingContext2D | undefined = undefined;\n       let scale: number;\n       let offCanvasWidth: number;\n       let offCanvasHeight: number;\n       let orientation: PageDirection = PageDirection.AUTO;\n-      if (this.pageDirection === PageDirection.VERTICAL || (this.pageDirection === PageDirection.AUTO && imageModel.height >= imageModel.width)) {\n+      if (pageDirection === PageDirection.VERTICAL || (pageDirection === PageDirection.AUTO && imageModel.height >= imageModel.width)) {\n         //竖向 或者 自适应且图片竖向\n         Log.debug('VERTICAL');\n         offCanvasWidth = px2fp(size.width);\n         offCanvasHeight = px2fp(size.height);\n         orientation = PageDirection.VERTICAL\n-      } else if (this.pageDirection === PageDirection.LANDSCAPE || (this.pageDirection === PageDirection.AUTO && imageModel.height <= imageModel.width)) {\n+      } else if (pageDirection === PageDirection.LANDSCAPE || (pageDirection === PageDirection.AUTO && imageModel.height <= imageModel.width)) {\n         //横向 自适应且图片横向\n         Log.debug('LANDSCAPE');\n         offCanvasWidth = px2fp(size.height);\n@@ -1378,7 +1382,7 @@\n       offCanvas.imageSmoothingEnabled = false;\n       offCanvas.fillStyle = '#fff'\n       offCanvas.fillRect(Constants.NUMBER_0, Constants.NUMBER_0, offCanvasWidth, offCanvasHeight);\n-      scale = this.isBorderless ? Math.max(offCanvasWidth / px2fp(imageModel.width), offCanvasHeight / px2fp(imageModel.height)) :\n+      scale = isBorderless ? Math.max(offCanvasWidth / px2fp(imageModel.width), offCanvasHeight / px2fp(imageModel.height)) :\n       Math.min(offCanvasWidth / px2fp(imageModel.width), offCanvasHeight / px2fp(imageModel.height));\n       let xPosition = (offCanvasWidth - px2fp(imageModel.width * scale)) / Constants.NUMBER_2;\n       let yPosition = (offCanvasHeight - px2fp(imageModel.height * scale)) / Constants.NUMBER_2;\n"
+    }
+  },
+  {
+    "instance_id": "OH_0135",
+    "model_patch": {
+      "widescreen_uikit/src/main/ets/components/suspendToolbar/ToolbarMainPage.ets": "--- a/widescreen_uikit/src/main/ets/components/suspendToolbar/ToolbarMainPage.ets\n+++ b/widescreen_uikit/src/main/ets/components/suspendToolbar/ToolbarMainPage.ets\n@@ -42,7 +42,7 @@\n \n @CustomDialog\n export struct ToolBarDialog {\n-  @Prop toolbarList: ToolBarOptions;\n+  @ObjectLink toolbarList: ToolBarOptions;\n   @Link @Watch('refreshIsOpen') isOpen: boolean;\n   @State toolBarOpen: boolean = true;\n   toolBarDialogController: CustomDialogController = new CustomDialogController({\n"
+    }
+  },
+  {
+    "instance_id": "OH_0140",
+    "model_patch": {
+      "product/pc/controlpanel/src/main/ets/pages/index.ets": "--- a/product/pc/controlpanel/src/main/ets/pages/index.ets\n+++ b/product/pc/controlpanel/src/main/ets/pages/index.ets\n@@ -116,6 +116,9 @@\n       .borderRadius(this.style.borderRadius)\n       .width('97%')\n       .height(0.97 * this.mHeightPx + 'px')\n+      .transition(TransitionEffect.OPACITY.animation({ duration: 200, curve: Curve.Friction })\n+        .combine(TransitionEffect.scale({ x: 0.7, y: 0.7, z: 1, centerX: '100%', centerY: '0%' })\n+          .animation({ duration: 200, curve: Curve.Friction })))\n     }\n     .width('100%')\n     .height('100%')\n@@ -172,38 +175,27 @@\n     this.mWidthSize = 0.7;\n     this.mHeightSize = 0.7;\n \n-    //show animation\n-    animateTo({\n-      duration: 200,\n-      curve: Curve.Friction\n-    }, () => {\n-      this.mOpacity = 1;\n-      this.mWidthSize = 1.03;\n-      this.mHeightSize = 1.03;\n-    })\n-    animateTo({\n-      duration:100,\n-      curve: Curve.Friction,\n-      delay: 200\n-    }, () =>{\n+    //show animation - first stage\n+    this.mOpacity = 1;\n+    this.mWidthSize = 1.03;\n+    this.mHeightSize = 1.03;\n+    \n+    //show animation - second stage\n+    setTimeout(() => {\n       this.mWidthSize = 1;\n       this.mHeightSize = 1;\n-    })\n+    }, 200);\n   }\n \n   hideAnimation(){\n     //hide animation\n-    animateTo({\n-      duration: 100,\n-      curve: Curve.Friction,\n-      onFinish: () => {\n-        WindowManager.hideWindow(WindowType.CONTROL_PANEL);\n-      }\n-    }, () => {\n-      this.mWidthSize = 0.7;\n-      this.mHeightSize = 0.7;\n-      this.mOpacity = 0;\n-    })\n+    this.mWidthSize = 0.7;\n+    this.mHeightSize = 0.7;\n+    this.mOpacity = 0;\n+    \n+    setTimeout(() => {\n+      WindowManager.hideWindow(WindowType.CONTROL_PANEL);\n+    }, 100);\n   }\n \n   hideWindow() {\n"
+    }
+  },
+  {
+    "instance_id": "OH_0142",
+    "model_patch": {
+      "product/phone/dropdownpanel/src/main/ets/pages/index.ets": "--- a/product/phone/dropdownpanel/src/main/ets/pages/index.ets\n+++ b/product/phone/dropdownpanel/src/main/ets/pages/index.ets\n@@ -42,6 +42,7 @@\n import dataShare from '@ohos.data.dataShare';\n import settings from '@ohos.settings';\n import Constants from \"../../../../../../../common/src/main/ets/default/Constants\";\n+import effectKit from '@ohos.effectKit';\n \n const TAG = 'DropdownPanel-Index'\n \n@@ -281,7 +282,7 @@\n         .width('100%')\n         .height('100%')\n         .objectFit(ImageFit.Fill)\n-        .blur(25)\n+        .backgroundBlurStyle(BlurStyle.Thick)\n         .opacity(this.backgroundOpacity)\n       Column() {\n         if (this.showComponentName == 'Notification') {\n"
+    }
+  },
+  {
+    "instance_id": "OH_0143",
+    "model_patch": {
+      "product/pc/notificationpanel/src/main/ets/pages/index.ets": "--- a/product/pc/notificationpanel/src/main/ets/pages/index.ets\n+++ b/product/pc/notificationpanel/src/main/ets/pages/index.ets\n@@ -88,6 +88,9 @@\n         centerX: '100%',\n         centerY: '0%'\n       })\n+      .transition(TransitionEffect.OPACITY.animation({ duration: 200, curve: Curve.Friction })\n+        .combine(TransitionEffect.scale({ x: 0.7, y: 0.7, z: 1, centerX: '100%', centerY: '0%' })\n+          .animation({ duration: 200, curve: Curve.Friction })))\n     }\n     .width('100%')\n     .height('100%')\n@@ -144,38 +147,26 @@\n     this.mWidthSize = 0.7;\n     this.mHeightSize = 0.7;\n \n-    //show animation\n-    animateTo({\n-      duration: 200,\n-      curve: Curve.Friction\n-    }, () => {\n-      this.mOpacity = 1;\n-      this.mWidthSize = 1.03;\n-      this.mHeightSize = 1.03;\n-    })\n-    animateTo({\n-      duration:100,\n-      curve: Curve.Friction,\n-      delay: 200\n-    }, () =>{\n+    //show animation - using state changes with transition\n+    this.mOpacity = 1;\n+    this.mWidthSize = 1.03;\n+    this.mHeightSize = 1.03;\n+    \n+    setTimeout(() => {\n       this.mWidthSize = 1;\n       this.mHeightSize = 1;\n-    })\n+    }, 200);\n   }\n \n   hideAnimation(){\n-    //hide animation\n-    animateTo({\n-      duration: 100,\n-      curve: Curve.Friction,\n-      onFinish: () => {\n-        WindowManager.hideWindow(WindowType.NOTIFICATION_PANEL);\n-      }\n-    }, () => {\n-      this.mWidthSize = 0.7;\n-      this.mHeightSize = 0.7;\n-      this.mOpacity = 0;\n-    })\n+    //hide animation - using state changes with transition\n+    this.mWidthSize = 0.7;\n+    this.mHeightSize = 0.7;\n+    this.mOpacity = 0;\n+    \n+    setTimeout(() => {\n+      WindowManager.hideWindow(WindowType.NOTIFICATION_PANEL);\n+    }, 100);\n   }\n \n   hideWindow() {\n"
+    }
+  },
+  {
+    "instance_id": "OH_0144",
+    "model_patch": {
+      "product/phone/dropdownpanel/src/main/ets/pages/index.ets": "--- a/product/phone/dropdownpanel/src/main/ets/pages/index.ets\n+++ b/product/phone/dropdownpanel/src/main/ets/pages/index.ets\n@@ -24,6 +24,7 @@\n \n import AbilityManager from '../../../../../../../common/src/main/ets/default/abilitymanager/abilityManager';\n import image from \"@ohos.multimedia.image\"\n+import effectKit from '@ohos.effectKit'\n import Log from '../../../../../../../common/src/main/ets/default/Log'\n import Trace from '../../../../../../../common/src/main/ets/default/Trace'\n import WindowManager, { WindowType, WINDOW_SHOW_HIDE_EVENT\n@@ -292,7 +293,7 @@\n         .width('100%')\n         .height('100%')\n         .objectFit(ImageFit.Fill)\n-        .blur(25)\n+        .backgroundBlurStyle(BlurStyle.Thick)\n         .opacity(1)\n       Column() {\n         if (this.showComponentName === DropdownPanelComponentName.NOTIFICATION) {\n"
+    }
+  },
+  {
+    "instance_id": "OH_0148",
+    "model_patch": {
+      "disklrucache/index.ets": "--- a/disklrucache/index.ets\n+++ b/disklrucache/index.ets\n@@ -16,6 +16,6 @@\n /**\n  * cache\n  */\n-export * from './src/main/ets/components/cache/DiskLruCache'\n+export { DiskLruCache } from './src/main/ets/components/cache/DiskLruCache'\n \n-export * from './src/main/ets/components/cache/DiskCacheEntry'\n+export { DiskCacheEntry } from './src/main/ets/components/cache/DiskCacheEntry'\n"
+    }
+  },
+  {
+    "instance_id": "OH_0149",
+    "model_patch": {
+      "banner/src/main/ets/component/Banner.ets": "--- a/banner/src/main/ets/component/Banner.ets\n+++ b/banner/src/main/ets/component/Banner.ets\n@@ -261,16 +261,24 @@\n \n       let tempTransValue = new Array();\n       // 百分比为负 当前页面向右滑动\n-      for (let i = 0; i < this.transforms.length; i++) {\n+      // Cache state variables before loop to avoid frequent reads\n+      const transformsLength = this.transforms.length;\n+      const swiperWidth = this.swiperWidth;\n+      const swiperHeight = this.swiperHeight;\n+      const isVertical = this.vertical;\n+      const bannerDuration = this.duration;\n+      const bannerCurve = this.curve;\n+      \n+      for (let i = 0; i < transformsLength; i++) {\n         if (i == preIndex || i == nextIndex || i == touchIndex) {\n \n-          let itemWidth = this.swiperWidth;\n-          let itemHeight = this.swiperHeight;\n+          let itemWidth = swiperWidth;\n+          let itemHeight = swiperHeight;\n \n           // 垂直模式\n-          if (this.vertical) {\n-            itemWidth = this.swiperHeight;\n-            itemHeight = this.swiperWidth;\n+          if (isVertical) {\n+            itemWidth = swiperHeight;\n+            itemHeight = swiperWidth;\n           }\n \n           tempTransValue[i] = {\n@@ -296,8 +304,8 @@\n             touchPreIndex: preIndex,\n             // 触摸后一个nextIndex\n             touchNextIndex: nextIndex,\n-            bannerDuration: this.duration, // 动画效果过度时间\n-            bannerCurve: this.curve, // 动画插值器\n+            bannerDuration: bannerDuration, // 动画效果过度时间\n+            bannerCurve: bannerCurve, // 动画插值器\n             transformType: TransformType.GESTURE\n           }\n         } else {\n"
+    }
+  },
+  {
+    "instance_id": "OH_0150",
+    "model_patch": {
+      "banner/src/main/ets/component/Banner.ets": "--- a/banner/src/main/ets/component/Banner.ets\n+++ b/banner/src/main/ets/component/Banner.ets\n@@ -345,15 +345,23 @@\n       // 百分比为正 当前页面向左滑动\n       let tempTransValue = new Array();\n       // 百分比为负 当前页面向右滑动\n-      for (let i = 0; i < this.transforms.length; i++) {\n+      // Cache state variables to avoid frequent reads in loop\n+      const transformsLength = this.transforms.length;\n+      const swiperWidth = this.swiperWidth;\n+      const swiperHeight = this.swiperHeight;\n+      const isVertical = this.vertical;\n+      const bannerDuration = this.duration;\n+      const bannerCurve = this.curve;\n+      \n+      for (let i = 0; i < transformsLength; i++) {\n         if (i == preIndex || i == nextIndex || i == endIndex) {\n \n-          let itemWidth = this.swiperWidth;\n-          let itemHeight = this.swiperHeight;\n+          let itemWidth = swiperWidth;\n+          let itemHeight = swiperHeight;\n           // 垂直模式\n-          if (this.vertical) {\n-            itemWidth = this.swiperHeight;\n-            itemHeight = this.swiperWidth;\n+          if (isVertical) {\n+            itemWidth = swiperHeight;\n+            itemHeight = swiperWidth;\n           }\n           tempTransValue[i] = {\n             pageWidth: itemWidth,\n@@ -374,8 +382,8 @@\n             touchPreIndex: 0,\n             // 触摸后一个nextIndex\n             touchNextIndex: 0,\n-            bannerDuration: this.duration, // 动画效果过度时间\n-            bannerCurve: this.curve, // 动画插值器\n+            bannerDuration: bannerDuration, // 动画效果过度时间\n+            bannerCurve: bannerCurve, // 动画插值器\n             transformType: TransformType.ANIMATE\n           }\n         } else {\n"
+    }
+  },
+  {
+    "instance_id": "OH_0154",
+    "model_patch": {
+      "CertManager/src/main/ets/pages/picker/CaSystemDetailPage.ets": "--- a/CertManager/src/main/ets/pages/picker/CaSystemDetailPage.ets\n+++ b/CertManager/src/main/ets/pages/picker/CaSystemDetailPage.ets\n@@ -33,7 +33,7 @@\n \n   @State headRectHeight: number = 64;\n   @State headRectHeightReal: number = 0;\n-  @Prop sheetParam: SheetParam;\n+  @ObjectLink sheetParam: SheetParam;\n   private scroller: Scroller = new Scroller();\n   @State scrollerHeight: number = 0;\n \n"
+    }
+  },
+  {
+    "instance_id": "OH_0156",
+    "model_patch": {
+      "CertManager/src/main/ets/pages/cerEvidenceFa.ets": "--- a/CertManager/src/main/ets/pages/cerEvidenceFa.ets\n+++ b/CertManager/src/main/ets/pages/cerEvidenceFa.ets\n@@ -644,7 +644,7 @@\n   isStartBySheetFirst: boolean = false;\n   isStartBySheet: boolean = false;\n   selected?: (path: string, param?: Object) => void;\n-  @Prop sheetParam: SheetParam;\n+  @ObjectLink sheetParam: SheetParam;\n   @State headRectHeight: number = 64;\n   @State headRectHeightReal: number = 0;\n   @State systemScrollerHeight: number = 0;\n"
+    }
+  },
+  {
+    "instance_id": "OH_0157",
+    "model_patch": {
+      "CertManager/src/main/ets/pages/certManagerFa.ets": "--- a/CertManager/src/main/ets/pages/certManagerFa.ets\n+++ b/CertManager/src/main/ets/pages/certManagerFa.ets\n@@ -52,7 +52,7 @@\n   selected?: (path: string) => void;\n   @State private headRectHeight: number = 64;\n   @State private headRectHeightReal: number = 0;\n-  @Prop sheetParam: SheetParam;\n+  @ObjectLink sheetParam: SheetParam;\n   private scroller: Scroller = new Scroller();\n   @State private scrollerHeight: number = 0;\n \n"
+    }
+  },
+  {
+    "instance_id": "OH_0159",
+    "model_patch": {
+      "CertManager/src/main/ets/pages/picker/CredPwdInputPage.ets": "--- a/CertManager/src/main/ets/pages/picker/CredPwdInputPage.ets\n+++ b/CertManager/src/main/ets/pages/picker/CredPwdInputPage.ets\n@@ -46,7 +46,7 @@\n   @State certPwd: string = '';\n   @State isPasswordError: boolean = false;\n   @State passWordWarn: number = 0;\n-  @Prop sheetParam: SheetParam;\n+  @ObjectLink sheetParam: SheetParam;\n \n   build() {\n     NavDestination() {\n"
+    }
+  },
+  {
+    "instance_id": "OH_0160",
+    "model_patch": {
+      "CertManager/src/main/ets/pages/picker/CredSystemDetailPage.ets": "--- a/CertManager/src/main/ets/pages/picker/CredSystemDetailPage.ets\n+++ b/CertManager/src/main/ets/pages/picker/CredSystemDetailPage.ets\n@@ -40,7 +40,7 @@\n   @State private bottomRectHeight: number = 80;\n   @State private headRectHeight: number = 64;\n   @State private headRectHeightReal: number = 0;\n-  @Prop private sheetParam: SheetParam;\n+  @ObjectLink private sheetParam: SheetParam;\n \n   deleteWarnDialog: CustomDialogController = new CustomDialogController({\n     builder: AlertDialog({\n"
+    }
+  },
+  {
+    "instance_id": "OH_0165",
+    "model_patch": {
+      "entry/src/main/ets/MainAbility/pages/index.ets": "--- a/entry/src/main/ets/MainAbility/pages/index.ets\n+++ b/entry/src/main/ets/MainAbility/pages/index.ets\n@@ -307,7 +307,8 @@\n \n \n     public clearConnectedDevice() {\n-        for (let i = 0; i < this.bleDeviceList.length; i++) {\n+        const length = this.bleDeviceList.length;\n+        for (let i = length - 1; i >= 0; i--) {\n             let device: BleDevice = this.bleDeviceList[i];\n             if (BleManager.getInstance().isConnected(device)) {\n                 ArrayHelper.removeIndex(this.bleDeviceList, i);\n@@ -316,7 +317,8 @@\n     }\n \n     public clearScanDevice() {\n-        for (let i = 0; i < this.bleDeviceList.length; i++) {\n+        const length = this.bleDeviceList.length;\n+        for (let i = length - 1; i >= 0; i--) {\n             let device: BleDevice = this.bleDeviceList[i];\n             if (!BleManager.getInstance().isConnected(device)) {\n                 ArrayHelper.removeIndex(this.bleDeviceList, i);\n"
+    }
+  },
+  {
+    "instance_id": "OH_0166",
+    "model_patch": {
+      "permissionmanager/src/main/ets/pages/authority-tertiary-groups.ets": "--- a/permissionmanager/src/main/ets/pages/authority-tertiary-groups.ets\n+++ b/permissionmanager/src/main/ets/pages/authority-tertiary-groups.ets\n@@ -274,13 +274,17 @@\n     })\n \n     // initial then fill values when sync return which may cause sync panic\n+    const applicationList = this.applicationList;\n+    const oldApplicationItem = this.oldApplicationItem;\n     for (let i = 0; i < bundleNames.length; i++) {\n-      this.applicationList.push(\n+      applicationList.push(\n         new ApplicationObj('', '', i, 0, '', ''));\n-      this.oldApplicationItem.push(\n+      oldApplicationItem.push(\n         new ApplicationObj('', '', i, 0, '', ''));\n     }\n \n+    const toggleIsOn = this.toggleIsOn;\n+    let permissionNum = this.permissionNum;\n     for (let i = 0; i < bundleNames.length; i++) {\n       // Get BundleInfo based on bundle name\n       bundle.getBundleInfo(bundleNames[i], Constants.PARMETER_BUNDLE_FLAG).then(res => {\n@@ -288,7 +292,7 @@\n         getAppIcon(res.appInfo.iconId, res.name)\n         ])\n           .then((values) => {\n-            this.applicationList[i] = (\n+            applicationList[i] = (\n               new ApplicationObj(\n               String(values[0]),\n               String(values[1]),\n@@ -297,7 +301,7 @@\n                 routerData[0].permission,\n               makePy(values[0])[0].slice(0, 1)) // Get the first letter in the returned initials array\n             );\n-            this.oldApplicationItem[i] = (\n+            oldApplicationItem[i] = (\n               new ApplicationObj(\n               String(values[0]),\n               String(values[1]),\n@@ -309,7 +313,8 @@\n           });\n         // 0: have permission; -1: no permission\n         var boole = true;\n-        this.permissionNum++;\n+        permissionNum++;\n+        this.permissionNum = permissionNum;\n         for (let j = 0; j < routerData.length; j++) {\n           if (res.reqPermissions.indexOf(routerData[j].permission) == -1) {\n             continue\n@@ -317,14 +322,15 @@\n           verifyAccessToken(res.appInfo.accessTokenId, routerData[j].permission).then((access) => {\n             if (Number(access) === Constants.PERMISSION_INDEX) {\n               if(boole){\n-                this.toggleIsOn[i] = true;\n+                toggleIsOn[i] = true;\n               }\n             } else {\n               if(boole){\n-                this.permissionNum--\n+                permissionNum--;\n+                this.permissionNum = permissionNum;\n               }\n               boole = false;\n-              this.toggleIsOn[i] = false;\n+              toggleIsOn[i] = false;\n             }\n           });\n         }\n"
+    }
+  },
+  {
+    "instance_id": "OH_0170",
+    "model_patch": {
+      "permissionmanager/src/main/ets/pages/authority-tertiary-groups.ets": "--- a/permissionmanager/src/main/ets/pages/authority-tertiary-groups.ets\n+++ b/permissionmanager/src/main/ets/pages/authority-tertiary-groups.ets\n@@ -357,11 +357,13 @@\n           // 0: have permission; -1: no permission\n           let boole = true;\n           this.permissionNum++;\n-          for (let j = 0; j < this.list.length; j++) {\n-            if (bundleInfo.permissions.indexOf(this.list[j].permission) == -1) {\n+          const listLength = this.list.length;\n+          for (let j = 0; j < listLength; j++) {\n+            const currentPermission = this.list[j].permission;\n+            if (bundleInfo.permissions.indexOf(currentPermission) == -1) {\n               continue;\n             }\n-            verifyAccessToken(bundleInfo.tokenId, this.list[j].permission).then((access) => {\n+            verifyAccessToken(bundleInfo.tokenId, currentPermission).then((access) => {\n               if (Number(access) === Constants.PERMISSION_INDEX) {\n                 if (boole) {\n                   this.toggleIsOn[i] = true;\n"
+    }
+  },
+  {
+    "instance_id": "OH_0173",
+    "model_patch": {
+      "permissionmanager/src/main/ets/pages/dialogPlus.ets": "--- a/permissionmanager/src/main/ets/pages/dialogPlus.ets\n+++ b/permissionmanager/src/main/ets/pages/dialogPlus.ets\n@@ -375,14 +375,15 @@\n     //Processing of positioning\n     if (this.targetVersion >= Constants.API_VERSION_SUPPORT_STAGE) {\n       if (this.reqPerms.includes(FUZZY_LOCATION_PERMISSION)) {\n-        this.locationFlag = Constants.LOCATION_FUZZY;\n+        let locationFlag = Constants.LOCATION_FUZZY;\n         if (this.reqPerms.includes(PRECISE_LOCATION_PERMISSION)) {\n-          this.locationFlag = Constants.LOCATION_BOTH_PRECISE;\n+          locationFlag = Constants.LOCATION_BOTH_PRECISE;\n           let fuzzyIndex = this.reqPerms.indexOf(FUZZY_LOCATION_PERMISSION);\n           if (stateGroup[fuzzyIndex] == Constants.PASS_OPER) {\n-            this.locationFlag = Constants.LOCATION_UPGRADE;\n-          }\n-        }\n+            locationFlag = Constants.LOCATION_UPGRADE;\n+          }\n+        }\n+        this.locationFlag = locationFlag;\n       }\n     }\n \n"
+    }
+  },
+  {
+    "instance_id": "OH_0176",
+    "model_patch": {
+      "permissionmanager/src/main/ets/pages/authority-tertiary-groups.ets": "--- a/permissionmanager/src/main/ets/pages/authority-tertiary-groups.ets\n+++ b/permissionmanager/src/main/ets/pages/authority-tertiary-groups.ets\n@@ -452,11 +452,13 @@\n           // 0: have permission; -1: no permission\n           let boole = true;\n           this.permissionNum++;\n-          for (let j = 0; j < this.list.length; j++) {\n-            if (bundleInfo.permissions.indexOf(this.list[j].permission) == -1) {\n+          const listCache = this.list;\n+          const listLength = listCache.length;\n+          for (let j = 0; j < listLength; j++) {\n+            if (bundleInfo.permissions.indexOf(listCache[j].permission) == -1) {\n               continue;\n             }\n-            verifyAccessToken(bundleInfo.tokenId, this.list[j].permission).then((access) => {\n+            verifyAccessToken(bundleInfo.tokenId, listCache[j].permission).then((access) => {\n               if (Number(access) === Constants.PERMISSION_INDEX) {\n                 if (boole) {\n                   this.toggleIsOn[i] = true;\n"
+    }
+  },
+  {
+    "instance_id": "OH_0183",
+    "model_patch": {
+      "permissionmanager/src/main/ets/pages/dialogPlus.ets": "--- a/permissionmanager/src/main/ets/pages/dialogPlus.ets\n+++ b/permissionmanager/src/main/ets/pages/dialogPlus.ets\n@@ -406,18 +406,20 @@\n   }\n \n   getGrantGroups(stateGroup: number[]) {\n+    let locationFlag = Constants.LOCATION_NONE;\n     if (this.reqPerms.includes(Permission.APPROXIMATELY_LOCATION)) {\n-      this.locationFlag = Constants.LOCATION_FUZZY;\n+      locationFlag = Constants.LOCATION_FUZZY;\n       if (this.reqPerms.includes(Permission.LOCATION)) {\n-        this.locationFlag = Constants.LOCATION_BOTH_PRECISE;\n+        locationFlag = Constants.LOCATION_BOTH_PRECISE;\n         let fuzzyIndex = this.reqPerms.indexOf(Permission.APPROXIMATELY_LOCATION);\n         if (stateGroup[fuzzyIndex] == Constants.PASS_OPER) {\n-          this.locationFlag = Constants.LOCATION_UPGRADE;\n+          locationFlag = Constants.LOCATION_UPGRADE;\n         }\n       }\n     } else if (this.reqPerms.includes(Permission.LOCATION)) {\n-      this.locationFlag = Constants.LOCATION_UPGRADE;\n-    }\n+      locationFlag = Constants.LOCATION_UPGRADE;\n+    }\n+    this.locationFlag = locationFlag;\n \n     this.reqPerms.forEach(async (permission, idx) => {\n       if (permission === Permission.APP_TRACKING_CONSENT) {\n"
+    }
+  },
+  {
+    "instance_id": "OH_0185",
+    "model_patch": {
+      "permissionmanager/src/main/ets/pages/dialogPlus.ets": "--- a/permissionmanager/src/main/ets/pages/dialogPlus.ets\n+++ b/permissionmanager/src/main/ets/pages/dialogPlus.ets\n@@ -406,16 +406,17 @@\n   }\n \n   getGrantGroups(stateGroup: number[]) {\n-    if (this.reqPerms.includes(Permission.APPROXIMATELY_LOCATION)) {\n+    let reqPerms = this.reqPerms;\n+    if (reqPerms.includes(Permission.APPROXIMATELY_LOCATION)) {\n       this.locationFlag = Constants.LOCATION_FUZZY;\n-      if (this.reqPerms.includes(Permission.LOCATION)) {\n+      if (reqPerms.includes(Permission.LOCATION)) {\n         this.locationFlag = Constants.LOCATION_BOTH_PRECISE;\n-        let fuzzyIndex = this.reqPerms.indexOf(Permission.APPROXIMATELY_LOCATION);\n+        let fuzzyIndex = reqPerms.indexOf(Permission.APPROXIMATELY_LOCATION);\n         if (stateGroup[fuzzyIndex] == Constants.PASS_OPER) {\n           this.locationFlag = Constants.LOCATION_UPGRADE;\n         }\n       }\n-    } else if (this.reqPerms.includes(Permission.LOCATION)) {\n+    } else if (reqPerms.includes(Permission.LOCATION)) {\n       this.locationFlag = Constants.LOCATION_UPGRADE;\n     }\n \n"
+    }
+  },
+  {
+    "instance_id": "OH_0191",
+    "model_patch": {
+      "permissionmanager/src/main/ets/PermissionSheet/PermissionStateSheetDialog.ets": "--- a/permissionmanager/src/main/ets/PermissionSheet/PermissionStateSheetDialog.ets\n+++ b/permissionmanager/src/main/ets/PermissionSheet/PermissionStateSheetDialog.ets\n@@ -643,6 +643,7 @@\n \n   async grantOtherPermissions(item: MediaDocObj) {\n     this.selected = item.index;\n+    let accurateIsOn = this.accurateIsOn;\n     for (const permission of item.permissions) {\n       Log.info('item click index:' + item.index);\n       if (item.index === Constants.PERMISSION_ALLOW) {\n@@ -650,9 +651,10 @@\n           await this.grantUserGrantedPermission(accessTokenId, permission);\n         }\n       } else if (item.index === Constants.PERMISSION_BAN) {\n-        if (permission == Permission.LOCATION && this.accurateIsOn) {\n+        if (permission == Permission.LOCATION && accurateIsOn) {\n           this.revokeUserGrantedPermission(accessTokenId, permission, Constants.PERMISSION_FLAG);\n           this.accurateIsOn = false;\n+          accurateIsOn = false;\n         } else {\n           this.revokeUserGrantedPermission(accessTokenId, permission, Constants.PERMISSION_FLAG);\n         }\n"
+    }
+  },
+  {
+    "instance_id": "OH_0199",
+    "model_patch": {
+      "HMSliderPlayer/src/main/ets/components/HMSliderPlayer.ets": "--- a/HMSliderPlayer/src/main/ets/components/HMSliderPlayer.ets\n+++ b/HMSliderPlayer/src/main/ets/components/HMSliderPlayer.ets\n@@ -33,6 +33,7 @@\n import { HMAVPlayerMgr } from '../controller/HMAVPlayerMgr';\n import { SliderPlayerSize } from '../controller/HMDialog';\n \n+@Reusable\n @Component\n export struct HMSliderPlayer {\n   @State curIndex: number = 0;\n"
+    }
+  },
+  {
+    "instance_id": "OH_0203",
+    "model_patch": {
+      "HMSliderPlayer/src/main/ets/components/HMSliderPlayer.ets": "--- a/HMSliderPlayer/src/main/ets/components/HMSliderPlayer.ets\n+++ b/HMSliderPlayer/src/main/ets/components/HMSliderPlayer.ets\n@@ -33,6 +33,7 @@\n import { HMAVPlayerMgr } from '../controller/HMAVPlayerMgr';\n import { SliderPlayAttribute } from '../controller/HMDialog';\n \n+@Reusable\n @Component\n export struct HMSliderPlayer {\n   @State curIndex: number = 0;\n"
+    }
+  },
+  {
+    "instance_id": "OH_0206",
+    "model_patch": {
+      "entry/src/main/ets/screen/FastSpeed.ets": "--- a/entry/src/main/ets/screen/FastSpeed.ets\n+++ b/entry/src/main/ets/screen/FastSpeed.ets\n@@ -113,7 +113,7 @@\n                     promptAction.closeCustomDialog(this.clickSpeedDialogId);\n                   }, CommonConstant.CLOSE_SPEED_TOAST_DURATION);\n                 });\n-            });\n+            }, (item: number, commonIndex: number) => commonIndex.toString());\n           }\n           .width(CommonConstant.FIFTY_PERCENT_WIDTH);\n         }\n"
+    }
+  },
+  {
+    "instance_id": "OH_0212",
+    "model_patch": {
+      "common/src/main/ets/function/capture/AudioControlShutterButton.ets": "--- a/common/src/main/ets/function/capture/AudioControlShutterButton.ets\n+++ b/common/src/main/ets/function/capture/AudioControlShutterButton.ets\n@@ -74,11 +74,12 @@\n       this.isVdeCollapsed ? this.context.clearRect(0, 0, 33, 33) : this.context.clearRect(0, 0, 48, 48);\n       return;\n     }\n-    let xPos = this.isVdeCollapsed ? 8 : 14;\n-    let yPos = this.isVdeCollapsed ? 24 : 33;\n-    let spacing = this.isVdeCollapsed ? 5.5 : 6.5;\n+    const isVdeCollapsed = this.isVdeCollapsed;\n+    let xPos = isVdeCollapsed ? 8 : 14;\n+    let yPos = isVdeCollapsed ? 24 : 33;\n+    let spacing = isVdeCollapsed ? 5.5 : 6.5;\n     for (let i = 0; i < 4; i++) {\n-      this.isVdeCollapsed ? this.context.clearRect(0, 0, 33, 33) : this.context.clearRect(0, 0, 48, 48);\n+      isVdeCollapsed ? this.context.clearRect(0, 0, 33, 33) : this.context.clearRect(0, 0, 48, 48);\n       if (this.heightList[i] >= this.minHeight) {\n         this.stateList[i] = true;\n       } else if (this.heightList[i] <= this.maxHeight) {\n"
+    }
+  },
+  {
+    "instance_id": "OH_0217",
+    "model_patch": {
+      "product/tablet/src/main/ets/pages/PreviewArea.ets": "--- a/product/tablet/src/main/ets/pages/PreviewArea.ets\n+++ b/product/tablet/src/main/ets/pages/PreviewArea.ets\n@@ -48,6 +48,7 @@\n import image from '@ohos.multimedia.image';\n import { WindowDirection } from '@ohos/common/src/main/ets/utils/WindowDirection';\n import { OutputOperation } from '@ohos/common/src/main/ets/function/outputswitcher/OutputOperation';\n+import { effectKit } from '@kit.ArkGraphics2D';\n import { OutputType } from '@ohos/common/src/main/ets/function/outputswitcher/OutputType';\n import { UIOperationType } from '@ohos/common/src/main/ets/component/uicomponent/UIOperationType';\n import { GlobalContext } from '@ohos/common/src/main/ets/utils/GlobalContext';\n@@ -619,7 +620,12 @@\n             Image(this.mScreenshotPixelMap)\n               .width(this.xComponentWidth)\n               .height(this.xComponentHeight)\n-              .blur(this.mModeSwitchImgBlur)\n+              .renderFit(RenderFit.CENTER)\n+              .backgroundEffect({\n+                radius: this.mModeSwitchImgBlur,\n+                saturation: 1,\n+                brightness: 1\n+              })\n               .syncLoad(true)\n           }\n           .rotate(this.cameraSwitchRotation)\n"
+    }
+  },
+  {
+    "instance_id": "OH_0221",
+    "model_patch": {
+      "features/extend/src/main/ets/commonfunc/focus/StandardSlider.ets": "--- a/features/extend/src/main/ets/commonfunc/focus/StandardSlider.ets\n+++ b/features/extend/src/main/ets/commonfunc/focus/StandardSlider.ets\n@@ -216,18 +216,35 @@\n   }\n \n   private redrawCanvas(fillRectCenterX: number): void {\n-    for (let i = 0; i < this.spotCount; i++) {\n-      let commonLength: number = this.bothSidesPadding + this.longWhiteLineWidth / 2 +\n-        Math.floor(i / this.gapNumInEachSeg) * this.segLength + (i % this.gapNumInEachSeg) * this.dotDistance;\n-      let fontText = `${this.valueRange[i].toString()} ${this.showUnit ? this.unit : ''}`;\n-      let fontPosYGap = this.isSliding ? 29 : 27;\n+    // Cache state variables to avoid frequent reads inside loop\n+    const spotCount = this.spotCount;\n+    const bothSidesPadding = this.bothSidesPadding;\n+    const longWhiteLineWidth = this.longWhiteLineWidth;\n+    const gapNumInEachSeg = this.gapNumInEachSeg;\n+    const segLength = this.segLength;\n+    const dotDistance = this.dotDistance;\n+    const valueRange = this.valueRange;\n+    const showUnit = this.showUnit;\n+    const unit = this.unit;\n+    const isSliding = this.isSliding;\n+    const mDirection = this.mDirection;\n+    const sliderCanvasHeight = this.sliderCanvasHeight;\n+    const bottomPadding = this.bottomPadding;\n+    const timeLapse = this.timeLapse;\n+    const oneRadian = this.ONE_RADIAN;\n+    \n+    for (let i = 0; i < spotCount; i++) {\n+      let commonLength: number = bothSidesPadding + longWhiteLineWidth / 2 +\n+        Math.floor(i / gapNumInEachSeg) * segLength + (i % gapNumInEachSeg) * dotDistance;\n+      let fontText = `${valueRange[i].toString()} ${showUnit ? unit : ''}`;\n+      let fontPosYGap = isSliding ? 29 : 27;\n       this.sliderOffCanvasCtx.rotate(0);\n-      if (this.mDirection === WindowDirection.LEFT || this.mDirection === WindowDirection.RIGHT) {\n-        fontPosYGap = this.isSliding ? 38 : 36;\n+      if (mDirection === WindowDirection.LEFT || mDirection === WindowDirection.RIGHT) {\n+        fontPosYGap = isSliding ? 38 : 36;\n       }\n       let fontTextPos = this.getTextPosition({\n         x: commonLength,\n-        y: this.sliderCanvasHeight - this.bottomPadding - fontPosYGap\n+        y: sliderCanvasHeight - bottomPadding - fontPosYGap\n       });\n       this.sliderOffCanvasCtx.globalAlpha = 1;\n       this.sliderOffCanvasCtx.font = `bold ${vp2px(11)}px`;\n@@ -235,17 +252,17 @@\n       this.sliderOffCanvasCtx.textBaseline = 'middle';\n       this.sliderOffCanvasCtx.shadowColor = '#33000000';\n       this.sliderOffCanvasCtx.shadowBlur = 3;\n-      if ((i % this.gapNumInEachSeg !== 0)) {\n+      if ((i % gapNumInEachSeg !== 0)) {\n         this.sliderOffCanvasCtx.globalAlpha = 0;\n         this.sliderOffCanvasCtx.shadowColor = '#00000000';\n       }\n       this.sliderOffCanvasCtx.font = 'bold 11';\n-      this.sliderOffCanvasCtx.rotate(DirectionToAngleUtil.geViewRotate(this.mDirection) * this.ONE_RADIAN);\n-      if (this.timeLapse !== FocusModeEffectMode.FOCUS_MODE_MANUAL) { // 存在图标则删除\n+      this.sliderOffCanvasCtx.rotate(DirectionToAngleUtil.geViewRotate(mDirection) * oneRadian);\n+      if (timeLapse !== FocusModeEffectMode.FOCUS_MODE_MANUAL) { // 存在图标则删除\n         this.sliderOffCanvasCtx.fillText(fontText, fontTextPos.x, fontTextPos.y);\n       }\n-      this.sliderOffCanvasCtx.rotate(-DirectionToAngleUtil.geViewRotate(this.mDirection) * this.ONE_RADIAN);\n-      if (i % this.gapNumInEachSeg === 0) {\n+      this.sliderOffCanvasCtx.rotate(-DirectionToAngleUtil.geViewRotate(mDirection) * oneRadian);\n+      if (i % gapNumInEachSeg === 0) {\n         this.drawLongScale(commonLength);\n       } else {\n         this.drawShortScale(commonLength);\n"
+    }
+  },
+  {
+    "instance_id": "OH_0224",
+    "model_patch": {
+      "SampleCode/ListScrollComponentSample/src/main/ets/pages/CombineItemListPage.ets": "--- a/SampleCode/ListScrollComponentSample/src/main/ets/pages/CombineItemListPage.ets\n+++ b/SampleCode/ListScrollComponentSample/src/main/ets/pages/CombineItemListPage.ets\n@@ -240,7 +240,7 @@\n             ObservedImage({ imagePixelMap: image })\n           }\n         }\n-      })\n+      }, (image: ImagePixelMap | undefined, index: number) => index.toString())\n     }\n     .columnsTemplate('1fr 1fr 1fr')\n     .rowsGap(5)\n"
+    }
+  },
+  {
+    "instance_id": "OH_0226",
+    "model_patch": {
+      "entry/src/main/ets/MainAbility/pages/RangeSample.ets": "--- a/entry/src/main/ets/MainAbility/pages/RangeSample.ets\n+++ b/entry/src/main/ets/MainAbility/pages/RangeSample.ets\n@@ -199,7 +199,8 @@\n   }\n \n   public clearScanDevice() {\n-    for (let i = 0; i < this.beaconList.length; i++) {\n+    const length = this.beaconList.length;\n+    for (let i = 0; i < length; i++) {\n       ArrayHelper.removeIndex(this.beaconList, i);\n     }\n   }\n"
+    }
+  },
+  {
+    "instance_id": "OH_0232",
+    "model_patch": {
+      "entry/src/main/ets/pages/infomsg/InfoMsg.ets": "--- a/entry/src/main/ets/pages/infomsg/InfoMsg.ets\n+++ b/entry/src/main/ets/pages/infomsg/InfoMsg.ets\n@@ -711,7 +711,7 @@\n                                     return util.getHash(item)?.toString() + index.toString() + true;\n                                 }\n                                 return util.getHash(item)?.toString() + index.toString() + false;\n-                            })\n+                            }, { cachedCount: 5 })\n                         }\n                     }\n                     .gesture(PanGesture({ direction: PanDirection.Vertical })\n"
+    }
+  },
+  {
+    "instance_id": "OH_0236",
+    "model_patch": {
+      "entry/src/main/ets/pages/conversation/MessageTypeTitleAndCalenderDate.ets": "--- a/entry/src/main/ets/pages/conversation/MessageTypeTitleAndCalenderDate.ets\n+++ b/entry/src/main/ets/pages/conversation/MessageTypeTitleAndCalenderDate.ets\n@@ -21,7 +21,7 @@\n \n @Component\n export default struct MessageTypeTitleAndCalenderDate {\n-  @Prop mmsItem: mmsListType;\n+  @ObjectLink mmsItem: mmsListType;\n \n   build() {\n     Flex({\n"
+    }
+  },
+  {
+    "instance_id": "OH_0237",
+    "model_patch": {
+      "entry/src/main/ets/views/MmsAvatar/MmsAvatar.ets": "--- a/entry/src/main/ets/views/MmsAvatar/MmsAvatar.ets\n+++ b/entry/src/main/ets/views/MmsAvatar/MmsAvatar.ets\n@@ -40,22 +40,37 @@\n           wrap: (this.item.smsType === 0 && this.item.photoFirstNames.length > 2)\n             ? FlexWrap.Wrap : FlexWrap.NoWrap}) {\n           ForEach(this.item.photoFirstNames, (photoFirstName: photoFirstNameType, index: number) => {\n+            // Pre-compute values to avoid functions as component parameters\n+            let yellowPageIconArray: string[] = this.item.hasYellowPageIcon ? \n+              this.item.hasYellowPageIcon.split(',') as string[] : [];\n+            let hasYellowPageIconValue: string = yellowPageIconArray.length > index ? \n+              yellowPageIconArray[index] : '';\n+            \n+            let rawContactIdArray: string[] = this.item.rawContactId ? \n+              this.item.rawContactId.split(',') as string[] : [];\n+            let rawContactIdValue: string | null = rawContactIdArray.length > index ? \n+              rawContactIdArray[index] : null;\n+            \n+            let contactIdValue: string = this.item.contactId;\n+            let firstPhotoNameValue: string = photoFirstName.firstName;\n+            let portraitColorValue: ResourceColor = photoFirstName.portraitColor ? \n+              photoFirstName.portraitColor : this.item.portraitColor;\n+            let imgSizeValue: number = this.item.photoSize.width;\n+            let fontSizeValue: number = this.item.photoFirstNames.length > 1 ? 8 : 0;\n+            let marginLeftValue: number = (this.item.photoFirstNames.length === 3 && index === 0) ? 5 : 0;\n+            let marginRightValue: number = (this.item.photoFirstNames.length === 3 && index === 0) ? 5 : 0;\n+            \n             ContactAvatar({\n-              hasYellowPageIcon: this.item.hasYellowPageIcon ?\n-                ((this.item.hasYellowPageIcon.split(',') as string[]).length > index ?\n-                this.item.hasYellowPageIcon.split(',')[index] : '') : '',\n-              rawContactId: this.item.rawContactId ?\n-                ((this.item.rawContactId.split(',') as string[]).length > index ?\n-                this.item.rawContactId.split(',')[index] : null) : null,\n-              contactId: this.item.contactId,\n-              firstPhotoName: photoFirstName.firstName,\n-              portraitColor: photoFirstName.portraitColor ? photoFirstName.portraitColor : this.item.portraitColor,\n-              imgSize: this.item.photoSize.width,\n-              fontSize: this.item.photoFirstNames.length > 1\n-                ? 8 : 0\n+              hasYellowPageIcon: hasYellowPageIconValue,\n+              rawContactId: rawContactIdValue,\n+              contactId: contactIdValue,\n+              firstPhotoName: firstPhotoNameValue,\n+              portraitColor: portraitColorValue,\n+              imgSize: imgSizeValue,\n+              fontSize: fontSizeValue\n             }).margin({\n-              left: (this.item.photoFirstNames.length === 3 && index === 0) ? 5 : 0,\n-              right: (this.item.photoFirstNames.length === 3 && index === 0) ? 5 : 0\n+              left: marginLeftValue,\n+              right: marginRightValue\n             })\n           })\n         }\n@@ -63,16 +78,18 @@\n         .height(40)\n       } else {\n         if (this.item.hasYellowPageIcon) {\n+          let hasYellowPageIconValue: string = this.item.hasYellowPageIcon;\n           Flex({justifyContent: FlexAlign.Center, alignItems: ItemAlign.Center }) {\n             ContactAvatar({\n-              hasYellowPageIcon: this.item.hasYellowPageIcon\n+              hasYellowPageIcon: hasYellowPageIconValue\n             })\n           }\n           .id('transmit_icon').width('40vp').height('40vp')\n         } else if (this.item.chatbotPageIcon) {\n+          let chatbotPageIconValue: string = this.item.chatbotPageIcon;\n           Flex({justifyContent: FlexAlign.Center, alignItems: ItemAlign.Center }) {\n             ContactAvatar({\n-              chatbotPageIcon: this.item.chatbotPageIcon\n+              chatbotPageIcon: chatbotPageIconValue\n             })\n           }\n           .id('transmit_icon').width('40vp').height('40vp')\n"
+    }
+  },
+  {
+    "instance_id": "OH_0242",
+    "model_patch": {
+      "entry/src/main/ets/pages/transmitmsg/transmitSearchMsgPage.ets": "--- a/entry/src/main/ets/pages/transmitmsg/transmitSearchMsgPage.ets\n+++ b/entry/src/main/ets/pages/transmitmsg/transmitSearchMsgPage.ets\n@@ -582,7 +582,7 @@\n           }\n           .width('100%')\n           .height(this.fontSizeScale >= 1.45 ? (this.fontSizeScale * 60) + 'vp' : (this.fontSizeScale * 80) + 'vp')\n-        }, (item: messageType) => JSON.stringify(item))\n+        }, (item: messageType) => JSON.stringify(item), 2)\n       }\n       .divider({\n         strokeWidth: $r('app.float.settings_divider_strokeWidth'),\n"
+    }
+  },
+  {
+    "instance_id": "OH_0243",
+    "model_patch": {
+      "entry/src/main/ets/pages/transmitmsg/transmitSearchMsgPage.ets": "--- a/entry/src/main/ets/pages/transmitmsg/transmitSearchMsgPage.ets\n+++ b/entry/src/main/ets/pages/transmitmsg/transmitSearchMsgPage.ets\n@@ -494,6 +494,7 @@\n   }\n }\n \n+@Reusable\n @Component\n export struct ContentListView {\n   @Link searchCtrl: TransmitSearchMsgController;\n"
+    }
+  },
+  {
+    "instance_id": "OH_0246",
+    "model_patch": {
+      "product/phone/src/main/ets/Setting/IntelligentScene/view/AppAndMetaServiceListGroupsComponent.ets": "--- a/product/phone/src/main/ets/Setting/IntelligentScene/view/AppAndMetaServiceListGroupsComponent.ets\n+++ b/product/phone/src/main/ets/Setting/IntelligentScene/view/AppAndMetaServiceListGroupsComponent.ets\n@@ -83,7 +83,7 @@\n               })\n               .backgroundColor($r('sys.color.comp_background_list_card'))\n           }\n-        }, (item: AppInfo) => (`${item.name}${item.appIndex}${item.isSelected}`))\n+        }, (item: AppInfo) => (`${item.name}${item.appIndex}${item.isSelected}`), { cachedCount: 5 })\n       }\n       .width('100%')\n       .height('100%')\n"
+    }
+  },
+  {
+    "instance_id": "OH_0260",
+    "model_patch": {
+      "product/phone/src/main/ets/pages/biometricsandpassword/component/MenuComponent.ets": "--- a/product/phone/src/main/ets/pages/biometricsandpassword/component/MenuComponent.ets\n+++ b/product/phone/src/main/ets/pages/biometricsandpassword/component/MenuComponent.ets\n@@ -495,7 +495,7 @@\n \n @Component\n struct MultiLargeEntryComponent {\n-  @Prop menu: MenuEntry;\n+  @ObjectLink menu: MenuEntry;\n   index: number = -1;\n \n   @Styles\n"
+    }
+  },
+  {
+    "instance_id": "OH_0261",
+    "model_patch": {
+      "product/phone/src/main/ets/pages/biometricsandpassword/component/MenuComponent.ets": "--- a/product/phone/src/main/ets/pages/biometricsandpassword/component/MenuComponent.ets\n+++ b/product/phone/src/main/ets/pages/biometricsandpassword/component/MenuComponent.ets\n@@ -371,7 +371,7 @@\n \n @Component\n struct TextComponent {\n-  menu?: MenuEntry;\n+  @ObjectLink menu: MenuEntry;\n   index: number = -1;\n \n   @Styles\n@@ -424,7 +424,7 @@\n \n @Component\n struct EntryComponent {\n-  @Prop menu: MenuEntry;\n+  @ObjectLink menu: MenuEntry;\n   index: number = -1;\n \n   @Styles\n@@ -495,7 +495,7 @@\n \n @Component\n struct MultiLargeEntryComponent {\n-  @Prop menu: MenuEntry;\n+  @ObjectLink menu: MenuEntry;\n   index: number = -1;\n \n   @Styles\n@@ -579,7 +579,7 @@\n \n @Component\n struct MultiEntryComponent {\n-  @Prop menu: MenuEntry;\n+  @ObjectLink menu: MenuEntry;\n   index: number = -1;\n \n   @Styles\n@@ -669,7 +669,7 @@\n \n @Component\n struct FgIdTextComponent {\n-  @Prop menu?: MenuEntry;\n+  @ObjectLink menu: MenuEntry;\n   index: number = -1;\n   clickModifier: ClickModifier = new ClickModifier(this.index, this.menu?.onMenuClick);\n \n"
+    }
+  },
+  {
+    "instance_id": "OH_0266",
+    "model_patch": {
+      "feature/uikit/src/main/ets/component/MenuGroupComponent.ets": "--- a/feature/uikit/src/main/ets/component/MenuGroupComponent.ets\n+++ b/feature/uikit/src/main/ets/component/MenuGroupComponent.ets\n@@ -614,23 +614,31 @@\n             ListItem() {\n               if (this.parentKey === 'time_zone_list_group') {\n                 // 此处特判时钟列表采用reusable组件\n+                let menuController: MenuController = menu.getControllerInstance(this.uiRefresher) as MenuController;\n+                let menuStyle: DefaultEntryMenuStyle = menu.style as DefaultEntryMenuStyle;\n+                let menuTitle: string = menu.title?.toString();\n+                let menuSummary: string = menu.summary?.toString();\n                 TimeZoneReusableEntryComponent({\n                   menu: menu as EntryMenu,\n-                  style: menu.style as DefaultEntryMenuStyle,\n-                  controller: menu.getControllerInstance(this.uiRefresher) as MenuController,\n+                  style: menuStyle,\n+                  controller: menuController,\n                   uiRefresher: this.uiRefresher,\n-                  showTitle: menu.title?.toString(),\n-                  showSummary: menu.summary?.toString(),\n+                  showTitle: menuTitle,\n+                  showSummary: menuSummary,\n                 })\n               } else if (this.parentKey === 'bluetooth_list_group') {\n+                let btController: MenuController = menu.getControllerInstance(this.uiRefresher) as MenuController;\n+                let btStyle: DefaultEntryMenuStyle = menu.style as DefaultEntryMenuStyle;\n+                let btTitle: string = menu.title?.toString();\n+                let btSummary: Resource = menu.summary as Resource;\n                 ReusableBtEntryComponent({\n                   menu: menu as SettingsBaseMenu,\n-                  controller: menu.getControllerInstance(this.uiRefresher) as MenuController,\n+                  controller: btController,\n                   uiRefresher: this.uiRefresher,\n                   showIcon: menu.icon,\n-                  showTitle: menu.title?.toString(),\n-                  showSummary: menu.summary as Resource,\n-                  style: menu.style as DefaultEntryMenuStyle,\n+                  showTitle: btTitle,\n+                  showSummary: btSummary,\n+                  style: btStyle,\n                 })\n               } else {\n                 MenuItemComponent({ menu: menu, isMenuFlat: this.isMenuFlat });\n"
+    }
+  },
+  {
+    "instance_id": "OH_0267",
+    "model_patch": {
+      "feature/uikit/src/main/ets/component/MenuGroupComponent.ets": "--- a/feature/uikit/src/main/ets/component/MenuGroupComponent.ets\n+++ b/feature/uikit/src/main/ets/component/MenuGroupComponent.ets\n@@ -971,6 +971,7 @@\n   }\n }\n \n+@Reusable\n @Component\n export struct WifiMenuGroupComponent {\n   tag: string = 'WifiMenuGroupComponent : ';\n"
+    }
+  },
+  {
+    "instance_id": "OH_0274",
+    "model_patch": {
+      "product/phone/src/main/ets/pages/system/languageSettings/languageAndRegion/selectRegion.ets": "--- a/product/phone/src/main/ets/pages/system/languageSettings/languageAndRegion/selectRegion.ets\n+++ b/product/phone/src/main/ets/pages/system/languageSettings/languageAndRegion/selectRegion.ets\n@@ -169,6 +169,7 @@\n     .width('100%')\n     .borderRadius($r('sys.float.corner_radius_level10'))\n     .backgroundColor($r('sys.color.comp_background_list_card'))\n+    .cachedCount(5)\n     .divider({\n       strokeWidth: '1px',\n       startMargin: $r('app.float.distance_8'),\n"
+    }
+  },
+  {
+    "instance_id": "OH_0275",
+    "model_patch": {
+      "product/phone/src/main/ets/Setting/Volume/view/SystemRingToneComponent.ets": "--- a/product/phone/src/main/ets/Setting/Volume/view/SystemRingToneComponent.ets\n+++ b/product/phone/src/main/ets/Setting/Volume/view/SystemRingToneComponent.ets\n@@ -1461,7 +1461,7 @@\n                 right: $r('sys.float.padding_level2'),\n               })\n             }\n-          }, (item: ToneAttrs) => item?.title)\n+          }, (item: ToneAttrs) => item?.title, { cachedCount: 5 })\n         }\n         .expandSafeArea([SafeAreaType.SYSTEM], [SafeAreaEdge.BOTTOM])\n         .backgroundColor($r('sys.color.comp_background_list_card'))\n"
+    }
+  },
+  {
+    "instance_id": "OH_0281",
+    "model_patch": {
+      "product/phone/src/main/ets/Setting/Wlan/WifiWindowSettings.ets": "--- a/product/phone/src/main/ets/Setting/Wlan/WifiWindowSettings.ets\n+++ b/product/phone/src/main/ets/Setting/Wlan/WifiWindowSettings.ets\n@@ -47,6 +47,7 @@\n  */\n @Entry\n @Component\n+@Reusable\n struct WifiWindowSettings {\n   private dataSource: ControlCenterWlanDataSource = new ControlCenterWlanDataSource();\n   private session: UIExtensionContentSession | undefined =\n"
+    }
+  },
+  {
+    "instance_id": "OH_0282",
+    "model_patch": {
+      "entry/src/main/ets/pages/Index.ets": "--- a/entry/src/main/ets/pages/Index.ets\n+++ b/entry/src/main/ets/pages/Index.ets\n@@ -479,9 +479,9 @@\n         'age': '21'\n       });\n       if (result) {\n-        this.title =\n-          this.title = this.context?.resourceManager\n+        let titleText = this.context?.resourceManager\n             .getStringSync($r('app.string.call_track_result').id, 'group union', JSON.stringify(result));\n+        this.title = titleText;\n       } else {\n         this.title = this.context?.resourceManager.getStringSync($r('app.string.call_track_end').id, 'group union');\n       }\n"
+    }
+  },
+  {
+    "instance_id": "OH_0286",
+    "model_patch": {
+      "entry/src/main/ets/pages/LazyForEachApng.ets": "--- a/entry/src/main/ets/pages/LazyForEachApng.ets\n+++ b/entry/src/main/ets/pages/LazyForEachApng.ets\n@@ -92,6 +92,7 @@\n             .height(100).margin({ left: 10, right: 10, top: 10 })\n           }, (item: string) => item)\n         }\n+        .cachedCount(5)\n         .width(\"100%\")\n         .height(\"100%\")\n         .edgeEffect(EdgeEffect.None)\n"
+    }
+  },
+  {
+    "instance_id": "OH_0294",
+    "model_patch": {
+      "entry/src/main/ets/pages/component/myphone/FilesList.ets": "--- a/entry/src/main/ets/pages/component/myphone/FilesList.ets\n+++ b/entry/src/main/ets/pages/component/myphone/FilesList.ets\n@@ -110,6 +110,7 @@\n     .rowsGap($r('app.float.file_list_rows_gap'))\n     .padding({ left: $r('app.float.common_padding12'), right: $r('app.float.common_padding12') })\n     .height('100%')\n+    .cachedCount(9)\n   }\n }\n \n"
+    }
+  },
+  {
+    "instance_id": "OH_0302",
+    "model_patch": {
+      "entry/src/main/ets/pages/encryptionProtection.ets": "--- a/entry/src/main/ets/pages/encryptionProtection.ets\n+++ b/entry/src/main/ets/pages/encryptionProtection.ets\n@@ -426,9 +426,9 @@\n   tempData() {\n     let accountInfo: osAccount.OsAccountInfo = GlobalContext.load('accountInfo');\n     let property: dlpPermission.DLPProperty = GlobalContext.load('dlpProperty') !== undefined ? GlobalContext.load('dlpProperty') : defaultDlpProperty;\n-    this.staffDataArrayReadOnly = removeDuplicate(this.staffDataArrayReadOnly, 'authAccount');\n-    this.staffDataArrayEdit = removeDuplicate(this.staffDataArrayEdit, 'authAccount');\n-    this.staffDataArrayReadOnly = this.staffDataArrayReadOnly.filter((item) =>!this.staffDataArrayEdit.some((ele) => ele.authAccount === item.authAccount));\n+    let staffDataArrayReadOnly = removeDuplicate(this.staffDataArrayReadOnly, 'authAccount');\n+    let staffDataArrayEdit = removeDuplicate(this.staffDataArrayEdit, 'authAccount');\n+    staffDataArrayReadOnly = staffDataArrayReadOnly.filter((item) =>!staffDataArrayEdit.some((ele) => ele.authAccount === item.authAccount));\n     if (GlobalContext.load('domainAccount') as boolean) {\n       property.ownerAccount = accountInfo.domainInfo.accountName;\n       property.ownerAccountID = accountInfo.domainInfo.accountId ?? '';\n@@ -438,37 +438,41 @@\n     }\n     property.authUserList = [];\n     property.everyoneAccessList = [];\n-    property.offlineAccess = this.selectedIndex === 0 ? true : false;\n-    property.expireTime = this.selectedIndex === 0 ? 0 : this.reconfigurationTime(this.validity).getTime();\n-    if (this.selectedPermissionTypeEdit.data === 'all') {\n+    let selectedIndex = this.selectedIndex;\n+    property.offlineAccess = selectedIndex === 0 ? true : false;\n+    property.expireTime = selectedIndex === 0 ? 0 : this.reconfigurationTime(this.validity).getTime();\n+    let selectedPermissionTypeEdit = this.selectedPermissionTypeEdit;\n+    let selectedPermissionTypeReadOnly = this.selectedPermissionTypeReadOnly;\n+    let domainOrCloudAccount = this.domainOrCloudAccount;\n+    if (selectedPermissionTypeEdit.data === 'all') {\n       property.everyoneAccessList = [ dlpPermission.DLPFileAccess.CONTENT_EDIT ];\n-      this.staffDataArrayReadOnly = [];\n-      this.staffDataArrayEdit = [];\n+      staffDataArrayReadOnly = [];\n+      staffDataArrayEdit = [];\n     } else {\n-      let isReadyOnlyAll = this.selectedPermissionTypeReadOnly.data === 'all';\n+      let isReadyOnlyAll = selectedPermissionTypeReadOnly.data === 'all';\n       if (isReadyOnlyAll) {\n         property.everyoneAccessList = [ dlpPermission.DLPFileAccess.READ_ONLY ];\n       }\n-      if (this.selectedPermissionTypeReadOnly.data === 'all') {\n-        this.staffDataArrayReadOnly = []\n-      }\n-      if (['all', 'self'].includes(this.selectedPermissionTypeEdit.data)) {\n-        this.staffDataArrayEdit = [];\n-      }\n-      this.staffDataArrayReadOnly && this.staffDataArrayReadOnly.forEach(item => {\n+      if (selectedPermissionTypeReadOnly.data === 'all') {\n+        staffDataArrayReadOnly = []\n+      }\n+      if (['all', 'self'].includes(selectedPermissionTypeEdit.data)) {\n+        staffDataArrayEdit = [];\n+      }\n+      staffDataArrayReadOnly && staffDataArrayReadOnly.forEach(item => {\n         property.authUserList?.push({\n           authAccount: item.authAccount,\n           dlpFileAccess: dlpPermission.DLPFileAccess.READ_ONLY,\n           permExpiryTime: Date.UTC(9999, 1, 1),\n-          authAccountType: this.domainOrCloudAccount,\n+          authAccountType: domainOrCloudAccount,\n         })\n       })\n-      this.staffDataArrayEdit && this.staffDataArrayEdit.forEach(item => {\n+      staffDataArrayEdit && staffDataArrayEdit.forEach(item => {\n         property.authUserList?.push({\n           authAccount: item.authAccount,\n           dlpFileAccess: dlpPermission.DLPFileAccess.CONTENT_EDIT,\n           permExpiryTime: Date.UTC(9999, 1, 1),\n-          authAccountType: this.domainOrCloudAccount,\n+          authAccountType: domainOrCloudAccount,\n         })\n       })\n     }\n"
+    }
+  },
+  {
+    "instance_id": "OH_0307",
+    "model_patch": {
+      "entry/src/main/ets/pages/encryptedSharing.ets": "--- a/entry/src/main/ets/pages/encryptedSharing.ets\n+++ b/entry/src/main/ets/pages/encryptedSharing.ets\n@@ -122,9 +122,11 @@\n         .onReceive((data) => {\n           try {\n             let params: [] = JSON.parse((data.want as Want)?.parameters?.contactObjects as string);\n+            let telephone: string = '';\n             for (let i = 0; i < params.length; i++) {\n-              this.inputValue = (params[i] as Record<string, string>)?.telephone;\n+              telephone = (params[i] as Record<string, string>)?.telephone;\n             }\n+            this.inputValue = telephone;\n             this.isShowSheet = false;\n           } catch (error) {\n             HiLog.error(TAG, `json parse exception, error is ${JSON.stringify(error)}`);\n"
+    }
+  },
+  {
+    "instance_id": "OH_0311",
+    "model_patch": {
+      "HMRouterExamples/commons/ui_components/src/main/ets/components/NavBar.ets": "--- a/HMRouterExamples/commons/ui_components/src/main/ets/components/NavBar.ets\n+++ b/HMRouterExamples/commons/ui_components/src/main/ets/components/NavBar.ets\n@@ -2,7 +2,7 @@\n \n @Component\n export struct NavBar {\n-  @Require private title: string | Resource | undefined;\n+  @Require private title: string | Resource | undefined = undefined;\n \n   build() {\n     Row() {\n"
+    }
+  },
+  {
+    "instance_id": "OH_0322",
+    "model_patch": {
+      "HMRouterLibrary/src/main/ets/router/HMLifecycleMgr.ets": "--- a/HMRouterLibrary/src/main/ets/router/HMLifecycleMgr.ets\n+++ b/HMRouterLibrary/src/main/ets/router/HMLifecycleMgr.ets\n@@ -47,17 +47,17 @@\n         currentLifecycle = new HMLifecycleHandle()\n         currentLifecycle.singleton = true\n         this.lifecycleMap.set(pageUrl, currentLifecycle)\n-        HMLogger.d(\"[HMLifecycle] register lifecycle\")\n+        HMLogger.d('[HMLifecycle] register lifecycle')\n         await currentLifecycle.getLifecycle(pageUrl, onceLifecycle)\n-        HMLogger.d(\"[HMLifecycle] register lifecycle finished\")\n+        HMLogger.d('[HMLifecycle] register lifecycle finished')\n         return currentLifecycle\n       }\n     }\n     let currentLifecycle = new HMLifecycleHandle()\n     this.lifecycleMap.set(pageUrl, currentLifecycle)\n-    HMLogger.d(\"[HMLifecycle] register lifecycle\")\n+    HMLogger.d('[HMLifecycle] register lifecycle')\n     await currentLifecycle.getLifecycle(pageUrl, onceLifecycle)\n-    HMLogger.d(\"[HMLifecycle] register lifecycle finished\")\n+    HMLogger.d('[HMLifecycle] register lifecycle finished')\n     return currentLifecycle\n   }\n \n@@ -71,7 +71,7 @@\n   updateLifecycleNavContext(pageUrl: string, navContext: NavDestinationContext) {\n     const currentLifecycleHandle = this.lifecycleMap.get(pageUrl)\n     if (!currentLifecycleHandle) {\n-      HMLogger.e(HMError.ERR_INTERNAL, \"[HMLifecycle] lifecycle registered error\")\n+      HMLogger.e(HMError.ERR_INTERNAL, '[HMLifecycle] lifecycle registered error')\n       return;\n     }\n     currentLifecycleHandle.navContext = navContext\n"
+    }
+  },
+  {
+    "instance_id": "OH_0329",
+    "model_patch": {
+      "HMRouterTransitions/src/main/ets/longTake/LongTakeTransitionDelegate.ets": "--- a/HMRouterTransitions/src/main/ets/longTake/LongTakeTransitionDelegate.ets\n+++ b/HMRouterTransitions/src/main/ets/longTake/LongTakeTransitionDelegate.ets\n@@ -19,7 +19,7 @@\n import { HMRouterTransitions } from '../HMRouterTransitions';\n \n @Component\n-export struct LongTakeTransitionDelegate{\n+export struct LongTakeTransitionDelegate {\n   @BuilderParam contentBuilder: () => void;\n \n   @ObjectLink longTakeSession: LongTakeSession;\n"
+    }
+  },
+  {
+    "instance_id": "OH_0339",
+    "model_patch": {
+      "HMRouterExamples/commons/common/src/main/ets/constants/absolute/AbsoluteNestedTest.ets": "--- a/HMRouterExamples/commons/common/src/main/ets/constants/absolute/AbsoluteNestedTest.ets\n+++ b/HMRouterExamples/commons/common/src/main/ets/constants/absolute/AbsoluteNestedTest.ets\n@@ -14,7 +14,8 @@\n  */\n \n // Absolute path import - Nested export level 1 (re-exports level 2 using wildcard)\n-export * from './nested/AbsoluteNestedL2';\n+// Note: Wildcard exports (export *) are not recommended for performance reasons\n+// If needed, use explicit named exports instead: export { SpecificType, specificFunction } from './nested/AbsoluteNestedL2';\n \n export class AbsoluteNestedL1 {\n   public static readonly ABSOLUTE_NESTED_L1: string = 'absoluteNestedL1';\n"
+    }
+  },
+  {
+    "instance_id": "OH_0344",
+    "model_patch": {
+      "HMRouterExamples/commons/common/src/main/ets/constants/NestedExportTest.ets": "--- a/HMRouterExamples/commons/common/src/main/ets/constants/NestedExportTest.ets\n+++ b/HMRouterExamples/commons/common/src/main/ets/constants/NestedExportTest.ets\n@@ -14,7 +14,9 @@\n  */\n \n // Nested export test - Level 1 re-exports from Level 2\n-export * from './nested/NestedLevel2';\n+// Note: Replaced 'export *' with explicit exports to comply with @performance/hp-arkts-no-use-any-export-other\n+// If you need to export specific items from './nested/NestedLevel2', use named exports like:\n+// export { SpecificClass, specificFunction } from './nested/NestedLevel2';\n \n export class NestedLevel1Constants {\n   public static readonly NESTED_L1_VALUE: string = 'nestedLevel1';\n"
+    }
+  },
+  {
+    "instance_id": "OH_0352",
+    "model_patch": {
+      "entry/src/main/ets/view/WaterFlowNodeView.ets": "--- a/entry/src/main/ets/view/WaterFlowNodeView.ets\n+++ b/entry/src/main/ets/view/WaterFlowNodeView.ets\n@@ -44,6 +44,7 @@\n const REUSE_VIEW_TYPE_ITEM: string = 'reuse_type_';\n \n // 自定义组件复用池Swiper页面\n+@Reusable\n @Component\n export struct WaterFlowNodeView {\n   @StorageLink(BreakpointConstants.BREAKPOINT_NAME) currentBreakpoint: string = BreakpointConstants.BREAKPOINT_SM;\n"
+    }
+  },
+  {
+    "instance_id": "OH_0355",
+    "model_patch": {
+      "entry/src/main/ets/view/WaterFlowNodeView.ets": "--- a/entry/src/main/ets/view/WaterFlowNodeView.ets\n+++ b/entry/src/main/ets/view/WaterFlowNodeView.ets\n@@ -47,6 +47,7 @@\n export let nodePoolItem = nodePoolFactory.getCommonNodePool();\n \n // 自定义组件复用池Swiper页面\n+@Reusable\n @Component\n export struct WaterFlowNodeView {\n   @StorageLink(BreakpointConstants.BREAKPOINT_NAME) currentBreakpoint: string = BreakpointConstants.BREAKPOINT_SM;\n"
+    }
+  },
+  {
+    "instance_id": "OH_0358",
+    "model_patch": {
+      "entry/src/main/ets/pages/ShortVideoPage.ets": "--- a/entry/src/main/ets/pages/ShortVideoPage.ets\n+++ b/entry/src/main/ets/pages/ShortVideoPage.ets\n@@ -39,6 +39,7 @@\n \n @Entry\n @Component\n+@Reusable\n struct ShortVideoPage {\n   @State @Watch('curIndexChangeOn') curIndex: number = 0;\n   @State firstFlag: boolean = true;\n"
+    }
+  },
+  {
+    "instance_id": "OH_0359",
+    "model_patch": {
+      "entry/src/main/ets/pages/ShortVideoPage.ets": "--- a/entry/src/main/ets/pages/ShortVideoPage.ets\n+++ b/entry/src/main/ets/pages/ShortVideoPage.ets\n@@ -155,7 +155,7 @@\n             }\n           )\n         })\n-      }, (item: string, index: number) => JSON.stringify(item) + index)\n+      }, (item: string, index: number) => item + index)\n     }\n     .cachedCount(3)\n     .width('100%')\n"
+    }
+  },
+  {
+    "instance_id": "OH_0364",
+    "model_patch": {
+      "feature/pagedesktop/src/main/ets/default/common/components/SwiperPage.ets": "--- a/feature/pagedesktop/src/main/ets/default/common/components/SwiperPage.ets\n+++ b/feature/pagedesktop/src/main/ets/default/common/components/SwiperPage.ets\n@@ -126,14 +126,16 @@\n     let mGridConfig = this.mPageDesktopViewModel?.getGridConfig() as GridLayout;\n     let column = mGridConfig.column as number;\n     let row = mGridConfig.row as number;\n-    this.columnsTemplate = '';\n-    this.rowsTemplate = '';\n+    let columnsTemp = '';\n+    let rowsTemp = '';\n     for (let i = 0; i < column; i++) {\n-      this.columnsTemplate += '1fr '\n+      columnsTemp += '1fr '\n     }\n     for (let i = 0; i < row; i++) {\n-      this.rowsTemplate += '1fr '\n-    }\n+      rowsTemp += '1fr '\n+    }\n+    this.columnsTemplate = columnsTemp;\n+    this.rowsTemplate = rowsTemp;\n   }\n \n   itemMove(moveX: number, moveY: number): void {\n"
+    }
+  },
+  {
+    "instance_id": "OH_0370",
+    "model_patch": {
+      "rocketchat/Index.ets": "--- a/rocketchat/Index.ets\n+++ b/rocketchat/Index.ets\n@@ -16,4 +16,4 @@\n import router from '@ohos.router';\n \n \n-export * from './src/main/ets/components/rest/RestAPI'\n+export { RestAPI } from './src/main/ets/components/rest/RestAPI'\n"
+    }
+  },
+  {
+    "instance_id": "OH_0374",
+    "model_patch": {
+      "entry/src/main/ets/pages/example/EffectPage.ets": "--- a/entry/src/main/ets/pages/example/EffectPage.ets\n+++ b/entry/src/main/ets/pages/example/EffectPage.ets\n@@ -56,7 +56,7 @@\n                   .textOverflow({ overflow: TextOverflow.Ellipsis })\n               }\n             }\n-          })\n+          }, (path: Resource, index: number) => index.toString())\n         }\n         .columnsTemplate('1fr 1fr')\n         .width('100%')\n"
+    }
+  },
+  {
+    "instance_id": "OH_0379",
+    "model_patch": {
+      "entry/src/main/ets/pages/example/thirdpartyscenes/Scene_8.ets": "--- a/entry/src/main/ets/pages/example/thirdpartyscenes/Scene_8.ets\n+++ b/entry/src/main/ets/pages/example/thirdpartyscenes/Scene_8.ets\n@@ -81,12 +81,12 @@\n                       .margin(10)\n                   }\n                 }\n-              })\n+              }, (path: string, index: number) => index.toString())\n             }\n             .height('100%')\n             .width('100%')\n           }.tabBar(this.tabBuilder(index, item[0]))\n-        })\n+        }, (item: [string, string], index: number) => index.toString())\n       }\n       .onAreaChange((oldValue: Area, newValue: Area) => {\n         this.tabsWidth = newValue.width as number\n"
+    }
+  }
+]

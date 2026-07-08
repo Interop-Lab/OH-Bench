@@ -1,109 +1,119 @@
-# OH-Bench
+# OH-Bench: Competence-Aware Program Repair in OpenHarmony
 
-OH-Bench 是一个用于评估代码修复结果的实验项目。项目通过预置数据集读取任务信息，将模型或 Agent 生成的补丁提交到 Docker 评测环境中执行，并统计目标告警是否被消除、是否引入新问题以及整体通过率。
+This repository contains the replication package for **OH-Bench**, a comprehensive program repair benchmark designed specifically for the OpenHarmony ecosystem. It evaluates state-of-the-art LLMs and autonomous coding agents under a rigorous **Three-Level Competence Framework** (Format, Semantic, and Holistic competence).
 
-## 项目结构
+---
 
-```text
-.
-├── data/                    # 数据集、Agent 输出与评测结果
-├── docker/                  # Docker 评测环境定义
-├── scripts/                 # 数据构建、仓库准备和容器内评测脚本
-├── run_experiment.py        # 标准评测入口
-└── run_experiment_quick.py  # 快速评测入口，支持持久容器和区间执行
-```
+## Prerequisites & Environmental Setup
 
-## 环境要求
+Before executing the evaluation runners, ensure your host environment meets the following requirements:
 
-- Python 3.8+
-- Docker
-- 已构建的 Docker 镜像：`oh-bench-env`
+### Host Requirements
+*   **Operating System**: Linux (Ubuntu 20.04 LTS or later recommended)
+*   **Python**: Version 3.8 or later
+*   **Docker**: Installed and running (ensure the current user has permissions to run docker commands without `sudo`).
 
-如果需要从 Dockerfile 构建镜像，请先准备 Dockerfile 中引用的外部资源：
+### Sandbox Image Assets (Omitted from Git via .gitignore)
+The local Docker image `oh-bench-evaluator:latest` relies on a few heavy assets. Before triggering `docker build`, ensure you have retrieved the open-source repositories and verified compiler archives:
+1.  **Compiler & Linter SDKs**: Placed at `evaluator/docker/tools_archive/codelinter` and `evaluator/docker/tools_archive/ohos-sdk`.
+2.  **Benchmark Targets**: Placed at `repositories_slim/` (can be fully automated via Step 1 below).
 
-- `tools_archive/codelinter`
-- `tools_archive/ohos-sdk`
-- `repositories_slim`
+---
 
-然后在项目根目录执行：
-
-```bash
-docker build -f docker/Dockerfile -t oh-bench-env .
-```
-
-## 数据准备
-
-评测脚本默认读取以下数据集文件：
+## Directory Structure
 
 ```text
-data/arkts_dataset_final.json
-data/cpp_dataset_final.json
+OH-Bench/
+├── dataset/                     # Standardized evaluation JSON records (ArkTS, C++, Runtime)
+├── evaluator/                   # Containerized sandbox evaluator engines
+│   ├── docker/                  # Dockerfiles to build static/runtime sandboxes
+│   ├── container_scripts/       # Custom test/analysis oracles inside containers
+│   ├── run_eval_static.py       # Static analysis host-side orchestrator
+│   └── run_eval_runtime.py      # Runtime test host-side orchestrator
+├── tools/                       # Developer utility, data mining, and setup scripts
+└── results/                     # Baseline execution outputs (.json) and reports (.report)
 ```
 
-Agent 结果文件通常存放在：
+---
 
-```text
-data/arkts/
-data/cpp/
-```
+## Quick Start Setup
 
-结果 JSON 中需要包含 `instance_id`，以及 `model_patch` 或 `patch` 字段。
+To preserve scientific transparency and keep the repository lightweight, we do not bundle third-party code. Instead, we provide an automatic recovery engine.
 
-## 运行评测
+### Step 1: Restore the Benchmark Repositories
 
-评测 ArkTS 数据：
+Run the following script to automatically clone the exact versions of the 39 target OpenHarmony repositories from GitCode and checkout to their historical commits:
 
 ```bash
-python run_experiment_quick.py --dataset arkts --results data/arkts/agent_results_example.json
+python3 tools/download_repos.py
 ```
 
-评测 C++ 数据：
+*This will safely populate the `repositories_slim/` directory on your host. 
+
+### Step 2: Build the Static Evaluation Sandbox
+
+Build the isolated Docker execution sandbox locally:
 
 ```bash
-python run_experiment_quick.py --dataset cpp --results data/cpp/agent_results_example.json
+docker build -t oh-bench-evaluator:latest -f evaluator/docker/Dockerfile.static .
 ```
 
-同时评测两个数据集：
+---
 
+## Running Evaluations
+
+OH-Bench supports two distinct evaluation runners to certify program repair candidates:
+
+### 1. Static Analysis Evaluator (`run_eval_static.py`)
+This engine mounts the target repository into an isolated sandbox, applies the generated patch, and triggers a full project rescan using Codelinter/Cppcheck. It verifies whether the patch eliminates target violations without introducing new ones.
+
+To evaluate any static predictions (e.g., Gemini 2.5 Flash on C++):
 ```bash
-python run_experiment_quick.py --dataset both --results path/to/agent_results.json
+python3 evaluator/run_eval_static.py \
+  --dataset cpp \
+  --results results/cpp/plan2_gemini-2.5-flash_dependency_only.json
 ```
 
-使用慢速但隔离性更强的 `docker run --rm` 模式：
+**Key Command-Line Arguments:**
+*   `--dataset`: Either `arkts` or `cpp`.
+*   `--results`: Path to your agent-generated JSON output.
+*   `--start` / `--end`: Slice specific instance evaluation ranges (e.g., `--start OH_0001 --end OH_0050`).
+*   `--isolated`: Runs a fresh container for each instance (safer but slower).
+*   `--verbose`: Print container stderr outputs in real-time.
 
+### 2. Runtime Defect Evaluator (`run_eval_runtime.py`)
+This engine evaluates runtime program behavior. It compiles the patched codebase and executes dynamic test suites to verify that the runtime defect or functional crash has been successfully resolved.
+
+To evaluate runtime predictions:
 ```bash
-python run_experiment_quick.py --dataset arkts --results path/to/results.json --slow
+python3 evaluator/run_eval_runtime.py \
+  --results results/arkts/runtime_predictions.json
 ```
 
-只评测指定区间：
+---
 
-```bash
-python run_experiment_quick.py --dataset arkts --results path/to/results.json --start task_001 --end task_020
-```
+## Output Interpretations & Reports
 
-## 输出说明
+### Evaluation Signals (Instance-Level)
+For each evaluated task, the engine prints a normalized signal:
+*   `PASS`: The target violation/defect is resolved, and no regressions are introduced.
+*   `LINTER_FAIL`: The target static warning still persists after patch application.
+*   `TEST_FAIL`: The dynamic test suite failed to execute successfully.
+*   `SECONDARY_DEFECT`: The target warning is eliminated, but new warnings are introduced elsewhere.
+*   `SYNTAX_FAIL`: The patch introduced compilation or syntax errors.
+*   `APPLY_ERROR`: The patch format is corrupted and cannot be applied cleanly.
+*   `TIMEOUT`: The evaluation process exceeded the execution limit (600s).
 
-脚本会在终端输出每个任务的评测结果，常见状态包括：
+### Evaluation Reports
+Upon completion, the runners automatically generate a comprehensive, publication-aligned summary report.
+*   **Directory**: Saved automatically under the `logs/` directory.
+*   **Format**: `logs/report_<predictions_filename>_<timestamp>.txt`.
+*   **Contents**: Includes global statistics ($\mathrm{PAR}$, $\mathrm{WER}$, $\mathrm{SDR}$, $\mathrm{SPR}$), conversion method distribution, difficulty analysis, and per-rule breakdown tables.
 
-- `PASS`：目标告警已消除，且没有新增告警
-- `LINTER_FAIL`：目标告警仍然存在
-- `SECONDARY_DEFECT`：目标告警消除，但引入了新告警
-- `SYNTAX_FAIL`：补丁导致语法或构建错误
-- `APPLY_ERROR`：补丁应用失败
-- `TIMEOUT`：评测超时
+---
 
-`run_experiment_quick.py` 默认会将汇总报告写入 `logs/` 目录。
+## License & Double-Blind Compliance
 
-## 辅助脚本
+This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
 
-- `scripts/prepare_repos.py`：准备待评测仓库
-- `scripts/build_dataset.py`：构建 ArkTS 数据集
-- `scripts/build_cpp_dataset.py`：构建 C++ 数据集
-- `scripts/merge_datasets.py`：合并数据集
-- `scripts/evaluate_in_docker.py`：Docker 容器内的实际评测入口
-
-## 注意事项
-
-- 运行前请确认 `oh-bench-env` 镜像已经构建成功。
-- 数据集路径需要与脚本中的默认配置一致，或在代码中调整 `DATASET_MAP`。
-- Docker 评测环境会在目标仓库内应用补丁、运行 linter，然后恢复工作区。
+In compliance with the **Double-Blind Review Policy**, all author identities, email addresses, and organizational affiliations have been strictly omitted from this repository, datasets, and scripts. All toolchains and baseline records have been fully anonymized.

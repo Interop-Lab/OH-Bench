@@ -1,0 +1,100 @@
+FROM node:18-slim
+
+RUN sed -i 's/deb.debian.org/mirrors.aliyun.com/g' /etc/apt/sources.list.d/debian.sources 2>/dev/null || \
+    sed -i 's/deb.debian.org/mirrors.aliyun.com/g' /etc/apt/sources.list
+
+RUN apt-get update && apt-get install -y \
+    default-jre \
+    python3 \
+    git \
+    patch \
+    dos2unix \
+    bash \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+
+COPY tools_archive/ohos-sdk /opt/ohos-sdk
+
+RUN mkdir -p /opt/ohos-sdk/OpenHarmony && \
+    mv /opt/ohos-sdk/12 /opt/ohos-sdk/OpenHarmony/ 2>/dev/null || true && \
+    mv /opt/ohos-sdk/[89] /opt/ohos-sdk/OpenHarmony/ 2>/dev/null || true && \
+    mv /opt/ohos-sdk/10 /opt/ohos-sdk/OpenHarmony/ 2>/dev/null || true && \
+    mv /opt/ohos-sdk/11 /opt/ohos-sdk/OpenHarmony/ 2>/dev/null || true && \
+    ln -s /opt/ohos-sdk/OpenHarmony/12 /opt/ohos-sdk/12 && \
+    ln -s /opt/ohos-sdk/OpenHarmony/12 /opt/ohos-sdk/11 && \
+    ln -s /opt/ohos-sdk/OpenHarmony/12 /opt/ohos-sdk/10 && \
+    mkdir -p /opt/ohos-sdk/OpenHarmony/11 /opt/ohos-sdk/OpenHarmony/10 && \
+    ln -s /opt/ohos-sdk/OpenHarmony/12/toolchains /opt/ohos-sdk/OpenHarmony/11/toolchains && \
+    ln -s /opt/ohos-sdk/OpenHarmony/12/ets /opt/ohos-sdk/OpenHarmony/11/ets && \
+    ln -s /opt/ohos-sdk/OpenHarmony/12/native /opt/ohos-sdk/OpenHarmony/11/native && \
+    ln -s /opt/ohos-sdk/OpenHarmony/12/js /opt/ohos-sdk/OpenHarmony/11/js && \
+    ln -s /opt/ohos-sdk/OpenHarmony/12/toolchains /opt/ohos-sdk/OpenHarmony/10/toolchains && \
+    ln -s /opt/ohos-sdk/OpenHarmony/12/ets /opt/ohos-sdk/OpenHarmony/10/ets && \
+    ln -s /opt/ohos-sdk/OpenHarmony/12/native /opt/ohos-sdk/OpenHarmony/10/native && \
+    ln -s /opt/ohos-sdk/OpenHarmony/12/js /opt/ohos-sdk/OpenHarmony/10/js && \
+    mkdir -p /opt/legacy-sdk/9 && \
+    ln -s /opt/ohos-sdk/OpenHarmony/12/ets /opt/legacy-sdk/9/ets && \
+    ln -s /opt/ohos-sdk/OpenHarmony/12/toolchains /opt/legacy-sdk/9/toolchains && \
+    ln -s /opt/ohos-sdk/OpenHarmony/12/native /opt/legacy-sdk/9/native && \
+    mkdir -p /opt/ohos-sdk/.licenses /opt/legacy-sdk/.licenses && \
+    echo "89547d8b584061a7a2cb324cba4da659550b0cd9" > /opt/ohos-sdk/.licenses/OpenHarmony-SDK-License && \
+    cp /opt/ohos-sdk/.licenses/OpenHarmony-SDK-License /opt/legacy-sdk/.licenses/
+
+RUN cat > /opt/ohos-sdk/sdkConfig.json <<'SDKCFG'
+{
+  "sdkVersion": "12.0.0.0",
+  "ndkVersion": "12.0.0.0",
+  "apiVersion": 12,
+  "releaseType": "Release",
+  "path": "/opt/ohos-sdk",
+  "components": [
+    {
+      "name": "toolchains",
+      "version": "12.0.0.0",
+      "path": "OpenHarmony/12/toolchains"
+    },
+    {
+      "name": "ets",
+      "version": "12.0.0.0",
+      "path": "OpenHarmony/12/ets"
+    },
+    {
+      "name": "native",
+      "version": "12.0.0.0",
+      "path": "OpenHarmony/12/native"
+    },
+    {
+      "name": "js",
+      "version": "12.0.0.0",
+      "path": "OpenHarmony/12/js"
+    }
+  ]
+}
+SDKCFG
+
+RUN for VER in 10 11 12; do \
+      for COMP in toolchains ets native js previewer; do \
+        for BASE in /opt/ohos-sdk /opt/ohos-sdk/OpenHarmony; do \
+          DIR="$BASE/$VER/$COMP"; \
+          if [ -d "$DIR" ]; then \
+            echo "{\"name\":\"$COMP\",\"version\":\"$VER.0.0.0\",\"displayName\":\"$COMP\",\"description\":\"OpenHarmony $COMP\",\"apiVersion\":\"$VER\",\"releaseType\":\"Release\",\"path\":\".\",\"dependencies\":{}}" > "$DIR/oh-uni-package.json"; \
+            cp "$DIR/oh-uni-package.json" "$DIR/oh-package.json"; \
+          fi; \
+        done; \
+      done; \
+    done
+
+ENV OHOS_BASE_SDK_HOME=/opt/ohos-sdk
+ENV OHOS_SDK_HOME=/opt/ohos-sdk
+ENV PATH="/opt/ohos-sdk/command-line-tools/ohpm/bin:${PATH}"
+
+COPY repo_runtime_error /app/repositories
+
+RUN git config --global --add safe.directory '*'
+
+COPY evaluator/container_scripts/oracle_runtime.py /usr/local/bin/eval_runtime
+RUN dos2unix /usr/local/bin/eval_runtime && \
+    chmod +x /usr/local/bin/eval_runtime
+
+CMD ["/bin/bash"]

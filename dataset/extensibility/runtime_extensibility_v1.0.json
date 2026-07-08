@@ -1,0 +1,2032 @@
+[
+  {
+    "bug_id": "openharmony-sig-ohos_axios-143",
+    "repo_name": "ohos_axios",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_axios.git",
+    "buggy_commit": "565d23552b5b054b4212011ddae89c8ac8d414f8",
+    "fixed_commit": "b96d26058bca4cc03472c9d893e6648ab31be17d",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_axios/pulls/143",
+    "metrics": {
+      "modified_lines": 142,
+      "modified_files": 5
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_axios-141",
+    "repo_name": "ohos_axios",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_axios.git",
+    "buggy_commit": "1ef82ce28abfc3202bc6e6b271e9deda835379ba",
+    "fixed_commit": "98aef9687337410d5c6c396f48db2dc5a261c702",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_axios/pulls/141",
+    "metrics": {
+      "modified_lines": 38,
+      "modified_files": 1
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_axios-138",
+    "repo_name": "ohos_axios",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_axios.git",
+    "buggy_commit": "5e41aa61a23b74b72bd43ef05f83ef4119d4adda",
+    "fixed_commit": "28584518b71df05e2a3580f21655d737fe55163a",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_axios/pulls/138",
+    "metrics": {
+      "modified_lines": 2,
+      "modified_files": 2
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_axios-130",
+    "repo_name": "ohos_axios",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_axios.git",
+    "buggy_commit": "4ee7436ddcca80b4891541f9a99daaa6056bf49e",
+    "fixed_commit": "1df22c82095952e5f72495cdd5e86e71ce26e79e",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_axios/pulls/130",
+    "metrics": {
+      "modified_lines": 2,
+      "modified_files": 1
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_axios-122",
+    "repo_name": "ohos_axios",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_axios.git",
+    "buggy_commit": "f339634acb87eb34627acdaa9817408bef688c24",
+    "fixed_commit": "b34c2fbb3e2d8107cbb21b8ecb0aeded47609250",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_axios/pulls/122",
+    "metrics": {
+      "modified_lines": 6,
+      "modified_files": 3
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_axios-118",
+    "repo_name": "ohos_axios",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_axios.git",
+    "buggy_commit": "60bcca6f89ce7fd174b6bcb0e7788761d026d358",
+    "fixed_commit": "1912bb8d3d80fbc8276d34dd3910662314fc743a",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_axios/pulls/118",
+    "metrics": {
+      "modified_lines": 80,
+      "modified_files": 6
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_axios-117",
+    "repo_name": "ohos_axios",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_axios.git",
+    "buggy_commit": "1a63403c240cd8c3166e7f00b4aab5023c4524a4",
+    "fixed_commit": "7b68de151c0857849b8f297a1725cdc8d704b76a",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_axios/pulls/117",
+    "metrics": {
+      "modified_lines": 116,
+      "modified_files": 2
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_axios-116",
+    "repo_name": "ohos_axios",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_axios.git",
+    "buggy_commit": "5379112755aab15c8fdc80423ab43a9b58739ca7",
+    "fixed_commit": "ba3ef967feccc666df343c56d1e35ff5993ec6d9",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_axios/pulls/116",
+    "metrics": {
+      "modified_lines": 131,
+      "modified_files": 2
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_axios-114",
+    "repo_name": "ohos_axios",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_axios.git",
+    "buggy_commit": "b03c560de0e9331c9eac7e2ead0a5d8e35f20b9b",
+    "fixed_commit": "3a4956011bd289ddc10eebb47fc354751f2146aa",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_axios/pulls/114",
+    "metrics": {
+      "modified_lines": 171,
+      "modified_files": 4
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_axios-113",
+    "repo_name": "ohos_axios",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_axios.git",
+    "buggy_commit": "7bc6c5c73d806f2da7da52cbb3cc648865593b7d",
+    "fixed_commit": "1718dcceab674e99807bbc8ab24e05fcfa88fda0",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_axios/pulls/113",
+    "metrics": {
+      "modified_lines": 272,
+      "modified_files": 4
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_axios-110",
+    "repo_name": "ohos_axios",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_axios.git",
+    "buggy_commit": "4b60e0a422447860a84ab9ad076b252c0e3a4527",
+    "fixed_commit": "122a639409f3014ea1f05ed2455f4eae4dc85eb5",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_axios/pulls/110",
+    "metrics": {
+      "modified_lines": 9,
+      "modified_files": 2
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_axios-103",
+    "repo_name": "ohos_axios",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_axios.git",
+    "buggy_commit": "4d87887d371f756d28dc283e4185d9838baff361",
+    "fixed_commit": "b2d795fe5ccbd1b60d388bc9707fab211463d2d7",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_axios/pulls/103",
+    "metrics": {
+      "modified_lines": 4,
+      "modified_files": 2
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_axios-102",
+    "repo_name": "ohos_axios",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_axios.git",
+    "buggy_commit": "0b5e9103fff6228995e5a5447767cee40029fca5",
+    "fixed_commit": "67385cbf67107dbba604a3acced26c37dee3b137",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_axios/pulls/102",
+    "metrics": {
+      "modified_lines": 10,
+      "modified_files": 2
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_axios-100",
+    "repo_name": "ohos_axios",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_axios.git",
+    "buggy_commit": "a301b25605536314b1ff79bcbe4bc210d4641bee",
+    "fixed_commit": "62dca356ffa7e836c560cc921ac6864a1845842f",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_axios/pulls/100",
+    "metrics": {
+      "modified_lines": 141,
+      "modified_files": 4
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_axios-91",
+    "repo_name": "ohos_axios",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_axios.git",
+    "buggy_commit": "fec897d6a123449ae6133192514abb9fbd1ba7a6",
+    "fixed_commit": "2ef5114cdce5c1eb60fc55b8217259df138582cc",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_axios/pulls/91",
+    "metrics": {
+      "modified_lines": 5,
+      "modified_files": 1
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_axios-83",
+    "repo_name": "ohos_axios",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_axios.git",
+    "buggy_commit": "a5b7068a95c93fe719efb902f81918d0afcfc2ac",
+    "fixed_commit": "a0d16d2fd9fb3168d2c3eb89d11984979cf21aa9",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_axios/pulls/83",
+    "metrics": {
+      "modified_lines": 111,
+      "modified_files": 4
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_axios-80",
+    "repo_name": "ohos_axios",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_axios.git",
+    "buggy_commit": "fea8595cb8530208b9490416500b0ac0fb3e5dc2",
+    "fixed_commit": "3243ac13683352c793e007d785157b9ed56493a6",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_axios/pulls/80",
+    "metrics": {
+      "modified_lines": 15,
+      "modified_files": 1
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_axios-79",
+    "repo_name": "ohos_axios",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_axios.git",
+    "buggy_commit": "6dcabe0adf708e1f51fda28310dbab345c3ff760",
+    "fixed_commit": "ce3d1b05ff6c01db4a85617fd7de16f02985f935",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_axios/pulls/79",
+    "metrics": {
+      "modified_lines": 112,
+      "modified_files": 5
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_axios-78",
+    "repo_name": "ohos_axios",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_axios.git",
+    "buggy_commit": "19c448f87f82a97cd67f64ae70a68069f12d5736",
+    "fixed_commit": "942c71d2e96b1eb12254e51c4ab54e4fae1f6115",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_axios/pulls/78",
+    "metrics": {
+      "modified_lines": 2,
+      "modified_files": 1
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_axios-77",
+    "repo_name": "ohos_axios",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_axios.git",
+    "buggy_commit": "65768ba00d7940a01c8d6520f81cdf50efe4df9d",
+    "fixed_commit": "684a0b3839787e3a3a1cfba7c9ccf9c15e23cc60",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_axios/pulls/77",
+    "metrics": {
+      "modified_lines": 213,
+      "modified_files": 4
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_axios-72",
+    "repo_name": "ohos_axios",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_axios.git",
+    "buggy_commit": "b4237bed2fd55150d2965987092b04af67de2d7a",
+    "fixed_commit": "0ac8ad3179a5f9c16a0a2735768edfabb859df29",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_axios/pulls/72",
+    "metrics": {
+      "modified_lines": 32,
+      "modified_files": 1
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_axios-70",
+    "repo_name": "ohos_axios",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_axios.git",
+    "buggy_commit": "8ae2919bf289e454d2f402141cc71933a32ef1ee",
+    "fixed_commit": "4ee2c71c76a619c675d09f87a77390dbe34cad60",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_axios/pulls/70",
+    "metrics": {
+      "modified_lines": 40,
+      "modified_files": 1
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_axios-69",
+    "repo_name": "ohos_axios",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_axios.git",
+    "buggy_commit": "5f839c30f71417afcfcb8539d99ace289edb771c",
+    "fixed_commit": "4a449a0acb04bceef1b45821e3afd7f12a58d8b4",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_axios/pulls/69",
+    "metrics": {
+      "modified_lines": 15,
+      "modified_files": 1
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_axios-66",
+    "repo_name": "ohos_axios",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_axios.git",
+    "buggy_commit": "827f7a14e0bb8b968066b5ea8d38a9beb5dd66d7",
+    "fixed_commit": "57e94d21a5e106d8b45c048c79b59e94a47a934f",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_axios/pulls/66",
+    "metrics": {
+      "modified_lines": 275,
+      "modified_files": 6
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_axios-65",
+    "repo_name": "ohos_axios",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_axios.git",
+    "buggy_commit": "be74596de45457831227239611fd512d268b1d33",
+    "fixed_commit": "097fe987016da762e57719f7f2d4d2e6a19c6d0d",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_axios/pulls/65",
+    "metrics": {
+      "modified_lines": 28,
+      "modified_files": 4
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_axios-60",
+    "repo_name": "ohos_axios",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_axios.git",
+    "buggy_commit": "95909ce50e091d9bb91b4187a7358b6fcd3e7fce",
+    "fixed_commit": "73d88c257441366b766b64d53ba72b3483699743",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_axios/pulls/60",
+    "metrics": {
+      "modified_lines": 98,
+      "modified_files": 4
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_axios-43",
+    "repo_name": "ohos_axios",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_axios.git",
+    "buggy_commit": "690ffbc9d82284bd91f31282a585a2050338995f",
+    "fixed_commit": "08eeb4169b1649344c9b6a59357a2c5c3a513458",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_axios/pulls/43",
+    "metrics": {
+      "modified_lines": 22,
+      "modified_files": 2
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_axios-39",
+    "repo_name": "ohos_axios",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_axios.git",
+    "buggy_commit": "6fbb2bafd1dc39a2f429cadcddc75576a60a8ca1",
+    "fixed_commit": "6520e39ca0aca488cce8cb6c8b2612e7ef03e3f8",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_axios/pulls/39",
+    "metrics": {
+      "modified_lines": 283,
+      "modified_files": 3
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_axios-38",
+    "repo_name": "ohos_axios",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_axios.git",
+    "buggy_commit": "e1b057fe3618a967446cf5f8f20bf3b247fffe4e",
+    "fixed_commit": "39076097dd6b42e4ffbe8d365524524e662bdf3b",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_axios/pulls/38",
+    "metrics": {
+      "modified_lines": 128,
+      "modified_files": 3
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_axios-27",
+    "repo_name": "ohos_axios",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_axios.git",
+    "buggy_commit": "8768df604b5c1d9c823dd6483c8a014c64821dea",
+    "fixed_commit": "4bd6815cd2b60cd333c67218cd60e17682586b4d",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_axios/pulls/27",
+    "metrics": {
+      "modified_lines": 34,
+      "modified_files": 1
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_dataorm-99",
+    "repo_name": "ohos_dataorm",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_dataorm.git",
+    "buggy_commit": "7e2acec02839a18c02661811c9c8a0ac3bd425ba",
+    "fixed_commit": "3dbedddc350361cd91881162d6e267a343c0d07f",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_dataorm/pulls/99",
+    "metrics": {
+      "modified_lines": 4,
+      "modified_files": 1
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_dataorm-92",
+    "repo_name": "ohos_dataorm",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_dataorm.git",
+    "buggy_commit": "8503f00ad935e0b34af2c4c01042e7e95b5497ff",
+    "fixed_commit": "9629e4527196675656d2f4f6636f0817e38e8089",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_dataorm/pulls/92",
+    "metrics": {
+      "modified_lines": 4,
+      "modified_files": 2
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_dataorm-89",
+    "repo_name": "ohos_dataorm",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_dataorm.git",
+    "buggy_commit": "0ce1713e48de68db15c085f2a80bde293b4ddc2f",
+    "fixed_commit": "351493c2e35e7e9336232073c03457e644d449f6",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_dataorm/pulls/89",
+    "metrics": {
+      "modified_lines": 184,
+      "modified_files": 12
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_dataorm-87",
+    "repo_name": "ohos_dataorm",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_dataorm.git",
+    "buggy_commit": "383b1256153fe3447cebb38d25d3789b79021263",
+    "fixed_commit": "e956beded9bd443265235c1cc1037f6ee1fa88ef",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_dataorm/pulls/87",
+    "metrics": {
+      "modified_lines": 5,
+      "modified_files": 1
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_dataorm-84",
+    "repo_name": "ohos_dataorm",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_dataorm.git",
+    "buggy_commit": "0b5f71c91ff1e699b2ccc9928ffcafb7d10290e9",
+    "fixed_commit": "efd830b6bc7466e7343b5be3f49d2ca582c6bdd1",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_dataorm/pulls/84",
+    "metrics": {
+      "modified_lines": 10,
+      "modified_files": 1
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_dataorm-83",
+    "repo_name": "ohos_dataorm",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_dataorm.git",
+    "buggy_commit": "69d77aae1ed317017815750aa2e000be2c60ff68",
+    "fixed_commit": "b9ba5706fc816e0f0761cea67ea412b2f10be28d",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_dataorm/pulls/83",
+    "metrics": {
+      "modified_lines": 4,
+      "modified_files": 1
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_dataorm-82",
+    "repo_name": "ohos_dataorm",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_dataorm.git",
+    "buggy_commit": "ec445e5f1fabe74f91b3fb3017005ae10013d2ca",
+    "fixed_commit": "6312f6db55ff86765180c4273f0e17169dddfbe1",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_dataorm/pulls/82",
+    "metrics": {
+      "modified_lines": 193,
+      "modified_files": 8
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_dataorm-79",
+    "repo_name": "ohos_dataorm",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_dataorm.git",
+    "buggy_commit": "a673ab74165350d1ee8c4fefa72e70d380c120b5",
+    "fixed_commit": "f1026ba26d8ee8df3280053a7f208ab21631e7b2",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_dataorm/pulls/79",
+    "metrics": {
+      "modified_lines": 118,
+      "modified_files": 36
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_dataorm-78",
+    "repo_name": "ohos_dataorm",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_dataorm.git",
+    "buggy_commit": "35e8df0b5f07559a8dc26c061f35aa9410bba450",
+    "fixed_commit": "e7f3883ef8896db25e22bc6ec01ef26860ea6d78",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_dataorm/pulls/78",
+    "metrics": {
+      "modified_lines": 10,
+      "modified_files": 1
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_dataorm-76",
+    "repo_name": "ohos_dataorm",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_dataorm.git",
+    "buggy_commit": "28f1ea5bc44d4ce0080ebf31a4239b33de3fcf42",
+    "fixed_commit": "60e9737793065fa960c28fb4de5c4e4a34db165e",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_dataorm/pulls/76",
+    "metrics": {
+      "modified_lines": 2,
+      "modified_files": 1
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_dataorm-74",
+    "repo_name": "ohos_dataorm",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_dataorm.git",
+    "buggy_commit": "d5bdf1f02f219404a4ab316a64cdc46926926cb7",
+    "fixed_commit": "6dc255a835dee52c66178ab46f8c9ed5850797d3",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_dataorm/pulls/74",
+    "metrics": {
+      "modified_lines": 19,
+      "modified_files": 2
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_dataorm-73",
+    "repo_name": "ohos_dataorm",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_dataorm.git",
+    "buggy_commit": "5bce224f8d0ebf5b697e38d4b87c5423f233101a",
+    "fixed_commit": "4f457bf47fdd21880782308d1cc658e21dd9b770",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_dataorm/pulls/73",
+    "metrics": {
+      "modified_lines": 9,
+      "modified_files": 1
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_dataorm-72",
+    "repo_name": "ohos_dataorm",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_dataorm.git",
+    "buggy_commit": "9c74e002f1e342d8ffd9de5bc876615391a271c5",
+    "fixed_commit": "08913cca054737dde7031113fc5df541dfa0c77a",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_dataorm/pulls/72",
+    "metrics": {
+      "modified_lines": 71,
+      "modified_files": 6
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_dataorm-71",
+    "repo_name": "ohos_dataorm",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_dataorm.git",
+    "buggy_commit": "b9b59ce66c20b3319906ebfd07c21f30a3f3322f",
+    "fixed_commit": "ab90ff89bd66c993aa5ed1cc13544480b89c9a73",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_dataorm/pulls/71",
+    "metrics": {
+      "modified_lines": 13,
+      "modified_files": 2
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_dataorm-66",
+    "repo_name": "ohos_dataorm",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_dataorm.git",
+    "buggy_commit": "8deb3b1b9414084f2c74002fec301b9151e871d6",
+    "fixed_commit": "35025a87549f3b766ba28a7cb278a35b94264bef",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_dataorm/pulls/66",
+    "metrics": {
+      "modified_lines": 4,
+      "modified_files": 1
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_dataorm-64",
+    "repo_name": "ohos_dataorm",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_dataorm.git",
+    "buggy_commit": "8352ed3c4255ea7593fb920deec2f65dc867534c",
+    "fixed_commit": "20ab01d849e844d3e00a7249b422a39692d579d4",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_dataorm/pulls/64",
+    "metrics": {
+      "modified_lines": 7,
+      "modified_files": 3
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_dataorm-63",
+    "repo_name": "ohos_dataorm",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_dataorm.git",
+    "buggy_commit": "e656e7638f1cc098a16e492340872a6d95de7bb0",
+    "fixed_commit": "ecfad6aaef0749b324e0384649bfe0ba73493895",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_dataorm/pulls/63",
+    "metrics": {
+      "modified_lines": 24,
+      "modified_files": 1
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_dataorm-62",
+    "repo_name": "ohos_dataorm",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_dataorm.git",
+    "buggy_commit": "7ca471b401101aeaa2779167bafd5a06f69f3758",
+    "fixed_commit": "6bee3f44a4f6d6264bfe8e08f8fac6b32b4240cd",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_dataorm/pulls/62",
+    "metrics": {
+      "modified_lines": 128,
+      "modified_files": 4
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_dataorm-61",
+    "repo_name": "ohos_dataorm",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_dataorm.git",
+    "buggy_commit": "3bb48d939cf57e5e751e6fe216557b888242440c",
+    "fixed_commit": "7c99c0a7f9a264f54e14ab58b545ffa3f1453401",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_dataorm/pulls/61",
+    "metrics": {
+      "modified_lines": 12,
+      "modified_files": 1
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_dataorm-58",
+    "repo_name": "ohos_dataorm",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_dataorm.git",
+    "buggy_commit": "d55d6416b001392460e935d3ed26d97fabecbc1e",
+    "fixed_commit": "c3694b821af6529d8fd6703b1ea9baff80599dd3",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_dataorm/pulls/58",
+    "metrics": {
+      "modified_lines": 201,
+      "modified_files": 6
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_dataorm-56",
+    "repo_name": "ohos_dataorm",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_dataorm.git",
+    "buggy_commit": "f213ac1be1e69f423ca29361fe723738ba1e9b22",
+    "fixed_commit": "c0331a720be6ddfeec5e25311b3d4d2a702c8d98",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_dataorm/pulls/56",
+    "metrics": {
+      "modified_lines": 33,
+      "modified_files": 1
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_dataorm-49",
+    "repo_name": "ohos_dataorm",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_dataorm.git",
+    "buggy_commit": "15ff8bc3ea6946669ab4ce49d085324851c6f841",
+    "fixed_commit": "40a0df6dcbeeb12aa7c9f15a7108f6e398e21464",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_dataorm/pulls/49",
+    "metrics": {
+      "modified_lines": 32,
+      "modified_files": 2
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_dataorm-44",
+    "repo_name": "ohos_dataorm",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_dataorm.git",
+    "buggy_commit": "239dfa2b27a22cfcd77ca836123fdb43bc86cfba",
+    "fixed_commit": "c6b82915556190e4a8815620853b3f9ed7833c38",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_dataorm/pulls/44",
+    "metrics": {
+      "modified_lines": 11,
+      "modified_files": 2
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_dataorm-39",
+    "repo_name": "ohos_dataorm",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_dataorm.git",
+    "buggy_commit": "cd1c1afaec4979d3b83e78fd2c48f8c93814e922",
+    "fixed_commit": "c3b732027b4c8727d1f525c999cbf2229275da39",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_dataorm/pulls/39",
+    "metrics": {
+      "modified_lines": 135,
+      "modified_files": 2
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_dataorm-38",
+    "repo_name": "ohos_dataorm",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_dataorm.git",
+    "buggy_commit": "cfe1b90ae86931fb45de81f78dab5417ba0d7ac8",
+    "fixed_commit": "7faffc47410a9222901ad2c7a16e08b44f37ae73",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_dataorm/pulls/38",
+    "metrics": {
+      "modified_lines": 100,
+      "modified_files": 1
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_dataorm-32",
+    "repo_name": "ohos_dataorm",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_dataorm.git",
+    "buggy_commit": "5b58483f9b3f02a1e971c46cc34253791e7758b2",
+    "fixed_commit": "c8c7c3c2fbddf102b61ba3bf7295566293ea4f07",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_dataorm/pulls/32",
+    "metrics": {
+      "modified_lines": 2,
+      "modified_files": 4
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_dataorm-29",
+    "repo_name": "ohos_dataorm",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_dataorm.git",
+    "buggy_commit": "30b845cc4aeba808067c5376539af74a4b0e64f6",
+    "fixed_commit": "69ba58dd10fdabcbe815b5f846733fc588ae01e7",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_dataorm/pulls/29",
+    "metrics": {
+      "modified_lines": 4,
+      "modified_files": 2
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_dataorm-27",
+    "repo_name": "ohos_dataorm",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_dataorm.git",
+    "buggy_commit": "5598cccc84c91bb06aab1ff76b03f15dc34d7bac",
+    "fixed_commit": "758798ac248f5bbadb1ea69347d0e3535ffff160",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_dataorm/pulls/27",
+    "metrics": {
+      "modified_lines": 2,
+      "modified_files": 1
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_dataorm-20",
+    "repo_name": "ohos_dataorm",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_dataorm.git",
+    "buggy_commit": "31d74cd53697f154bebeeab03cd4893579e328ce",
+    "fixed_commit": "13b6540a40e97d2197193334d196b6e221a70547",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_dataorm/pulls/20",
+    "metrics": {
+      "modified_lines": 15,
+      "modified_files": 3
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_dataorm-18",
+    "repo_name": "ohos_dataorm",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_dataorm.git",
+    "buggy_commit": "0453b093646ec84b5db58eef3663b31579dedb03",
+    "fixed_commit": "229aa9eb26ea25e9c3fb07c8c8e5d80995176e71",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_dataorm/pulls/18",
+    "metrics": {
+      "modified_lines": 287,
+      "modified_files": 9
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_dataorm-17",
+    "repo_name": "ohos_dataorm",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_dataorm.git",
+    "buggy_commit": "028171d078388c501759b465e5864325036ce0f9",
+    "fixed_commit": "963900bab073a5e559f80930e2d3046cca4178c5",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_dataorm/pulls/17",
+    "metrics": {
+      "modified_lines": 140,
+      "modified_files": 20
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_dataorm-14",
+    "repo_name": "ohos_dataorm",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_dataorm.git",
+    "buggy_commit": "386eeaf146de60abd6a390984e53084f3189579f",
+    "fixed_commit": "6531fc88938696afab0b0d7910f5ad1de75b9e5b",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_dataorm/pulls/14",
+    "metrics": {
+      "modified_lines": 42,
+      "modified_files": 2
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_dataorm-8",
+    "repo_name": "ohos_dataorm",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_dataorm.git",
+    "buggy_commit": "e0010a70cd0dc15eca8daa61ab0d5f51d9321fda",
+    "fixed_commit": "8c9aa8babd0294b72a30de44eb56a85cea3931ee",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_dataorm/pulls/8",
+    "metrics": {
+      "modified_lines": 198,
+      "modified_files": 3
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_dataorm-5",
+    "repo_name": "ohos_dataorm",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_dataorm.git",
+    "buggy_commit": "312ba8ec37c35d22723e1d33ffdf80dea980c5bd",
+    "fixed_commit": "f79fe55f8dd529d7995de4c36c0b742da03f12a2",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_dataorm/pulls/5",
+    "metrics": {
+      "modified_lines": 2,
+      "modified_files": 1
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_pull_to_refresh-73",
+    "repo_name": "ohos_pull_to_refresh",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_pull_to_refresh.git",
+    "buggy_commit": "156876876a731b723c448c08f8c3f3e5769d34dd",
+    "fixed_commit": "7377e317aedda2cefb6f648a7706abc5f489c7f2",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_pull_to_refresh/pulls/73",
+    "metrics": {
+      "modified_lines": 28,
+      "modified_files": 3
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_pull_to_refresh-70",
+    "repo_name": "ohos_pull_to_refresh",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_pull_to_refresh.git",
+    "buggy_commit": "e787ebbac796cc20626751088d26ed6c16f4a7ae",
+    "fixed_commit": "73ccf27e92400dc651a98ad808c697f361b08e2d",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_pull_to_refresh/pulls/70",
+    "metrics": {
+      "modified_lines": 219,
+      "modified_files": 2
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_pull_to_refresh-64",
+    "repo_name": "ohos_pull_to_refresh",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_pull_to_refresh.git",
+    "buggy_commit": "cd3017d4e82b886cbe432ff6becb1999d3aa977b",
+    "fixed_commit": "283d3548770b80bbc84c78c091ffdf5365086d13",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_pull_to_refresh/pulls/64",
+    "metrics": {
+      "modified_lines": 97,
+      "modified_files": 8
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_pull_to_refresh-57",
+    "repo_name": "ohos_pull_to_refresh",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_pull_to_refresh.git",
+    "buggy_commit": "91d9ffc26a28b0b2f05b43d9872e5fbd2f2d07f2",
+    "fixed_commit": "3658f5d82848a5e529a02b40ff513174e843dec1",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_pull_to_refresh/pulls/57",
+    "metrics": {
+      "modified_lines": 13,
+      "modified_files": 3
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_pull_to_refresh-48",
+    "repo_name": "ohos_pull_to_refresh",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_pull_to_refresh.git",
+    "buggy_commit": "aec1da196ebbc8c1ba7e2e862b3aa379c5a9eb66",
+    "fixed_commit": "3c8dbb12ccb56feee7f1f7382870696fd9f32eca",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_pull_to_refresh/pulls/48",
+    "metrics": {
+      "modified_lines": 269,
+      "modified_files": 7
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_pull_to_refresh-47",
+    "repo_name": "ohos_pull_to_refresh",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_pull_to_refresh.git",
+    "buggy_commit": "09c863b618f4d248c97b904ead8e99e545dabce0",
+    "fixed_commit": "aec1da196ebbc8c1ba7e2e862b3aa379c5a9eb66",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_pull_to_refresh/pulls/47",
+    "metrics": {
+      "modified_lines": 246,
+      "modified_files": 16
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_pull_to_refresh-45",
+    "repo_name": "ohos_pull_to_refresh",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_pull_to_refresh.git",
+    "buggy_commit": "23180889cbe7e9589320834ba98a6dc307459d11",
+    "fixed_commit": "581a76ac81392ee0e7f48abeb07c847bb777e63a",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_pull_to_refresh/pulls/45",
+    "metrics": {
+      "modified_lines": 2,
+      "modified_files": 1
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_pull_to_refresh-29",
+    "repo_name": "ohos_pull_to_refresh",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_pull_to_refresh.git",
+    "buggy_commit": "018e8f16abe01538b547eb22bf50c5a7530577b3",
+    "fixed_commit": "ac78e9556be0e5fcf394fdfb1af8ade4e1291692",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_pull_to_refresh/pulls/29",
+    "metrics": {
+      "modified_lines": 276,
+      "modified_files": 1
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_pull_to_refresh-27",
+    "repo_name": "ohos_pull_to_refresh",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_pull_to_refresh.git",
+    "buggy_commit": "fddf7e9d6d5c238e74999e89075b1035d2192449",
+    "fixed_commit": "4fd7e0b11ff38e1949d1fe1cfc4a4035e65f5dae",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_pull_to_refresh/pulls/27",
+    "metrics": {
+      "modified_lines": 59,
+      "modified_files": 1
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_pull_to_refresh-26",
+    "repo_name": "ohos_pull_to_refresh",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_pull_to_refresh.git",
+    "buggy_commit": "654006927c92f0d9851733deabf47d27632d10cc",
+    "fixed_commit": "0ccc91bb13426a900345d6fbfa27683c8c2fbd4c",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_pull_to_refresh/pulls/26",
+    "metrics": {
+      "modified_lines": 300,
+      "modified_files": 2
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_pull_to_refresh-25",
+    "repo_name": "ohos_pull_to_refresh",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_pull_to_refresh.git",
+    "buggy_commit": "cef8d73cef87e7fad192c5afc031bb9cf75c083e",
+    "fixed_commit": "69e236cf35667acb729a64c2809a81f48bb6f318",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_pull_to_refresh/pulls/25",
+    "metrics": {
+      "modified_lines": 90,
+      "modified_files": 3
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_pull_to_refresh-22",
+    "repo_name": "ohos_pull_to_refresh",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_pull_to_refresh.git",
+    "buggy_commit": "3794b6ea37594bbcaef978a5068555a3711562a7",
+    "fixed_commit": "6e37870a99fcae9aee737754d0d9cbfbdf5a1568",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_pull_to_refresh/pulls/22",
+    "metrics": {
+      "modified_lines": 16,
+      "modified_files": 1
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_pull_to_refresh-20",
+    "repo_name": "ohos_pull_to_refresh",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_pull_to_refresh.git",
+    "buggy_commit": "250f5cc2d1d0a87fb1097d751b474ed9712a62a4",
+    "fixed_commit": "cdb1e17108053c2dae863c5346a68ee61f4ab345",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_pull_to_refresh/pulls/20",
+    "metrics": {
+      "modified_lines": 22,
+      "modified_files": 2
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_pull_to_refresh-15",
+    "repo_name": "ohos_pull_to_refresh",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_pull_to_refresh.git",
+    "buggy_commit": "9dc683e71735f16479cdbf199ad5f31cd9460698",
+    "fixed_commit": "e3505eb3e7e34da169e3ca116ad41fe1261f03d8",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_pull_to_refresh/pulls/15",
+    "metrics": {
+      "modified_lines": 2,
+      "modified_files": 1
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_pull_to_refresh-14",
+    "repo_name": "ohos_pull_to_refresh",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_pull_to_refresh.git",
+    "buggy_commit": "459c3692dafa7820a4b62ff6c573f55251c83d84",
+    "fixed_commit": "7a308d2d588dec426eb86e349ef3193b1d38bcb9",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_pull_to_refresh/pulls/14",
+    "metrics": {
+      "modified_lines": 3,
+      "modified_files": 1
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_pull_to_refresh-13",
+    "repo_name": "ohos_pull_to_refresh",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_pull_to_refresh.git",
+    "buggy_commit": "559cd4c202a4df5d6d73560e20e4d6024a590ad2",
+    "fixed_commit": "9869dcc17820b1582c4f28db183075a4ca9dde7e",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_pull_to_refresh/pulls/13",
+    "metrics": {
+      "modified_lines": 153,
+      "modified_files": 3
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_gif-drawable-62",
+    "repo_name": "ohos_gif-drawable",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_gif-drawable.git",
+    "buggy_commit": "43cc7ffa8ea07581b1a0087494532a23cf624218",
+    "fixed_commit": "cf4a4f2cd8b4112855b9ad7dcc4ba803e66a8a28",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_gif-drawable/pulls/62",
+    "metrics": {
+      "modified_lines": 6,
+      "modified_files": 2
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_gif-drawable-61",
+    "repo_name": "ohos_gif-drawable",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_gif-drawable.git",
+    "buggy_commit": "886ecbc69b53e04e74fabded37188be678c24bfa",
+    "fixed_commit": "1fef066964fd4f559542643f281afb75d42aae6d",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_gif-drawable/pulls/61",
+    "metrics": {
+      "modified_lines": 11,
+      "modified_files": 3
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_gif-drawable-57",
+    "repo_name": "ohos_gif-drawable",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_gif-drawable.git",
+    "buggy_commit": "1537f1aa7cab8f8bb90f3a44cc621b5b6e8d7108",
+    "fixed_commit": "774f7b480d7632cec8577d747efb0d1ba3b85d40",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_gif-drawable/pulls/57",
+    "metrics": {
+      "modified_lines": 34,
+      "modified_files": 6
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_gif-drawable-47",
+    "repo_name": "ohos_gif-drawable",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_gif-drawable.git",
+    "buggy_commit": "f60e8364782887dbcf2373c468ca6a2d4ec02107",
+    "fixed_commit": "9b4f6fed37450d378f81f29cb24f91704ee9f65e",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_gif-drawable/pulls/47",
+    "metrics": {
+      "modified_lines": 7,
+      "modified_files": 1
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_gif-drawable-46",
+    "repo_name": "ohos_gif-drawable",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_gif-drawable.git",
+    "buggy_commit": "15de44e8aaf9215267e855faf18d08a1c4fa189d",
+    "fixed_commit": "6c55d8ac37a7c2a81e194064148d1aa0aba06d5e",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_gif-drawable/pulls/46",
+    "metrics": {
+      "modified_lines": 2,
+      "modified_files": 1
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_gif-drawable-45",
+    "repo_name": "ohos_gif-drawable",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_gif-drawable.git",
+    "buggy_commit": "6b8f4bb6e2838f9b5116c023dc1c69bb9a9de9ae",
+    "fixed_commit": "ae7d875f19e3439ff2c2b531f9c057690c4a6e0a",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_gif-drawable/pulls/45",
+    "metrics": {
+      "modified_lines": 15,
+      "modified_files": 1
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_gif-drawable-41",
+    "repo_name": "ohos_gif-drawable",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_gif-drawable.git",
+    "buggy_commit": "8aa55504a4fb755c4e4b4c13866793304a3c85a0",
+    "fixed_commit": "5b2c486553d9511c1b24a60b81c36e75261bdf9a",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_gif-drawable/pulls/41",
+    "metrics": {
+      "modified_lines": 6,
+      "modified_files": 2
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_gif-drawable-40",
+    "repo_name": "ohos_gif-drawable",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_gif-drawable.git",
+    "buggy_commit": "0d8ecf69ad4fdd49d5122f46af2bfdbbf187af84",
+    "fixed_commit": "b3dc5488f1c273e02d5f03128d3e640ded90febf",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_gif-drawable/pulls/40",
+    "metrics": {
+      "modified_lines": 8,
+      "modified_files": 2
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_gif-drawable-36",
+    "repo_name": "ohos_gif-drawable",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_gif-drawable.git",
+    "buggy_commit": "e4f0ce5177e38678f6800e1424abb0ef1e4d50b2",
+    "fixed_commit": "390f3f76ea297bb9d210b75568a373256880bf54",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_gif-drawable/pulls/36",
+    "metrics": {
+      "modified_lines": 28,
+      "modified_files": 2
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_gif-drawable-34",
+    "repo_name": "ohos_gif-drawable",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_gif-drawable.git",
+    "buggy_commit": "dca74168f3469904e5209910b9b64a0a24778ac6",
+    "fixed_commit": "2e45d2977a6b59bc8f92314984ae5ead1148bb4f",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_gif-drawable/pulls/34",
+    "metrics": {
+      "modified_lines": 3,
+      "modified_files": 1
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_gif-drawable-33",
+    "repo_name": "ohos_gif-drawable",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_gif-drawable.git",
+    "buggy_commit": "55d074a0cc36864691c8a2039b16b9a4b4a8f90d",
+    "fixed_commit": "8402b3c290aa5d6302a5dacf04e3f888addc7507",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_gif-drawable/pulls/33",
+    "metrics": {
+      "modified_lines": 31,
+      "modified_files": 1
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_gif-drawable-32",
+    "repo_name": "ohos_gif-drawable",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_gif-drawable.git",
+    "buggy_commit": "c68621b947fa1fa5d001dd4d3ec88c88c45b6577",
+    "fixed_commit": "57bf5e844f50cc1dccc8af3aec4daf585ccfc0c8",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_gif-drawable/pulls/32",
+    "metrics": {
+      "modified_lines": 3,
+      "modified_files": 1
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_gif-drawable-31",
+    "repo_name": "ohos_gif-drawable",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_gif-drawable.git",
+    "buggy_commit": "399e8c3e010b7cf6f265de607d43a15db03c8ece",
+    "fixed_commit": "c78a466974c17407be9812e46a91e32b9c7a28a3",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_gif-drawable/pulls/31",
+    "metrics": {
+      "modified_lines": 2,
+      "modified_files": 1
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_gif-drawable-30",
+    "repo_name": "ohos_gif-drawable",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_gif-drawable.git",
+    "buggy_commit": "6670aacff6c6f5468c4dc75916f3b046d5b7640e",
+    "fixed_commit": "fbe497b681db64449591554cacb8e34ce6734195",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_gif-drawable/pulls/30",
+    "metrics": {
+      "modified_lines": 6,
+      "modified_files": 1
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_gif-drawable-29",
+    "repo_name": "ohos_gif-drawable",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_gif-drawable.git",
+    "buggy_commit": "6a0805719ef98ef885ff533906e754b148cc89b3",
+    "fixed_commit": "67c3f8256786d10c97792412ec6f839e41a2eb5b",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_gif-drawable/pulls/29",
+    "metrics": {
+      "modified_lines": 48,
+      "modified_files": 1
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_gif-drawable-26",
+    "repo_name": "ohos_gif-drawable",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_gif-drawable.git",
+    "buggy_commit": "6e3a86068d1ff2139a553f54db55e0ba60c8adb6",
+    "fixed_commit": "989e8b31b3e2bf0f8fbf37b8b521bb3856f69a0d",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_gif-drawable/pulls/26",
+    "metrics": {
+      "modified_lines": 95,
+      "modified_files": 3
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_gif-drawable-19",
+    "repo_name": "ohos_gif-drawable",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_gif-drawable.git",
+    "buggy_commit": "29dc7c6a3716a77b8b3a299141c1ea0f4b99b703",
+    "fixed_commit": "c720afb44f2db3d540c0128c133dc57e7a0820b8",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_gif-drawable/pulls/19",
+    "metrics": {
+      "modified_lines": 7,
+      "modified_files": 2
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_gif-drawable-18",
+    "repo_name": "ohos_gif-drawable",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_gif-drawable.git",
+    "buggy_commit": "93daf533e278a97f8e5bef2ceb0bad43e97faa0f",
+    "fixed_commit": "b09a07e7a7f8205850a6522e23d965f8241fb286",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_gif-drawable/pulls/18",
+    "metrics": {
+      "modified_lines": 4,
+      "modified_files": 3
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_svg-66",
+    "repo_name": "ohos_svg",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_svg.git",
+    "buggy_commit": "22c4b61c4838a34c35c1537b904a78a85caa98ec",
+    "fixed_commit": "5fbabbb62e4f85f13dfb67a89c05c0f7363cffad",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_svg/pulls/66",
+    "metrics": {
+      "modified_lines": 2,
+      "modified_files": 1
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_svg-65",
+    "repo_name": "ohos_svg",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_svg.git",
+    "buggy_commit": "26ba048782f48cf908527c178550cb35b57043bd",
+    "fixed_commit": "fdd3fb83691e67bd202c1c877cd1bf936c8f22bf",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_svg/pulls/65",
+    "metrics": {
+      "modified_lines": 22,
+      "modified_files": 1
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_svg-64",
+    "repo_name": "ohos_svg",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_svg.git",
+    "buggy_commit": "eb7eeec74a4829654308cb484d7894f688eb10e4",
+    "fixed_commit": "63ab05d6b2e99e28d8207b55b3078db2b303f6fc",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_svg/pulls/64",
+    "metrics": {
+      "modified_lines": 90,
+      "modified_files": 6
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_svg-62",
+    "repo_name": "ohos_svg",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_svg.git",
+    "buggy_commit": "89be20e7bb5ef90ab9515b4b2650815e5cb4b9aa",
+    "fixed_commit": "04a96c8e30ae69277961daac26e77ba54de8092b",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_svg/pulls/62",
+    "metrics": {
+      "modified_lines": 1,
+      "modified_files": 1
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_svg-61",
+    "repo_name": "ohos_svg",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_svg.git",
+    "buggy_commit": "4dffc25b83c3e04a9540268b6d0e74219cf831b5",
+    "fixed_commit": "d117adcb1190df2f2d58f99fc29e222609a410a1",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_svg/pulls/61",
+    "metrics": {
+      "modified_lines": 18,
+      "modified_files": 3
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_svg-59",
+    "repo_name": "ohos_svg",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_svg.git",
+    "buggy_commit": "c1630e208425f06509a6fb601faf045d0f167edf",
+    "fixed_commit": "9a1284d2bec74bb411fa6b1465dad85614c56e88",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_svg/pulls/59",
+    "metrics": {
+      "modified_lines": 32,
+      "modified_files": 1
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_svg-58",
+    "repo_name": "ohos_svg",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_svg.git",
+    "buggy_commit": "50fad02f0bfcbeaaee7d75044c39d435243fe9e2",
+    "fixed_commit": "d22af1eddcd45a4a91c62f1f47d07031d9af9228",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_svg/pulls/58",
+    "metrics": {
+      "modified_lines": 57,
+      "modified_files": 3
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_svg-51",
+    "repo_name": "ohos_svg",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_svg.git",
+    "buggy_commit": "cd20cdf947f1d809d70a02017e0b1a6f961e7092",
+    "fixed_commit": "474aec383cbd7cf64b434b4f371d281b0f01cb86",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_svg/pulls/51",
+    "metrics": {
+      "modified_lines": 35,
+      "modified_files": 2
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_svg-44",
+    "repo_name": "ohos_svg",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_svg.git",
+    "buggy_commit": "f2a9bad39b6b2f306b8769c316bf49621b63b463",
+    "fixed_commit": "88d7829080185089984950f57e1930618591428e",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_svg/pulls/44",
+    "metrics": {
+      "modified_lines": 2,
+      "modified_files": 1
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_svg-43",
+    "repo_name": "ohos_svg",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_svg.git",
+    "buggy_commit": "6b232a7021964d70c7b401961f113254a45542cc",
+    "fixed_commit": "6a4ef3bf6b2e188aa859ae0fda72d829e6b7aec4",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_svg/pulls/43",
+    "metrics": {
+      "modified_lines": 31,
+      "modified_files": 2
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_svg-42",
+    "repo_name": "ohos_svg",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_svg.git",
+    "buggy_commit": "ab4f8e8c8a65f6aaf47a419fa379d44f377aa7ac",
+    "fixed_commit": "0e58a0ae100cf47e60110d50cf8f2e4cc8514a63",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_svg/pulls/42",
+    "metrics": {
+      "modified_lines": 87,
+      "modified_files": 4
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_svg-40",
+    "repo_name": "ohos_svg",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_svg.git",
+    "buggy_commit": "3624178d8d9a947d7b3bdd420d7c7a72e2c09d32",
+    "fixed_commit": "be25eaccf284be028ab46d4c225b6754574f3ed7",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_svg/pulls/40",
+    "metrics": {
+      "modified_lines": 55,
+      "modified_files": 3
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_svg-38",
+    "repo_name": "ohos_svg",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_svg.git",
+    "buggy_commit": "ebee373945a0c84717b92e41f8b376a35a6abe1a",
+    "fixed_commit": "d22506a5e8d74522d8f58a01a1da22ae2f27f707",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_svg/pulls/38",
+    "metrics": {
+      "modified_lines": 136,
+      "modified_files": 2
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_svg-36",
+    "repo_name": "ohos_svg",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_svg.git",
+    "buggy_commit": "5c32999bda95a43e6dd0d090517330d5a9f0c089",
+    "fixed_commit": "26c0bc9ee4dfbe32c69a412f35e2b49d5786162d",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_svg/pulls/36",
+    "metrics": {
+      "modified_lines": 112,
+      "modified_files": 4
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_svg-35",
+    "repo_name": "ohos_svg",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_svg.git",
+    "buggy_commit": "dd226fafa28172e4707ce39a0adf4644193b1f2e",
+    "fixed_commit": "1fc27f4b77ba5fc76b66b47d524fb9695f64ad29",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_svg/pulls/35",
+    "metrics": {
+      "modified_lines": 60,
+      "modified_files": 3
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_svg-33",
+    "repo_name": "ohos_svg",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_svg.git",
+    "buggy_commit": "ab28b092a97936c4632eb41e04aec432f157ebea",
+    "fixed_commit": "33c3dd56b659976b993db4ef3b8bcdf06308ad52",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_svg/pulls/33",
+    "metrics": {
+      "modified_lines": 17,
+      "modified_files": 3
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_svg-29",
+    "repo_name": "ohos_svg",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_svg.git",
+    "buggy_commit": "82cb12b76980c0450a531377f34d333b870353b4",
+    "fixed_commit": "9220d2eb0c726219b65dd04cdbe6c0d9335a9bee",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_svg/pulls/29",
+    "metrics": {
+      "modified_lines": 30,
+      "modified_files": 2
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_svg-27",
+    "repo_name": "ohos_svg",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_svg.git",
+    "buggy_commit": "0cd7d08f9f2a4af0140ceb28e6d1db3ae353f45b",
+    "fixed_commit": "5c32eb9053e550bfe24a076f856294950762651b",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_svg/pulls/27",
+    "metrics": {
+      "modified_lines": 13,
+      "modified_files": 2
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_svg-24",
+    "repo_name": "ohos_svg",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_svg.git",
+    "buggy_commit": "6ab29ae30f16a67f119af45638e5ef6b3389c373",
+    "fixed_commit": "0d5ad5d0e71fe52b9ee8c930d1df0a5817d6eb18",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_svg/pulls/24",
+    "metrics": {
+      "modified_lines": 71,
+      "modified_files": 4
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_svg-23",
+    "repo_name": "ohos_svg",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_svg.git",
+    "buggy_commit": "e8a8f21ffcae046861d242f6e48c7c50a47f057b",
+    "fixed_commit": "f32392eba39ab77112ae9137e89e02d7ef5b1d35",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_svg/pulls/23",
+    "metrics": {
+      "modified_lines": 28,
+      "modified_files": 1
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_svg-22",
+    "repo_name": "ohos_svg",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_svg.git",
+    "buggy_commit": "a7ec069055ab4eeef20a611da4ee9d4b970711d6",
+    "fixed_commit": "d84068053cab147a39682015a8c3e3cbdba673b1",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_svg/pulls/22",
+    "metrics": {
+      "modified_lines": 111,
+      "modified_files": 4
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_svg-15",
+    "repo_name": "ohos_svg",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_svg.git",
+    "buggy_commit": "5d96ca34d4910e31069154586b665425d77f47e6",
+    "fixed_commit": "050e6d556b32b5add42a013897985dab0d3b9b08",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_svg/pulls/15",
+    "metrics": {
+      "modified_lines": 81,
+      "modified_files": 3
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_svg-13",
+    "repo_name": "ohos_svg",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_svg.git",
+    "buggy_commit": "f37363d60d16f8eca24540cd2c239b50ef090862",
+    "fixed_commit": "056e9db235ccd26029e3d5f5e096483d3015bc93",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_svg/pulls/13",
+    "metrics": {
+      "modified_lines": 25,
+      "modified_files": 1
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_svg-5",
+    "repo_name": "ohos_svg",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_svg.git",
+    "buggy_commit": "f53091c78f37e1ea50138df5c596f4462346e13f",
+    "fixed_commit": "f04244bdf5ab76c836f00ab72cfc2c450667ad18",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_svg/pulls/5",
+    "metrics": {
+      "modified_lines": 120,
+      "modified_files": 8
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_apng-49",
+    "repo_name": "ohos_apng",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_apng.git",
+    "buggy_commit": "49fb7668e3136415b540d7373a40e053976a189d",
+    "fixed_commit": "c1206eca15895cb61b260cd79ee68e02c0902e42",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_apng/pulls/49",
+    "metrics": {
+      "modified_lines": 8,
+      "modified_files": 2
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_apng-48",
+    "repo_name": "ohos_apng",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_apng.git",
+    "buggy_commit": "4adace3b4785e4876e67804aacec14f3ce3a5884",
+    "fixed_commit": "d6ad1d87669e6158c60d00e8745154e59efda347",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_apng/pulls/48",
+    "metrics": {
+      "modified_lines": 28,
+      "modified_files": 4
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_apng-46",
+    "repo_name": "ohos_apng",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_apng.git",
+    "buggy_commit": "c3e686f82474a768af60404f688a22d08bf71286",
+    "fixed_commit": "fadf5ec27f622ed176e81b7fc12edff28d6c4052",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_apng/pulls/46",
+    "metrics": {
+      "modified_lines": 51,
+      "modified_files": 6
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_apng-45",
+    "repo_name": "ohos_apng",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_apng.git",
+    "buggy_commit": "30ea84adb7b93a12bf2f4131726ed5e6d1405805",
+    "fixed_commit": "29bceaefea882595b9de4d29d7d4939de9631270",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_apng/pulls/45",
+    "metrics": {
+      "modified_lines": 36,
+      "modified_files": 2
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_apng-44",
+    "repo_name": "ohos_apng",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_apng.git",
+    "buggy_commit": "e88a8605b64fca44c770cf0de6de698b916ac25e",
+    "fixed_commit": "46c51b02d883f61d01dfcb15506ca754e35ccf5a",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_apng/pulls/44",
+    "metrics": {
+      "modified_lines": 176,
+      "modified_files": 1
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_apng-43",
+    "repo_name": "ohos_apng",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_apng.git",
+    "buggy_commit": "0fa647182b43276c58554d52cced02c147e30b48",
+    "fixed_commit": "e88a8605b64fca44c770cf0de6de698b916ac25e",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_apng/pulls/43",
+    "metrics": {
+      "modified_lines": 2,
+      "modified_files": 1
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_apng-42",
+    "repo_name": "ohos_apng",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_apng.git",
+    "buggy_commit": "1182f6f766d4ccc4c1e99298907920add36201fa",
+    "fixed_commit": "0fa647182b43276c58554d52cced02c147e30b48",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_apng/pulls/42",
+    "metrics": {
+      "modified_lines": 4,
+      "modified_files": 2
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_apng-41",
+    "repo_name": "ohos_apng",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_apng.git",
+    "buggy_commit": "01f4a55a6d241cc72be04a32fc5b043c6f813980",
+    "fixed_commit": "1182f6f766d4ccc4c1e99298907920add36201fa",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_apng/pulls/41",
+    "metrics": {
+      "modified_lines": 2,
+      "modified_files": 2
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_apng-40",
+    "repo_name": "ohos_apng",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_apng.git",
+    "buggy_commit": "0f74ff9cde8612376b7cce4b0504164e4fff2fb5",
+    "fixed_commit": "01f4a55a6d241cc72be04a32fc5b043c6f813980",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_apng/pulls/40",
+    "metrics": {
+      "modified_lines": 22,
+      "modified_files": 3
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_apng-39",
+    "repo_name": "ohos_apng",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_apng.git",
+    "buggy_commit": "f7502b445c23afc24135800686626d2f212369c5",
+    "fixed_commit": "0f74ff9cde8612376b7cce4b0504164e4fff2fb5",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_apng/pulls/39",
+    "metrics": {
+      "modified_lines": 11,
+      "modified_files": 3
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_apng-38",
+    "repo_name": "ohos_apng",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_apng.git",
+    "buggy_commit": "4b70a1de295062e600d0f10ff2137d08ea15ba59",
+    "fixed_commit": "adf2f57e2c3f037431b1f465a6785491f31ee508",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_apng/pulls/38",
+    "metrics": {
+      "modified_lines": 4,
+      "modified_files": 2
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_apng-37",
+    "repo_name": "ohos_apng",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_apng.git",
+    "buggy_commit": "24f455c32e40b92c8e3ca52546e1c875c5244645",
+    "fixed_commit": "ceae432fcf74136421d81925de104e6de2c0eb3c",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_apng/pulls/37",
+    "metrics": {
+      "modified_lines": 76,
+      "modified_files": 2
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_apng-36",
+    "repo_name": "ohos_apng",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_apng.git",
+    "buggy_commit": "e83debd416f36b850febf1699423f2ed6fc07a9b",
+    "fixed_commit": "24f455c32e40b92c8e3ca52546e1c875c5244645",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_apng/pulls/36",
+    "metrics": {
+      "modified_lines": 6,
+      "modified_files": 1
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_apng-35",
+    "repo_name": "ohos_apng",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_apng.git",
+    "buggy_commit": "d00121d8f1ee90c3c65eba5a6e47c4900a009fc2",
+    "fixed_commit": "e83debd416f36b850febf1699423f2ed6fc07a9b",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_apng/pulls/35",
+    "metrics": {
+      "modified_lines": 9,
+      "modified_files": 1
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_apng-33",
+    "repo_name": "ohos_apng",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_apng.git",
+    "buggy_commit": "8c9c053f06ae7bcd6cedb2762f52c8462315c007",
+    "fixed_commit": "28cbcc847801fedbf94bfa59d17b7a93176fc854",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_apng/pulls/33",
+    "metrics": {
+      "modified_lines": 6,
+      "modified_files": 1
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_apng-32",
+    "repo_name": "ohos_apng",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_apng.git",
+    "buggy_commit": "c9f9c7860e5d55102434b4fd853ef668e5b3d483",
+    "fixed_commit": "2ea814d32a9a6aee4ac807c395c2b387da8cda44",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_apng/pulls/32",
+    "metrics": {
+      "modified_lines": 26,
+      "modified_files": 1
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_apng-29",
+    "repo_name": "ohos_apng",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_apng.git",
+    "buggy_commit": "f8b020e76e8654f2b7f90d119726227d60744e30",
+    "fixed_commit": "943dda65dc5248d1f995cc3de6f74342e9592a0f",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_apng/pulls/29",
+    "metrics": {
+      "modified_lines": 10,
+      "modified_files": 1
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_apng-25",
+    "repo_name": "ohos_apng",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_apng.git",
+    "buggy_commit": "1a144c209c05ddec92b484f98cbee81907923e63",
+    "fixed_commit": "3948ba1a0518a960785139db84443a2c3163f394",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_apng/pulls/25",
+    "metrics": {
+      "modified_lines": 48,
+      "modified_files": 5
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_apng-24",
+    "repo_name": "ohos_apng",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_apng.git",
+    "buggy_commit": "b9402519bfcdfaf371101231c09255fb37207030",
+    "fixed_commit": "88b7e64e9bfd65d66fedb757768f6e0a84f990bd",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_apng/pulls/24",
+    "metrics": {
+      "modified_lines": 4,
+      "modified_files": 1
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_apng-23",
+    "repo_name": "ohos_apng",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_apng.git",
+    "buggy_commit": "541e36be23ca62296078d504eb1a75b0da1ef8b4",
+    "fixed_commit": "c79a624603914e96f57fd785ee32989134b2d08f",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_apng/pulls/23",
+    "metrics": {
+      "modified_lines": 173,
+      "modified_files": 4
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_apng-20",
+    "repo_name": "ohos_apng",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_apng.git",
+    "buggy_commit": "653cb120516390e356a572464d229c1330302d54",
+    "fixed_commit": "149ec0b57852e1f262aa5b54cf25d16cecad4ffd",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_apng/pulls/20",
+    "metrics": {
+      "modified_lines": 4,
+      "modified_files": 1
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_apng-19",
+    "repo_name": "ohos_apng",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_apng.git",
+    "buggy_commit": "39572db57aac20ac54686ac70256eb540612d36b",
+    "fixed_commit": "6561a30b97e1ddf9614111b400799f80bcb0e7e6",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_apng/pulls/19",
+    "metrics": {
+      "modified_lines": 6,
+      "modified_files": 1
+    }
+  },
+  {
+    "bug_id": "openharmony-sig-ohos_apng-18",
+    "repo_name": "ohos_apng",
+    "repo_url": "https://gitee.com/openharmony-sig/ohos_apng.git",
+    "buggy_commit": "120fc7c2f2bc8477b3294bf23f7b2e73e7b61e20",
+    "fixed_commit": "1c02e176d23a5632e309f0e1d00e917a505ba3d2",
+    "test_command": "./hvigorw test --mode localTest --no-daemon",
+    "language": "arkts",
+    "pr_url": "https://gitee.com/openharmony-sig/ohos_apng/pulls/18",
+    "metrics": {
+      "modified_lines": 288,
+      "modified_files": 6
+    }
+  }
+]
