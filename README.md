@@ -53,15 +53,15 @@ The benchmark is deliberately calibrated to expose the capability ceilings of fr
 | ***Agents (backend: Claude Sonnet 4.5)*** | | | | |
 | Moatless | 98.4 | **58.4** | 93.3 | **42.1** |
 | Agentless | 96.1 | 55.2 | 96.9 | 31.2 |
-| Claude Code | 98.4 | 45.8 | 92.2 | 32.9 |
 | SWE-agent | 87.2 | 48.2 | 86.6 | 37.3 |
+| OpenCode | 85.3 | 43.7 | 88.6 | 35.1 |
+| Claude Code | 98.4 | 45.8 | 92.2 | 32.9 |
 | ***LLMs (native input)*** | | | | |
 | Gemini 2.5 | 78.0 | **51.1** | 96.9 | **39.3** |
-| Opus 4.5 | 90.1 | 46.6 | 99.2 | 33.2 |
-| Sonnet 4.5 | 92.7 | 45.3 | 97.2 | 36.8 |
+| Claude Opus 4.5 | 90.1 | 46.6 | 99.2 | 33.2 |
+| Claude Sonnet 4.5 | 92.7 | 45.3 | 97.2 | 36.8 |
 | Kimi K2.5 | 80.9 | 41.9 | 97.8 | 36.8 |
-| DeepSeek-R1 | 79.8 | 50.5 | 90.3 | 34.5 |
-| Qwen2.5-32B | 45.8 | 22.3 | 68.3 | 24.0 |
+| MiniMax M2.5 | 50.3 | 29.6 | 84.1 | 24.2 |
 
 **Key takeaway:** No system exceeds 60% SPR on ArkTS or 45% on C/C++ — substantial headroom remains, and the dominant failure mode shifts between the two languages.
 
