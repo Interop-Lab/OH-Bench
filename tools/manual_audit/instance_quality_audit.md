@@ -6370,38 +6370,45 @@ if (ffp->genpts)
 
 ---
 
-## [90/100] ID: CPP_0286 | C/C++ (T)
-- Rule ID: `cppcheck/memleak`
-- Target File: `components/nstackx/nstackx_core/dfile/core/nstackx_file_manager.c`
-- Warning: Memory leak: blockFrame
+## [90/100] ID: CPP_0218 | C/C++ (T)
+- Rule ID: `cppcheck/useStlAlgorithm`
+- Target File: `services/service/src/device_manager_service_listener.cpp`
+- Warning: Consider using std::find_if algorithm instead of a raw loop.
 
 ### Buggy Snippet
 ```cpp
-static int32_t PushRecvBlockFrame(FileListTask *fileList, FileDataFrame *frame)
+#if !(defined(__LITEOS_M__) || defined(LITE_DEVICE))
+int32_t DeviceManagerServiceListener::OnServiceInfoOnline(const DmRegisterServiceState &registerServiceState,
+    const DmServiceInfo &serviceInfo)
 {
-    BlockFrame *blockFrame = NULL;
-    int32_t ret;
-    uint8_t isRetran;
-
-    blockFrame = (BlockFrame *)calloc(1, sizeof(BlockFrame));
-    if (blockFrame == NULL) {
-        DFILE_LOGE(TAG, "memory calloc failed");
-        return FILE_MANAGER_ENOMEM;
+    LOGI("OnServiceInfoOnline start.");
+    std::shared_ptr<IpcNotifyServiceStateReq> pReq = std::make_shared<IpcNotifyServiceStateReq>();
+    std::shared_ptr<IpcRsp> pRsp = std::make_shared<IpcRsp>();
+    std::string notifyPkgName = registerServiceState.pkgName;
+    pReq->SetDmRegisterServiceState(registerServiceState);
+    pReq->SetDmServiceInfo(serviceInfo);
+    pReq->SetServiceState(DmServiceState::SERVICE_STATE_ONLINE);
+    std::vector<ProcessInfo> processInfos = ipcServerListener_.GetAllProcessInfo();
+    ProcessInfo processInfoTemp;
+    for (const auto &item : processInfos) {
+        if (item.pkgName == registerServiceState.pkgName && item.userId == registerServiceState.userId) {
+            processInfoTemp = item;
+            break;
+        }
     }
-    blockFrame->fileDataFrame = frame;
-    isRetran = frame->header.flag & NSTACKX_DFILE_DATA_FRAME_RETRAN_FLAG;
-    if (isRetran) {
-        ret = MutexListAddNode(&fileList->recvBlockList, &blockFrame->list, NSTACKX_TRUE);
-    } else {
-        ret = MutexListAddNode(&fileList->recvBlockList, &blockFrame->list, NSTACKX_FALSE);
+    if (processInfoTemp.pkgName.empty()) {
+        LOGI("not register listener");
+        return ERR_DM_FAILED;
     }
-    if (ret != NSTACKX_EOK) {
-        free(blockFrame);
-        DFILE_LOGE(TAG, "add node to recv block list failed");
-        return FILE_MANAGER_EMUTEX;
+    pReq->SetPkgName(processInfoTemp.pkgName);
+    pReq->SetProcessInfo(processInfoTemp);
+    int32_t ret = ipcServerListener_.SendRequest(SERVER_SERVICE_STATE_NOTIFY, pReq, pRsp);
+    if (ret != DM_OK) {
+        LOGE("OnServiceInfoOnline failed.");
+        return ret;
     }
-    SemPost(&fileList->semStop);
-    return FILE_MANAGER_EOK;
+    LOGI("OnServiceInfoOnline success.");
+    return DM_OK;
 }
 ```
 
