@@ -64,6 +64,7 @@ The benchmark is deliberately calibrated to expose the capability ceilings of fr
 | MiniMax M2.5 | 50.3 | 29.6 | 84.1 | 24.2 |
 
 **Key takeaway:** No system exceeds 60% SPR on ArkTS or 45% on C/C++ — substantial headroom remains, and the dominant failure mode shifts between the two languages.
+
 *(Note: We provide bootstrap resampling scripts in `tools/significance_testing/` to verify the statistical significance of these performance gaps).*
 
 ---
