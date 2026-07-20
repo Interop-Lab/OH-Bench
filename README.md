@@ -32,6 +32,38 @@ The OpenHarmony ecosystem presents unique challenges that mainstream benchmarks 
 | Docker environment | ✓ | ✓ | ✓ | ✗ |
 | Extensible taxonomy | ✓ | ✗ | ✗ | ✗ |
 
+## Leaderboard & Discriminability
+
+OH-Bench employs a **Three-Level Competence Framework** (Format, Semantic, and Holistic competence), operationalized through four complementary metrics:
+
+| Metric | Definition |
+| :--- | :--- |
+| **PAR** (Patch Apply Rate) | The generated patch is syntactically well-formed and applies cleanly to the codebase. |
+| **WER** (Warning Elimination Rate) | The target static warning is eliminated after applying the patch. |
+| **SDR** (Secondary Defect Rate, ↓) | The patch introduces *new* warnings elsewhere in the project (lower is better). |
+| **SPR** (Strict Pass Rate) | All three conditions hold simultaneously: patch applies, warning eliminated, no secondary defects. |
+
+The benchmark is deliberately calibrated to expose the capability ceilings of frontier models. As shown below, even state-of-the-art LLMs and iterative agents struggle to achieve a high SPR across both languages.
+
+### Main Results (Selected)
+*LLM rows use the **native input** configuration (raw warning context only, without retrieval augmentation); see the paper and `results/` for RAG-augmented configurations and full WER/SDR breakdowns.*
+
+| System | ArkTS PAR | ArkTS SPR | C/C++ PAR | C/C++ SPR |
+| :--- | :---: | :---: | :---: | :---: |
+| ***Agents (backend: Claude Sonnet 4.5)*** | | | | |
+| Moatless | 98.4 | **58.4** | 93.3 | **42.1** |
+| Agentless | 96.1 | 55.2 | 96.9 | 31.2 |
+| Claude Code | 98.4 | 45.8 | 92.2 | 32.9 |
+| SWE-agent | 87.2 | 48.2 | 86.6 | 37.3 |
+| ***LLMs (native input)*** | | | | |
+| Gemini 2.5 | 78.0 | **51.1** | 96.9 | **39.3** |
+| Opus 4.5 | 90.1 | 46.6 | 99.2 | 33.2 |
+| Sonnet 4.5 | 92.7 | 45.3 | 97.2 | 36.8 |
+| Kimi K2.5 | 80.9 | 41.9 | 97.8 | 36.8 |
+| DeepSeek-R1 | 79.8 | 50.5 | 90.3 | 34.5 |
+| Qwen2.5-32B | 45.8 | 22.3 | 68.3 | 24.0 |
+
+**Key takeaway:** No system exceeds 60% SPR on ArkTS or 45% on C/C++ — substantial headroom remains, and the dominant failure mode shifts between the two languages.
 
 ## Prerequisites & Environmental Setup
 
