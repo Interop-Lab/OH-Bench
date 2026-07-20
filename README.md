@@ -64,6 +64,9 @@ The benchmark is deliberately calibrated to expose the capability ceilings of fr
 | MiniMax M2.5 | 50.3 | 29.6 | 84.1 | 24.2 |
 
 **Key takeaway:** No system exceeds 60% SPR on ArkTS or 45% on C/C++ — substantial headroom remains, and the dominant failure mode shifts between the two languages.
+*(Note: We provide bootstrap resampling scripts in `tools/significance_testing/` to verify the statistical significance of these performance gaps).*
+
+---
 
 ## Prerequisites & Environmental Setup
 
@@ -78,22 +81,6 @@ Before executing the evaluation runners, ensure your host environment meets the 
 The local Docker image `oh-bench-evaluator:latest` relies on a few heavy assets. Before triggering `docker build`, ensure you have retrieved the open-source repositories and verified compiler archives:
 1.  **Compiler & Linter SDKs**: Placed at `evaluator/docker/tools_archive/codelinter` and `evaluator/docker/tools_archive/ohos-sdk`.
 2.  **Benchmark Targets**: Placed at `repositories_slim/` (can be fully automated via Step 1 below).
-
----
-
-## Directory Structure
-
-```text
-OH-Bench/
-├── dataset/                     # Standardized evaluation JSON records (ArkTS, C++, Runtime)
-├── evaluator/                   # Containerized sandbox evaluator engines
-│   ├── docker/                  # Dockerfiles to build static/runtime sandboxes
-│   ├── container_scripts/       # Custom test/analysis oracles inside containers
-│   ├── run_eval_static.py       # Static analysis host-side orchestrator
-│   └── run_eval_runtime.py      # Runtime test host-side orchestrator
-├── tools/                       # Developer utility, data mining, and setup scripts
-└── results/                     # Baseline execution outputs (.json) and reports (.report)
-```
 
 ---
 
@@ -172,6 +159,74 @@ Upon completion, the runners automatically generate a comprehensive, publication
 *   **Contents**: Includes global statistics ($\mathrm{PAR}$, $\mathrm{WER}$, $\mathrm{SDR}$, $\mathrm{SPR}$), conversion method distribution, difficulty analysis, and per-rule breakdown tables.
 
 ---
+
+
+## Extensible Architecture
+
+OH-Bench is designed as a continuously evolving infrastructure rather than a static dataset. It ensures future defect types can be integrated seamlessly via three non-breaking mechanisms: **Slot-Based Branches** (reusing Docker infrastructure), **Composable Annotations** (for dynamic metadata filtering), and **Semantic Versioning**.
+
+**Empirical Validation:** We successfully added a 145-instance **Runtime Bug Prototype** to validate this architecture. Switching the evaluation engine from static-warning to runtime-bug repair required **zero changes** to the core Docker sandboxes—it merely took a **92-line adapter** (`run_eval_runtime.py`) to swap static rescans for native `hvigor` dynamic test execution.
+
+---
+
+## Directory Structure
+
+```text
+OH-Bench/
+├── dataset/                     # Standardized JSON records
+│   ├── main_benchmark/          # 741 verified static warnings (ArkTS & C/C++)
+│   ├── extensibility/           # 145 Runtime Extensibility prototypes
+│   └── generalization/          # HapRepair comparative subsets
+├── evaluator/                   # Containerized evaluator engines
+│   ├── container_scripts/       # Custom test/analysis oracles inside containers
+│   ├── docker/                  # Dockerfiles for GN/Ninja & Hvigor sandboxes
+│   ├── run_eval_static.py       # Core orchestrator for Static Warnings
+│   └── run_eval_runtime.py      # 92-line adapter for Runtime Errors
+├── tools/                       # Auxiliary scripts & rigorous validation
+│   ├── data_cleaning/           # Scripts for noise filtering and curation
+│   ├── manual_audit/            # Audit records (κ=0.96) & evasion defense logs
+│   └── significance_testing/    # Bootstrap resampling scripts for model comparisons
+└── results/                     # Baseline outputs and comprehensive reports
+```
+
+---
+
+## Rigorous Validation (Manual Audit)
+
+To ensure maximum reliability and counter the conservative nature of strict metrics like SPR, the OH-Bench dataset underwent rigorous manual verification, fully transparent in this repository (`tools/audit_and_stats/`):
+
+1. **Instance-Quality Audit**: 100 instances (50 per language) were independently verified to confirm they describe genuine, repairable defects. (2 disagreements were successfully resolved by consensus).
+2. **Oracle-Verdict Audit**: 200 instances (100 oracle-FAIL and 100 oracle-PASS) were manually re-judged by two authors. The inter-rater agreement achieved a **Cohen's $\kappa = 0.96$**.
+3. **Statistical Confidence & Evasion Defense**: In the oracle-FAIL stratum, the observed false-negative rate was 1/100 (Clopper-Pearson 95% upper bound of 5.4%). In the oracle-PASS stratum, **zero false positives** were found (95% upper bound of 3.6%). 
+   * *Note on strictness:* Fixes employing "evasions" (e.g., inline suppression directives or wholesale deletion of the flagged construct) were strictly counted as false positives. Zero such evasions appeared, as our project-wide rebuild oracle effectively breaks compilation upon blind deletions.
+
+---
+
+## Contributing & Community
+
+As OpenHarmony rapidly expands into consumer and IoT devices, a single research group cannot capture all defect typologies. **We welcome contributions from the community to expand OH-Bench.**
+
+Here are a few ways you can get involved:
+* **Evaluate Your Models**: Benchmark your custom LLMs or agents using our rigorous environment.
+* **Submit Runtime Bugs**: Use our extensible JSON schema to contribute new dynamic bugs and native tests.
+* **Expand the Taxonomy**: Leverage our slot-based architecture to add entirely new branches (e.g., *Security Vulnerabilities*, *Build Failures*), reusing our existing toolchain sandboxes.
+
+---
+
+## Citation
+
+If you use OH-Bench or find our framework useful, please cite our work:
+
+```bibtex
+@inproceedings{ohbench2027icse,
+  title     = {OH-Bench: A Cross-Language, Repository-Level Benchmark for Warning Repair on OpenHarmony},
+  author    = {Anonymous},
+  booktitle = {Proceedings of ICSE 2027},
+  year      = {2027},
+}
+```
+*(Note: In compliance with Double-Blind Review Policies, author identities and affiliations have been omitted).*
+```
 
 ## License & Double-Blind Compliance
 
