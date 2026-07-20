@@ -1,6 +1,12 @@
-# OH-Bench: Competence-Aware Program Repair in OpenHarmony
+# OH-Bench: A Cross-Language, Repository-Level Benchmark for Warning Repair on OpenHarmony
 
-This repository contains the replication package for **OH-Bench**, a comprehensive program repair benchmark designed specifically for the OpenHarmony ecosystem. It evaluates state-of-the-art LLMs and autonomous coding agents under a rigorous **Three-Level Competence Framework** (Format, Semantic, and Holistic competence).
+![License](https://img.shields.io/badge/License-MIT-blue.svg)
+![Version](https://img.shields.io/badge/Version-1.0-green.svg)
+![OpenHarmony](https://img.shields.io/badge/Ecosystem-OpenHarmony-000000.svg)
+
+**OH-Bench** is the first repository-level, cross-language, containerized benchmark designed specifically for Automated Program Repair (APR) within the **OpenHarmony** ecosystem. 
+
+Beyond a standard dataset, OH-Bench serves as an **extensible evaluation framework** to rigorously test the capabilities of Large Language Models (LLMs) and Autonomous Agents in resolving real-world, cross-file defects under complex industrial build systems (GN/Ninja, Hvigor).
 
 ---
 
