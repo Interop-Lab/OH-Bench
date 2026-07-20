@@ -94,7 +94,7 @@ To preserve scientific transparency and keep the repository lightweight, we do n
 Run the following script to automatically clone the exact versions of the 39 target OpenHarmony repositories from GitCode and checkout to their historical commits:
 
 ```bash
-python3 tools/download_repos.py
+python3 tools/data_cleaning/download_repos.py
 ```
 
 *This will safely populate the `repositories_slim/` directory on your host. 
