@@ -10,6 +10,29 @@ Beyond a standard dataset, OH-Bench serves as an **extensible evaluation framewo
 
 ---
 
+## Why OH-Bench? (The Ecosystem Gap)
+
+The OpenHarmony ecosystem presents unique challenges that mainstream benchmarks like SWE-bench (Python) or Defects4J (Java) cannot address:
+- **C1: Multi-language codebase.** OpenHarmony combines C/C++ kernel and system-service code with ArkTS framework and application code. These language families have different toolchains, APIs, and debugging workflows.
+
+- **C2: Cross-file and cross-component dependencies.** Repairs frequently require coordinated changes across files and components: **35.1%** of OH-Bench ArkTS instances (134/382) require edits to at least two files.
+
+- **C3: Specialized build infrastructure.** OpenHarmony uses **GN/Ninja** for C/C++ and **Hvigor** for ArkTS, rather than conventional package-manager workflows. Reproducible evaluation therefore requires the exact project toolchain and build configuration.
+
+- **C4: Platform-specific framework semantics.** ArkUI lifecycle callbacks, reactive state decorators such as `@State` and `@Link`, and NAPI bindings introduce OpenHarmony-specific constraints that are uncommon in general-purpose training data.
+
+### Comparison with Existing Benchmarks
+
+| Feature | OH-Bench | SWE-bench | Defects4J | HapRepair |
+| :--- | :---: | :---: | :---: | :---: |
+| Instances | **741** | 2,294 | 835 | 1,952 |
+| Repositories | **39** | 12 | 17 | 13 |
+| Languages | **3** (ArkTS, C, C++) | 1 (Python) | 1 (Java) | 1 (ArkTS) |
+| Cross-file repair | ✓ | ✓ | ✓ | ✗ |
+| Docker environment | ✓ | ✓ | ✓ | ✗ |
+| Extensible taxonomy | ✓ | ✗ | ✗ | ✗ |
+
+
 ## Prerequisites & Environmental Setup
 
 Before executing the evaluation runners, ensure your host environment meets the following requirements:
