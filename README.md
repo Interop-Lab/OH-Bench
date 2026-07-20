@@ -216,8 +216,6 @@ Here are a few ways you can get involved:
 
 ## Citation
 
-If you use OH-Bench or find our framework useful, please cite our work:
-
 ```bibtex
 @inproceedings{ohbench2027icse,
   title     = {OH-Bench: A Cross-Language, Repository-Level Benchmark for Warning Repair on OpenHarmony},
@@ -225,8 +223,6 @@ If you use OH-Bench or find our framework useful, please cite our work:
   booktitle = {Proceedings of ICSE 2027},
   year      = {2027},
 }
-```
-*(Note: In compliance with Double-Blind Review Policies, author identities and affiliations have been omitted).*
 ```
 
 ## License & Double-Blind Compliance
